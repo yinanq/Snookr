@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7FEF8A6924675E9E000240A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A6824675E9E000240A0 /* AppDelegate.swift */; };
+		7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A6A24675E9E000240A0 /* SceneDelegate.swift */; };
+		7FEF8A6D24675E9E000240A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A6C24675E9E000240A0 /* ViewController.swift */; };
+		7FEF8A7224675E9E000240A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FEF8A7124675E9E000240A0 /* Assets.xcassets */; };
+		7FEF8A7524675E9E000240A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEF8A7324675E9E000240A0 /* LaunchScreen.storyboard */; };
+		7FEF8A7E2467601B000240A0 /* ScoreboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A7D2467601B000240A0 /* ScoreboardVC.swift */; };
+		7FEF8A8124676082000240A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A8024676082000240A0 /* Constants.swift */; };
+		7FEF8A8424676163000240A0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A8324676163000240A0 /* Player.swift */; };
+		7FEF8A8A2467638D000240A0 /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A892467638D000240A0 /* ScoresView.swift */; };
+		7FEF8A8C246763C2000240A0 /* ScoreDifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A8B246763C2000240A0 /* ScoreDifView.swift */; };
+		7FEF8A8E24676402000240A0 /* ScoreHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A8D24676402000240A0 /* ScoreHistoryView.swift */; };
+		7FEF8A9024676429000240A0 /* SNKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A8F24676429000240A0 /* SNKButton.swift */; };
+		7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A93246764A5000240A0 /* SNKLabel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7FEF8A6524675E9E000240A0 /* Snookr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snookr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FEF8A6824675E9E000240A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7FEF8A6A24675E9E000240A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7FEF8A6C24675E9E000240A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7FEF8A7124675E9E000240A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7FEF8A7424675E9E000240A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7FEF8A7624675E9E000240A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FEF8A7D2467601B000240A0 /* ScoreboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardVC.swift; sourceTree = "<group>"; };
+		7FEF8A8024676082000240A0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7FEF8A8324676163000240A0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		7FEF8A892467638D000240A0 /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
+		7FEF8A8B246763C2000240A0 /* ScoreDifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDifView.swift; sourceTree = "<group>"; };
+		7FEF8A8D24676402000240A0 /* ScoreHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHistoryView.swift; sourceTree = "<group>"; };
+		7FEF8A8F24676429000240A0 /* SNKButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKButton.swift; sourceTree = "<group>"; };
+		7FEF8A93246764A5000240A0 /* SNKLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKLabel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7FEF8A6224675E9E000240A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7FEF8A5C24675E9E000240A0 = {
+			isa = PBXGroup;
+			children = (
+				7FEF8A6724675E9E000240A0 /* Snookr */,
+				7FEF8A6624675E9E000240A0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7FEF8A6624675E9E000240A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7FEF8A6524675E9E000240A0 /* Snookr.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7FEF8A6724675E9E000240A0 /* Snookr */ = {
+			isa = PBXGroup;
+			children = (
+				7FEF8A6824675E9E000240A0 /* AppDelegate.swift */,
+				7FEF8A6A24675E9E000240A0 /* SceneDelegate.swift */,
+				7FEF8A6C24675E9E000240A0 /* ViewController.swift */,
+				7FEF8A7124675E9E000240A0 /* Assets.xcassets */,
+				7FEF8A7324675E9E000240A0 /* LaunchScreen.storyboard */,
+				7FEF8A7624675E9E000240A0 /* Info.plist */,
+				7FEF8A7F24676070000240A0 /* Constants */,
+				7FEF8A8224676108000240A0 /* Models */,
+				7FEF8A7C24676002000240A0 /* View Controllers */,
+				7FEF8A852467617F000240A0 /* Views */,
+				7FEF8A8824676338000240A0 /* Custom Components */,
+			);
+			path = Snookr;
+			sourceTree = "<group>";
+		};
+		7FEF8A7C24676002000240A0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7FEF8A7D2467601B000240A0 /* ScoreboardVC.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7FEF8A7F24676070000240A0 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				7FEF8A8024676082000240A0 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		7FEF8A8224676108000240A0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7FEF8A8324676163000240A0 /* Player.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7FEF8A852467617F000240A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7FEF8A892467638D000240A0 /* ScoresView.swift */,
+				7FEF8A8B246763C2000240A0 /* ScoreDifView.swift */,
+				7FEF8A8D24676402000240A0 /* ScoreHistoryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7FEF8A8824676338000240A0 /* Custom Components */ = {
+			isa = PBXGroup;
+			children = (
+				7FEF8A8F24676429000240A0 /* SNKButton.swift */,
+				7FEF8A93246764A5000240A0 /* SNKLabel.swift */,
+			);
+			path = "Custom Components";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7FEF8A6424675E9E000240A0 /* Snookr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FEF8A7924675E9E000240A0 /* Build configuration list for PBXNativeTarget "Snookr" */;
+			buildPhases = (
+				7FEF8A6124675E9E000240A0 /* Sources */,
+				7FEF8A6224675E9E000240A0 /* Frameworks */,
+				7FEF8A6324675E9E000240A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Snookr;
+			productName = Snookr;
+			productReference = 7FEF8A6524675E9E000240A0 /* Snookr.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7FEF8A5D24675E9E000240A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = Yinan;
+				TargetAttributes = {
+					7FEF8A6424675E9E000240A0 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 7FEF8A6024675E9E000240A0 /* Build configuration list for PBXProject "Snookr" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7FEF8A5C24675E9E000240A0;
+			productRefGroup = 7FEF8A6624675E9E000240A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7FEF8A6424675E9E000240A0 /* Snookr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7FEF8A6324675E9E000240A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FEF8A7524675E9E000240A0 /* LaunchScreen.storyboard in Resources */,
+				7FEF8A7224675E9E000240A0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7FEF8A6124675E9E000240A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FEF8A8A2467638D000240A0 /* ScoresView.swift in Sources */,
+				7FEF8A8E24676402000240A0 /* ScoreHistoryView.swift in Sources */,
+				7FEF8A8124676082000240A0 /* Constants.swift in Sources */,
+				7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */,
+				7FEF8A6D24675E9E000240A0 /* ViewController.swift in Sources */,
+				7FEF8A9024676429000240A0 /* SNKButton.swift in Sources */,
+				7FEF8A6924675E9E000240A0 /* AppDelegate.swift in Sources */,
+				7FEF8A7E2467601B000240A0 /* ScoreboardVC.swift in Sources */,
+				7FEF8A8424676163000240A0 /* Player.swift in Sources */,
+				7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */,
+				7FEF8A8C246763C2000240A0 /* ScoreDifView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7FEF8A7324675E9E000240A0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FEF8A7424675E9E000240A0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7FEF8A7724675E9E000240A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7FEF8A7824675E9E000240A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7FEF8A7A24675E9E000240A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ER5DW7LZQ6;
+				INFOPLIST_FILE = Snookr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = design.yinan.Snookr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7FEF8A7B24675E9E000240A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ER5DW7LZQ6;
+				INFOPLIST_FILE = Snookr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = design.yinan.Snookr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7FEF8A6024675E9E000240A0 /* Build configuration list for PBXProject "Snookr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FEF8A7724675E9E000240A0 /* Debug */,
+				7FEF8A7824675E9E000240A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FEF8A7924675E9E000240A0 /* Build configuration list for PBXNativeTarget "Snookr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FEF8A7A24675E9E000240A0 /* Debug */,
+				7FEF8A7B24675E9E000240A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7FEF8A5D24675E9E000240A0 /* Project object */;
+}
