@@ -25,24 +25,23 @@ class ScoresView: UIView {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        scoreLabel1 = SNKLabel(fontSize: 100, fontWeight: .medium, textAlignment: .left)
-        scoreLabel2 = SNKLabel(fontSize: 100, fontWeight: .medium, textAlignment: .right)
+        scoreLabel1 = SNKLabel(fontSize: 90, fontWeight: .medium, textAlignment: .left)
+        scoreLabel2 = SNKLabel(fontSize: 90, fontWeight: .medium, textAlignment: .right)
         scoreLabel1.adjustsFontSizeToFitWidth = true
         scoreLabel2.adjustsFontSizeToFitWidth = true
         addSubview(scoreDifView)
         addSubview(scoreLabel1)
         addSubview(scoreLabel2)
-        addSubview(scoreDifView)
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 80),
             scoreDifView.centerYAnchor.constraint(equalTo: centerYAnchor),
             scoreDifView.centerXAnchor.constraint(equalTo: centerXAnchor),
             scoreLabel1.centerYAnchor.constraint(equalTo: centerYAnchor),
             scoreLabel2.centerYAnchor.constraint(equalTo: centerYAnchor),
-            scoreLabel1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.big),
+            scoreLabel1.leadingAnchor.constraint(equalTo: leadingAnchor),
             scoreLabel2.leadingAnchor.constraint(equalTo: scoreDifView.trailingAnchor, constant: SNKPadding.big),
             scoreLabel1.trailingAnchor.constraint(equalTo: scoreDifView.leadingAnchor, constant: -SNKPadding.big),
-            scoreLabel2.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -SNKPadding.big),
+            scoreLabel2.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
 
