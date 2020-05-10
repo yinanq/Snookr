@@ -9,6 +9,11 @@
 import UIKit
 
 class SNKButton: UIButton {
+    
+    enum Style {
+        case solid
+        case outline
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,18 +24,26 @@ class SNKButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(title: String, titleColor: UIColor) {
+    convenience init(title: String, style: Style) {
         self.init(frame: .zero)
         setTitle(title, for: .normal)
-        setTitleColor(titleColor, for: .normal)
+        switch style {
+        case .solid:
+            setTitleColor(SNKColor.background, for: .normal)
+            backgroundColor = SNKColor.button
+            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeightForFontSize.regular)
+        case .outline:
+            setTitleColor(SNKColor.text, for: .normal)
+            layer.borderColor = SNKColor.button.cgColor
+            layer.borderWidth = 1
+            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.big, weight: .light)
+        }
     }
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 60).isActive = true
-        backgroundColor = SNKColor.button
         layer.cornerRadius = SNKCornerRadius.big
-        titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
     }
 
 }

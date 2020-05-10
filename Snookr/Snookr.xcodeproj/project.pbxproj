@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F3E932F246781AE0067B891 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E932E246781AE0067B891 /* UIViewExt.swift */; };
 		7FEF8A6924675E9E000240A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A6824675E9E000240A0 /* AppDelegate.swift */; };
 		7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A6A24675E9E000240A0 /* SceneDelegate.swift */; };
 		7FEF8A6D24675E9E000240A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A6C24675E9E000240A0 /* ViewController.swift */; };
@@ -20,9 +21,11 @@
 		7FEF8A8E24676402000240A0 /* ScoreHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A8D24676402000240A0 /* ScoreHistoryView.swift */; };
 		7FEF8A9024676429000240A0 /* SNKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A8F24676429000240A0 /* SNKButton.swift */; };
 		7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A93246764A5000240A0 /* SNKLabel.swift */; };
+		7FEF8A9624676FC1000240A0 /* SNKScoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F3E932E246781AE0067B891 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		7FEF8A6524675E9E000240A0 /* Snookr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snookr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FEF8A6824675E9E000240A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FEF8A6A24675E9E000240A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		7FEF8A8D24676402000240A0 /* ScoreHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHistoryView.swift; sourceTree = "<group>"; };
 		7FEF8A8F24676429000240A0 /* SNKButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKButton.swift; sourceTree = "<group>"; };
 		7FEF8A93246764A5000240A0 /* SNKLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKLabel.swift; sourceTree = "<group>"; };
+		7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKScoreButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F3E932D2467815B0067B891 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F3E932E246781AE0067B891 /* UIViewExt.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7FEF8A5C24675E9E000240A0 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +93,7 @@
 				7FEF8A7C24676002000240A0 /* View Controllers */,
 				7FEF8A852467617F000240A0 /* Views */,
 				7FEF8A8824676338000240A0 /* Custom Components */,
+				7F3E932D2467815B0067B891 /* Extensions */,
 			);
 			path = Snookr;
 			sourceTree = "<group>";
@@ -122,10 +135,27 @@
 		7FEF8A8824676338000240A0 /* Custom Components */ = {
 			isa = PBXGroup;
 			children = (
-				7FEF8A8F24676429000240A0 /* SNKButton.swift */,
-				7FEF8A93246764A5000240A0 /* SNKLabel.swift */,
+				7FEF8A9724676FD5000240A0 /* Buttons */,
+				7FEF8A9824676FE5000240A0 /* Labels */,
 			);
 			path = "Custom Components";
+			sourceTree = "<group>";
+		};
+		7FEF8A9724676FD5000240A0 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				7FEF8A8F24676429000240A0 /* SNKButton.swift */,
+				7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		7FEF8A9824676FE5000240A0 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				7FEF8A93246764A5000240A0 /* SNKLabel.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,9 +228,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F3E932F246781AE0067B891 /* UIViewExt.swift in Sources */,
 				7FEF8A8A2467638D000240A0 /* ScoresView.swift in Sources */,
 				7FEF8A8E24676402000240A0 /* ScoreHistoryView.swift in Sources */,
 				7FEF8A8124676082000240A0 /* Constants.swift in Sources */,
+				7FEF8A9624676FC1000240A0 /* SNKScoreButton.swift in Sources */,
 				7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */,
 				7FEF8A6D24675E9E000240A0 /* ViewController.swift in Sources */,
 				7FEF8A9024676429000240A0 /* SNKButton.swift in Sources */,

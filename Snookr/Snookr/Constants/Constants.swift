@@ -8,14 +8,11 @@
 
 import UIKit
 
-enum SNKAlpha {
-    static let transparentHighOpacity: CGFloat = 0.6
-    static let transparentMidOpacity: CGFloat = 0.4
-    static let transparentLowOpacity: CGFloat = 0.2
-}
-
-enum SNKButtonSize {
-    static let small: CGFloat = 42
+enum SNKAlpha: CGFloat {
+    case opaque = 1
+    case transparentHighOpacity = 0.6
+    case transparentMidOpacity = 0.4
+    case transparentLowOpacity = 0.2
 }
 
 enum SNKColor {
@@ -31,6 +28,7 @@ enum SNKCornerRadius {
 }
 
 enum SNKFontSize {
+    static let big: CGFloat = 24
     static let regular: CGFloat = 18
     static let small: CGFloat = 8
 }
@@ -38,10 +36,6 @@ enum SNKFontSize {
 enum SNKFontWeightForFontSize {
     static let regular = UIFont.Weight.bold
     static let small = UIFont.Weight.semibold
-}
-
-enum SNKImage {
-    static let undoButton = UIImage(systemName: "arrow.uturn.left.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .ultraLight))
 }
 
 enum SNKPadding {
