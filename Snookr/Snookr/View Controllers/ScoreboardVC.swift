@@ -129,8 +129,18 @@ extension ScoreboardVC: UITextViewDelegate {
         }
     }
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
+        //if user entered empty string or string containing only empty space(s), set player name back to placdeholder:
+        //actually textView appears to always have text, never nil, but keeping guard here just to be safe:
+        guard textView.text != nil else {
             textView.text = playerNamePlaceholder
+            return
+        }
+        let text = textView.text!
+        do {
+            let regex = try NSRegularExpression(pattern: "^\\s*$")
+            textView.text = regex.stringByReplacingMatches(in: text, range: NSRange(text.startIndex..., in: text), withTemplate: playerNamePlaceholder)
+        } catch {
+            return
         }
     }
 }
