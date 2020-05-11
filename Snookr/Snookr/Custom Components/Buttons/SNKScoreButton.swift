@@ -15,10 +15,10 @@ class SNKScoreButton: UIButton {
     }
     
     enum Symbol: String {
+        case undo = "arrow.uturn.left.circle"
         case plusWithFill = "plus.circle.fill"
         case plus = "plus.circle"
-        case minus = "minus.circle"
-        case undo = "arrow.uturn.left.circle"
+//        case minus = "minus.circle"
     }
 
     override init(frame: CGRect) {
