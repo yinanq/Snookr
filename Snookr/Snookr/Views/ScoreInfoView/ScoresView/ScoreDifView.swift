@@ -13,7 +13,6 @@ class ScoreDifView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
-        addLabels()
     }
     
     required init?(coder: NSCoder) {
@@ -21,6 +20,11 @@ class ScoreDifView: UIView {
     }
     
     private func configure() {
+        configureView()
+        addLabels()
+    }
+    
+    private func configureView() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = SNKColor.backgroundSecondary
         layer.cornerRadius = SNKCornerRadius.small
@@ -32,17 +36,19 @@ class ScoreDifView: UIView {
     
     private func addLabels() {
         let metricNameLabel = SNKLabel(fontSize: SNKFontSize.small, fontWeight: SNKFontWeightForFontSize.small, textAlignment: .center)
-        let metricValueLabel = SNKLabel(fontSize: SNKFontSize.big, fontWeight: .semibold, textAlignment: .center)
+        let metricValueLabel = SNKLabel(fontSize: SNKFontSize.big, fontWeight: .bold, textAlignment: .center)
         metricNameLabel.text = "DIFFERENCE"
         metricValueLabel.text = "64"
         metricValueLabel.adjustsFontSizeToFitWidth = true
-        addSubview(metricNameLabel)
-        addSubview(metricValueLabel)
+        let labels = [metricNameLabel, metricValueLabel]
+        for label in labels {
+            addSubview(label)
+            label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        }
+        addSubviews(metricNameLabel, metricValueLabel)
         NSLayoutConstraint.activate([
             metricNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            metricNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             metricValueLabel.topAnchor.constraint(equalTo: metricNameLabel.bottomAnchor),
-            metricValueLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             metricValueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.small),
             metricValueLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -SNKPadding.small)
         ])

@@ -8,6 +8,8 @@
 
 import UIKit
 
+let separatorViewWidth: CGFloat = 1
+
 enum SNKAlpha: CGFloat {
     case opaque = 1
     case transparentHighOpacity = 0.6
@@ -28,6 +30,7 @@ enum SNKCornerRadius {
 }
 
 enum SNKFontSize {
+    static let huge: CGFloat = 90
     static let big: CGFloat = 24
     static let regular: CGFloat = 18
     static let small: CGFloat = 8
@@ -41,5 +44,5 @@ enum SNKFontWeightForFontSize {
 enum SNKPadding {
     static let big: CGFloat = 20
     static let small: CGFloat = 8
-    static let tiny: CGFloat = 2
+    static let negative: CGFloat = -5
 }
