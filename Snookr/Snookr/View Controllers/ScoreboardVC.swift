@@ -118,7 +118,7 @@ extension ScoreboardVC: UITextViewDelegate {
             return false
         } else {
             //limit length of player name:
-            let limit = 24
+            let limit = 25
             let str = (textView.text + text)
             if str.count <= limit {
                 return true

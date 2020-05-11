@@ -34,7 +34,6 @@ class SNKTextView: UITextView {
         autocorrectionType = .no
         autocapitalizationType = .words
         returnKeyType = .done
-        
     }
     
 }
