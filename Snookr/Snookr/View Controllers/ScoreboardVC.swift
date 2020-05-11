@@ -35,7 +35,17 @@ class ScoreboardVC: UIViewController {
         readDataFromServer()
         writeDataFromServerToScoreboard()
         
+        updatePlayerNames()
         updateScore()
+    }
+    
+    private func updatePlayerNames() {
+        scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name)
+        scoreInfoView.playerNamesView.textView1.delegate = self
+        scoreInfoView.playerNamesView.textView2.delegate = self
+//        //keep this code, in CAS version player name will be fixed labels not editable textviews:
+//        scoreInfoView.playerNamesView.playerNameLabel1.text = player1.name
+//        scoreInfoView.playerNamesView.playerNameLabel2.text = player2.name
     }
     
     private func updateScore() {
@@ -76,8 +86,8 @@ class ScoreboardVC: UIViewController {
     }
     
     private func readDataFromServer() {
-        player1.name = "Ronnie O'Sullivan"
-        player2.name = "Yinan Qiu"
+//        player1.name = "Ronnie O'Sullivan"
+//        player2.name = "Yinan Qiu"
         player1.score = 93
         player2.score = 12
         player1.lastScoreUpdate = 72
@@ -88,8 +98,6 @@ class ScoreboardVC: UIViewController {
         player2.thirdLastScoreUpdate = 4
     }
     private func writeDataFromServerToScoreboard() {
-        scoreInfoView.playerNamesView.playerNameLabel1.text = player1.name
-        scoreInfoView.playerNamesView.playerNameLabel2.text = player2.name
         scoreInfoView.scoresView.scoreLabel1.text = String(player1.score)
         scoreInfoView.scoresView.scoreLabel2.text = String(player2.score)
         scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = "+\(player1.lastScoreUpdate)"
@@ -100,4 +108,24 @@ class ScoreboardVC: UIViewController {
         scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = "+\(player2.thirdLastScoreUpdate)"
     }
     
+}
+
+extension ScoreboardVC: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        //if "done" (return key) tapped, end editing:
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        } else {
+            //limit length of player name:
+            let limit = 24
+            let str = (textView.text + text)
+            if str.count <= limit {
+                return true
+            } else {
+                textView.text = String(str[..<str.index(str.startIndex, offsetBy: limit)])
+                return false
+            }
+        }
+    }
 }

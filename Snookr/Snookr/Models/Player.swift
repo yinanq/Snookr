@@ -9,7 +9,7 @@
 import Foundation
 
 struct Player {
-    var name = "Tap to enter player name"
+    var name = "Player Name"
     var score = 0
     var lastScoreUpdate = 0
     var secondLastScoreUpdate = 0
