@@ -38,7 +38,7 @@ class ScoreDifView: UIView {
         let metricNameLabel = SNKLabel(fontSize: SNKFontSize.small, fontWeight: SNKFontWeightForFontSize.small, textAlignment: .center)
         let metricValueLabel = SNKLabel(fontSize: SNKFontSize.big, fontWeight: .bold, textAlignment: .center)
         metricNameLabel.text = "DIFFERENCE"
-        metricValueLabel.text = "64"
+        metricValueLabel.text = "81"
         metricValueLabel.adjustsFontSizeToFitWidth = true
         let labels = [metricNameLabel, metricValueLabel]
         for label in labels {
