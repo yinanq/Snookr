@@ -30,9 +30,11 @@ class SNKTextView: UITextView {
         isScrollEnabled = false
         textColor = SNKColor.text
         tintColor = SNKColor.text
+        backgroundColor = SNKColor.background
         autocorrectionType = .no
-        autocapitalizationType = .none
+        autocapitalizationType = .words
         returnKeyType = .done
+        
     }
     
 }

@@ -41,18 +41,20 @@ class PlayerNamesView: UIView {
         textView2 = SNKTextView(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeightForFontSize.regular, textAlignment: .right)
         addSubviews(textView1, textView2)
         NSLayoutConstraint.activate([
-            textView1.topAnchor.constraint(equalTo: topAnchor),
-            textView2.topAnchor.constraint(equalTo: topAnchor),
-            textView1.leadingAnchor.constraint(equalTo: leadingAnchor),
-            textView1.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -SNKPadding.big),
-            textView2.leadingAnchor.constraint(equalTo: centerXAnchor, constant: SNKPadding.big),
-            textView2.trailingAnchor.constraint(equalTo: trailingAnchor),
+            textView1.topAnchor.constraint(equalTo: topAnchor, constant: SNKPadding.textViewAdjusterTop),
+            textView2.topAnchor.constraint(equalTo: topAnchor, constant: SNKPadding.textViewAdjusterTop),
+            textView1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -SNKPadding.textViewAdjusterTextAlignedSide),
+            textView1.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -SNKPadding.big + SNKPadding.textViewAdjusterTextUnalignedSide),
+            textView2.leadingAnchor.constraint(equalTo: centerXAnchor, constant: SNKPadding.big - SNKPadding.textViewAdjusterTextUnalignedSide),
+            textView2.trailingAnchor.constraint(equalTo: trailingAnchor, constant: SNKPadding.textViewAdjusterTextAlignedSide),
             bottomAnchor.constraint(greaterThanOrEqualTo: textView1.bottomAnchor),
             bottomAnchor.constraint(greaterThanOrEqualTo: textView2.bottomAnchor)
         ])
-        backgroundColor = .systemTeal
-        textView1.backgroundColor = .systemBlue
-        textView2.backgroundColor = .systemBlue
+//        backgroundColor = .systemTeal
+//        textView1.backgroundColor = .systemBlue
+//        textView2.backgroundColor = .systemBlue
+//        textView1.alpha = 0.5
+//        textView2.alpha = 0.5
     }
     
 //    //keep this code, in CAS version player name will be fixed labels not editable textviews:

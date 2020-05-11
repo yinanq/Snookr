@@ -9,7 +9,7 @@
 import Foundation
 
 struct Player {
-    var name = "Player Name"
+    var name = playerNamePlaceholder
     var score = 0
     var lastScoreUpdate = 0
     var secondLastScoreUpdate = 0

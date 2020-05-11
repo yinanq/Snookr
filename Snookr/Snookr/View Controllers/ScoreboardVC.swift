@@ -128,4 +128,9 @@ extension ScoreboardVC: UITextViewDelegate {
             }
         }
     }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = playerNamePlaceholder
+        }
+    }
 }

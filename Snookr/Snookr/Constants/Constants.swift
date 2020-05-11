@@ -10,6 +10,8 @@ import UIKit
 
 let separatorViewWidth: CGFloat = 1
 
+let playerNamePlaceholder = "Player Name"
+
 enum SNKAlpha: CGFloat {
     case opaque = 1
     case transparentHighOpacity = 0.6
@@ -45,4 +47,7 @@ enum SNKPadding {
     static let big: CGFloat = 20
     static let small: CGFloat = 8
     static let negative: CGFloat = -5
+    static let textViewAdjusterTop: CGFloat = -8
+    static let textViewAdjusterTextAlignedSide: CGFloat = 3
+    static let textViewAdjusterTextUnalignedSide: CGFloat = 9
 }
