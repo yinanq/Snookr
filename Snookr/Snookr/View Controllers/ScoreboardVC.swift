@@ -13,7 +13,7 @@ class ScoreboardVC: UIViewController {
     var player1 = Player()
     var player2 = Player()
     
-    let separatorLineView = UIView()
+    let separatorView = SeparatorView()
     
     let stackView = UIStackView()
     let scoreInfoView = ScoreInfoView()
@@ -26,7 +26,7 @@ class ScoreboardVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = SNKColor.background
         
-        addSeparatorLineView()
+        view.addSubview(separatorView)
         addStackView()
         addResetButton()
         
@@ -36,18 +36,12 @@ class ScoreboardVC: UIViewController {
         writeDataFromServerToScoreboard()
     }
     
-    private func addSeparatorLineView() {
-        separatorLineView.translatesAutoresizingMaskIntoConstraints = false
-        separatorLineView.backgroundColor = SNKColor.backgroundSecondary
-        view.addSubview(separatorLineView)
-    }
-    
     private func addStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
-        view.addSubview(stackView)
         stackView.addArrangedSubviews(scoreInfoView, scoreButtonsView, spacerView)
+        view.addSubview(stackView)
     }
     
     private func addResetButton() {
@@ -58,10 +52,9 @@ class ScoreboardVC: UIViewController {
     private func layout() {
         NSLayoutConstraint.activate([
             
-            separatorLineView.widthAnchor.constraint(equalToConstant: separatorViewWidth),
-            separatorLineView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            separatorLineView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 4),
-            separatorLineView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big),
+            separatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            separatorView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 4),
+            separatorView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big),
             
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),

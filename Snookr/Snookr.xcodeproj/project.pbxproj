@@ -14,6 +14,7 @@
 		7F6AE51D2468C5F300767F7C /* UndoButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */; };
 		7F6AE51F2468D4B500767F7C /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE51E2468D4B500767F7C /* SpacerView.swift */; };
 		7F6AE52124690BA000767F7C /* UIStackViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52024690BA000767F7C /* UIStackViewExt.swift */; };
+		7F6AE52324690F9800767F7C /* separatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52224690F9800767F7C /* separatorView.swift */; };
 		7FEF8A6924675E9E000240A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A6824675E9E000240A0 /* AppDelegate.swift */; };
 		7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A6A24675E9E000240A0 /* SceneDelegate.swift */; };
 		7FEF8A6D24675E9E000240A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A6C24675E9E000240A0 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 		7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButtonsView.swift; sourceTree = "<group>"; };
 		7F6AE51E2468D4B500767F7C /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
 		7F6AE52024690BA000767F7C /* UIStackViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExt.swift; sourceTree = "<group>"; };
+		7F6AE52224690F9800767F7C /* separatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = separatorView.swift; sourceTree = "<group>"; };
 		7FEF8A6524675E9E000240A0 /* Snookr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snookr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FEF8A6824675E9E000240A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FEF8A6A24675E9E000240A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		7FEF8A852467617F000240A0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7F6AE52224690F9800767F7C /* separatorView.swift */,
 				7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */,
 				7F52C2CF2468BC7300C76C1E /* ScoreInfoView */,
 				7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */,
@@ -276,6 +279,7 @@
 				7FEF8A9024676429000240A0 /* SNKButton.swift in Sources */,
 				7FEF8A6924675E9E000240A0 /* AppDelegate.swift in Sources */,
 				7FEF8A7E2467601B000240A0 /* ScoreboardVC.swift in Sources */,
+				7F6AE52324690F9800767F7C /* separatorView.swift in Sources */,
 				7FEF8A8424676163000240A0 /* Player.swift in Sources */,
 				7F52C2D32468BE0300C76C1E /* PlayerNamesView.swift in Sources */,
 				7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */,
