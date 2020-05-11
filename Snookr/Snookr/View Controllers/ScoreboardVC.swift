@@ -34,7 +34,15 @@ class ScoreboardVC: UIViewController {
         
         readDataFromServer()
         writeDataFromServerToScoreboard()
+        
+        updateScore()
     }
+    
+    private func updateScore() {
+        updateDifference()
+    }
+    
+    private func updateDifference() { scoreInfoView.scoresView.scoreDifView.update(difference: abs(player1.score - player2.score) ) }
     
     private func addStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false

@@ -9,6 +9,8 @@
 import UIKit
 
 class ScoreDifView: UIView {
+    
+    var differenceLabel: SNKLabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,23 +37,27 @@ class ScoreDifView: UIView {
     }
     
     private func addLabels() {
-        let metricNameLabel = SNKLabel(fontSize: SNKFontSize.small, fontWeight: SNKFontWeightForFontSize.small, textAlignment: .center)
-        let metricValueLabel = SNKLabel(fontSize: SNKFontSize.big, fontWeight: .bold, textAlignment: .center)
-        metricNameLabel.text = "DIFFERENCE"
-        metricValueLabel.text = "81"
-        metricValueLabel.adjustsFontSizeToFitWidth = true
-        let labels = [metricNameLabel, metricValueLabel]
+        let titleLabel = SNKLabel(fontSize: SNKFontSize.small, fontWeight: SNKFontWeightForFontSize.small, textAlignment: .center)
+        differenceLabel = SNKLabel(fontSize: SNKFontSize.big, fontWeight: .bold, textAlignment: .center)
+        titleLabel.text = "DIFFERENCE"
+        differenceLabel.text = "81"
+        differenceLabel.adjustsFontSizeToFitWidth = true
+        let labels = [titleLabel, differenceLabel]
         for label in labels {
-            addSubview(label)
-            label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+            addSubview(label!)
+            label!.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         }
-        addSubviews(metricNameLabel, metricValueLabel)
+        addSubviews(titleLabel, differenceLabel)
         NSLayoutConstraint.activate([
-            metricNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            metricValueLabel.topAnchor.constraint(equalTo: metricNameLabel.bottomAnchor),
-            metricValueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.small),
-            metricValueLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -SNKPadding.small)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            differenceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            differenceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.small),
+            differenceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -SNKPadding.small)
         ])
+    }
+    
+    func update(difference: Int) {
+        differenceLabel.text = String(difference)
     }
 
 }
