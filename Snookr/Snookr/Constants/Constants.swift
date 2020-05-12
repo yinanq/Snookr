@@ -51,3 +51,8 @@ enum SNKPadding {
     static let textViewAdjusterTextAlignedSide: CGFloat = 3
     static let textViewAdjusterTextUnalignedSide: CGFloat = 9
 }
+
+enum SNKPlayerTag {
+    static let player1 = 1
+    static let player2 = 2
+}

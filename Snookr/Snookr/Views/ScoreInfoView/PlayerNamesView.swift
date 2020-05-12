@@ -39,6 +39,8 @@ class PlayerNamesView: UIView {
     private func configurePlayerNameTextFields() {
         textView1 = SNKTextView(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeightForFontSize.regular, textAlignment: .left)
         textView2 = SNKTextView(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeightForFontSize.regular, textAlignment: .right)
+        textView1.tag = SNKPlayerTag.player1
+        textView2.tag = SNKPlayerTag.player2
         addSubviews(textView1, textView2)
         NSLayoutConstraint.activate([
             textView1.topAnchor.constraint(equalTo: topAnchor, constant: SNKPadding.textViewAdjusterTop),
