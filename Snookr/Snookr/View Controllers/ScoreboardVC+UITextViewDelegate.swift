@@ -71,9 +71,9 @@ extension ScoreboardVC: UITextViewDelegate {
     private func setPlayerNameFromViewToModel(playerTag: Int) {
         switch playerTag {
         case SNKPlayerTag.player1:
-            player1.name = scoreInfoView.playerNamesView.textView1.text
+            player1.name = stackView.scoreInfoView.playerNamesView.textView1.text
         case SNKPlayerTag.player2:
-            player2.name = scoreInfoView.playerNamesView.textView2.text
+            player2.name = stackView.scoreInfoView.playerNamesView.textView2.text
         default:
             print("error: invalid player tag")
         }
@@ -94,12 +94,12 @@ extension ScoreboardVC: UITextViewDelegate {
     
     @objc func endEditingPlayerName1() {
         view.removeGestureRecognizer(tapRecognizer)
-        scoreInfoView.playerNamesView.textView1.resignFirstResponder()
+        stackView.scoreInfoView.playerNamesView.textView1.resignFirstResponder()
         enableAndUndim(viewsToDimWhenEditingPlayerName1)
     }
     @objc func endEditingPlayerName2() {
         view.removeGestureRecognizer(tapRecognizer)
-        scoreInfoView.playerNamesView.textView2.resignFirstResponder()
+        stackView.scoreInfoView.playerNamesView.textView2.resignFirstResponder()
         enableAndUndim(viewsToDimWhenEditingPlayerName2)
     }
     

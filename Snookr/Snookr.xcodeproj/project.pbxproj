@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F158C89246A902100AF1D38 /* ScoreboardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */; };
 		7F3E932F246781AE0067B891 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E932E246781AE0067B891 /* UIView+.swift */; };
 		7F4A3223246A59D700BE7F97 /* SNKDimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A3222246A59D700BE7F97 /* SNKDimmerView.swift */; };
 		7F4A3225246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardStackView.swift; sourceTree = "<group>"; };
 		7F3E932E246781AE0067B891 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		7F4A3222246A59D700BE7F97 /* SNKDimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKDimmerView.swift; sourceTree = "<group>"; };
 		7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
@@ -73,6 +75,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F158C8A246A902C00AF1D38 /* ScoreboardStackView */ = {
+			isa = PBXGroup;
+			children = (
+				7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */,
+				7F52C2CF2468BC7300C76C1E /* ScoreInfoView */,
+				7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */,
+				7F6AE51E2468D4B500767F7C /* SpacerView.swift */,
+			);
+			path = ScoreboardStackView;
+			sourceTree = "<group>";
+		};
 		7F3E932D2467815B0067B891 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,8 +158,7 @@
 				7FEF8A7F24676070000240A0 /* Constants */,
 				7FEF8A8224676108000240A0 /* Models */,
 				7FEF8A7C24676002000240A0 /* View Controllers */,
-				7FEF8A852467617F000240A0 /* Views */,
-				7FEF8A8824676338000240A0 /* Custom Components */,
+				7FEF8A8824676338000240A0 /* Custom Views */,
 				7F3E932D2467815B0067B891 /* Extensions */,
 			);
 			path = Snookr;
@@ -157,6 +169,7 @@
 			children = (
 				7FEF8A7D2467601B000240A0 /* ScoreboardVC.swift */,
 				7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */,
+				7FEF8A852467617F000240A0 /* ScoreboardVC Subviews */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -177,19 +190,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		7FEF8A852467617F000240A0 /* Views */ = {
+		7FEF8A852467617F000240A0 /* ScoreboardVC Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				7F6AE52224690F9800767F7C /* SeparatorView.swift */,
-				7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */,
-				7F52C2CF2468BC7300C76C1E /* ScoreInfoView */,
-				7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */,
-				7F6AE51E2468D4B500767F7C /* SpacerView.swift */,
+				7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */,
+				7F158C8A246A902C00AF1D38 /* ScoreboardStackView */,
 			);
-			path = Views;
+			path = "ScoreboardVC Subviews";
 			sourceTree = "<group>";
 		};
-		7FEF8A8824676338000240A0 /* Custom Components */ = {
+		7FEF8A8824676338000240A0 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
 				7FEF8A9724676FD5000240A0 /* Buttons */,
@@ -197,7 +208,7 @@
 				7F6AE5242469319A00767F7C /* TextViews */,
 				7F4A3221246A59C100BE7F97 /* Views */,
 			);
-			path = "Custom Components";
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		7FEF8A9724676FD5000240A0 /* Buttons */ = {
@@ -292,6 +303,7 @@
 				7FEF8A8A2467638D000240A0 /* ScoresView.swift in Sources */,
 				7F6AE51F2468D4B500767F7C /* SpacerView.swift in Sources */,
 				7FEF8A8E24676402000240A0 /* ScoreHistoryView.swift in Sources */,
+				7F158C89246A902100AF1D38 /* ScoreboardStackView.swift in Sources */,
 				7F52C2D12468BCC000C76C1E /* ScoreButtonsView.swift in Sources */,
 				7F4A3223246A59D700BE7F97 /* SNKDimmerView.swift in Sources */,
 				7F6AE51D2468C5F300767F7C /* UndoButtonsView.swift in Sources */,
