@@ -21,6 +21,10 @@ enum SNKAlpha: CGFloat {
     case dimTo = 0.1
 }
 
+enum SNKAnimationDuration {
+    static let short: TimeInterval = 0.1
+}
+
 enum SNKColor {
     static let background = UIColor(red: 36/255, green: 160/255, blue: 97/255, alpha: 1)
     static let backgroundSecondary = UIColor(red: 79/255, green: 179/255, blue: 128/255, alpha: 1)

@@ -82,13 +82,13 @@ extension ScoreboardVC: UITextViewDelegate {
     private func disableAndDim(_ views: [UIView]) {
         views.forEach { view in
             view.isUserInteractionEnabled = false
-            view.alpha = SNKAlpha.dimTo.rawValue
+            UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = SNKAlpha.dimTo.rawValue }
         }
     }
     private func enableAndUndim(_ views: [UIView]) {
         views.forEach { view in
             view.isUserInteractionEnabled = true
-            view.alpha = SNKAlpha.opaque.rawValue
+            UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = SNKAlpha.opaque.rawValue }
         }
     }
     
