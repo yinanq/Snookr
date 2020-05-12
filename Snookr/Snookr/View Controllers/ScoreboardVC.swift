@@ -8,7 +8,14 @@
 
 import UIKit
 
+enum playerNameKey: String {
+    case player1 = "player 1's name"
+    case player2 = "player 2's name"
+}
+
 class ScoreboardVC: UIViewController {
+    
+    let defaults = UserDefaults.standard
     
     var player1 = Player()
     var player2 = Player()
@@ -30,8 +37,15 @@ class ScoreboardVC: UIViewController {
         setModel()
         setInitialDataFromModelToView()
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        defaults.set(player1.name, forKey: playerNameKey.player1.rawValue)
+        defaults.set(player2.name, forKey: playerNameKey.player2.rawValue)
+    }
     
     private func setModel() {
+        if let player1SavedName = defaults.value(forKey: playerNameKey.player1.rawValue) { player1.name = player1SavedName as! String }
+        if let player2SavedName = defaults.value(forKey: playerNameKey.player2.rawValue) { player2.name = player2SavedName as! String }
         player1.score = 93
         player2.score = 12
         player1.lastScoreUpdate = 72
