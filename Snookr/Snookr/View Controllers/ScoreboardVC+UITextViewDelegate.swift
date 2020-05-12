@@ -21,8 +21,7 @@ extension ScoreboardVC: UITextViewDelegate {
         case 2:
             disableAndDim(viewsToDimWhenEditingPlayerName2)
             tapRecognizer.addTarget(self, action: #selector(endEditingPlayerName2))
-        default:
-            print("error: wrong player tag in textViewDidBeginEditing")
+        default: print("error: wrong player tag in textViewDidBeginEditing")
         }
     }
     
@@ -30,12 +29,9 @@ extension ScoreboardVC: UITextViewDelegate {
         if text == "\n" { //"done" (return key) tapped, end editing:
             let playerTag = textView.tag
             switch playerTag {
-            case 1:
-                endEditingPlayerName1()
-            case 2:
-                endEditingPlayerName2()
-            default:
-                print("error: wrong player tag in shouldChangeTextIn")
+            case 1: endEditingPlayerName1()
+            case 2: endEditingPlayerName2()
+            default: print("error: wrong player tag in shouldChangeTextIn")
             }
             return false
         } else { //limit length of player name:
@@ -50,8 +46,17 @@ extension ScoreboardVC: UITextViewDelegate {
         }
     }
     
+    @objc func endEditingPlayerName1() { stackView.scoreInfoView.playerNamesView.textView1.resignFirstResponder() }
+    @objc func endEditingPlayerName2() { stackView.scoreInfoView.playerNamesView.textView2.resignFirstResponder() }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
+        view.removeGestureRecognizer(tapRecognizer)
         let playerTag = textView.tag
+        switch playerTag {
+        case 1: enableAndUndim(viewsToDimWhenEditingPlayerName1)
+        case 2: enableAndUndim(viewsToDimWhenEditingPlayerName2)
+        default: print("error: wrong player tag in shouldChangeTextIn")
+        }
         //if user entered empty string or string containing only empty space(s), set player name back to placdeholder:
         guard textView.text != nil else { //actually textView appears to always have text, never nil, but keeping guard here just to be safe
             textView.text = playerNamePlaceholder
@@ -73,12 +78,15 @@ extension ScoreboardVC: UITextViewDelegate {
         switch playerTag {
         case SNKPlayerTag.player1:
             player1.name = stackView.scoreInfoView.playerNamesView.textView1.text
+            persistNameOfPlayer1()
         case SNKPlayerTag.player2:
             player2.name = stackView.scoreInfoView.playerNamesView.textView2.text
-        default:
-            print("error: invalid player tag")
+            persistNameOfPlayer2()
+        default: print("error: invalid player tag")
         }
     }
+    private func persistNameOfPlayer1() { defaults.set(player1.name, forKey: Key.player1sName) }
+    private func persistNameOfPlayer2() { defaults.set(player2.name, forKey: Key.player2sName) }
     
     private func disableAndDim(_ views: [UIView]) {
         views.forEach { view in
@@ -91,17 +99,6 @@ extension ScoreboardVC: UITextViewDelegate {
             view.isUserInteractionEnabled = true
             UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = SNKAlpha.opaque.rawValue }
         }
-    }
-    
-    @objc func endEditingPlayerName1() {
-        view.removeGestureRecognizer(tapRecognizer)
-        stackView.scoreInfoView.playerNamesView.textView1.resignFirstResponder()
-        enableAndUndim(viewsToDimWhenEditingPlayerName1)
-    }
-    @objc func endEditingPlayerName2() {
-        view.removeGestureRecognizer(tapRecognizer)
-        stackView.scoreInfoView.playerNamesView.textView2.resignFirstResponder()
-        enableAndUndim(viewsToDimWhenEditingPlayerName2)
     }
     
 }

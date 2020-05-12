@@ -41,19 +41,10 @@ class ScoreboardVC: UIViewController {
         setModel()
         setInitialDataFromModelToView()
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        defaults.set(player1.name, forKey: Key.player1sName)
-        defaults.set(player2.name, forKey: Key.player2sName)
-    }
     
     private func setDelegates() {
         stackView.scoreInfoView.playerNamesView.textView1.delegate = self
         stackView.scoreInfoView.playerNamesView.textView2.delegate = self
-    }
-    
-    func teste(){
-        
     }
     
     private func setModel() {
