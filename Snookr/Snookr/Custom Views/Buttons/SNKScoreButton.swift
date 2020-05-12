@@ -10,15 +10,11 @@ import UIKit
 
 class SNKScoreButton: UIButton {
     
-    enum Size: CGFloat {
-        case small = 44
-    }
-    
     enum Symbol: String {
-        case undo = "arrow.uturn.left.circle"
-        case plusWithFill = "plus.circle.fill"
         case plus = "plus.circle"
-//        case minus = "minus.circle"
+        case plusWithFill = "plus.circle.fill"
+        case undo = "arrow.uturn.left.circle"
+        case undoWithFill = "arrow.uturn.left.circle.fill"
     }
 
     override init(frame: CGRect) {
@@ -30,20 +26,21 @@ class SNKScoreButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(size: Size, symbol: Symbol, alpha: SNKAlpha = .opaque) {
+    convenience init(normalSymbol: Symbol, highlightedSymbol: Symbol) {
         self.init(frame: .zero)
-        setImage(UIImage(systemName: symbol.rawValue, withConfiguration: UIImage.SymbolConfiguration(pointSize: size.rawValue, weight: .ultraLight)), for: .normal)
-        tintColor = UIColor(white: 1, alpha: alpha.rawValue)
+        setImage(UIImage(systemName: normalSymbol.rawValue, withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .normal)
+        setImage(UIImage(systemName: highlightedSymbol.rawValue, withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .highlighted)
     }
     
-    convenience init(size: CGFloat, symbol: Symbol, alpha: SNKAlpha = .opaque) {
+    convenience init(normalSymbol: Symbol, highlightedSymbol: Symbol, size: CGFloat, weight: UIImage.SymbolWeight) {
         self.init(frame: .zero)
-        setImage(UIImage(systemName: symbol.rawValue, withConfiguration: UIImage.SymbolConfiguration(pointSize: size, weight: .ultraLight)), for: .normal)
-        tintColor = UIColor(white: 1, alpha: alpha.rawValue)
+        setImage(UIImage(systemName: normalSymbol.rawValue, withConfiguration: UIImage.SymbolConfiguration(pointSize: size, weight: weight)), for: .normal)
+        setImage(UIImage(systemName: highlightedSymbol.rawValue, withConfiguration: UIImage.SymbolConfiguration(pointSize: size, weight: weight)), for: .highlighted)
     }
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
+        tintColor = SNKColor.button
     }
 
 }

@@ -31,13 +31,13 @@ class ScoreDifView: UIView {
         backgroundColor = SNKColor.backgroundSecondary
         layer.cornerRadius = SNKCornerRadius.small
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: 65),
+            widthAnchor.constraint(equalToConstant: 66),
             heightAnchor.constraint(equalToConstant: 48)
         ])
     }
     
     private func addLabels() {
-        let titleLabel = SNKLabel(fontSize: SNKFontSize.small, fontWeight: .semibold, textAlignment: .center)
+        let titleLabel = SNKLabel(fontSize: SNKFontSize.small, fontWeight: .bold, textAlignment: .center)
         differenceLabel = SNKLabel(fontSize: SNKFontSize.big, fontWeight: .bold, textAlignment: .center)
         titleLabel.text = "DIFFERENCE"
         differenceLabel.adjustsFontSizeToFitWidth = true

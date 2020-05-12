@@ -22,6 +22,7 @@ class SeparatorView: UIView {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = SNKColor.backgroundSecondary
+        layer.cornerRadius = 1
         widthAnchor.constraint(equalToConstant: separatorViewWidth).isActive = true
     }
 }

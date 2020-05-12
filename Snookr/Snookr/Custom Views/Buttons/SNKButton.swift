@@ -35,8 +35,8 @@ class SNKButton: UIButton {
         case .outline:
             setTitleColor(SNKColor.text, for: .normal)
             layer.borderColor = SNKColor.button.cgColor
-            layer.borderWidth = 1
-            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.big, weight: .light)
+            layer.borderWidth = 2
+            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.big, weight: .regular)
         }
     }
     

@@ -27,10 +27,10 @@ class ScoreButtonsView: UIView {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         let plusButtonSize = (UIScreen.main.bounds.width - SNKPadding.big * 4 - separatorViewWidth) / 2
-        plusButton1 = SNKScoreButton(size: plusButtonSize, symbol: .plusWithFill)
-        plusButton2 = SNKScoreButton(size: plusButtonSize, symbol: .plusWithFill)
-        plusOneButton1 = SNKScoreButton(size: .small, symbol: .plus)
-        plusOneButton2 = SNKScoreButton(size: .small, symbol: .plus)
+        plusButton1 = SNKScoreButton(normalSymbol: .plusWithFill, highlightedSymbol: .plus, size: plusButtonSize, weight: .ultraLight)
+        plusButton2 = SNKScoreButton(normalSymbol: .plusWithFill, highlightedSymbol: .plus, size: plusButtonSize, weight: .ultraLight)
+        plusOneButton1 = SNKScoreButton(normalSymbol: .plus, highlightedSymbol: .plusWithFill)
+        plusOneButton2 = SNKScoreButton(normalSymbol: .plus, highlightedSymbol: .plusWithFill)
         addSubviews(plusButton1, plusButton2, plusOneButton1, plusOneButton2)
         NSLayoutConstraint.activate([
             //vertical:

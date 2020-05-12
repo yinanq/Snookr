@@ -8,7 +8,7 @@
 
 import UIKit
 
-let separatorViewWidth: CGFloat = 1
+let separatorViewWidth: CGFloat = 2
 
 let playerNamePlaceholder = "Player Name"
 
@@ -23,6 +23,10 @@ enum SNKAlpha: CGFloat {
 
 enum SNKAnimationDuration {
     static let short: TimeInterval = 0.1
+}
+
+enum SNKButtonSize {
+    static let small: CGFloat = 44
 }
 
 enum SNKColor {

@@ -24,8 +24,8 @@ class UndoButtonsView: UIView {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        undoButton1 = SNKScoreButton(size: .small, symbol: .undo)
-        undoButton2 = SNKScoreButton(size: .small, symbol: .undo)
+        undoButton1 = SNKScoreButton(normalSymbol: .undo, highlightedSymbol: .undoWithFill)
+        undoButton2 = SNKScoreButton(normalSymbol: .undo, highlightedSymbol: .undoWithFill)
         addSubviews(undoButton1, undoButton2)
         NSLayoutConstraint.activate([
             undoButton1.topAnchor.constraint(equalTo: topAnchor),
