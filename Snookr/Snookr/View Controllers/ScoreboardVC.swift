@@ -27,7 +27,8 @@ class ScoreboardVC: UIViewController {
     var player2 = Player()
     let separatorView = SeparatorView()
     let stackView = ScoreboardStackView()
-    let resetButton = SNKButton(title: "Next frame", style: .outline)
+    let infoButton = SNKInfoButton()
+    let resetButton = SNKButton(title: "Next Frame", style: .outline)
     let tapRecognizer = UITapGestureRecognizer()
     var viewsToDimWhenEditingPlayerName1 = [UIView]()
     var viewsToDimWhenEditingPlayerName2 = [UIView]()
@@ -49,6 +50,10 @@ class ScoreboardVC: UIViewController {
     private func setDelegates() {
         stackView.scoreInfoView.playerNamesView.textView1.delegate = self
         stackView.scoreInfoView.playerNamesView.textView2.delegate = self
+    }
+    
+    func teste(){
+        
     }
     
     private func setModel() {
@@ -80,21 +85,23 @@ class ScoreboardVC: UIViewController {
     private func setDifferenceFromModelToView() { stackView.scoreInfoView.scoresView.scoreDifView.set(difference: abs(player1.score - player2.score) ) }
     
     private func setSubviews() {
-        view.addSubview(separatorView)
-        view.addSubview(stackView)
-        view.addSubview(resetButton)
+        view.addSubviews(separatorView, stackView, infoButton, resetButton)
         layout()
         selectViewsToDim()
     }
     private func layout() {
+        let separatorTopAjuster: CGFloat = 4
+        let separatorBottomAdjuster: CGFloat = -4
         NSLayoutConstraint.activate([
             separatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            separatorView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 4),
-            separatorView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big),
+            separatorView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: separatorTopAjuster),
+            separatorView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big + separatorBottomAdjuster),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             stackView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big),
+            infoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
+            infoButton.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big),
             resetButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SNKPadding.big),
             resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big)
