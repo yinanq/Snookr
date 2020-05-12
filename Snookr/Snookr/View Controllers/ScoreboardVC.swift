@@ -36,7 +36,7 @@ class ScoreboardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = SNKColor.background
-        addAndLayoutSubviews()
+        setSubviews()
         setDelegates()
         setModel()
         setInitialDataFromModelToView()
@@ -80,7 +80,7 @@ class ScoreboardVC: UIViewController {
     private func setPlayerNamesFromModelToView() { scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
     private func setDifferenceFromModelToView() { scoreInfoView.scoresView.scoreDifView.set(difference: abs(player1.score - player2.score) ) }
     
-    private func addAndLayoutSubviews() {
+    private func setSubviews() {
         view.addSubview(separatorView)
         addStackView()
         addResetButton()
