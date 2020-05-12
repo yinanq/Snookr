@@ -11,6 +11,7 @@ import UIKit
 extension ScoreboardVC: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.selectAll(self)
         view.addGestureRecognizer(tapRecognizer)
         let playerTag = textView.tag
         switch playerTag {

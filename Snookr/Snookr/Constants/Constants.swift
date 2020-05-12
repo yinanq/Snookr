@@ -45,7 +45,7 @@ enum SNKFontSize {
 }
 
 enum SNKFontWeightForFontSize {
-    static let regular = UIFont.Weight.semibold
+    static let regular = UIFont.Weight.bold
     static let small = UIFont.Weight.semibold
 }
 

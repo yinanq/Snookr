@@ -44,7 +44,6 @@ class SNKScoreButton: UIButton {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-//        setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
     }
 
 }
