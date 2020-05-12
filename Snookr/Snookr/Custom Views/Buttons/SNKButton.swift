@@ -44,6 +44,7 @@ class SNKButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 60).isActive = true
         layer.cornerRadius = SNKCornerRadius.big
+        setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
     }
 
 }
