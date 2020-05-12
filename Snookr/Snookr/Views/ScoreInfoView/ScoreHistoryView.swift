@@ -28,12 +28,12 @@ class ScoreHistoryView: UIView {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        lastScoreUpdateLabel1 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .left, alpha: SNKAlpha.opaque.rawValue)
-        secondLastScoreUpdateLabel1 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .left, alpha: SNKAlpha.transparentHighOpacity.rawValue)
-        thirdLastScoreUpdateLabel1 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .left, alpha: SNKAlpha.transparentLowOpacity.rawValue)
-        lastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .right, alpha: SNKAlpha.opaque.rawValue)
-        secondLastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .right, alpha: SNKAlpha.transparentHighOpacity.rawValue)
-        thirdLastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .right, alpha: SNKAlpha.transparentLowOpacity.rawValue)
+        lastScoreUpdateLabel1 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .left, alpha: SNKAlpha.opaque)
+        secondLastScoreUpdateLabel1 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .left, alpha: SNKAlpha.transparentHighOpacity)
+        thirdLastScoreUpdateLabel1 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .left, alpha: SNKAlpha.transparentLowOpacity)
+        lastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .right, alpha: SNKAlpha.opaque)
+        secondLastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .right, alpha: SNKAlpha.transparentHighOpacity)
+        thirdLastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .light, textAlignment: .right, alpha: SNKAlpha.transparentLowOpacity)
         let labels = [lastScoreUpdateLabel1, secondLastScoreUpdateLabel1, thirdLastScoreUpdateLabel1, lastScoreUpdateLabel2, secondLastScoreUpdateLabel2, thirdLastScoreUpdateLabel2]
         for label in labels {
             addSubview(label!)

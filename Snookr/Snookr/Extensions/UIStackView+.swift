@@ -1,5 +1,5 @@
 //
-//  UIStackViewExt.swift
+//  UIStackView+.swift
 //  Snookr
 //
 //  Created by Yinan Qiu on 5/10/20.

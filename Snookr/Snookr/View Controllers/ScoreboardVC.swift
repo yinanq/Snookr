@@ -29,6 +29,10 @@ class ScoreboardVC: UIViewController {
     
     var resetButton: SNKButton!
     
+    var viewsToDimWhenEditingPlayerName1 = [UIView]()
+    var viewsToDimWhenEditingPlayerName2 = [UIView]()
+    let tapRecognizer = UITapGestureRecognizer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = SNKColor.background
@@ -41,6 +45,11 @@ class ScoreboardVC: UIViewController {
         super.viewWillDisappear(animated)
         defaults.set(player1.name, forKey: playerNameKey.player1.rawValue)
         defaults.set(player2.name, forKey: playerNameKey.player2.rawValue)
+    }
+    
+    private func setDelegates() {
+        scoreInfoView.playerNamesView.textView1.delegate = self
+        scoreInfoView.playerNamesView.textView2.delegate = self
     }
     
     private func setModel() {
@@ -69,16 +78,6 @@ class ScoreboardVC: UIViewController {
         scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = "+\(player2.thirdLastScoreUpdate)"
     }
     private func setPlayerNamesFromModelToView() { scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
-    private func setPlayerNameFromViewToModel(playerTag: Int) {
-        switch playerTag {
-        case SNKPlayerTag.player1:
-            player1.name = scoreInfoView.playerNamesView.textView1.text
-        case SNKPlayerTag.player2:
-            player2.name = scoreInfoView.playerNamesView.textView2.text
-        default:
-            print("error: invalid player tag")
-        }
-    }
     private func setDifferenceFromModelToView() { scoreInfoView.scoresView.scoreDifView.set(difference: abs(player1.score - player2.score) ) }
     
     private func addAndLayoutSubviews() {
@@ -86,6 +85,7 @@ class ScoreboardVC: UIViewController {
         addStackView()
         addResetButton()
         layout()
+        selectViewsToDim()
     }
     private func addStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -112,46 +112,12 @@ class ScoreboardVC: UIViewController {
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big)
         ])
     }
-    
-    private func setDelegates() {
-        scoreInfoView.playerNamesView.textView1.delegate = self
-        scoreInfoView.playerNamesView.textView2.delegate = self
+    private func selectViewsToDim() {
+        let commonViewsToDim: [UIView] = [separatorView, scoreInfoView.scoresView, scoreInfoView.scoreHistoryView, scoreInfoView.undoButtonsView, scoreButtonsView, resetButton]
+        viewsToDimWhenEditingPlayerName1.append(contentsOf: commonViewsToDim)
+        viewsToDimWhenEditingPlayerName1.append(scoreInfoView.playerNamesView.textView2)
+        viewsToDimWhenEditingPlayerName2.append(contentsOf: commonViewsToDim)
+        viewsToDimWhenEditingPlayerName2.append(scoreInfoView.playerNamesView.textView1)
     }
     
-}
-
-extension ScoreboardVC: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" { //"done" (return key) tapped, end editing:
-            textView.resignFirstResponder()
-            return false
-        } else { //limit length of player name:
-            let limit = 25
-            let string = (textView.text + text)
-            if string.count <= limit {
-                return true
-            } else {
-                textView.text = String(string[..<string.index(string.startIndex, offsetBy: limit)])
-                return false
-            }
-        }
-    }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        let playerTag = textView.tag
-        //if user entered empty string or string containing only empty space(s), set player name back to placdeholder:
-        guard textView.text != nil else { //actually textView appears to always have text, never nil, but keeping guard here just to be safe
-            textView.text = playerNamePlaceholder
-            setPlayerNameFromViewToModel(playerTag: playerTag)
-            return
-        }
-        let text = textView.text!
-        do {
-            let regex = try NSRegularExpression(pattern: "^\\s*$")
-            textView.text = regex.stringByReplacingMatches(in: text, range: NSRange(text.startIndex..., in: text), withTemplate: playerNamePlaceholder)
-        } catch {
-            print("error: invalid regex pattern")
-            return
-        }
-        setPlayerNameFromViewToModel(playerTag: playerTag)
-    }
 }

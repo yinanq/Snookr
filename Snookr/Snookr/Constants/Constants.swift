@@ -17,6 +17,8 @@ enum SNKAlpha: CGFloat {
     case transparentHighOpacity = 0.6
     case transparentMidOpacity = 0.4
     case transparentLowOpacity = 0.2
+    case dimmer = 0.9
+    case dimTo = 0.1
 }
 
 enum SNKColor {
