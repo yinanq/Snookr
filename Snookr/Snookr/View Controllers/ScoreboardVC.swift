@@ -27,7 +27,6 @@ class ScoreboardVC: UIViewController {
     var player2 = Player()
     let separatorView = SeparatorView()
     let stackView = ScoreboardStackView()
-    let infoButton = SNKInfoButton()
     let resetButton = SNKButton(title: "Next Frame", style: .outline)
     let tapRecognizer = UITapGestureRecognizer()
     var viewsToDimWhenEditingPlayerName1 = [UIView]()
@@ -76,7 +75,7 @@ class ScoreboardVC: UIViewController {
     private func setDifferenceFromModelToView() { stackView.scoreInfoView.scoresView.scoreDifView.set(difference: abs(player1.score - player2.score) ) }
     
     private func setSubviews() {
-        view.addSubviews(separatorView, stackView, infoButton, resetButton)
+        view.addSubviews(separatorView, stackView, resetButton)
         layout()
         selectViewsToDim()
     }
@@ -91,8 +90,6 @@ class ScoreboardVC: UIViewController {
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             stackView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big),
-            infoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
-            infoButton.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big),
             resetButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SNKPadding.big),
             resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big)

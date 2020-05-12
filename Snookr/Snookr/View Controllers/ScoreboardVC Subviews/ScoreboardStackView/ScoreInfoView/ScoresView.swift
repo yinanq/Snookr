@@ -43,7 +43,6 @@ class ScoresView: UIView {
             scoreLabel1.trailingAnchor.constraint(equalTo: scoreDifView.leadingAnchor, constant: -SNKPadding.big),
             scoreLabel2.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
-//        backgroundColor = .systemTeal
     }
 
 }

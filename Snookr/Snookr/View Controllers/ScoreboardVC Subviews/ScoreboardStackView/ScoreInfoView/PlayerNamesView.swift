@@ -37,8 +37,8 @@ class PlayerNamesView: UIView {
     }
     
     private func configurePlayerNameTextFields() {
-        textView1 = SNKTextView(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeightForFontSize.regular, textAlignment: .left)
-        textView2 = SNKTextView(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeightForFontSize.regular, textAlignment: .right)
+        textView1 = SNKTextView(fontSize: SNKFontSize.regular, fontWeight: .bold, textAlignment: .left)
+        textView2 = SNKTextView(fontSize: SNKFontSize.regular, fontWeight: .bold, textAlignment: .right)
         textView1.tag = SNKPlayerTag.player1
         textView2.tag = SNKPlayerTag.player2
         addSubviews(textView1, textView2)
@@ -52,11 +52,6 @@ class PlayerNamesView: UIView {
             bottomAnchor.constraint(greaterThanOrEqualTo: textView1.bottomAnchor),
             bottomAnchor.constraint(greaterThanOrEqualTo: textView2.bottomAnchor)
         ])
-//        backgroundColor = .systemTeal
-//        textView1.backgroundColor = .systemBlue
-//        textView2.backgroundColor = .systemBlue
-//        textView1.alpha = 0.5
-//        textView2.alpha = 0.5
     }
     
 //    //keep this code, in CAS version player name will be fixed labels not editable textviews:

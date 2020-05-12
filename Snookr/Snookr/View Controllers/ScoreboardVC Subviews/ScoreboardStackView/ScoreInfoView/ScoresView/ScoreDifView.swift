@@ -37,7 +37,7 @@ class ScoreDifView: UIView {
     }
     
     private func addLabels() {
-        let titleLabel = SNKLabel(fontSize: SNKFontSize.small, fontWeight: SNKFontWeightForFontSize.small, textAlignment: .center)
+        let titleLabel = SNKLabel(fontSize: SNKFontSize.small, fontWeight: .semibold, textAlignment: .center)
         differenceLabel = SNKLabel(fontSize: SNKFontSize.big, fontWeight: .bold, textAlignment: .center)
         titleLabel.text = "DIFFERENCE"
         differenceLabel.adjustsFontSizeToFitWidth = true

@@ -44,11 +44,6 @@ enum SNKFontSize {
     static let small: CGFloat = 8
 }
 
-enum SNKFontWeightForFontSize {
-    static let regular = UIFont.Weight.bold
-    static let small = UIFont.Weight.semibold
-}
-
 enum SNKPadding {
     static let big: CGFloat = 20
     static let small: CGFloat = 8

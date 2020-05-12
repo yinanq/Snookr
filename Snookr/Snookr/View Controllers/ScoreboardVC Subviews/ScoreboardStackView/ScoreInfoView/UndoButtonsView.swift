@@ -33,7 +33,6 @@ class UndoButtonsView: UIView {
             undoButton1.leadingAnchor.constraint(equalTo: leadingAnchor),
             undoButton2.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
-//        backgroundColor = .systemTeal
     }
     
 }

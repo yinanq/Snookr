@@ -41,7 +41,6 @@ class ScoreInfoView: UIView {
             undoButtonsView.topAnchor.constraint(equalTo: scoreHistoryView.bottomAnchor, constant: SNKPadding.small),
             bottomAnchor.constraint(equalTo: undoButtonsView.bottomAnchor)
         ])
-//        backgroundColor = .systemIndigo
     }
 
 }

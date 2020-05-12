@@ -49,7 +49,6 @@ class ScoreHistoryView: UIView {
             secondLastScoreUpdateLabel2.trailingAnchor.constraint(equalTo: lastScoreUpdateLabel2.leadingAnchor, constant: -SNKPadding.small),
             thirdLastScoreUpdateLabel2.trailingAnchor.constraint(equalTo: secondLastScoreUpdateLabel2.leadingAnchor, constant: -SNKPadding.small),
         ])
-//        backgroundColor = .systemTeal
     }
 
 }

@@ -44,7 +44,6 @@ class ScoreButtonsView: UIView {
             plusOneButton1.leadingAnchor.constraint(equalTo: leadingAnchor),
             plusOneButton2.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
-//        backgroundColor = .systemIndigo
     }
 
 }

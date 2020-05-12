@@ -12,7 +12,8 @@ class ScoreboardStackView: UIStackView {
 
     let scoreInfoView = ScoreInfoView()
     let scoreButtonsView = ScoreButtonsView()
-    let spacerView = SpacerView()
+    let infoButtonView = UIView()
+    let infoButton = SNKInfoButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +29,14 @@ class ScoreboardStackView: UIStackView {
         translatesAutoresizingMaskIntoConstraints = false
         axis = .vertical
         distribution = .equalSpacing
-        addArrangedSubviews(scoreInfoView, scoreButtonsView, spacerView)
+        addArrangedSubviews(scoreInfoView, scoreButtonsView, infoButtonView)
+        infoButtonView.translatesAutoresizingMaskIntoConstraints = false
+        infoButtonView.addSubview(infoButton)
+        NSLayoutConstraint.activate([
+            infoButton.leadingAnchor.constraint(equalTo: infoButtonView.leadingAnchor),
+            infoButton.bottomAnchor.constraint(equalTo: infoButtonView.bottomAnchor),
+            infoButtonView.topAnchor.constraint(equalTo: infoButton.topAnchor)
+        ])
     }
 
 }
