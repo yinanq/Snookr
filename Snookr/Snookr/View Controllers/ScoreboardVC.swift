@@ -29,13 +29,16 @@ class ScoreboardVC: UIViewController {
     let stackView = ScoreboardStackView()
     let resetButton = SNKButton(title: "Next Frame", style: .outline)
     let tapRecognizer = UITapGestureRecognizer()
-    var viewsToDimWhenEditingPlayerName1 = [UIView]()
-    var viewsToDimWhenEditingPlayerName2 = [UIView]()
+//    var plusButton1: SNKScoreButton!
+//    var plusButton2: SNKScoreButton!
+//    var plusOneButton1: SNKScoreButton!
+//    var plusOneButton2: SNKScoreButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = SNKColor.background
-        setSubviews()
+        view.addSubviews(separatorView, stackView, resetButton)
+        layout()
         setDelegates()
         setModel()
         setInitialDataFromModelToView()
@@ -74,11 +77,6 @@ class ScoreboardVC: UIViewController {
     private func setPlayerNamesFromModelToView() { stackView.scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
     private func setDifferenceFromModelToView() { stackView.scoreInfoView.scoresView.scoreDifView.set(difference: abs(player1.score - player2.score) ) }
     
-    private func setSubviews() {
-        view.addSubviews(separatorView, stackView, resetButton)
-        layout()
-        selectViewsToDim()
-    }
     private func layout() {
         let separatorTopAjuster: CGFloat = 4
         let separatorBottomAdjuster: CGFloat = -4
@@ -94,13 +92,6 @@ class ScoreboardVC: UIViewController {
             resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big)
         ])
-    }
-    private func selectViewsToDim() {
-        let commonViewsToDim: [UIView] = [separatorView, stackView.scoreInfoView.scoresView, stackView.scoreInfoView.scoreHistoryView, stackView.scoreInfoView.undoButtonsView, stackView.scoreButtonsView, resetButton]
-        viewsToDimWhenEditingPlayerName1.append(contentsOf: commonViewsToDim)
-        viewsToDimWhenEditingPlayerName1.append(stackView.scoreInfoView.playerNamesView.textView2)
-        viewsToDimWhenEditingPlayerName2.append(contentsOf: commonViewsToDim)
-        viewsToDimWhenEditingPlayerName2.append(stackView.scoreInfoView.playerNamesView.textView1)
     }
     
 }

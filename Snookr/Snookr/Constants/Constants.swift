@@ -14,7 +14,7 @@ let playerNamePlaceholder = "Player Name"
 
 enum SNKAlpha: CGFloat {
     case opaque = 1
-    case transparentHighOpacity = 0.6
+    case transparentHighOpacity = 0.65
     case transparentMidOpacity = 0.4
     case transparentLowOpacity = 0.2
     case dimmer = 0.9
@@ -37,8 +37,8 @@ enum SNKColor {
 }
 
 enum SNKCornerRadius {
-    static let big: CGFloat = 12
-    static let small: CGFloat = 6
+    static let big: CGFloat = 10
+    static let small: CGFloat = 5
 }
 
 enum SNKFontSize {

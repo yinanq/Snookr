@@ -13,6 +13,8 @@ class SNKScoreButton: UIButton {
     enum Symbol: String {
         case plus = "plus.circle"
         case plusWithFill = "plus.circle.fill"
+        case one = "1.circle"
+        case oneWithFill = "1.circle.fill"
         case undo = "arrow.uturn.left.circle"
         case undoWithFill = "arrow.uturn.left.circle.fill"
     }

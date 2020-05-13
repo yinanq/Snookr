@@ -31,7 +31,7 @@ class ScoreDifView: UIView {
         backgroundColor = SNKColor.backgroundSecondary
         layer.cornerRadius = SNKCornerRadius.small
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: 66),
+            widthAnchor.constraint(equalToConstant: 65),
             heightAnchor.constraint(equalToConstant: 48)
         ])
     }
