@@ -34,16 +34,8 @@ extension ScoreboardVC: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        view.removeGestureRecognizer(tapRecognizer)
-        enableAndUndimAll()
-        let playerTag = textView.tag
         //if user entered empty string or string containing only empty space(s), set player name back to placdeholder:
-        guard textView.text != nil else { //actually textView appears to always have text, never nil, but keeping guard here just to be safe
-            textView.text = playerNamePlaceholder
-            updatePlayerNameModel(playerTag: playerTag)
-            return
-        }
-        let text = textView.text!
+        let text = textView.text! //appears never nil, so removed guard
         do {
             let regex = try NSRegularExpression(pattern: "^\\s*$")
             textView.text = regex.stringByReplacingMatches(in: text, range: NSRange(text.startIndex..., in: text), withTemplate: playerNamePlaceholder)
@@ -51,10 +43,14 @@ extension ScoreboardVC: UITextViewDelegate {
             print("error: invalid regex pattern")
             return
         }
-        updatePlayerNameModel(playerTag: playerTag)
+        //update model and view:
+        let playerTag = textView.tag
+        updateAndPersistPlayerNameModel(playerTag: playerTag)
+        view.removeGestureRecognizer(tapRecognizer)
+        enableAndUndimAll()
     }
     
-    private func updatePlayerNameModel(playerTag: Int) {
+    private func updateAndPersistPlayerNameModel(playerTag: Int) {
         switch playerTag {
         case SNKPlayerTag.player1:
             player1.name = stackView.scoreInfoView.playerNamesView.textView1.text
@@ -84,6 +80,7 @@ extension ScoreboardVC: UITextViewDelegate {
             view.isUserInteractionEnabled = true
             UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = SNKAlpha.opaque.rawValue }
         }
+        updateResetButton() //in case reset button was at low opacity disabled state prior to text view editing
     }
     
 }
