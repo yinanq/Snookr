@@ -16,12 +16,6 @@ class ScoreboardVC: UIViewController {
         static let player2sName = "2's name"
         static let player1sScore = "1's score"
         static let player2sScore = "2's score"
-        static let player1sLastScoreUpdate = "1's history 1"
-        static let player1sSecondLastScoreUpdate = "1's history 2"
-        static let player1sThirdLastScoreUpdate = "1's history 3"
-        static let player2sLastScoreUpdate = "2's history 1"
-        static let player2sSecondLastScoreUpdate = "2's history 2"
-        static let player2sThirdLastScoreUpdate = "2's history 3"
     }
     var player1 = Player()
     var player2 = Player()
