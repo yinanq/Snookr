@@ -26,6 +26,17 @@ class SNKButton: UIButton {
     
     convenience init(title: String, style: Style) {
         self.init(frame: .zero)
+        set(title: title, style: style)
+    }
+    
+    private func configure() {
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: 60).isActive = true
+        layer.cornerRadius = SNKCornerRadius.big
+        setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
+    }
+    
+    func set(title: String, style: Style) {
         setTitle(title, for: .normal)
         switch style {
         case .solid:
@@ -38,13 +49,6 @@ class SNKButton: UIButton {
             layer.borderWidth = 2
             titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.big, weight: .regular)
         }
-    }
-    
-    private func configure() {
-        translatesAutoresizingMaskIntoConstraints = false
-        heightAnchor.constraint(equalToConstant: 60).isActive = true
-        layer.cornerRadius = SNKCornerRadius.big
-        setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
     }
 
 }
