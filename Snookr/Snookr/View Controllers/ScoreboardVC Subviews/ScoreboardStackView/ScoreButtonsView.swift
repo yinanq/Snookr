@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol ScoreButtonsViewDelegate: class {
+    func didTapButtonWith(tag: Int)
+}
+
 class ScoreButtonsView: UIView {
+    
+    weak var delegate: ScoreButtonsViewDelegate!
     
     var plusButton1: SNKScoreButton!
     var plusButton2: SNKScoreButton!
@@ -18,6 +24,7 @@ class ScoreButtonsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        addButtonTargets()
     }
     
     required init?(coder: NSCoder) {
@@ -44,6 +51,17 @@ class ScoreButtonsView: UIView {
             plusOneButton1.leadingAnchor.constraint(equalTo: leadingAnchor),
             plusOneButton2.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
+    }
+    
+    private func addButtonTargets() {
+        plusButton1.tag = SNKButtonTag.plusButton1
+        plusButton2.tag = SNKButtonTag.plusButton2
+        plusOneButton1.tag = SNKButtonTag.plusOneButton1
+        plusOneButton2.tag = SNKButtonTag.plusOneButton2
+        [plusButton1, plusButton2, plusOneButton1, plusOneButton2].forEach{ $0.addTarget(self, action: #selector(didTapButton), for: .touchUpInside) }
+    }
+    @objc func didTapButton(sender: SNKScoreButton) {
+        delegate.didTapButtonWith(tag: sender.tag)
     }
 
 }

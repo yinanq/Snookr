@@ -29,6 +29,15 @@ enum SNKButtonSize {
     static let small: CGFloat = 44
 }
 
+enum SNKButtonTag {
+    static let plusButton1 = 1
+    static let plusButton2 = 2
+    static let plusOneButton1 = 11
+    static let plusOneButton2 = 12
+    static let undoButton1 = -1
+    static let undoButton2 = -2
+}
+
 enum SNKColor {
     static let background = UIColor(red: 36/255, green: 160/255, blue: 97/255, alpha: 1)
     static let backgroundSecondary = UIColor(red: 79/255, green: 179/255, blue: 128/255, alpha: 1)

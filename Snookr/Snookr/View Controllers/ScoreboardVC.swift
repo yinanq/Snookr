@@ -29,10 +29,6 @@ class ScoreboardVC: UIViewController {
     let stackView = ScoreboardStackView()
     let resetButton = SNKButton(title: "Next Frame", style: .outline)
     let tapRecognizer = UITapGestureRecognizer()
-//    var plusButton1: SNKScoreButton!
-//    var plusButton2: SNKScoreButton!
-//    var plusOneButton1: SNKScoreButton!
-//    var plusOneButton2: SNKScoreButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +43,7 @@ class ScoreboardVC: UIViewController {
     private func setDelegates() {
         stackView.scoreInfoView.playerNamesView.textView1.delegate = self
         stackView.scoreInfoView.playerNamesView.textView2.delegate = self
+        stackView.scoreButtonsView.delegate = self
     }
     
     private func setModel() {
