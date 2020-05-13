@@ -43,6 +43,7 @@ class ScoreboardVC: UIViewController {
         stackView.scoreInfoView.playerNamesView.textView1.delegate = self
         stackView.scoreInfoView.playerNamesView.textView2.delegate = self
         stackView.scoreButtonsView.delegate = self
+        stackView.scoreInfoView.undoButtonsView.delegate = self
     }
     private func setModels() {
         if let player1SavedName = defaults.value(forKey: Key.player1sName) { player1.name = player1SavedName as! String }

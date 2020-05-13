@@ -9,11 +9,12 @@
 import UIKit
 
 extension ScoreboardVC: ScoreButtonsViewDelegate {
-    func didTapButton(tag: Int) {
+    
+    func didTapScoreButton(tag: Int) {
         switch tag {
         case SNKButtonTag.plusButton1, SNKButtonTag.plusButton2: print("tapped one of the big +n buttons")
         case SNKButtonTag.plusOneButton1, SNKButtonTag.plusOneButton2: addOneToScoreOfPlayerWith(buttonTag: tag)
-        default: print("error: invalid tag in didTapButton in ScoreboardVC+ScoreButtonsViewDelegate")
+        default: print("error: invalid tag in didTapScoreButton")
         }
     }
     
@@ -31,7 +32,7 @@ extension ScoreboardVC: ScoreButtonsViewDelegate {
             player2.secondLastScoreUpdate = player2.lastScoreUpdate
             player2.lastScoreUpdate = 1
             updateScoreHistoryViewsOfPlayer2()
-        default: print("error: invalid tag in addOneToScoreOfPlayer in ScoreboardVC+ScoreButtonsViewDelegate")
+        default: print("error: invalid tag in addOneToScoreOfPlayer")
         }
         updateScoreViews()
     }

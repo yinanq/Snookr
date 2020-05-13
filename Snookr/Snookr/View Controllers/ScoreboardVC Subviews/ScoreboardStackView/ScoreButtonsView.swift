@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ScoreButtonsViewDelegate: class {
-    func didTapButton(tag: Int)
+    func didTapScoreButton(tag: Int)
 }
 
 class ScoreButtonsView: UIView {
@@ -58,10 +58,8 @@ class ScoreButtonsView: UIView {
         plusButton2.tag = SNKButtonTag.plusButton2
         plusOneButton1.tag = SNKButtonTag.plusOneButton1
         plusOneButton2.tag = SNKButtonTag.plusOneButton2
-        [plusButton1, plusButton2, plusOneButton1, plusOneButton2].forEach{ $0.addTarget(self, action: #selector(didTapButton), for: .touchUpInside) }
+        [plusButton1, plusButton2, plusOneButton1, plusOneButton2].forEach{ $0.addTarget(self, action: #selector(didTapScoreButton), for: .touchUpInside) }
     }
-    @objc func didTapButton(sender: SNKScoreButton) {
-        delegate.didTapButton(tag: sender.tag)
-    }
+    @objc func didTapScoreButton(sender: SNKScoreButton) { delegate.didTapScoreButton(tag: sender.tag) }
 
 }
