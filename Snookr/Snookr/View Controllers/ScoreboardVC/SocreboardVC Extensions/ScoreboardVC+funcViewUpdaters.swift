@@ -6,8 +6,6 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-import UIKit
-
 //func view updaters:
 extension ScoreboardVC {
     

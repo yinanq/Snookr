@@ -33,18 +33,19 @@ class SNKButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 60).isActive = true
         layer.cornerRadius = SNKCornerRadius.big
-        setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
     }
     
     func set(title: String, style: Style) {
         setTitle(title, for: .normal)
         switch style {
         case .solid:
-            setTitleColor(SNKColor.background, for: .normal)
             backgroundColor = SNKColor.foreground
+            setTitleColor(SNKColor.background, for: .normal)
+            setTitleColor(SNKColor.foregroundSecondary, for: .highlighted)
             titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .bold)
         case .outline:
             setTitleColor(SNKColor.foreground, for: .normal)
+            setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
             layer.borderColor = SNKColor.foreground.cgColor
             layer.borderWidth = 2
             titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.big, weight: .regular)

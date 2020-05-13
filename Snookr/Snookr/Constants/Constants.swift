@@ -42,6 +42,7 @@ enum SNKColor {
     static let background = UIColor(white: 0, alpha: 1)
     static let backgroundSecondary = UIColor(red: 0/255, green: 52/255, blue: 30/255, alpha: 1)
     static let foreground = UIColor(red: 0/255, green: 255/255, blue: 147/255, alpha: 1)
+    static let foregroundSecondary = UIColor(white: 1, alpha: 1)
 }
 
 enum SNKCornerRadius {

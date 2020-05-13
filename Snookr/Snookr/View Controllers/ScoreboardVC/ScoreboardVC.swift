@@ -42,6 +42,7 @@ class ScoreboardVC: UIViewController {
         stackView.scoreInfoView.playerNamesView.textView2.delegate = self
         stackView.scoreButtonsView.delegate = self
         stackView.scoreInfoView.undoButtonsView.delegate = self
+        stackView.infoButtonView.delegate = self
         resetButton.delegate = self
     }
     
