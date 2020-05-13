@@ -40,7 +40,7 @@ extension ScoreboardVC: UITextViewDelegate {
         //if user entered empty string or string containing only empty space(s), set player name back to placdeholder:
         guard textView.text != nil else { //actually textView appears to always have text, never nil, but keeping guard here just to be safe
             textView.text = playerNamePlaceholder
-            setPlayerNameFromViewToModel(playerTag: playerTag)
+            updatePlayerNameModel(playerTag: playerTag)
             return
         }
         let text = textView.text!
@@ -51,10 +51,10 @@ extension ScoreboardVC: UITextViewDelegate {
             print("error: invalid regex pattern")
             return
         }
-        setPlayerNameFromViewToModel(playerTag: playerTag)
+        updatePlayerNameModel(playerTag: playerTag)
     }
     
-    private func setPlayerNameFromViewToModel(playerTag: Int) {
+    private func updatePlayerNameModel(playerTag: Int) {
         switch playerTag {
         case SNKPlayerTag.player1:
             player1.name = stackView.scoreInfoView.playerNamesView.textView1.text

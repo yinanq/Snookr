@@ -36,17 +36,15 @@ class ScoreboardVC: UIViewController {
         view.addSubviews(separatorView, stackView, resetButton)
         layout()
         setDelegates()
-        setModel()
-        setInitialDataFromModelToView()
+        setModels()
+        setViews()
     }
-    
     private func setDelegates() {
         stackView.scoreInfoView.playerNamesView.textView1.delegate = self
         stackView.scoreInfoView.playerNamesView.textView2.delegate = self
         stackView.scoreButtonsView.delegate = self
     }
-    
-    private func setModel() {
+    private func setModels() {
         if let player1SavedName = defaults.value(forKey: Key.player1sName) { player1.name = player1SavedName as! String }
         if let player2SavedName = defaults.value(forKey: Key.player2sName) { player2.name = player2SavedName as! String }
         player1.score = 93
@@ -58,12 +56,9 @@ class ScoreboardVC: UIViewController {
         player2.secondLastScoreUpdate = 1
         player2.thirdLastScoreUpdate = 4
     }
-    
-    private func setInitialDataFromModelToView() {
-        setPlayerNamesFromModelToView()
-        stackView.scoreInfoView.scoresView.scoreLabel1.text = String(player1.score)
-        stackView.scoreInfoView.scoresView.scoreLabel2.text = String(player2.score)
-        setDifferenceFromModelToView()
+    private func setViews() {
+        updatePlayerNameViews()
+        updateScoreViews()
         stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = "+\(player1.lastScoreUpdate)"
         stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = "+\(player1.secondLastScoreUpdate)"
         stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = "+\(player1.thirdLastScoreUpdate)"
@@ -71,9 +66,31 @@ class ScoreboardVC: UIViewController {
         stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = "+\(player2.secondLastScoreUpdate)"
         stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = "+\(player2.thirdLastScoreUpdate)"
     }
-    private func setPlayerNamesFromModelToView() { stackView.scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
-    private func setDifferenceFromModelToView() { stackView.scoreInfoView.scoresView.scoreDifView.set(difference: abs(player1.score - player2.score) ) }
     
+}
+
+//view updaters:
+extension ScoreboardVC {
+    private func updatePlayerNameViews() { stackView.scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
+    func updateScoreViews() {
+        stackView.scoreInfoView.scoresView.scoreLabel1.text = String(player1.score)
+        stackView.scoreInfoView.scoresView.scoreLabel2.text = String(player2.score)
+        stackView.scoreInfoView.scoresView.scoreDifView.set(difference: abs(player1.score - player2.score))
+    }
+    func updateScoreHistoryViewsOfPlayer1() {
+        stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = "+\(player1.lastScoreUpdate)"
+        stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = "+\(player1.secondLastScoreUpdate)"
+        stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = "+\(player1.thirdLastScoreUpdate)"
+    }
+    func updateScoreHistoryViewsOfPlayer2() {
+        stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = "+\(player2.lastScoreUpdate)"
+        stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = "+\(player2.secondLastScoreUpdate)"
+        stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = "+\(player2.thirdLastScoreUpdate)"
+    }
+}
+
+//layout:
+extension ScoreboardVC {
     private func layout() {
         let separatorTopAjuster: CGFloat = 4
         let separatorBottomAdjuster: CGFloat = -4
@@ -90,5 +107,4 @@ class ScoreboardVC: UIViewController {
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big)
         ])
     }
-    
 }
