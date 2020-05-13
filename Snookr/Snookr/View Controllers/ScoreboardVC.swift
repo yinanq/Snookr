@@ -67,9 +67,9 @@ extension ScoreboardVC {
     }
     func updateScoreHistoryViewAndUndoButtonsViewOfPlayer1() {
         if player1.lastScoreUpdate == nil && player1.secondLastScoreUpdate == nil && player1.thirdLastScoreUpdate == nil {
-            stackView.scoreInfoView.undoButtonsView.undoButton1.isEnabled = false
+            stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden = true
         } else {
-            stackView.scoreInfoView.undoButtonsView.undoButton1.isEnabled = true
+            stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden = false
         }
         if let lastScoreUpdate = player1.lastScoreUpdate {
             stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = "+\(lastScoreUpdate)"
@@ -89,9 +89,9 @@ extension ScoreboardVC {
     }
     func updateScoreHistoryViewAndUndoButtonsViewOfPlayer2() {
         if player2.lastScoreUpdate == nil && player2.secondLastScoreUpdate == nil && player2.thirdLastScoreUpdate == nil {
-            stackView.scoreInfoView.undoButtonsView.undoButton2.isEnabled = false
+            stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden = true
         } else {
-            stackView.scoreInfoView.undoButtonsView.undoButton2.isEnabled = true
+            stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden = false
         }
         if let lastScoreUpdate = player2.lastScoreUpdate {
             stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = "+\(lastScoreUpdate)"

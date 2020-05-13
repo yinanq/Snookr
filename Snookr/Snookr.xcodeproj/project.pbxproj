@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F158C89246A902100AF1D38 /* ScoreboardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */; };
+		7F39EF83246BD6DA00ABB703 /* ResetConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F39EF82246BD6DA00ABB703 /* ResetConfirmView.swift */; };
 		7F3E932F246781AE0067B891 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E932E246781AE0067B891 /* UIView+.swift */; };
 		7F4A3223246A59D700BE7F97 /* SNKDimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A3222246A59D700BE7F97 /* SNKDimmerView.swift */; };
 		7F4A3225246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardStackView.swift; sourceTree = "<group>"; };
+		7F39EF82246BD6DA00ABB703 /* ResetConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetConfirmView.swift; sourceTree = "<group>"; };
 		7F3E932E246781AE0067B891 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		7F4A3222246A59D700BE7F97 /* SNKDimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKDimmerView.swift; sourceTree = "<group>"; };
 		7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				7F6AE52224690F9800767F7C /* SeparatorView.swift */,
 				7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */,
 				7F158C8A246A902C00AF1D38 /* ScoreboardStackView */,
+				7F39EF82246BD6DA00ABB703 /* ResetConfirmView.swift */,
 			);
 			path = "ScoreboardVC Subviews";
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */,
 				7FEF8A8C246763C2000240A0 /* ScoreDifView.swift in Sources */,
 				7F52C2CE2468BC5500C76C1E /* ScoreInfoView.swift in Sources */,
+				7F39EF83246BD6DA00ABB703 /* ResetConfirmView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
