@@ -11,6 +11,16 @@ import UIKit
 //func view updaters:
 extension ScoreboardVC {
     
+    func updateResetButton() {
+        if player1.score == 0 && player2.score == 0 {
+            resetButton.isEnabled = false
+            resetButton.alpha = SNKAlpha.transparentLowOpacity.rawValue
+        } else if resetButton.isEnabled == false {
+            resetButton.isEnabled = true
+            resetButton.alpha = 1
+        }
+    }
+    
     func updateScoresView() {
         stackView.scoreInfoView.scoresView.scoreLabel1.text = String(player1.score)
         stackView.scoreInfoView.scoresView.scoreLabel2.text = String(player2.score)
@@ -20,7 +30,7 @@ extension ScoreboardVC {
     func updateScoreHistoryViewAndUndoButtonsViewOfPlayer1() {
         if player1.lastScoreUpdate == nil && player1.secondLastScoreUpdate == nil && player1.thirdLastScoreUpdate == nil {
             stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden = true
-        } else {
+        } else if stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden == true {
             stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden = false
         }
         if let lastScoreUpdate = player1.lastScoreUpdate {
@@ -43,7 +53,7 @@ extension ScoreboardVC {
     func updateScoreHistoryViewAndUndoButtonsViewOfPlayer2() {
         if player2.lastScoreUpdate == nil && player2.secondLastScoreUpdate == nil && player2.thirdLastScoreUpdate == nil {
             stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden = true
-        } else {
+        } else if stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden == true {
             stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden = false
         }
         if let lastScoreUpdate = player2.lastScoreUpdate {

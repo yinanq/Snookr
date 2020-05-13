@@ -37,6 +37,7 @@ extension ScoreboardVC: ScoreButtonsViewDelegate {
         default: print("error: invalid tag in addOneToScoreOfPlayer")
         }
         updateScoresView()
+        updateResetButton()
     }
     
 }

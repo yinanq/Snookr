@@ -31,6 +31,7 @@ extension ScoreboardVC: UndoButtonsViewDelegate {
         default: print("error: invalid tag in didTapUndoButton")
         }
         updateScoresView()
+        updateResetButton()
     }
 
 }

@@ -11,14 +11,17 @@ import UIKit
 class ScoreboardVC: UIViewController {
     
     let defaults = UserDefaults.standard
+    
     enum Key {
         static let player1sName = "1's name"
         static let player2sName = "2's name"
         static let player1sScore = "1's score"
         static let player2sScore = "2's score"
     }
+    
     var player1 = Player()
     var player2 = Player()
+    
     let separatorView = SeparatorView()
     let stackView = ScoreboardStackView()
     let resetButton = ResetButton()
@@ -33,6 +36,7 @@ class ScoreboardVC: UIViewController {
         setModels()
         setViews()
     }
+    
     private func setDelegates() {
         stackView.scoreInfoView.playerNamesView.textView1.delegate = self
         stackView.scoreInfoView.playerNamesView.textView2.delegate = self
@@ -40,25 +44,19 @@ class ScoreboardVC: UIViewController {
         stackView.scoreInfoView.undoButtonsView.delegate = self
         resetButton.delegate = self
     }
+    
     private func setModels() {
         if let player1SavedName = defaults.value(forKey: Key.player1sName) { player1.name = player1SavedName as! String }
         if let player2SavedName = defaults.value(forKey: Key.player2sName) { player2.name = player2SavedName as! String }
-//        player1.score = 93
-//        player2.score = 12
         if let player1SavedScore = defaults.value(forKey: Key.player1sScore) { player1.score = player1SavedScore as! Int}
         if let player2SavedScore = defaults.value(forKey: Key.player2sScore) { player2.score = player2SavedScore as! Int}
     }
-    func persistScoresOfBothPlayers() {
-        persistScoreOfPlayer1()
-        persistScoreOfPlayer2()
-    }
-    func persistScoreOfPlayer1() { defaults.set(player1.score, forKey: Key.player1sScore) }
-    func persistScoreOfPlayer2() { defaults.set(player2.score, forKey: Key.player2sScore) }
     
     private func setViews() {
         updatePlayerNameView()
         updateScoresView()
         updateScoreHistoryView()
+        updateResetButton()
     }
     
 }
