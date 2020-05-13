@@ -44,12 +44,6 @@ class ScoreboardVC: UIViewController {
         if let player2SavedName = defaults.value(forKey: Key.player2sName) { player2.name = player2SavedName as! String }
         player1.score = 93
         player2.score = 12
-        player1.lastScoreUpdate = 72
-        player1.secondLastScoreUpdate = 3
-        player1.thirdLastScoreUpdate = 9
-        player2.lastScoreUpdate = 1
-        player2.secondLastScoreUpdate = 1
-        player2.thirdLastScoreUpdate = 4
     }
     private func setViews() {
         updatePlayerNameViews()
