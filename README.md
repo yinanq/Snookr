@@ -4,4 +4,4 @@ Snooker scoreboard. This app is the lite version of scoreboard remote https://gi
 
 ![Snookr](https://raw.githubusercontent.com/yinanq/Snookr/master/Snookr.png)
 
-If Github does not display screenshot, it's also viewable here: https://yinan.design
+If Github does not display the screenshot above, it's also viewable here: https://yinan.design
