@@ -11,7 +11,7 @@ import Foundation
 struct Player {
     var name = playerNamePlaceholder
     var score = 0
-    var lastScoreUpdate = 0
-    var secondLastScoreUpdate = 0
-    var thirdLastScoreUpdate = 0
+    var lastScoreUpdate: Int?
+    var secondLastScoreUpdate: Int?
+    var thirdLastScoreUpdate: Int?
 }

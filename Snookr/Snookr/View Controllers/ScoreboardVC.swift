@@ -46,35 +46,68 @@ class ScoreboardVC: UIViewController {
         player2.score = 12
     }
     private func setViews() {
-        updatePlayerNameViews()
-        updateScoreViews()
-        stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = "+\(player1.lastScoreUpdate)"
-        stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = "+\(player1.secondLastScoreUpdate)"
-        stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = "+\(player1.thirdLastScoreUpdate)"
-        stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = "+\(player2.lastScoreUpdate)"
-        stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = "+\(player2.secondLastScoreUpdate)"
-        stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = "+\(player2.thirdLastScoreUpdate)"
+        updatePlayerNameView()
+        updateScoresView()
+        updateScoreHistoryView()
     }
     
 }
 
 //view updaters:
 extension ScoreboardVC {
-    private func updatePlayerNameViews() { stackView.scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
-    func updateScoreViews() {
+    private func updatePlayerNameView() { stackView.scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
+    func updateScoresView() {
         stackView.scoreInfoView.scoresView.scoreLabel1.text = String(player1.score)
         stackView.scoreInfoView.scoresView.scoreLabel2.text = String(player2.score)
         stackView.scoreInfoView.scoresView.scoreDifView.set(difference: abs(player1.score - player2.score))
     }
-    func updateScoreHistoryViewsOfPlayer1() {
-        stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = "+\(player1.lastScoreUpdate)"
-        stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = "+\(player1.secondLastScoreUpdate)"
-        stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = "+\(player1.thirdLastScoreUpdate)"
+    private func updateScoreHistoryView() {
+        updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
+        updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
     }
-    func updateScoreHistoryViewsOfPlayer2() {
-        stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = "+\(player2.lastScoreUpdate)"
-        stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = "+\(player2.secondLastScoreUpdate)"
-        stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = "+\(player2.thirdLastScoreUpdate)"
+    func updateScoreHistoryViewAndUndoButtonsViewOfPlayer1() {
+        if player1.lastScoreUpdate == nil && player1.secondLastScoreUpdate == nil && player1.thirdLastScoreUpdate == nil {
+            stackView.scoreInfoView.undoButtonsView.undoButton1.isEnabled = false
+        } else {
+            stackView.scoreInfoView.undoButtonsView.undoButton1.isEnabled = true
+        }
+        if let lastScoreUpdate = player1.lastScoreUpdate {
+            stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = "+\(lastScoreUpdate)"
+        } else {
+            stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = " "
+        }
+        if let secondLastScoreUpdate = player1.secondLastScoreUpdate {
+            stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = "+\(secondLastScoreUpdate)"
+        } else {
+            stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = " "
+        }
+        if let thirdLastScoreUpdate = player1.thirdLastScoreUpdate {
+            stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = "+\(thirdLastScoreUpdate)"
+        } else {
+            stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = " "
+        }
+    }
+    func updateScoreHistoryViewAndUndoButtonsViewOfPlayer2() {
+        if player2.lastScoreUpdate == nil && player2.secondLastScoreUpdate == nil && player2.thirdLastScoreUpdate == nil {
+            stackView.scoreInfoView.undoButtonsView.undoButton2.isEnabled = false
+        } else {
+            stackView.scoreInfoView.undoButtonsView.undoButton2.isEnabled = true
+        }
+        if let lastScoreUpdate = player2.lastScoreUpdate {
+            stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = "+\(lastScoreUpdate)"
+        } else {
+            stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = " "
+        }
+        if let secondLastScoreUpdate = player2.secondLastScoreUpdate {
+            stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = "+\(secondLastScoreUpdate)"
+        } else {
+            stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = " "
+        }
+        if let thirdLastScoreUpdate = player2.thirdLastScoreUpdate {
+            stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = "+\(thirdLastScoreUpdate)"
+        } else {
+            stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = " "
+        }
     }
 }
 

@@ -25,16 +25,16 @@ extension ScoreboardVC: ScoreButtonsViewDelegate {
             player1.thirdLastScoreUpdate = player1.secondLastScoreUpdate
             player1.secondLastScoreUpdate = player1.lastScoreUpdate
             player1.lastScoreUpdate = 1
-            updateScoreHistoryViewsOfPlayer1()
+            updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
         case SNKButtonTag.plusOneButton2:
             player2.score += 1
             player2.thirdLastScoreUpdate = player2.secondLastScoreUpdate
             player2.secondLastScoreUpdate = player2.lastScoreUpdate
             player2.lastScoreUpdate = 1
-            updateScoreHistoryViewsOfPlayer2()
+            updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
         default: print("error: invalid tag in addOneToScoreOfPlayer")
         }
-        updateScoreViews()
+        updateScoresView()
     }
     
 }
