@@ -43,9 +43,18 @@ class ScoreboardVC: UIViewController {
     private func setModels() {
         if let player1SavedName = defaults.value(forKey: Key.player1sName) { player1.name = player1SavedName as! String }
         if let player2SavedName = defaults.value(forKey: Key.player2sName) { player2.name = player2SavedName as! String }
-        player1.score = 93
-        player2.score = 12
+//        player1.score = 93
+//        player2.score = 12
+        if let player1SavedScore = defaults.value(forKey: Key.player1sScore) { player1.score = player1SavedScore as! Int}
+        if let player2SavedScore = defaults.value(forKey: Key.player2sScore) { player2.score = player2SavedScore as! Int}
     }
+    func persistScoresOfBothPlayers() {
+        persistScoreOfPlayer1()
+        persistScoreOfPlayer2()
+    }
+    func persistScoreOfPlayer1() { defaults.set(player1.score, forKey: Key.player1sScore) }
+    func persistScoreOfPlayer2() { defaults.set(player2.score, forKey: Key.player2sScore) }
+    
     private func setViews() {
         updatePlayerNameView()
         updateScoresView()

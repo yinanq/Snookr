@@ -19,6 +19,7 @@ extension ScoreboardVC: UndoButtonsViewDelegate {
             player1.secondLastScoreUpdate = player1.thirdLastScoreUpdate
             player1.thirdLastScoreUpdate = nil
             updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
+            persistScoreOfPlayer1()
         case SNKButtonTag.undoButton2:
             guard let lastScoreUpdate = player2.lastScoreUpdate else { return }
             player2.score -= lastScoreUpdate
@@ -26,6 +27,7 @@ extension ScoreboardVC: UndoButtonsViewDelegate {
             player2.secondLastScoreUpdate = player2.thirdLastScoreUpdate
             player2.thirdLastScoreUpdate = nil
             updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
+            persistScoreOfPlayer2()
         default: print("error: invalid tag in didTapUndoButton")
         }
         updateScoresView()
