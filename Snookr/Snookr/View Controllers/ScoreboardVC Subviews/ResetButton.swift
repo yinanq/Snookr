@@ -14,7 +14,7 @@ protocol ResetButtonDelegate: class {
 
 class ResetButton: SNKButton {
     
-    var delegate: ResetButtonDelegate!
+    weak var delegate: ResetButtonDelegate!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

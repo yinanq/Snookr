@@ -28,8 +28,8 @@ class SNKTextView: UITextView {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         isScrollEnabled = false
-        textColor = SNKColor.text
-        tintColor = SNKColor.text
+        textColor = SNKColor.foreground
+        tintColor = SNKColor.foreground
         backgroundColor = nil
         autocorrectionType = .no
         autocapitalizationType = .words

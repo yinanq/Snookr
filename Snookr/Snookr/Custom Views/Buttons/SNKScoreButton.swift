@@ -42,7 +42,7 @@ class SNKScoreButton: UIButton {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        tintColor = SNKColor.button
+        tintColor = SNKColor.foreground
     }
 
 }

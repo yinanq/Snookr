@@ -29,7 +29,7 @@ class SNKLabel: UILabel {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        textColor = SNKColor.text
+        textColor = SNKColor.foreground
         lineBreakMode = .byTruncatingTail
         baselineAdjustment = .alignCenters
     }

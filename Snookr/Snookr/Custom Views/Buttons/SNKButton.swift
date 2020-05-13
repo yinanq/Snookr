@@ -41,11 +41,11 @@ class SNKButton: UIButton {
         switch style {
         case .solid:
             setTitleColor(SNKColor.background, for: .normal)
-            backgroundColor = SNKColor.button
+            backgroundColor = SNKColor.foreground
             titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .bold)
         case .outline:
-            setTitleColor(SNKColor.text, for: .normal)
-            layer.borderColor = SNKColor.button.cgColor
+            setTitleColor(SNKColor.foreground, for: .normal)
+            layer.borderColor = SNKColor.foreground.cgColor
             layer.borderWidth = 2
             titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.big, weight: .regular)
         }
