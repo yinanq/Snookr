@@ -18,6 +18,7 @@ class PointsAdderVC: UIViewController {
     
     var player: Player!
     
+    var cancelButton: SNKButton!
     var addPointsButton: SNKButton!
     
     init(player: Player) {
@@ -31,18 +32,27 @@ class PointsAdderVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+    
+    private func configure() {
         view.backgroundColor = SNKColor.background
-        
+        cancelButton = SNKButton(title: "Cancel", style: .naked)
         addPointsButton = SNKButton(title: "Add Points", style: .solid)
-        view.addSubview(addPointsButton)
+        view.addSubviews(cancelButton, addPointsButton)
         NSLayoutConstraint.activate([
             addPointsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SNKPadding.big),
             addPointsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
-            addPointsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big)
+            addPointsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
+            cancelButton.bottomAnchor.constraint(equalTo: addPointsButton.topAnchor, constant: -SNKPadding.big),
+            cancelButton.widthAnchor.constraint(equalToConstant: 100),
+            cancelButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+        cancelButton.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
         addPointsButton.addTarget(self, action: #selector(didTapAddPointsButton), for: .touchUpInside)
     }
 
+    @objc func didTapCancelButton() { dismiss(animated: true) }
     @objc func didTapAddPointsButton() {
         dismiss(animated: true)
     }
