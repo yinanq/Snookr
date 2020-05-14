@@ -10,10 +10,22 @@ extension ScoreboardVC: ScoreButtonsViewDelegate {
     
     func didTapScoreButton(tag: Int) {
         switch tag {
-        case SNKButtonTag.plusButton1, SNKButtonTag.plusButton2: print("tapped one of the big +n buttons")
+        case SNKButtonTag.plusButton1, SNKButtonTag.plusButton2: openPointsAdderVCForPlayerWith(buttonTag: tag)
         case SNKButtonTag.plusOneButton1, SNKButtonTag.plusOneButton2: addOneToScoreOfPlayerWith(buttonTag: tag)
         default: print("error: invalid tag in didTapScoreButton")
         }
+    }
+    
+    private func openPointsAdderVCForPlayerWith(buttonTag: Int) {
+        var pointsAdderVC: PointsAdderVC!
+        switch buttonTag {
+        case SNKButtonTag.plusButton1:
+            pointsAdderVC = PointsAdderVC(player: player1)
+        case SNKButtonTag.plusButton2:
+            pointsAdderVC = PointsAdderVC(player: player2)
+        default: print("error: invalid tag in openPointsAdderVC")
+        }
+        present(pointsAdderVC, animated: true)
     }
     
     private func addOneToScoreOfPlayerWith(buttonTag: Int) {
