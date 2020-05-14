@@ -14,6 +14,7 @@ class SNKButton: UIButton {
         case solid
         case outline
         case naked
+        case numberPad
     }
 
     override init(frame: CGRect) {
@@ -32,26 +33,39 @@ class SNKButton: UIButton {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        heightAnchor.constraint(equalToConstant: 60).isActive = true
         layer.cornerRadius = SNKCornerRadius.big
-        titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .bold)
     }
     
     func set(title: String, style: Style) {
         setTitle(title, for: .normal)
         switch style {
         case .solid:
+            heightAnchor.constraint(equalToConstant: 60).isActive = true
             backgroundColor = SNKColor.foreground
+            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .bold)
             setTitleColor(SNKColor.background, for: .normal)
             setTitleColor(SNKColor.foregroundSecondary, for: .highlighted)
         case .outline:
+            heightAnchor.constraint(equalToConstant: 60).isActive = true
+            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .bold)
             setTitleColor(SNKColor.foreground, for: .normal)
             setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
             layer.borderColor = SNKColor.foreground.cgColor
             layer.borderWidth = 2
         case .naked:
+            heightAnchor.constraint(equalToConstant: 44).isActive = true
+            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .bold)
             setTitleColor(SNKColor.foreground, for: .normal)
             setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
+        case .numberPad:
+            backgroundColor = SNKColor.backgroundSecondary
+            titleLabel?.font = UIFont.systemFont(ofSize: 36, weight: .thin)
+            setTitleColor(SNKColor.foreground, for: .normal)
+            setTitleColor(SNKColor.foregroundSecondary, for: .highlighted)
+            layer.borderColor = SNKColor.foreground.cgColor
+            layer.borderWidth = 0.5
+            layer.cornerRadius = SNKCornerRadius.small
+            imageView?.contentMode = .scaleAspectFit
         }
     }
 

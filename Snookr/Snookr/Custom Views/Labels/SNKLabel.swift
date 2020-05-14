@@ -21,10 +21,7 @@ class SNKLabel: UILabel {
     
     convenience init(fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment, numberOfLines: Int = 1, alpha: SNKAlpha = .opaque) {
         self.init(frame: .zero)
-        font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
-        self.textAlignment = textAlignment
-        self.numberOfLines = numberOfLines
-        self.alpha = alpha.rawValue
+        set(fontSize: fontSize, fontWeight: fontWeight, textAlignment: textAlignment, numberOfLines: numberOfLines, alpha: alpha)
     }
     
     private func configure() {
@@ -32,6 +29,13 @@ class SNKLabel: UILabel {
         textColor = SNKColor.foreground
         lineBreakMode = .byTruncatingTail
         baselineAdjustment = .alignCenters
+    }
+    
+    func set(fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment, numberOfLines: Int = 1, alpha: SNKAlpha = .opaque) {
+        font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
+        self.textAlignment = textAlignment
+        self.numberOfLines = numberOfLines
+        self.alpha = alpha.rawValue
     }
 
 }
