@@ -6,8 +6,22 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-extension ScoreboardVC: ScoreButtonsViewDelegate {
+extension ScoreboardVC: ScoreButtonsViewDelegate, PointsAdderVCDelegate {
     
+    func didTapAddPointsButton(player: Player, pointsToAdd: Int) {
+        switch player.name {
+        case player1.name:
+            player1.score += pointsToAdd
+            persistScoreOfPlayer1()
+        case player2.name:
+            player2.score += pointsToAdd
+            persistScoreOfPlayer1()
+        default: print("error: invalid player in didTapAddPointsButton")
+        }
+        updateScoresView()
+        updateResetButton()
+    }
+
     func didTapScoreButton(tag: Int) {
         switch tag {
         case SNKButtonTag.plusButton1, SNKButtonTag.plusButton2: openPointsAdderVCForPlayerWith(buttonTag: tag)
@@ -25,6 +39,7 @@ extension ScoreboardVC: ScoreButtonsViewDelegate {
             pointsAdderVC = PointsAdderVC(player: player2)
         default: print("error: invalid tag in openPointsAdderVC")
         }
+        pointsAdderVC.delegate = self
         present(pointsAdderVC, animated: true)
     }
     

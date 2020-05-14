@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol PointsAdderNumberPadViewDelegate: class {
+    func didTapNumberPad(buttonTag: Int)
+}
+
 class PointsAdderNumberPadView: UIView {
+    
+    weak var delegate: PointsAdderNumberPadViewDelegate!
     
     var key1: SNKNumberPadButton!
     var key2: SNKNumberPadButton!
@@ -43,9 +49,24 @@ class PointsAdderNumberPadView: UIView {
         key8 = SNKNumberPadButton(normalSymbol: .k8, highlightedSymbol: .k8F)
         key9 = SNKNumberPadButton(normalSymbol: .k9, highlightedSymbol: .k9F)
         key0 = SNKNumberPadButton(normalSymbol: .k0, highlightedSymbol: .k0F)
+        keyDelete = SNKNumberPadButton(normalSymbol: .delete, highlightedSymbol: .deleteF, size: SNKButtonSize.smallerVisual, weight: .light, contentMode: .center)
+        key1.tag = 1
+        key2.tag = 2
+        key3.tag = 3
+        key4.tag = 4
+        key5.tag = 5
+        key6.tag = 6
+        key7.tag = 7
+        key8.tag = 8
+        key9.tag = 9
+        key0.tag = 0
+        keyDelete.tag = -1
+        [key1, key2, key1, key2, key3, key4, key5, key6, key7, key8, key9, key0, keyDelete].forEach { key in
+            addSubview(key!)
+            key!.addTarget(self, action: #selector(didTapNumberPad(sender:)), for: .touchUpInside)
+        }
         let gapSize: CGFloat = 1
         [key1, key2, key1, key2, key3, key4, key5, key6, key7, key8, key9, key0].forEach { key in
-            addSubview(key!)
             key!.widthAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width - 2*SNKPadding.big - 2*gapSize) / 3).isActive = true
             key!.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1/4, constant: -3*gapSize/4).isActive = true
 //            key!.backgroundColor = SNKColor.backgroundSecondary
@@ -69,8 +90,6 @@ class PointsAdderNumberPadView: UIView {
         [key3, key6, key9].forEach { key in
             key.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         }
-        keyDelete = SNKNumberPadButton(normalSymbol: .delete, highlightedSymbol: .deleteF, size: SNKButtonSize.smallerVisual, weight: .light, contentMode: .center)
-        addSubview(keyDelete)
         NSLayoutConstraint.activate([
             keyDelete.widthAnchor.constraint(equalToConstant: SNKButtonSize.small),
             keyDelete.heightAnchor.constraint(equalToConstant: SNKButtonSize.small),
@@ -78,5 +97,7 @@ class PointsAdderNumberPadView: UIView {
             keyDelete.centerYAnchor.constraint(equalTo: key0.centerYAnchor)
         ])
     }
+    
+    @objc func didTapNumberPad(sender: SNKNumberPadButton) { delegate.didTapNumberPad(buttonTag: sender.tag) }
     
 }

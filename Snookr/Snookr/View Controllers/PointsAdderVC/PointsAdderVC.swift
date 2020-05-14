@@ -7,7 +7,7 @@
 //
 
 protocol PointsAdderVCDelegate: class {
-    func didTapAddPointsButton()
+    func didTapAddPointsButton(player: Player, pointsToAdd: Int)
 }
 
 import UIKit
@@ -17,6 +17,8 @@ class PointsAdderVC: UIViewController {
     weak var delegate: PointsAdderVCDelegate!
     
     var player: Player!
+    var points: Int?
+    var pointsString = ""
     
     var headerView: PointsAdderHeaderView!
     var pointsLabel: SNKLabel!
@@ -36,19 +38,23 @@ class PointsAdderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        setDelegates()
+    }
+    
+    private func setDelegates() {
+        numberPadView.delegate = self
     }
     
     private func configure() {
         view.backgroundColor = SNKColor.background
         headerView = PointsAdderHeaderView(player: player)
-        pointsLabel = SNKLabel(fontSize: 120, fontWeight: .medium, textAlignment: .center)
-        pointsLabel.text = "147"
+        pointsLabel = SNKLabel(fontSize: SNKFontSize.gigantic, fontWeight: .medium, textAlignment: .center)
+        pointsLabel.text = pointsString
         addPointsButton = SNKButton(title: "Add Points", style: .solid)
         view.addSubviews(headerView, pointsLabel, numberPadView, cancelButton, addPointsButton)
         [pointsLabel, numberPadView, addPointsButton].forEach { view in
             view?.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: SNKPadding.big).isActive =  true
             view?.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -SNKPadding.big).isActive = true
-//            view?.backgroundColor = SNKColor.backgroundSecondary
         }
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
@@ -68,6 +74,9 @@ class PointsAdderVC: UIViewController {
 
     @objc func didTapCancelButton() { dismiss(animated: true) }
     @objc func didTapAddPointsButton() {
+        if let pointsToAdd = points {
+            delegate.didTapAddPointsButton(player: player, pointsToAdd: pointsToAdd)
+        }
         dismiss(animated: true)
     }
 
