@@ -27,6 +27,7 @@ enum SNKAnimationDuration {
 
 enum SNKButtonSize {
     static let small: CGFloat = 44
+    static let smallerVisual: CGFloat = 30
 }
 
 enum SNKButtonTag {

@@ -23,18 +23,18 @@ class PointsAdderHeaderView: UIView {
     
     convenience init(player: Player) {
         self.init(frame: .zero)
-        titleLabel.text = "Points for \(player.name)"
+        titleLabel.text = "\(player.name)'s break"
     }
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        titleLabel = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .bold, textAlignment: .center)
+        titleLabel = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .bold, textAlignment: .left, numberOfLines: 2)
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            heightAnchor.constraint(equalToConstant: SNKButtonSize.small),
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            heightAnchor.constraint(equalToConstant: 30)
         ])
     }
     

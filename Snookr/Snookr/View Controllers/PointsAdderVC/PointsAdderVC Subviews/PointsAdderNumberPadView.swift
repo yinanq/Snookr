@@ -43,11 +43,12 @@ class PointsAdderNumberPadView: UIView {
         key8 = SNKNumberPadButton(normalSymbol: .k8, highlightedSymbol: .k8F)
         key9 = SNKNumberPadButton(normalSymbol: .k9, highlightedSymbol: .k9F)
         key0 = SNKNumberPadButton(normalSymbol: .k0, highlightedSymbol: .k0F)
-        let gapSize: CGFloat = 2
+        let gapSize: CGFloat = 1
         [key1, key2, key1, key2, key3, key4, key5, key6, key7, key8, key9, key0].forEach { key in
             addSubview(key!)
             key!.widthAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width - 2*SNKPadding.big - 2*gapSize) / 3).isActive = true
             key!.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1/4, constant: -3*gapSize/4).isActive = true
+//            key!.backgroundColor = SNKColor.backgroundSecondary
         }
         [key1, key2, key3].forEach { key in
             key.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -68,11 +69,11 @@ class PointsAdderNumberPadView: UIView {
         [key3, key6, key9].forEach { key in
             key.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         }
-        keyDelete = SNKNumberPadButton(normalSymbol: .delete, highlightedSymbol: .deleteF, weight: .light)
+        keyDelete = SNKNumberPadButton(normalSymbol: .delete, highlightedSymbol: .deleteF, size: SNKButtonSize.smallerVisual, weight: .light, contentMode: .center)
         addSubview(keyDelete)
         NSLayoutConstraint.activate([
-            keyDelete.widthAnchor.constraint(equalToConstant: 36),
-            keyDelete.heightAnchor.constraint(equalToConstant: 36),
+            keyDelete.widthAnchor.constraint(equalToConstant: SNKButtonSize.small),
+            keyDelete.heightAnchor.constraint(equalToConstant: SNKButtonSize.small),
             keyDelete.centerXAnchor.constraint(equalTo: key9.centerXAnchor, constant: -2),
             keyDelete.centerYAnchor.constraint(equalTo: key0.centerYAnchor)
         ])

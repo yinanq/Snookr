@@ -17,6 +17,7 @@
 		7F3E932F246781AE0067B891 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E932E246781AE0067B891 /* UIView+.swift */; };
 		7F4A3223246A59D700BE7F97 /* SNKDimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A3222246A59D700BE7F97 /* SNKDimmerView.swift */; };
 		7F4A3225246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */; };
+		7F4BF460246DE33A009B2E78 /* SNKXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4BF45F246DE33A009B2E78 /* SNKXButton.swift */; };
 		7F52C2CE2468BC5500C76C1E /* ScoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */; };
 		7F52C2D12468BCC000C76C1E /* ScoreButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */; };
 		7F52C2D32468BE0300C76C1E /* PlayerNamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2D22468BE0300C76C1E /* PlayerNamesView.swift */; };
@@ -59,6 +60,7 @@
 		7F3E932E246781AE0067B891 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		7F4A3222246A59D700BE7F97 /* SNKDimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKDimmerView.swift; sourceTree = "<group>"; };
 		7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
+		7F4BF45F246DE33A009B2E78 /* SNKXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKXButton.swift; sourceTree = "<group>"; };
 		7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreInfoView.swift; sourceTree = "<group>"; };
 		7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreButtonsView.swift; sourceTree = "<group>"; };
 		7F52C2D22468BE0300C76C1E /* PlayerNamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNamesView.swift; sourceTree = "<group>"; };
@@ -296,8 +298,9 @@
 			children = (
 				7FEF8A8F24676429000240A0 /* SNKButton.swift */,
 				7F98D7FC246AA68700E48149 /* SNKInfoButton.swift */,
-				7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */,
 				7FACBECC246D274D004E9137 /* SNKNumberPadButton.swift */,
+				7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */,
+				7F4BF45F246DE33A009B2E78 /* SNKXButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FE085CD246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift in Sources */,
+				7F4BF460246DE33A009B2E78 /* SNKXButton.swift in Sources */,
 				7F0F60A9246CB45300F4C52C /* InfoVC.swift in Sources */,
 				7F6AE52124690BA000767F7C /* UIStackView+.swift in Sources */,
 				7F3E932F246781AE0067B891 /* UIView+.swift in Sources */,

@@ -44,16 +44,16 @@ class SNKNumberPadButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(normalSymbol: Symbol, highlightedSymbol: Symbol, weight: UIImage.SymbolWeight = .ultraLight) {
+    convenience init(normalSymbol: Symbol, highlightedSymbol: Symbol, size: CGFloat = 100, weight: UIImage.SymbolWeight = .ultraLight, contentMode: UIView.ContentMode = .scaleAspectFit) {
         self.init(frame: .zero)
-        setImage(UIImage(systemName: normalSymbol.rawValue, withConfiguration: UIImage.SymbolConfiguration(pointSize: 80, weight: weight)), for: .normal)
-        setImage(UIImage(systemName: highlightedSymbol.rawValue, withConfiguration: UIImage.SymbolConfiguration(pointSize: 80, weight: weight)), for: .highlighted)
+        setImage(UIImage(systemName: normalSymbol.rawValue, withConfiguration: UIImage.SymbolConfiguration(pointSize: size, weight: weight)), for: .normal)
+        setImage(UIImage(systemName: highlightedSymbol.rawValue, withConfiguration: UIImage.SymbolConfiguration(pointSize: size, weight: weight)), for: .highlighted)
+        imageView?.contentMode = contentMode
     }
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         tintColor = SNKColor.foreground
-        imageView?.contentMode = .scaleAspectFit
     }
 
 }
