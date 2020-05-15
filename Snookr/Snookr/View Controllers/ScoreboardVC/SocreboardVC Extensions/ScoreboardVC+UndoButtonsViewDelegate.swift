@@ -8,6 +8,7 @@
 
 extension ScoreboardVC: UndoButtonsViewDelegate {
     
+    //torefactor
     func didTapUndoButton(tag: Int) {
         switch tag {
             
@@ -17,9 +18,9 @@ extension ScoreboardVC: UndoButtonsViewDelegate {
                 return
             }
             player1.score -= player1.historyUndoable.last!
-            persistScoreOfPlayer1()
+            persistScoreFor(&player1)
             player1.historyRedoable.append(player1.historyUndoable.popLast()!)
-            updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
+            updateScoreHistoryViewAndUndoButtonsViewFor(&player1)
             
         case SNKButtonTag.undoButton2:
             guard player2.historyUndoable.last != nil else {
@@ -27,15 +28,16 @@ extension ScoreboardVC: UndoButtonsViewDelegate {
                 return
             }
             player2.score -= player2.historyUndoable.last!
-            persistScoreOfPlayer2()
+            persistScoreFor(&player2)
             player2.historyRedoable.append(player2.historyUndoable.popLast()!)
-            updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
+            updateScoreHistoryViewAndUndoButtonsViewFor(&player2)
             
         default: print("error: invalid tag in didTapUndoButton")
         }
         updateOtherViews()
     }
     
+    //torefactor
     func didTapRedoButton(tag: Int) {
         switch tag {
         case SNKButtonTag.redoButton1:
@@ -44,10 +46,11 @@ extension ScoreboardVC: UndoButtonsViewDelegate {
                 return
             }
             player1.score += player1.historyRedoable.last!
-            persistScoreOfPlayer1()
+            persistScoreFor(&player1)
             
             player1.historyUndoable.append(player1.historyRedoable.popLast()!)
-            updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
+            keepRedoHistoryLimitFor(&player1)
+            updateScoreHistoryViewAndUndoButtonsViewFor(&player1)
             
         case SNKButtonTag.redoButton2:
             guard player2.historyRedoable.last != nil else {
@@ -55,10 +58,11 @@ extension ScoreboardVC: UndoButtonsViewDelegate {
                 return
             }
             player2.score += player2.historyRedoable.last!
-            persistScoreOfPlayer2()
+            persistScoreFor(&player2)
             
             player2.historyUndoable.append(player2.historyRedoable.popLast()!)
-            updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
+            keepRedoHistoryLimitFor(&player2)
+            updateScoreHistoryViewAndUndoButtonsViewFor(&player2)
             
         default: print("error: invalid tag in didTapRedoButton")
         }

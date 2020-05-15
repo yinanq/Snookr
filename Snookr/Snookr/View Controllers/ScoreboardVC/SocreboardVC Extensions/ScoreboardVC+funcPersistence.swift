@@ -8,12 +8,21 @@
 
 extension ScoreboardVC {
     
-    func persistScoresOfBothPlayers() {
-        persistScoreOfPlayer1()
-        persistScoreOfPlayer2()
+    func persistScoreFor(_ player: inout Player) {
+        
+        var keyString: String!
+        
+        switch player.playerId {
+        case .player1:
+            keyString = Key.player1sScore
+        case .player2:
+            keyString = Key.player2sScore
+        case .unassigned:
+            print("error: .unassigned playerId in persistScoreFor")
+            return
+        }
+        
+        defaults.set(player.score, forKey: keyString)
     }
     
-    func persistScoreOfPlayer1() { defaults.set(player1.score, forKey: Key.player1sScore) }
-    
-    func persistScoreOfPlayer2() { defaults.set(player2.score, forKey: Key.player2sScore) }
 }

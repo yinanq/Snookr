@@ -22,7 +22,7 @@ extension ScoreboardVC: UITextViewDelegate {
             view.endEditing(false)
             return false
         } else { //limit length of player name:
-            let limit = 25
+            let limit = 20
             let string = (textView.text + text)
             if string.count <= limit {
                 return true
@@ -44,18 +44,18 @@ extension ScoreboardVC: UITextViewDelegate {
             return
         }
         //update model and view:
-        let playerTag = textView.tag
-        updateAndPersistPlayerNameModel(playerTag: playerTag)
+        let textViewTag = textView.tag
+        updateAndPersistPlayerNameModel(textViewTag: textViewTag)
         view.removeGestureRecognizer(tapRecognizer)
         enableAndUndimAll()
     }
     
-    private func updateAndPersistPlayerNameModel(playerTag: Int) {
-        switch playerTag {
-        case SNKPlayerTag.player1:
+    private func updateAndPersistPlayerNameModel(textViewTag: Int) {
+        switch textViewTag {
+        case SNKTextViewTag.player1:
             player1.name = stackView.scoreInfoView.playerNamesView.textView1.text
             defaults.set(player1.name, forKey: Key.player1sName)
-        case SNKPlayerTag.player2:
+        case SNKTextViewTag.player2:
             player2.name = stackView.scoreInfoView.playerNamesView.textView2.text
             defaults.set(player2.name, forKey: Key.player2sName)
         default: print("error: invalid player tag in setPlayerNameFromViewToModel")

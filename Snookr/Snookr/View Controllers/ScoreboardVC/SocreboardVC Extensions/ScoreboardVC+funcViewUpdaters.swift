@@ -23,74 +23,65 @@ extension ScoreboardVC {
         stackView.scoreInfoView.scoresView.scoreDifView.set(difference: abs(player1.score - player2.score))
     }
     
-    func updateScoreHistoryViewAndUndoButtonsViewOfPlayer1() {
-        //undo button:
-        if player1.historyUndoable.isEmpty {
-            stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden = true
-        } else if stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden {
-            stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden = false
-        }
-        //redo button:
-        if !player1.historyRedoable.isEmpty {
-            stackView.scoreInfoView.undoButtonsView.redoButton1.isHidden = false
-        } else if !stackView.scoreInfoView.undoButtonsView.redoButton1.isHidden {
-            stackView.scoreInfoView.undoButtonsView.redoButton1.isHidden = true
-        }
-        //undoable history labels:
-        let stack = player1.historyUndoable
+    func updateScoreHistoryViewAndUndoButtonsViewFor(_ player: inout Player) {
+        let stack = player.historyUndoable
         let count = stack.count
         let secondLastIndex = count - 2
         let thirdLastIndex = count - 3
-        if let lastScoreUpdate = player1.historyUndoable.last {
-            stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = "+\(lastScoreUpdate)"
-        } else {
-            stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = " " //keep empty string to prevent parent stack view from moving subview layout
-        }
-        if count >= 2 {
-            stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = "+\(player1.historyUndoable[secondLastIndex])"
-        } else {
-            stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = " "
-        }
-        if count >= 3 {
-            stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = "+\(player1.historyUndoable[thirdLastIndex])"
-        } else {
-            stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = " "
+        switch player.playerId {
+        case .player1:
+            if player.historyUndoable.isEmpty {
+                stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden = true
+            } else if stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden {
+                stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden = false
+            }
+            if !player.historyRedoable.isEmpty {
+                stackView.scoreInfoView.undoButtonsView.redoButton1.isHidden = false
+            } else if !stackView.scoreInfoView.undoButtonsView.redoButton1.isHidden {
+                stackView.scoreInfoView.undoButtonsView.redoButton1.isHidden = true
+            }
+            if let lastScoreUpdate = stack.last {
+                stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = "+\(lastScoreUpdate)"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = " " //keep empty string to prevent parent stack view from moving subview layout
+            }
+            if count >= 2 {
+                stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = "+\(stack[secondLastIndex])"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = " "
+            }
+            if count >= 3 {
+                stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = "+\(stack[thirdLastIndex])"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = " "
+            }
+        case .player2:
+            if player.historyUndoable.isEmpty {
+                stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden = true
+            } else if stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden {
+                stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden = false
+            }
+            if !player.historyRedoable.isEmpty {
+                stackView.scoreInfoView.undoButtonsView.redoButton2.isHidden = false
+            } else if !stackView.scoreInfoView.undoButtonsView.redoButton2.isHidden {
+                stackView.scoreInfoView.undoButtonsView.redoButton2.isHidden = true
+            }
+            if let lastScoreUpdate = stack.last {
+                stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = "+\(lastScoreUpdate)"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = " " //keep empty string to prevent parent stack view from moving subview layout
+            }
+            if count >= 2 {
+                stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = "+\(stack[secondLastIndex])"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = " "
+            }
+            if count >= 3 {
+                stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = "+\(stack[thirdLastIndex])"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = " "
+            }
+        case .unassigned: print("error: .unassigned playerId in updateScoreHistoryViewAndUndoButtonsViewFor")
         }
     }
-    
-    func updateScoreHistoryViewAndUndoButtonsViewOfPlayer2() {
-        //undo button:
-        if player2.historyUndoable.isEmpty {
-            stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden = true
-        } else if stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden {
-            stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden = false
-        }
-        //redo button:
-        if !player2.historyRedoable.isEmpty {
-            stackView.scoreInfoView.undoButtonsView.redoButton2.isHidden = false
-        } else if !stackView.scoreInfoView.undoButtonsView.redoButton2.isHidden {
-            stackView.scoreInfoView.undoButtonsView.redoButton2.isHidden = true
-        }
-        //undoable history labels:
-        let stack = player2.historyUndoable
-        let count = stack.count
-        let secondLastIndex = count - 2
-        let thirdLastIndex = count - 3
-        if let lastScoreUpdate = player2.historyUndoable.last {
-            stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = "+\(lastScoreUpdate)"
-        } else {
-            stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = " "
-        }
-        if count >= 2 {
-            stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = "+\(player2.historyUndoable[secondLastIndex])"
-        } else {
-            stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = " "
-        }
-        if count >= 3 {
-            stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = "+\(player2.historyUndoable[thirdLastIndex])"
-        } else {
-            stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = " "
-        }
-    }
-    
 }

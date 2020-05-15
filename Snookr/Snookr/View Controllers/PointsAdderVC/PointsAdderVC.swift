@@ -69,9 +69,7 @@ class PointsAdderVC: UIViewController {
 
     @objc func didTapCancelButton() { dismiss(animated: true) }
     @objc func didTapAddPointsButton() {
-        if let pointsToAdd = points {
-            delegate.didTapAddPointsButton(player: player, pointsToAdd: pointsToAdd)
-        }
+        if let pointsToAdd = points { delegate.didTapAddPointsButton(player: player, pointsToAdd: pointsToAdd) }
         dismiss(animated: true)
     }
 

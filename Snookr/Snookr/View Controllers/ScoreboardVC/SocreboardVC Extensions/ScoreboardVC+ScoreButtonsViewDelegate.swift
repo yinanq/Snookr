@@ -29,22 +29,36 @@ extension ScoreboardVC: ScoreButtonsViewDelegate {
         present(pointsAdderVC, animated: true)
     }
     
+    //torefactor
     private func addOneToScoreOfPlayerWith(buttonTag: Int) {
         switch buttonTag {
         case SNKButtonTag.plusOneButton1:
             player1.score += 1
-            persistScoreOfPlayer1()
+            persistScoreFor(&player1)
             player1.historyUndoable.append(1)
-            updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
-            clearRedoHistoryAndButtonForPlayer1()
+            updateScoreHistoryViewAndUndoButtonsViewFor(&player1)
+            keepUndoHistoryLimitFor(&player1)
+            clearRedoHistoryAndButtonFor(&player1)
         case SNKButtonTag.plusOneButton2:
             player2.score += 1
-            persistScoreOfPlayer2()
+            persistScoreFor(&player2)
             player2.historyUndoable.append(1)
-            updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
-            clearRedoHistoryAndButtonForPlayer2()
+            updateScoreHistoryViewAndUndoButtonsViewFor(&player2)
+            keepUndoHistoryLimitFor(&player2)
+            clearRedoHistoryAndButtonFor(&player2)
         default: print("error: invalid tag in addOneToScoreOfPlayer")
         }
+        updateScoresView()
+        updateResetButton()
+    }
+    //torefactor
+    private func addOnePointFor(_ player: inout Player) {
+        player.score += 1
+        //
+        player.historyUndoable.append(1)
+        updateScoreHistoryViewAndUndoButtonsViewFor(&player)
+        keepUndoHistoryLimitFor(&player)
+        clearRedoHistoryAndButtonFor(&player)
         updateScoresView()
         updateResetButton()
     }

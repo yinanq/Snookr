@@ -17,12 +17,13 @@ extension ScoreboardVC: ResetButtonDelegate {
         player2.historyRedoable = []
         //update view:
         updateScoresView()
-        updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
-        updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
-        clearRedoHistoryAndButtonForPlayer1()
-        clearRedoHistoryAndButtonForPlayer2()
+        updateScoreHistoryViewAndUndoButtonsViewFor(&player1)
+        updateScoreHistoryViewAndUndoButtonsViewFor(&player2)
+        clearRedoHistoryAndButtonFor(&player1)
+        clearRedoHistoryAndButtonFor(&player2)
         updateResetButton()
         //persist:
-        persistScoresOfBothPlayers()
+        persistScoreFor(&player1)
+        persistScoreFor(&player2)
     }
 }

@@ -10,19 +10,20 @@ import Foundation
 
 struct Player {
     
-    enum Side {
-        case left
-        case right
+    enum PlayerId {
+        case player1
+        case player2
+        case unassigned
     }
     
     var name = playerNamePlaceholder
     var score = 0
     var historyUndoable = [Int]()
     var historyRedoable = [Int]()
-    var side: Side!
+    var playerId = PlayerId.unassigned
     
-    init(side: Side) {
-        self.side = side
+    init(playerId: PlayerId) {
+        self.playerId = playerId
     }
     
 }
