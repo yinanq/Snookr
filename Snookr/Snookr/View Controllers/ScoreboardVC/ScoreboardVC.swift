@@ -19,8 +19,8 @@ class ScoreboardVC: UIViewController {
         static let player2sScore = "2's score"
     }
     
-    var player1 = Player()
-    var player2 = Player()
+    var player1 = Player(side: .left)
+    var player2 = Player(side: .right)
     
     let separatorView = SeparatorView()
     let stackView = ScoreboardStackView()

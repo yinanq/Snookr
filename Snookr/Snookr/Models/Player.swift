@@ -9,8 +9,20 @@
 import Foundation
 
 struct Player {
+    
+    enum Side {
+        case left
+        case right
+    }
+    
     var name = playerNamePlaceholder
     var score = 0
     var historyUndoable = [Int]()
     var historyRedoable = [Int]()
+    var side: Side!
+    
+    init(side: Side) {
+        self.side = side
+    }
+    
 }
