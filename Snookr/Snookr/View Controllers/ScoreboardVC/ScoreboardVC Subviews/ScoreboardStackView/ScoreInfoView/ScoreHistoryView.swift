@@ -34,10 +34,10 @@ class ScoreHistoryView: UIView {
         lastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .right, alpha: SNKAlpha.opaque)
         secondLastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .right, alpha: SNKAlpha.transparentHighOpacity)
         thirdLastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .right, alpha: SNKAlpha.transparentMidOpacity)
-        let labels = [lastScoreUpdateLabel1, secondLastScoreUpdateLabel1, thirdLastScoreUpdateLabel1, lastScoreUpdateLabel2, secondLastScoreUpdateLabel2, thirdLastScoreUpdateLabel2]
-        for label in labels {
+        [lastScoreUpdateLabel1, secondLastScoreUpdateLabel1, thirdLastScoreUpdateLabel1, lastScoreUpdateLabel2, secondLastScoreUpdateLabel2, thirdLastScoreUpdateLabel2].forEach { label in
             addSubview(label!)
             label!.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            label!.text = " " //keep empty string to prevent parent stack view from moving subview layout
         }
         NSLayoutConstraint.activate([
             lastScoreUpdateLabel1.topAnchor.constraint(equalTo: topAnchor),

@@ -37,6 +37,8 @@ enum SNKButtonTag {
     static let plusOneButton2 = 12
     static let undoButton1 = -1
     static let undoButton2 = -2
+    static let redoButton1 = -11
+    static let redoButton2 = -12
 }
 
 enum SNKColor {

@@ -10,6 +10,7 @@ import UIKit
 
 protocol UndoButtonsViewDelegate: class {
     func didTapUndoButton(tag: Int)
+    func didTapRedoButton(tag: Int)
 }
 
 class UndoButtonsView: UIView {
@@ -18,13 +19,15 @@ class UndoButtonsView: UIView {
     
     var undoButton1: SNKScoreButton!
     var undoButton2: SNKScoreButton!
+    var redoButton1: SNKScoreButton!
+    var redoButton2: SNKScoreButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
         addButtonTargets()
+        setInitialStateToHidden()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -33,20 +36,36 @@ class UndoButtonsView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         undoButton1 = SNKScoreButton(normalSymbol: .undo, highlightedSymbol: .undoWithFill)
         undoButton2 = SNKScoreButton(normalSymbol: .undo, highlightedSymbol: .undoWithFill)
-        addSubviews(undoButton1, undoButton2)
+        redoButton1 = SNKScoreButton(normalSymbol: .redoWithFill, highlightedSymbol: .redo)
+        redoButton2 = SNKScoreButton(normalSymbol: .redoWithFill, highlightedSymbol: .redo)
+        redoButton1.tintColor = SNKColor.backgroundSecondary
+        redoButton2.tintColor = SNKColor.backgroundSecondary
+        addSubviews(undoButton1, undoButton2, redoButton1, redoButton2)
         NSLayoutConstraint.activate([
             undoButton1.topAnchor.constraint(equalTo: topAnchor),
             bottomAnchor.constraint(equalTo: undoButton1.bottomAnchor),
             undoButton1.leadingAnchor.constraint(equalTo: leadingAnchor),
             undoButton2.trailingAnchor.constraint(equalTo: trailingAnchor),
+            redoButton1.leadingAnchor.constraint(equalTo: undoButton1.trailingAnchor, constant: SNKPadding.small),
+            redoButton2.trailingAnchor.constraint(equalTo: undoButton2.leadingAnchor, constant: -SNKPadding.small)
         ])
     }
     
     private func addButtonTargets() {
         undoButton1.tag = SNKButtonTag.undoButton1
         undoButton2.tag = SNKButtonTag.undoButton2
-        [undoButton1, undoButton2].forEach{ $0?.addTarget(self, action: #selector(didTapUndoButton), for: .touchUpInside)}
+        redoButton1.tag = SNKButtonTag.redoButton1
+        redoButton2.tag = SNKButtonTag.redoButton2
+        [undoButton1, undoButton2].forEach{ $0?.addTarget(self, action: #selector(didTapUndoButton(button:)), for: .touchUpInside)}
+        [redoButton1, redoButton2].forEach{ $0?.addTarget(self, action: #selector(didTapRedoButton(button:)), for: .touchUpInside)}
     }
-    @objc func didTapUndoButton(sender: SNKScoreButton) { delegate.didTapUndoButton(tag: sender.tag) }
+    @objc func didTapUndoButton(button: SNKScoreButton) { delegate.didTapUndoButton(tag: button.tag) }
+    @objc func didTapRedoButton(button: SNKScoreButton) { delegate.didTapRedoButton(tag: button.tag) }
+    
+    private func setInitialStateToHidden() {
+        [undoButton1, undoButton2, redoButton1, redoButton2].forEach { button in
+            button?.isHidden = true
+        }
+    }
     
 }

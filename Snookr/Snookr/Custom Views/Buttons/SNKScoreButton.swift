@@ -17,6 +17,8 @@ class SNKScoreButton: UIButton {
         case oneWithFill = "1.circle.fill"
         case undo = "arrow.uturn.left.circle"
         case undoWithFill = "arrow.uturn.left.circle.fill"
+        case redo = "arrow.uturn.right.circle"
+        case redoWithFill = "arrow.uturn.right.circle.fill"
     }
 
     override init(frame: CGRect) {

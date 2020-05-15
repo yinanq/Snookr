@@ -19,6 +19,8 @@ extension ScoreboardVC: ResetButtonDelegate {
         updateScoresView()
         updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
         updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
+        clearRedoHistoryAndButtonForPlayer1()
+        clearRedoHistoryAndButtonForPlayer2()
         updateResetButton()
         //persist:
         persistScoresOfBothPlayers()

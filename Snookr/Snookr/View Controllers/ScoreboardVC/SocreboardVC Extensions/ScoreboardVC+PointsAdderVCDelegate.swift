@@ -15,12 +15,14 @@ extension ScoreboardVC: PointsAdderVCDelegate {
             persistScoreOfPlayer1()
             player1.historyUndoable.append(pointsToAdd)
             updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
+            clearRedoHistoryAndButtonForPlayer1()
             
         case player2.name:
             player2.score += pointsToAdd
             persistScoreOfPlayer2()
             player2.historyUndoable.append(pointsToAdd)
             updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
+            clearRedoHistoryAndButtonForPlayer2()
             
         default: print("error: invalid player in didTapAddPointsButton")
         }

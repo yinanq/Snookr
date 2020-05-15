@@ -10,12 +10,10 @@
 extension ScoreboardVC {
     
     func updateResetButton() {
-        if player1.score == 0 && player2.score == 0 {
-            resetButton.isEnabled = false
-            resetButton.alpha = SNKAlpha.transparentLowOpacity.rawValue
+        if player1.score == 0 && player2.score == 0 && player1.historyRedoable.isEmpty && player2.historyRedoable.isEmpty {
+            resetButton.enable()
         } else if resetButton.isEnabled == false {
-            resetButton.isEnabled = true
-            resetButton.alpha = 1
+            resetButton.disable()
         }
     }
     
@@ -31,6 +29,12 @@ extension ScoreboardVC {
             stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden = true
         } else if stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden {
             stackView.scoreInfoView.undoButtonsView.undoButton1.isHidden = false
+        }
+        //redo button:
+        if !player1.historyRedoable.isEmpty {
+            stackView.scoreInfoView.undoButtonsView.redoButton1.isHidden = false
+        } else if !stackView.scoreInfoView.undoButtonsView.redoButton1.isHidden {
+            stackView.scoreInfoView.undoButtonsView.redoButton1.isHidden = true
         }
         //undoable history labels:
         let stack = player1.historyUndoable
@@ -60,6 +64,12 @@ extension ScoreboardVC {
             stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden = true
         } else if stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden {
             stackView.scoreInfoView.undoButtonsView.undoButton2.isHidden = false
+        }
+        //redo button:
+        if !player2.historyRedoable.isEmpty {
+            stackView.scoreInfoView.undoButtonsView.redoButton2.isHidden = false
+        } else if !stackView.scoreInfoView.undoButtonsView.redoButton2.isHidden {
+            stackView.scoreInfoView.undoButtonsView.redoButton2.isHidden = true
         }
         //undoable history labels:
         let stack = player2.historyUndoable

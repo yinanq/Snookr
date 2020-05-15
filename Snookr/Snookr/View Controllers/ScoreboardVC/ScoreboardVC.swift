@@ -56,7 +56,6 @@ class ScoreboardVC: UIViewController {
     private func configureViews() {
         updatePlayerNameView()
         updateScoresView()
-        updateScoreHistoryView()
         updateResetButton()
     }
     
@@ -66,12 +65,7 @@ class ScoreboardVC: UIViewController {
 extension ScoreboardVC {
     
     private func updatePlayerNameView() { stackView.scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
-    
-    private func updateScoreHistoryView() {
-        updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
-        updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
-    }
-    
+
 }
 
 //private func layout:
