@@ -11,6 +11,7 @@
 		7F0F60A6246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F60A5246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift */; };
 		7F0F60A9246CB45300F4C52C /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F60A8246CB45300F4C52C /* InfoVC.swift */; };
 		7F158C89246A902100AF1D38 /* ScoreboardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */; };
+		7F26984A246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F269849246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift */; };
 		7F39EF83246BD6DA00ABB703 /* ResetConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F39EF82246BD6DA00ABB703 /* ResetConfirmView.swift */; };
 		7F39EF85246BDA0700ABB703 /* ScoreboardVC+funcViewUpdaters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F39EF84246BDA0700ABB703 /* ScoreboardVC+funcViewUpdaters.swift */; };
 		7F39EF87246BDB5200ABB703 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F39EF86246BDB5200ABB703 /* ResetButton.swift */; };
@@ -55,6 +56,7 @@
 		7F0F60A5246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+InfoButtonViewDelegate.swift"; sourceTree = "<group>"; };
 		7F0F60A8246CB45300F4C52C /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardStackView.swift; sourceTree = "<group>"; };
+		7F269849246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+PointsAdderVCDelegate.swift"; sourceTree = "<group>"; };
 		7F39EF82246BD6DA00ABB703 /* ResetConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetConfirmView.swift; sourceTree = "<group>"; };
 		7F39EF84246BDA0700ABB703 /* ScoreboardVC+funcViewUpdaters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+funcViewUpdaters.swift"; sourceTree = "<group>"; };
 		7F39EF86246BDB5200ABB703 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				7FE085CC246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift */,
 				7FE085CA246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift */,
 				7F0F60A5246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift */,
+				7F269849246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift */,
 				7FCB0F80246BDE2F00562636 /* ScoreboardVC+ResetButtonDelegate.swift */,
 			);
 			path = "SocreboardVC Extensions";
@@ -408,6 +411,7 @@
 				7F52C2D12468BCC000C76C1E /* ScoreButtonsView.swift in Sources */,
 				7F4A3223246A59D700BE7F97 /* SNKDimmerView.swift in Sources */,
 				7F0F60A6246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift in Sources */,
+				7F26984A246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift in Sources */,
 				7FACBEC6246CE753004E9137 /* PointsAdderHeaderView.swift in Sources */,
 				7F6AE51D2468C5F300767F7C /* UndoButtonsView.swift in Sources */,
 				7FEF8A8124676082000240A0 /* Constants.swift in Sources */,

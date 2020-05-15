@@ -14,4 +14,6 @@ struct Player {
     var lastScoreUpdate: Int?
     var secondLastScoreUpdate: Int?
     var thirdLastScoreUpdate: Int?
+    var historyUndoable = [Int]()
+    var historyRedoable = [Int]()
 }

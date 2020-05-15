@@ -45,16 +45,17 @@ class PointsAdderVC: UIViewController {
         pointsLabel = SNKLabel(fontSize: SNKFontSize.gigantic, fontWeight: .medium, textAlignment: .center)
         pointsLabel.text = pointsString
         addPointsButton = SNKButton(title: "Add Points", style: .solid)
+        addPointsButton.disableSolidStyleButton()
         view.addSubviews(headerView, pointsLabel, numberPadView, cancelButton, addPointsButton)
         [pointsLabel, numberPadView, addPointsButton].forEach { view in
             view?.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: SNKPadding.big).isActive =  true
             view?.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -SNKPadding.big).isActive = true
         }
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             headerView.trailingAnchor.constraint(equalTo: view.centerXAnchor),
-            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
             cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big+(SNKButtonSize.small-SNKButtonSize.smallerVisual)),
             pointsLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 32),
             pointsLabel.heightAnchor.constraint(equalToConstant: 100),

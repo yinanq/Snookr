@@ -68,5 +68,14 @@ class SNKButton: UIButton {
             imageView?.contentMode = .scaleAspectFit
         }
     }
+    
+    func enableSolidStyleButton() {
+        isEnabled = true
+        backgroundColor = SNKColor.foreground
+    }
+    func disableSolidStyleButton() {
+        isEnabled = false
+        backgroundColor = SNKColor.backgroundSecondary
+    }
 
 }
