@@ -8,68 +8,46 @@
 
 extension ScoreboardVC: UndoButtonsViewDelegate {
     
-    //torefactor
     func didTapUndoButton(tag: Int) {
         switch tag {
-            
-        case SNKButtonTag.undoButton1:
-            guard player1.historyUndoable.last != nil else {
-                print("error: player 1's undo button tapped when history is empty")
-                return
-            }
-            player1.score -= player1.historyUndoable.last!
-            persistScoreFor(&player1)
-            player1.historyRedoable.append(player1.historyUndoable.popLast()!)
-            updateScoreHistoryViewAndUndoButtonsViewFor(&player1)
-            
-        case SNKButtonTag.undoButton2:
-            guard player2.historyUndoable.last != nil else {
-                print("error: player 2's undo button tapped when history is empty")
-                return
-            }
-            player2.score -= player2.historyUndoable.last!
-            persistScoreFor(&player2)
-            player2.historyRedoable.append(player2.historyUndoable.popLast()!)
-            updateScoreHistoryViewAndUndoButtonsViewFor(&player2)
-            
+        case SNKButtonTag.undoButton1: didTapUndoButtonFor(&player1)
+        case SNKButtonTag.undoButton2: didTapUndoButtonFor(&player2)
         default: print("error: invalid tag in didTapUndoButton")
         }
-        updateOtherViews()
+        updateCommonViews()
+    }
+    private func didTapUndoButtonFor(_ player: inout Player) {
+        guard player.historyUndoable.last != nil else {
+            print("error: player's undo button was tappable when undo history was empty, in didTapUndoButtonFor")
+            return
+        }
+        player.score -= player.historyUndoable.last!
+        persistScoreFor(&player)
+        player.historyRedoable.append(player.historyUndoable.popLast()!)
+        updateScoreHistoryViewAndUndoButtonsViewFor(&player)
     }
     
-    //torefactor
     func didTapRedoButton(tag: Int) {
         switch tag {
-        case SNKButtonTag.redoButton1:
-            guard player1.historyRedoable.last != nil else {
-                print("error: player 1's redo button tapped when nothing had been undone")
-                return
-            }
-            player1.score += player1.historyRedoable.last!
-            persistScoreFor(&player1)
-            
-            player1.historyUndoable.append(player1.historyRedoable.popLast()!)
-            keepRedoHistoryLimitFor(&player1)
-            updateScoreHistoryViewAndUndoButtonsViewFor(&player1)
-            
-        case SNKButtonTag.redoButton2:
-            guard player2.historyRedoable.last != nil else {
-                print("error: player 2's redo button tapped when nothing had been undone")
-                return
-            }
-            player2.score += player2.historyRedoable.last!
-            persistScoreFor(&player2)
-            
-            player2.historyUndoable.append(player2.historyRedoable.popLast()!)
-            keepRedoHistoryLimitFor(&player2)
-            updateScoreHistoryViewAndUndoButtonsViewFor(&player2)
-            
+        case SNKButtonTag.redoButton1: didTapRedoButtonFor(&player1)
+        case SNKButtonTag.redoButton2: didTapRedoButtonFor(&player2)
         default: print("error: invalid tag in didTapRedoButton")
         }
-        updateOtherViews()
+        updateCommonViews()
+    }
+    private func didTapRedoButtonFor(_ player: inout Player) {
+        guard player.historyRedoable.last != nil else {
+            print("error: player's redo button was tappable when redo history was empty, in didTapRedoButtonFor")
+            return
+        }
+        player.score += player.historyRedoable.last!
+        persistScoreFor(&player)
+        player.historyUndoable.append(player.historyRedoable.popLast()!)
+        keepRedoHistoryLimitFor(&player)
+        updateScoreHistoryViewAndUndoButtonsViewFor(&player)
     }
     
-    private func updateOtherViews() {
+    private func updateCommonViews() {
         updateScoresView()
         updateResetButton()
     }

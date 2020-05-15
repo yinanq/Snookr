@@ -26,14 +26,15 @@ class InfoVC: UIViewController {
     private func configureView() { view.backgroundColor = SNKColor.background }
     
     private func configureTitleLabel() {
-        titleLabel = SNKLabel(fontSize: SNKFontSize.huge, fontWeight: .medium, textAlignment: .center)
+        titleLabel = SNKLabel(fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .center)
         titleLabel.text = "about"
         view.addSubview(titleLabel)
     }
     
     private func configureBodyLabel() {
-        bodyLabel = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .left)
-        bodyLabel.text = "te"
+        bodyLabel = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .left, numberOfLines: 0)
+        bodyLabel.text =
+        "Snookr, this app, is a scoreboard for snooker players. It is designed and developed by Yinan Qiu, a member at California Snooker. If you have any feedback or question, please feel free to contact him at https://yinan.design. He wishes you loads of ranking points, mate!"
         view.addSubview(bodyLabel)
     }
     

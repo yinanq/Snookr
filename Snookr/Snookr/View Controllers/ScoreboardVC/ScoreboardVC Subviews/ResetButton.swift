@@ -33,13 +33,12 @@ class ResetButton: SNKButton {
     @objc func didTapResetButton() { delegate.didTapResetButton() }
     
     func enable() {
-        isEnabled = false
-        alpha = SNKAlpha.transparentLowOpacity.rawValue
-    }
-    
-    func disable() {
         isEnabled = true
         alpha = 1
+    }
+    func disable() {
+        isEnabled = false
+        alpha = SNKAlpha.transparentLowOpacity.rawValue
     }
     
 }

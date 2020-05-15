@@ -11,9 +11,9 @@ extension ScoreboardVC {
     
     func updateResetButton() {
         if player1.score == 0 && player2.score == 0 && player1.historyRedoable.isEmpty && player2.historyRedoable.isEmpty {
-            resetButton.enable()
-        } else if resetButton.isEnabled == false {
-            resetButton.disable()
+            if resetButton.isEnabled { resetButton.disable() }
+        } else {
+            if !resetButton.isEnabled { resetButton.enable() }
         }
     }
     
