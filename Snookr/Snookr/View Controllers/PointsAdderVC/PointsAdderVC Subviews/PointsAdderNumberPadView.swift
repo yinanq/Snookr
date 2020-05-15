@@ -39,6 +39,18 @@ class PointsAdderNumberPadView: UIView {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
+        initializeKeys()
+        [key1, key2, key1, key2, key3, key4, key5, key6, key7, key8, key9, key0, keyDelete].forEach { key in
+            addSubview(key!)
+            key!.addTarget(self, action: #selector(didTapNumberPad(sender:)), for: .touchUpInside)
+        }
+        layoutKeys()
+        keyDelete.isHidden = true
+    }
+    
+    @objc func didTapNumberPad(sender: SNKNumberPadButton) { delegate.didTapNumberPad(buttonTag: sender.tag) }
+    
+    private func initializeKeys() {
         key1 = SNKNumberPadButton(normalSymbol: .k1, highlightedSymbol: .k1F)
         key2 = SNKNumberPadButton(normalSymbol: .k2, highlightedSymbol: .k2F)
         key3 = SNKNumberPadButton(normalSymbol: .k3, highlightedSymbol: .k3F)
@@ -61,15 +73,13 @@ class PointsAdderNumberPadView: UIView {
         key9.tag = 9
         key0.tag = 0
         keyDelete.tag = -1
-        [key1, key2, key1, key2, key3, key4, key5, key6, key7, key8, key9, key0, keyDelete].forEach { key in
-            addSubview(key!)
-            key!.addTarget(self, action: #selector(didTapNumberPad(sender:)), for: .touchUpInside)
-        }
+    }
+    
+    private func layoutKeys() {
         let gapSize: CGFloat = 1
         [key1, key2, key1, key2, key3, key4, key5, key6, key7, key8, key9, key0].forEach { key in
             key!.widthAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width - 2*SNKPadding.big - 2*gapSize) / 3).isActive = true
             key!.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1/4, constant: -3*gapSize/4).isActive = true
-//            key!.backgroundColor = SNKColor.backgroundSecondary
         }
         [key1, key2, key3].forEach { key in
             key.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -97,7 +107,5 @@ class PointsAdderNumberPadView: UIView {
             keyDelete.centerYAnchor.constraint(equalTo: key0.centerYAnchor)
         ])
     }
-    
-    @objc func didTapNumberPad(sender: SNKNumberPadButton) { delegate.didTapNumberPad(buttonTag: sender.tag) }
     
 }

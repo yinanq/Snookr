@@ -6,9 +6,7 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-protocol PointsAdderVCDelegate: class {
-    func didTapAddPointsButton(player: Player, pointsToAdd: Int)
-}
+protocol PointsAdderVCDelegate: class { func didTapAddPointsButton(player: Player, pointsToAdd: Int) }
 
 import UIKit
 
@@ -38,10 +36,6 @@ class PointsAdderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        setDelegates()
-    }
-    
-    private func setDelegates() {
         numberPadView.delegate = self
     }
     
