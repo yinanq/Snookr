@@ -33,18 +33,15 @@ extension ScoreboardVC: ScoreButtonsViewDelegate {
         switch buttonTag {
         case SNKButtonTag.plusOneButton1:
             player1.score += 1
-            player1.thirdLastScoreUpdate = player1.secondLastScoreUpdate
-            player1.secondLastScoreUpdate = player1.lastScoreUpdate
-            player1.lastScoreUpdate = 1
-            updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
             persistScoreOfPlayer1()
+            player1.historyUndoable.append(1)
+            updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
         case SNKButtonTag.plusOneButton2:
             player2.score += 1
-            player2.thirdLastScoreUpdate = player2.secondLastScoreUpdate
-            player2.secondLastScoreUpdate = player2.lastScoreUpdate
-            player2.lastScoreUpdate = 1
-            updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
             persistScoreOfPlayer2()
+            player2.historyUndoable.append(1)
+            updateScoreHistoryViewAndUndoButtonsViewOfPlayer2()
+            
         default: print("error: invalid tag in addOneToScoreOfPlayer")
         }
         updateScoresView()

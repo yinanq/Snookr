@@ -32,12 +32,12 @@ class ScoreboardVC: UIViewController {
         view.backgroundColor = SNKColor.background
         view.addSubviews(separatorView, stackView, resetButton)
         layout()
-        setDelegates()
-        setModels()
-        setViews()
+        configureDelegates()
+        configureModels()
+        configureViews()
     }
     
-    private func setDelegates() {
+    private func configureDelegates() {
         stackView.scoreInfoView.playerNamesView.textView1.delegate = self
         stackView.scoreInfoView.playerNamesView.textView2.delegate = self
         stackView.scoreButtonsView.delegate = self
@@ -46,14 +46,14 @@ class ScoreboardVC: UIViewController {
         resetButton.delegate = self
     }
     
-    private func setModels() {
+    private func configureModels() {
         if let player1SavedName = defaults.value(forKey: Key.player1sName) { player1.name = player1SavedName as! String }
         if let player2SavedName = defaults.value(forKey: Key.player2sName) { player2.name = player2SavedName as! String }
-        if let player1SavedScore = defaults.value(forKey: Key.player1sScore) { player1.score = player1SavedScore as! Int}
-        if let player2SavedScore = defaults.value(forKey: Key.player2sScore) { player2.score = player2SavedScore as! Int}
+        if let player1SavedScore = defaults.value(forKey: Key.player1sScore) { player1.score = player1SavedScore as! Int }
+        if let player2SavedScore = defaults.value(forKey: Key.player2sScore) { player2.score = player2SavedScore as! Int }
     }
     
-    private func setViews() {
+    private func configureViews() {
         updatePlayerNameView()
         updateScoresView()
         updateScoreHistoryView()

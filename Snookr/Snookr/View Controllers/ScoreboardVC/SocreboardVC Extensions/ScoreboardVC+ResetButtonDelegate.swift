@@ -11,12 +11,10 @@ extension ScoreboardVC: ResetButtonDelegate {
         //update model:
         player1.score = 0
         player2.score = 0
-        player1.lastScoreUpdate = nil
-        player1.secondLastScoreUpdate = nil
-        player1.thirdLastScoreUpdate = nil
-        player2.lastScoreUpdate = nil
-        player2.secondLastScoreUpdate = nil
-        player2.thirdLastScoreUpdate = nil
+        player1.historyUndoable = []
+        player1.historyRedoable = []
+        player2.historyUndoable = []
+        player2.historyRedoable = []
         //update view:
         updateScoresView()
         updateScoreHistoryViewAndUndoButtonsViewOfPlayer1()
