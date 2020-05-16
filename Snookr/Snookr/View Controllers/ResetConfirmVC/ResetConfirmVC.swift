@@ -1,5 +1,5 @@
 //
-//  ResetConfirmView.swift
+//  ResetConfirmVC.swift
 //  Snookr
 //
 //  Created by Yinan Qiu on 5/15/20.
@@ -8,41 +8,35 @@
 
 import UIKit
 
-protocol ResetConfirmViewDelegate: class {
+protocol ResetConfirmVCDelegate: class {
     func didTapConfirmResetButton()
 }
 
-class ResetConfirmView: UIView {
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configure()
+//not used. using view version instead, becuase modalTransitionStyle crossDissolve disables button interactivity during too long transition animation.
+class ResetConfirmVC: UIViewController {
+    
+    init(delegate: ResetConfirmVCDelegate) {
+        super.init(nibName: nil, bundle: nil)
+        self.delegate = delegate
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(delegate: ResetConfirmViewDelegate) {
-        self.init(frame: .zero)
-        self.delegate = delegate
-    }
-    
-    var delegate: ResetConfirmViewDelegate!
+    weak var delegate: ResetConfirmVCDelegate!
     
     var titleLabel: SNKLabel!
     var bodyLabel: SNKLabel!
     let buttonsView = UIView()
     var cancelButton: SNKButton!
     var confirmButton: SNKButton!
-    
-    private func configure() {
-        translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = SNKColor.background.withAlphaComponent(SNKAlpha.dimmer.rawValue)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = SNKColor.background.withAlphaComponent(SNKAlpha.dimmer.rawValue)
         configureSubviews()
         addButtonTargets()
-        alpha = 0
-        UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseInOut, animations: { self.alpha = 1 })
     }
     
     private func configureSubviews() {
@@ -58,13 +52,13 @@ class ResetConfirmView: UIView {
         }
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
         [titleLabel, bodyLabel, buttonsView].forEach { subview in
-            addSubview(subview!)
-            subview?.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+            view.addSubview(subview!)
+            subview?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         }
         NSLayoutConstraint.activate([
             titleLabel.bottomAnchor.constraint(equalTo: bodyLabel.topAnchor, constant: -SNKPadding.big),
-            bodyLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -15),
-            bodyLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: SNKLayoutPercent.bodyTextWidth),
+            bodyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -15),
+            bodyLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: SNKLayoutPercent.bodyTextWidth),
             buttonsView.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 45),
             buttonsView.widthAnchor.constraint(equalTo: bodyLabel.widthAnchor, constant: -5),
             cancelButton.topAnchor.constraint(equalTo: buttonsView.topAnchor),
@@ -80,19 +74,11 @@ class ResetConfirmView: UIView {
         confirmButton.addTarget(self, action: #selector(didTapConfirmResetButton), for: .touchUpInside)
     }
     
-    @objc func didTapCancelResetButton() { removeFromSuperviewWithAnimation() }
+    @objc func didTapCancelResetButton() { dismiss(animated: true) }
     
     @objc func didTapConfirmResetButton() {
-        removeFromSuperviewWithAnimation()
+        dismiss(animated: true)
         delegate.didTapConfirmResetButton()
     }
-    
-    private func removeFromSuperviewWithAnimation() {
-        UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseInOut, animations: {
-            self.alpha = 0
-        }) { _ in
-            self.removeFromSuperview()
-        }
-    }
-    
+
 }

@@ -8,9 +8,9 @@
 
 import UIKit
 
-let separatorViewWidth: CGFloat = 2
+let SNKPlayerNamePlaceholder = "Player Name"
 
-let playerNamePlaceholder = "Player Name"
+let SNKSeparatorViewWidth: CGFloat = 2
 
 enum SNKAlpha: CGFloat {
     case opaque = 1
@@ -23,6 +23,11 @@ enum SNKAlpha: CGFloat {
 
 enum SNKAnimationDuration {
     static let short: TimeInterval = 0.1
+    static let medium: TimeInterval = 0.2
+}
+
+enum SNKLayoutPercent {
+    static let bodyTextWidth: CGFloat = 0.8
 }
 
 enum SNKButtonSize {

@@ -16,7 +16,7 @@ struct Player {
         case unassigned
     }
     
-    var name = playerNamePlaceholder
+    var name = SNKPlayerNamePlaceholder
     var score = 0
     var historyUndoable = [Int]()
     var historyRedoable = [Int]()

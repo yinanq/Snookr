@@ -63,7 +63,7 @@ class InfoVC: UIViewController {
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             bodyTextViewContainerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: SNKPadding.big),
-            bodyTextViewContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            bodyTextViewContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: SNKLayoutPercent.bodyTextWidth),
             bodyTextViewContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bodyTextView.topAnchor.constraint(equalTo: bodyTextViewContainerView.topAnchor),
             bodyTextView.leadingAnchor.constraint(equalTo: bodyTextViewContainerView.leadingAnchor),

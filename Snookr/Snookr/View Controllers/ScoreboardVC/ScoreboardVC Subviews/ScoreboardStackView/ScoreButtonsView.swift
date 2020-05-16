@@ -33,7 +33,7 @@ class ScoreButtonsView: UIView {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        let plusButtonSize = (UIScreen.main.bounds.width - SNKPadding.big * 4 - separatorViewWidth) / 2
+        let plusButtonSize = (UIScreen.main.bounds.width - SNKPadding.big * 4 - SNKSeparatorViewWidth) / 2
         plusButton1 = SNKScoreButton(normalSymbol: .plusWithFill, highlightedSymbol: .plus, size: plusButtonSize, weight: .ultraLight)
         plusButton2 = SNKScoreButton(normalSymbol: .plusWithFill, highlightedSymbol: .plus, size: plusButtonSize, weight: .ultraLight)
         plusOneButton1 = SNKScoreButton(normalSymbol: .plus, highlightedSymbol: .plusWithFill)
@@ -46,8 +46,8 @@ class ScoreButtonsView: UIView {
             plusOneButton2.topAnchor.constraint(equalTo: plusButton1.bottomAnchor, constant: SNKPadding.negative),
             bottomAnchor.constraint(equalTo: plusOneButton1.bottomAnchor),
             //horizontal:
-            plusButton1.centerXAnchor.constraint(equalTo: leadingAnchor, constant: (UIScreen.main.bounds.width-4*SNKPadding.big-separatorViewWidth)/4 ),
-            plusButton2.centerXAnchor.constraint(equalTo: trailingAnchor, constant: -(UIScreen.main.bounds.width-4*SNKPadding.big-separatorViewWidth)/4 ),
+            plusButton1.centerXAnchor.constraint(equalTo: leadingAnchor, constant: (UIScreen.main.bounds.width-4*SNKPadding.big-SNKSeparatorViewWidth)/4 ),
+            plusButton2.centerXAnchor.constraint(equalTo: trailingAnchor, constant: -(UIScreen.main.bounds.width-4*SNKPadding.big-SNKSeparatorViewWidth)/4 ),
             plusOneButton1.leadingAnchor.constraint(equalTo: leadingAnchor),
             plusOneButton2.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])

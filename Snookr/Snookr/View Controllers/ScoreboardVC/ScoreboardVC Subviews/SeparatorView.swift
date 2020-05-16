@@ -23,6 +23,6 @@ class SeparatorView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = SNKColor.backgroundSecondary
         layer.cornerRadius = 1
-        widthAnchor.constraint(equalToConstant: separatorViewWidth).isActive = true
+        widthAnchor.constraint(equalToConstant: SNKSeparatorViewWidth).isActive = true
     }
 }
