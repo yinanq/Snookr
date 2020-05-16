@@ -23,7 +23,7 @@ enum SNKAlpha: CGFloat {
 
 enum SNKAnimationDuration {
     static let short: TimeInterval = 0.2
-    static let long: TimeInterval = 1.5
+    static let long: TimeInterval = 1.2
 }
 
 enum SNKLayoutPercent {
@@ -50,7 +50,8 @@ enum SNKColor {
     static let background = UIColor(white: 0, alpha: 1)
     static let backgroundSecondary = UIColor(red: 0/255, green: 52/255, blue: 30/255, alpha: 1)
     static let foreground = UIColor(red: 0/255, green: 255/255, blue: 147/255, alpha: 1)
-    static let foregroundSecondary = UIColor(white: 1, alpha: 1)
+    static let foregroundSecondary = UIColor(red: 0/255, green: 147/255, blue: 85/255, alpha: 1)
+    static let foregroundHighlited = UIColor(white: 1, alpha: 1)
 }
 
 enum SNKCornerRadius {

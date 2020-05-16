@@ -44,24 +44,24 @@ class SNKButton: UIButton {
             backgroundColor = SNKColor.foreground
             titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
             setTitleColor(SNKColor.background, for: .normal)
-            setTitleColor(SNKColor.foregroundSecondary, for: .highlighted)
+            setTitleColor(SNKColor.foregroundHighlited, for: .highlighted)
         case .outline:
             heightAnchor.constraint(equalToConstant: 60).isActive = true
             titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
             setTitleColor(SNKColor.foreground, for: .normal)
-            setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
+            setTitleColor(SNKColor.foregroundHighlited, for: .highlighted)
             layer.borderColor = SNKColor.foreground.cgColor
             layer.borderWidth = 2
         case .naked:
             heightAnchor.constraint(equalToConstant: 44).isActive = true
             titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
             setTitleColor(SNKColor.foreground, for: .normal)
-            setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
+            setTitleColor(SNKColor.foregroundHighlited, for: .highlighted)
         case .numberPad:
             backgroundColor = SNKColor.backgroundSecondary
             titleLabel?.font = UIFont.systemFont(ofSize: 36, weight: .thin)
             setTitleColor(SNKColor.foreground, for: .normal)
-            setTitleColor(SNKColor.foregroundSecondary, for: .highlighted)
+            setTitleColor(SNKColor.foregroundHighlited, for: .highlighted)
             layer.borderColor = SNKColor.foreground.cgColor
             layer.borderWidth = 0.5
             layer.cornerRadius = SNKCornerRadius.small

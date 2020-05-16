@@ -23,7 +23,7 @@ class SNKInfoButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
         setImage(UIImage(systemName: "info.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .normal)
         setImage(UIImage(systemName: "info.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .highlighted)
-        tintColor = SNKColor.backgroundSecondary
+        tintColor = SNKColor.foregroundSecondary
     }
     
 }
