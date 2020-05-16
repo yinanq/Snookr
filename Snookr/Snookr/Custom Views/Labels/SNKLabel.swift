@@ -19,7 +19,7 @@ class SNKLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment, numberOfLines: Int = 1, alpha: SNKAlpha = .opaque) {
+    convenience init(fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment = .center, numberOfLines: Int = 1, alpha: SNKAlpha = .opaque) {
         self.init(frame: .zero)
         set(fontSize: fontSize, fontWeight: fontWeight, textAlignment: textAlignment, numberOfLines: numberOfLines, alpha: alpha)
     }

@@ -11,19 +11,18 @@ import UIKit
 class InfoVC: UIViewController {
     
     var titleLabel: SNKLabel!
-    var bodyLabel: SNKLabel!
+    var bodyTextViewContainerView = UIView()
+    var bodyTextView = SNKTextView()
     var closeButton: SNKButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = SNKColor.background
         configureTitleLabel()
-        configureBodyLabel()
-        configureView()
+        configureBodyTextViewContainerView()
         configureCloseButton()
         layout()
     }
-    
-    private func configureView() { view.backgroundColor = SNKColor.background }
     
     private func configureTitleLabel() {
         titleLabel = SNKLabel(fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .center)
@@ -31,11 +30,24 @@ class InfoVC: UIViewController {
         view.addSubview(titleLabel)
     }
     
-    private func configureBodyLabel() {
-        bodyLabel = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .left, numberOfLines: 0)
-        bodyLabel.text =
-        "Snookr, this app, is a scoreboard for snooker players. It is designed and developed by Yinan Qiu, a member at California Snooker. If you have any feedback or question, please feel free to contact him at https://yinan.design. He wishes you loads of ranking points, mate!"
-        view.addSubview(bodyLabel)
+    private func configureBodyTextViewContainerView() {
+        let string = "Snookr is a scoreboard for the cue sport snooker. It's designed and developed by Yinan Qiu. Feel free to contact him if you have feedback, questions, or feature requests. Last but not least, he wishes you loads of ranking points, mate!"
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10
+        paragraphStyle.alignment = .justified
+        let attributes: [NSAttributedString.Key: Any] = [
+            .paragraphStyle: paragraphStyle,
+            .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular),
+            .foregroundColor: SNKColor.foreground,
+        ]
+        let maString = NSMutableAttributedString(string: string, attributes: attributes)
+        maString.addAttribute(.link, value: "https://yinan.design/contact", range: NSRange(location: 105, length: 11))
+        bodyTextView.isEditable = false
+        bodyTextView.linkTextAttributes = [NSAttributedString.Key.underlineStyle: true]
+        bodyTextView.attributedText = maString
+        bodyTextViewContainerView.translatesAutoresizingMaskIntoConstraints = false
+        bodyTextViewContainerView.addSubview(bodyTextView)
+        view.addSubview(bodyTextViewContainerView)
     }
     
     private func configureCloseButton() {
@@ -43,22 +55,24 @@ class InfoVC: UIViewController {
         closeButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         view.addSubview(closeButton)
     }
+    @objc func didTapCloseButton() { dismiss(animated: true) }
     
     private func layout() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
-            bodyLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: SNKPadding.big),
-            bodyLabel.widthAnchor.constraint(equalToConstant: 200),
-            bodyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bodyTextViewContainerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: SNKPadding.big),
+            bodyTextViewContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            bodyTextViewContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bodyTextView.topAnchor.constraint(equalTo: bodyTextViewContainerView.topAnchor),
+            bodyTextView.leadingAnchor.constraint(equalTo: bodyTextViewContainerView.leadingAnchor),
+            bodyTextView.trailingAnchor.constraint(equalTo: bodyTextViewContainerView.trailingAnchor),
+            bodyTextView.bottomAnchor.constraint(equalTo: bodyTextViewContainerView.bottomAnchor),
             closeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SNKPadding.big),
             closeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big)
         ])
     }
     
-    @objc func didTapCloseButton() {
-        dismiss(animated: true)
-    }
 }

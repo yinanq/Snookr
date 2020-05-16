@@ -19,7 +19,7 @@ class SNKTextView: UITextView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment) {
+    convenience init(fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment = .center) {
         self.init(frame: .zero)
         font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
         self.textAlignment = textAlignment

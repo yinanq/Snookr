@@ -42,19 +42,19 @@ class SNKButton: UIButton {
         case .solid:
             heightAnchor.constraint(equalToConstant: 60).isActive = true
             backgroundColor = SNKColor.foreground
-            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .bold)
+            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
             setTitleColor(SNKColor.background, for: .normal)
             setTitleColor(SNKColor.foregroundSecondary, for: .highlighted)
         case .outline:
             heightAnchor.constraint(equalToConstant: 60).isActive = true
-            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .bold)
+            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
             setTitleColor(SNKColor.foreground, for: .normal)
             setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
             layer.borderColor = SNKColor.foreground.cgColor
             layer.borderWidth = 2
         case .naked:
             heightAnchor.constraint(equalToConstant: 44).isActive = true
-            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .bold)
+            titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
             setTitleColor(SNKColor.foreground, for: .normal)
             setTitleColor(SNKColor.backgroundSecondary, for: .highlighted)
         case .numberPad:

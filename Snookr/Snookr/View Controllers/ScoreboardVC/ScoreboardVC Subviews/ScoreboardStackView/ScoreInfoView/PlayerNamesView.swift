@@ -37,8 +37,8 @@ class PlayerNamesView: UIView {
     }
     
     private func configurePlayerNameTextFields() {
-        textView1 = SNKTextView(fontSize: SNKFontSize.regular, fontWeight: .bold, textAlignment: .left)
-        textView2 = SNKTextView(fontSize: SNKFontSize.regular, fontWeight: .bold, textAlignment: .right)
+        textView1 = SNKTextView(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .left)
+        textView2 = SNKTextView(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .right)
         textView1.tag = SNKTextViewTag.player1
         textView2.tag = SNKTextViewTag.player2
         addSubviews(textView1, textView2)

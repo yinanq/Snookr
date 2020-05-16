@@ -28,7 +28,7 @@ class PointsAdderHeaderView: UIView {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        titleLabel = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .bold, textAlignment: .left, numberOfLines: 2)
+        titleLabel = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .left, numberOfLines: 2)
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
