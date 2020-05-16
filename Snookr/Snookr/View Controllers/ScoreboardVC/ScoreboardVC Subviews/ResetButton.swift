@@ -38,7 +38,7 @@ class ResetButton: SNKButton {
     }
     func disable() {
         isEnabled = false
-        alpha = SNKAlpha.transparentLowOpacity.rawValue
+        alpha = SNKAlpha.disabledButton.rawValue
     }
     
 }

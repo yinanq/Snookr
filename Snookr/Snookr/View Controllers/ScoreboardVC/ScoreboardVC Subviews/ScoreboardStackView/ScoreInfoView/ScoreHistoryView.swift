@@ -28,12 +28,12 @@ class ScoreHistoryView: UIView {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        lastScoreUpdateLabel1 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .left, alpha: SNKAlpha.opaque)
-        secondLastScoreUpdateLabel1 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .left, alpha: SNKAlpha.transparentHighOpacity)
-        thirdLastScoreUpdateLabel1 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .left, alpha: SNKAlpha.transparentMidOpacity)
-        lastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .right, alpha: SNKAlpha.opaque)
-        secondLastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .right, alpha: SNKAlpha.transparentHighOpacity)
-        thirdLastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .right, alpha: SNKAlpha.transparentMidOpacity)
+        lastScoreUpdateLabel1 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .left)
+        secondLastScoreUpdateLabel1 = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .left)
+        thirdLastScoreUpdateLabel1 = SNKLabel(color: SNKColor.foregroundTertiary, fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .left)
+        lastScoreUpdateLabel2 = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .right)
+        secondLastScoreUpdateLabel2 = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .right)
+        thirdLastScoreUpdateLabel2 = SNKLabel(color: SNKColor.foregroundTertiary, fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .right)
         [lastScoreUpdateLabel1,
          secondLastScoreUpdateLabel1,
          thirdLastScoreUpdateLabel1,

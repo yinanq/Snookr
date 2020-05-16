@@ -13,10 +13,7 @@ let SNKPlayerNamePlaceholder = "Player Name"
 let SNKSeparatorViewWidth: CGFloat = 2
 
 enum SNKAlpha: CGFloat {
-    case opaque = 1
-    case transparentHighOpacity = 0.65
-    case transparentMidOpacity = 0.4
-    case transparentLowOpacity = 0.2
+    case disabledButton = 0.2
     case dimmer = 0.9
     case dimTo = 0.1
 }
@@ -51,6 +48,7 @@ enum SNKColor {
     static let backgroundSecondary = UIColor(red: 0/255, green: 52/255, blue: 30/255, alpha: 1)
     static let foreground = UIColor(red: 0/255, green: 255/255, blue: 147/255, alpha: 1)
     static let foregroundSecondary = UIColor(red: 0/255, green: 147/255, blue: 85/255, alpha: 1)
+    static let foregroundTertiary = UIColor(red: 0/255, green: 88/255, blue: 50/255, alpha: 1)
     static let foregroundHighlited = UIColor(white: 1, alpha: 1)
 }
 

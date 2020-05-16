@@ -78,7 +78,7 @@ extension ScoreboardVC: UITextViewDelegate {
         let allViews: [UIView] = [separatorView, stackView.scoreInfoView.scoresView, stackView.scoreInfoView.scoreHistoryView, stackView.scoreInfoView.undoButtonsView, stackView.scoreButtonsView, resetButton, stackView.scoreInfoView.playerNamesView.textView1, stackView.scoreInfoView.playerNamesView.textView2]
         for view in allViews {
             view.isUserInteractionEnabled = true
-            UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = SNKAlpha.opaque.rawValue }
+            UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = 1 }
         }
         updateResetButton() //in case reset button was at low opacity disabled state prior to text view editing
     }
