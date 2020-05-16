@@ -35,6 +35,7 @@ class ScoreboardVC: UIViewController {
         configureDelegates()
         configureModels()
         configureViews()
+        playStarterAnimation()
     }
     
     private func configureDelegates() {

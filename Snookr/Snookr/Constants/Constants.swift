@@ -22,8 +22,8 @@ enum SNKAlpha: CGFloat {
 }
 
 enum SNKAnimationDuration {
-    static let short: TimeInterval = 0.1
-    static let medium: TimeInterval = 0.2
+    static let short: TimeInterval = 0.2
+    static let long: TimeInterval = 1.5
 }
 
 enum SNKLayoutPercent {
@@ -67,8 +67,9 @@ enum SNKFontSize {
 }
 
 enum SNKFontWeight {
-    static let forFontSizeHuge = UIFont.Weight.semibold
-    static let forFontSizeRegular = UIFont.Weight.bold
+    static let forFontSizeGigantic: UIFont.Weight = .semibold
+    static let forFontSizeHuge: UIFont.Weight = .semibold
+    static let forFontSizeRegular: UIFont.Weight = .bold
 }
 
 enum SNKPadding {

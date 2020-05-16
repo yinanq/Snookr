@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F07D6E324709DD30052CF7F /* ScoreboardVC+funcAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F07D6E224709DD30052CF7F /* ScoreboardVC+funcAnimations.swift */; };
 		7F0F60A4246CB04700F4C52C /* InfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F60A3246CB04700F4C52C /* InfoButtonView.swift */; };
 		7F0F60A6246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F60A5246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift */; };
 		7F0F60A9246CB45300F4C52C /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F60A8246CB45300F4C52C /* InfoVC.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F07D6E224709DD30052CF7F /* ScoreboardVC+funcAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+funcAnimations.swift"; sourceTree = "<group>"; };
 		7F0F60A3246CB04700F4C52C /* InfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonView.swift; sourceTree = "<group>"; };
 		7F0F60A5246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+InfoButtonViewDelegate.swift"; sourceTree = "<group>"; };
 		7F0F60A8246CB45300F4C52C /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		7F0F60A7246CB41A00F4C52C /* SocreboardVC Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7F07D6E224709DD30052CF7F /* ScoreboardVC+funcAnimations.swift */,
 				7FD2BBFF246BE47300C44D26 /* ScoreboardVC+funcPersistence.swift */,
 				7F26984B246E517000AD60B6 /* ScoreboardVC+funcModelUpdaters.swift */,
 				7F39EF84246BDA0700ABB703 /* ScoreboardVC+funcViewUpdaters.swift */,
@@ -434,6 +437,7 @@
 				7FACBEC8246CF01C004E9137 /* PointsAdderNumberPadView.swift in Sources */,
 				7F98D7FD246AA68700E48149 /* SNKInfoButton.swift in Sources */,
 				7F39EF87246BDB5200ABB703 /* ResetButton.swift in Sources */,
+				7F07D6E324709DD30052CF7F /* ScoreboardVC+funcAnimations.swift in Sources */,
 				7FEF8A9624676FC1000240A0 /* SNKScoreButton.swift in Sources */,
 				7FF90343246F97E7003FFDF2 /* ResetConfirmVC.swift in Sources */,
 				7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */,

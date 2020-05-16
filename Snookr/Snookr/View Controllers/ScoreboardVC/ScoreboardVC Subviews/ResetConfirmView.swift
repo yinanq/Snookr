@@ -42,14 +42,14 @@ class ResetConfirmView: UIView {
         configureSubviews()
         addButtonTargets()
         alpha = 0
-        UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseInOut, animations: { self.alpha = 1 })
+        UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseInOut, animations: { self.alpha = 1 })
     }
     
     private func configureSubviews() {
         titleLabel = SNKLabel(fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge)
         bodyLabel = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, numberOfLines: 0)
         titleLabel.text = "Sure?"
-        bodyLabel.text = "Scores will reset. Are you sure you want to start a new frame?"
+        bodyLabel.text = "Gonna reset the scores. Sure you wanna do it?" //serious tone alt: "Scores will reset. Are you sure you want to start a new frame?"
         cancelButton = SNKButton(title: "No", style: .solid)
         confirmButton = SNKButton(title: "Yes", style: .solid)
         [cancelButton, confirmButton].forEach { button in
@@ -88,7 +88,7 @@ class ResetConfirmView: UIView {
     }
     
     private func removeFromSuperviewWithAnimation() {
-        UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseInOut, animations: {
             self.alpha = 0
         }) { _ in
             self.removeFromSuperview()
