@@ -41,7 +41,7 @@ extension ScoreboardVC: ResetButtonDelegate, ResetConfirmViewDelegate {
         clearRedoHistoryAndButtonFor(&player1)
         clearRedoHistoryAndButtonFor(&player2)
         updateResetButton()
-        playStarterAnimation()
+        playFrameStarterAnimation()
         //persist:
         persistScoreFor(&player1)
         persistScoreFor(&player2)

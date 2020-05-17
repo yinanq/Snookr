@@ -35,7 +35,7 @@ class ScoreboardVC: UIViewController {
         configureDelegates()
         configureModels()
         configureViews()
-        playStarterAnimation()
+        playLaunchScreenSmootherAnimation()
     }
     
     private func configureDelegates() {
@@ -59,18 +59,8 @@ class ScoreboardVC: UIViewController {
         updateScoresView()
         updateResetButton()
     }
-    
-}
-
-//private func view updaters:
-extension ScoreboardVC {
-    
     private func updatePlayerNameView() { stackView.scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
-
-}
-
-//private func layout:
-extension ScoreboardVC {
+    
     private func layout() {
         let separatorTopAjuster: CGFloat = 4
         let separatorBottomAdjuster: CGFloat = -4
@@ -87,4 +77,5 @@ extension ScoreboardVC {
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big)
         ])
     }
+    
 }

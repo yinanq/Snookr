@@ -27,6 +27,11 @@ class InfoButtonView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    convenience init (delegate: InfoButtonViewDelegate) {
+        self.init(frame: .zero)
+        self.delegate = delegate
+    }
+    
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(infoButton)
