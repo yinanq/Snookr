@@ -19,15 +19,14 @@ extension ScoreboardVC: ScoreButtonsViewDelegate {
     private func openPointsAdderVCForPlayerWith(buttonTag: Int) {
         var pointsAdderVC: PointsAdderVC!
         switch buttonTag {
-        case SNKButtonTag.plusButton1: pointsAdderVC = PointsAdderVC(player: player1)
-        case SNKButtonTag.plusButton2: pointsAdderVC = PointsAdderVC(player: player2)
+        case SNKButtonTag.plusButton1: pointsAdderVC = PointsAdderVC(player: player1, delegate: self)
+        case SNKButtonTag.plusButton2: pointsAdderVC = PointsAdderVC(player: player2, delegate: self)
         default: print("error: invalid tag in openPointsAdderVCForPlayerWith")
         }
         guard pointsAdderVC != nil else {
             print("error: pointsAdderVC is nil, in openPointsAdderVCForPlayerWith")
             return
         }
-        pointsAdderVC.delegate = self
         present(pointsAdderVC, animated: true)
     }
     

@@ -24,9 +24,10 @@ class PointsAdderVC: UIViewController {
     let cancelButton = SNKXButton()
     var addPointsButton: SNKButton!
     
-    init(player: Player) {
+    init(player: Player, delegate: PointsAdderVCDelegate) {
         super.init(nibName: nil, bundle: nil)
         self.player = player
+        self.delegate = delegate
     }
     
     required init?(coder: NSCoder) {
