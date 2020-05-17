@@ -80,7 +80,7 @@ extension ScoreboardVC: UITextViewDelegate {
             view.isUserInteractionEnabled = true
             UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = 1 }
         }
-        updateResetButton() //in case reset button was at low opacity disabled state prior to text view editing
+        if !resetButton.isEnabled { resetButton.disable() } //its alpha became 1 regardless, if was and is disabled then disable again to correct alpha
     }
     
 }
