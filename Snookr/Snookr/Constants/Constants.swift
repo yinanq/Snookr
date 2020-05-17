@@ -10,8 +10,6 @@ import UIKit
 
 let SNKPlayerNamePlaceholder = "Player Name"
 
-let SNKSeparatorViewWidth: CGFloat = 2
-
 enum SNKAlpha: CGFloat {
     case disabledButton = 0.2
     case dimmer = 0.9
@@ -69,15 +67,19 @@ enum SNKFontWeight {
     static let forFontSizeGigantic: UIFont.Weight = .semibold
     static let forFontSizeHuge: UIFont.Weight = .semibold
     static let forFontSizeRegular: UIFont.Weight = .bold
+    static let forFontSizeSmall: UIFont.Weight = .bold
 }
 
 enum SNKPadding {
     static let big: CGFloat = 20
     static let small: CGFloat = 8
+    static let tiny: CGFloat = 5
     static let negative: CGFloat = -5
     static let textViewAdjusterTop: CGFloat = -8
     static let textViewAdjusterTextAlignedSide: CGFloat = 3
     static let textViewAdjusterTextUnalignedSide: CGFloat = 9
+    static let separatorViewWidth: CGFloat = 2
+    static let difViewWidth: CGFloat = 65
 }
 
 enum SNKTextViewTag {

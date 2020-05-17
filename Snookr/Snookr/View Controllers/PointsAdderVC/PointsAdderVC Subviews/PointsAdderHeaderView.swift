@@ -17,9 +17,7 @@ class PointsAdderHeaderView: UIView {
         configure()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     convenience init(player: Player) {
         self.init(frame: .zero)

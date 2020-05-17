@@ -40,9 +40,7 @@ class SNKNumberPadButton: UIButton {
         configure()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     convenience init(normalSymbol: Symbol, highlightedSymbol: Symbol, size: CGFloat = 100, weight: UIImage.SymbolWeight = .ultraLight, contentMode: UIView.ContentMode = .scaleAspectFit) {
         self.init(frame: .zero)

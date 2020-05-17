@@ -15,14 +15,12 @@ class SeparatorView: UIView {
         configure()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = SNKColor.backgroundSecondary
         layer.cornerRadius = 1
-        widthAnchor.constraint(equalToConstant: SNKSeparatorViewWidth).isActive = true
+        widthAnchor.constraint(equalToConstant: SNKPadding.separatorViewWidth).isActive = true
     }
 }

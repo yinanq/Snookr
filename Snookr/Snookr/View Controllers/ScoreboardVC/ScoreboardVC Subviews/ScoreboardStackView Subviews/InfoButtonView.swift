@@ -16,16 +16,14 @@ class InfoButtonView: UIView {
     
     weak var delegate: InfoButtonViewDelegate!
     
-    let infoButton = SNKInfoButton()
+    let infoButton = InfoButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     convenience init (delegate: InfoButtonViewDelegate) {
         self.init(frame: .zero)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F016CB424714DE200549E48 /* ScoreboardVC+PairingDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F016CB324714DE200549E48 /* ScoreboardVC+PairingDelegates.swift */; };
 		7F07D6E324709DD30052CF7F /* ScoreboardVC+funcAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F07D6E224709DD30052CF7F /* ScoreboardVC+funcAnimations.swift */; };
 		7F0F60A4246CB04700F4C52C /* InfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F60A3246CB04700F4C52C /* InfoButtonView.swift */; };
 		7F0F60A6246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F60A5246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift */; };
@@ -24,6 +25,7 @@
 		7F52C2CE2468BC5500C76C1E /* ScoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */; };
 		7F52C2D12468BCC000C76C1E /* ScoreButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */; };
 		7F52C2D32468BE0300C76C1E /* PlayerNamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2D22468BE0300C76C1E /* PlayerNamesView.swift */; };
+		7F62A90C2471166F0092DDCC /* PairedStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F62A90B2471166F0092DDCC /* PairedStatusView.swift */; };
 		7F6AE51D2468C5F300767F7C /* UndoButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */; };
 		7F6AE52124690BA000767F7C /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52024690BA000767F7C /* UIStackView+.swift */; };
 		7F6AE52324690F9800767F7C /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52224690F9800767F7C /* SeparatorView.swift */; };
@@ -33,6 +35,7 @@
 		7FACBEC6246CE753004E9137 /* PointsAdderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACBEC5246CE753004E9137 /* PointsAdderHeaderView.swift */; };
 		7FACBEC8246CF01C004E9137 /* PointsAdderNumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACBEC7246CF01C004E9137 /* PointsAdderNumberPadView.swift */; };
 		7FACBECD246D274D004E9137 /* SNKNumberPadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACBECC246D274D004E9137 /* SNKNumberPadButton.swift */; };
+		7FCA75A5247121730066B001 /* PairButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA75A4247121730066B001 /* PairButton.swift */; };
 		7FCB0F81246BDE2F00562636 /* ScoreboardVC+ResetDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB0F80246BDE2F00562636 /* ScoreboardVC+ResetDelegates.swift */; };
 		7FD2BC00246BE47300C44D26 /* ScoreboardVC+funcPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD2BBFF246BE47300C44D26 /* ScoreboardVC+funcPersistence.swift */; };
 		7FE085CB246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE085CA246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift */; };
@@ -54,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F016CB324714DE200549E48 /* ScoreboardVC+PairingDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+PairingDelegates.swift"; sourceTree = "<group>"; };
 		7F07D6E224709DD30052CF7F /* ScoreboardVC+funcAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+funcAnimations.swift"; sourceTree = "<group>"; };
 		7F0F60A3246CB04700F4C52C /* InfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonView.swift; sourceTree = "<group>"; };
 		7F0F60A5246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+InfoButtonViewDelegate.swift"; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 		7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreInfoView.swift; sourceTree = "<group>"; };
 		7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreButtonsView.swift; sourceTree = "<group>"; };
 		7F52C2D22468BE0300C76C1E /* PlayerNamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNamesView.swift; sourceTree = "<group>"; };
+		7F62A90B2471166F0092DDCC /* PairedStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairedStatusView.swift; sourceTree = "<group>"; };
 		7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButtonsView.swift; sourceTree = "<group>"; };
 		7F6AE52024690BA000767F7C /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		7F6AE52224690F9800767F7C /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
@@ -80,6 +85,7 @@
 		7FACBEC5246CE753004E9137 /* PointsAdderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAdderHeaderView.swift; sourceTree = "<group>"; };
 		7FACBEC7246CF01C004E9137 /* PointsAdderNumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAdderNumberPadView.swift; sourceTree = "<group>"; };
 		7FACBECC246D274D004E9137 /* SNKNumberPadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKNumberPadButton.swift; sourceTree = "<group>"; };
+		7FCA75A4247121730066B001 /* PairButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairButton.swift; sourceTree = "<group>"; };
 		7FCB0F80246BDE2F00562636 /* ScoreboardVC+ResetDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+ResetDelegates.swift"; sourceTree = "<group>"; };
 		7FD2BBFF246BE47300C44D26 /* ScoreboardVC+funcPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+funcPersistence.swift"; sourceTree = "<group>"; };
 		7FE085CA246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+ScoreButtonsViewDelegate.swift"; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 				7FE085CC246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift */,
 				7FE085CA246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift */,
 				7F0F60A5246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift */,
+				7F016CB324714DE200549E48 /* ScoreboardVC+PairingDelegates.swift */,
 				7F269849246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift */,
 				7FCB0F80246BDE2F00562636 /* ScoreboardVC+ResetDelegates.swift */,
 			);
@@ -148,15 +155,16 @@
 			path = InfoVC;
 			sourceTree = "<group>";
 		};
-		7F158C8A246A902C00AF1D38 /* ScoreboardStackView */ = {
+		7F158C8A246A902C00AF1D38 /* ScoreboardStackView Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */,
-				7F52C2CF2468BC7300C76C1E /* ScoreInfoView */,
+				7F52C2CF2468BC7300C76C1E /* ScoreInfoView Subviews */,
 				7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */,
 				7F0F60A3246CB04700F4C52C /* InfoButtonView.swift */,
+				7F62A90D2471206D0092DDCC /* InfoButtonView Subviews */,
 			);
-			path = ScoreboardStackView;
+			path = "ScoreboardStackView Subviews";
 			sourceTree = "<group>";
 		};
 		7F3E932D2467815B0067B891 /* Extensions */ = {
@@ -184,24 +192,32 @@
 			path = "PointsAdderVC Extensions";
 			sourceTree = "<group>";
 		};
-		7F52C2CF2468BC7300C76C1E /* ScoreInfoView */ = {
+		7F52C2CF2468BC7300C76C1E /* ScoreInfoView Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				7F52C2D22468BE0300C76C1E /* PlayerNamesView.swift */,
 				7FEF8A892467638D000240A0 /* ScoresView.swift */,
-				7F52C2D42468BE0E00C76C1E /* ScoresView */,
+				7F52C2D42468BE0E00C76C1E /* ScoresView Subviews */,
 				7FEF8A8D24676402000240A0 /* ScoreHistoryView.swift */,
 				7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */,
 			);
-			path = ScoreInfoView;
+			path = "ScoreInfoView Subviews";
 			sourceTree = "<group>";
 		};
-		7F52C2D42468BE0E00C76C1E /* ScoresView */ = {
+		7F52C2D42468BE0E00C76C1E /* ScoresView Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				7FEF8A8B246763C2000240A0 /* ScoreDifView.swift */,
 			);
-			path = ScoresView;
+			path = "ScoresView Subviews";
+			sourceTree = "<group>";
+		};
+		7F62A90D2471206D0092DDCC /* InfoButtonView Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				7F98D7FC246AA68700E48149 /* SNKInfoButton.swift */,
+			);
+			path = "InfoButtonView Subviews";
 			sourceTree = "<group>";
 		};
 		7F6AE5242469319A00767F7C /* TextViews */ = {
@@ -293,9 +309,11 @@
 		7FEF8A852467617F000240A0 /* ScoreboardVC Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				7F62A90B2471166F0092DDCC /* PairedStatusView.swift */,
+				7FCA75A4247121730066B001 /* PairButton.swift */,
 				7F6AE52224690F9800767F7C /* SeparatorView.swift */,
 				7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */,
-				7F158C8A246A902C00AF1D38 /* ScoreboardStackView */,
+				7F158C8A246A902C00AF1D38 /* ScoreboardStackView Subviews */,
 				7F39EF86246BDB5200ABB703 /* ResetButton.swift */,
 				7FF90346246FA5F0003FFDF2 /* ResetConfirmView.swift */,
 			);
@@ -317,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				7FEF8A8F24676429000240A0 /* SNKButton.swift */,
-				7F98D7FC246AA68700E48149 /* SNKInfoButton.swift */,
 				7FACBECC246D274D004E9137 /* SNKNumberPadButton.swift */,
 				7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */,
 				7F4BF45F246DE33A009B2E78 /* SNKXButton.swift */,
@@ -435,6 +452,8 @@
 				7FACBECD246D274D004E9137 /* SNKNumberPadButton.swift in Sources */,
 				7F39EF85246BDA0700ABB703 /* ScoreboardVC+funcViewUpdaters.swift in Sources */,
 				7FEF8A9024676429000240A0 /* SNKButton.swift in Sources */,
+				7FCA75A5247121730066B001 /* PairButton.swift in Sources */,
+				7F016CB424714DE200549E48 /* ScoreboardVC+PairingDelegates.swift in Sources */,
 				7FEF8A6924675E9E000240A0 /* AppDelegate.swift in Sources */,
 				7FEF8A7E2467601B000240A0 /* ScoreboardVC.swift in Sources */,
 				7F6AE52324690F9800767F7C /* SeparatorView.swift in Sources */,
@@ -444,6 +463,7 @@
 				7F4A3225246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift in Sources */,
 				7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */,
 				7FEF8A8C246763C2000240A0 /* ScoreDifView.swift in Sources */,
+				7F62A90C2471166F0092DDCC /* PairedStatusView.swift in Sources */,
 				7F52C2CE2468BC5500C76C1E /* ScoreInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,7 +607,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = design.yinan.Snookr;
+				PRODUCT_BUNDLE_IDENTIFIER = design.yinan.SnookrApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -605,7 +625,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = design.yinan.Snookr;
+				PRODUCT_BUNDLE_IDENTIFIER = design.yinan.SnookrApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
