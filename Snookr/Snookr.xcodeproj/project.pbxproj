@@ -50,7 +50,6 @@
 		7FEF8A9024676429000240A0 /* SNKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A8F24676429000240A0 /* SNKButton.swift */; };
 		7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A93246764A5000240A0 /* SNKLabel.swift */; };
 		7FEF8A9624676FC1000240A0 /* SNKScoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */; };
-		7FF90343246F97E7003FFDF2 /* ResetConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF90342246F97E7003FFDF2 /* ResetConfirmVC.swift */; };
 		7FF90347246FA5F0003FFDF2 /* ResetConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF90346246FA5F0003FFDF2 /* ResetConfirmView.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,7 +99,6 @@
 		7FEF8A8F24676429000240A0 /* SNKButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKButton.swift; sourceTree = "<group>"; };
 		7FEF8A93246764A5000240A0 /* SNKLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKLabel.swift; sourceTree = "<group>"; };
 		7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKScoreButton.swift; sourceTree = "<group>"; };
-		7FF90342246F97E7003FFDF2 /* ResetConfirmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetConfirmVC.swift; sourceTree = "<group>"; };
 		7FF90346246FA5F0003FFDF2 /* ResetConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetConfirmView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,7 +269,6 @@
 			children = (
 				7F0F60AA246CB46800F4C52C /* ScoreboardVC */,
 				7FACBEC1246CC3B7004E9137 /* PointsAdderVC */,
-				7FF90341246F979D003FFDF2 /* ResetConfirmVC */,
 				7F0F60AB246CB47500F4C52C /* InfoVC */,
 			);
 			path = "View Controllers";
@@ -334,14 +331,6 @@
 				7FEF8A93246764A5000240A0 /* SNKLabel.swift */,
 			);
 			path = Labels;
-			sourceTree = "<group>";
-		};
-		7FF90341246F979D003FFDF2 /* ResetConfirmVC */ = {
-			isa = PBXGroup;
-			children = (
-				7FF90342246F97E7003FFDF2 /* ResetConfirmVC.swift */,
-			);
-			path = ResetConfirmVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,7 +428,6 @@
 				7F39EF87246BDB5200ABB703 /* ResetButton.swift in Sources */,
 				7F07D6E324709DD30052CF7F /* ScoreboardVC+funcAnimations.swift in Sources */,
 				7FEF8A9624676FC1000240A0 /* SNKScoreButton.swift in Sources */,
-				7FF90343246F97E7003FFDF2 /* ResetConfirmVC.swift in Sources */,
 				7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */,
 				7F6AE526246931DD00767F7C /* SNKTextView.swift in Sources */,
 				7FE085CB246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift in Sources */,

@@ -27,6 +27,8 @@ class ScoreboardVC: UIViewController {
     let resetButton = ResetButton()
     let tapRecognizer = UITapGestureRecognizer()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = SNKColor.background
