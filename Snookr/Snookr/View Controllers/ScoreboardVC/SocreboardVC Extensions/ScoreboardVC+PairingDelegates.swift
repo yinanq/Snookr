@@ -6,16 +6,10 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-extension ScoreboardVC: PairButtonDelegate, PairedStatusViewDelegate {
+extension ScoreboardVC: PairButtonDelegate {
     
     func didTapPairButton() {
-        pairButton.isHidden = true
-        paireredStatusView.isHidden = false
-    }
-    
-    func didTapPairedStatusView() {
-        paireredStatusView.isHidden = true
-        pairButton.isHidden = false
+        print("didTapPairButton")
     }
     
 }

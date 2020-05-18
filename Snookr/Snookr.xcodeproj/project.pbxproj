@@ -25,7 +25,6 @@
 		7F52C2CE2468BC5500C76C1E /* ScoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */; };
 		7F52C2D12468BCC000C76C1E /* ScoreButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */; };
 		7F52C2D32468BE0300C76C1E /* PlayerNamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2D22468BE0300C76C1E /* PlayerNamesView.swift */; };
-		7F62A90C2471166F0092DDCC /* PairedStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F62A90B2471166F0092DDCC /* PairedStatusView.swift */; };
 		7F6AE51D2468C5F300767F7C /* UndoButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */; };
 		7F6AE52124690BA000767F7C /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52024690BA000767F7C /* UIStackView+.swift */; };
 		7F6AE52324690F9800767F7C /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52224690F9800767F7C /* SeparatorView.swift */; };
@@ -75,7 +74,6 @@
 		7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreInfoView.swift; sourceTree = "<group>"; };
 		7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreButtonsView.swift; sourceTree = "<group>"; };
 		7F52C2D22468BE0300C76C1E /* PlayerNamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNamesView.swift; sourceTree = "<group>"; };
-		7F62A90B2471166F0092DDCC /* PairedStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairedStatusView.swift; sourceTree = "<group>"; };
 		7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButtonsView.swift; sourceTree = "<group>"; };
 		7F6AE52024690BA000767F7C /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		7F6AE52224690F9800767F7C /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 		7FEF8A852467617F000240A0 /* ScoreboardVC Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				7F62A90B2471166F0092DDCC /* PairedStatusView.swift */,
 				7FCA75A4247121730066B001 /* PairButton.swift */,
 				7F6AE52224690F9800767F7C /* SeparatorView.swift */,
 				7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */,
@@ -463,7 +460,6 @@
 				7F4A3225246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift in Sources */,
 				7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */,
 				7FEF8A8C246763C2000240A0 /* ScoreDifView.swift in Sources */,
-				7F62A90C2471166F0092DDCC /* PairedStatusView.swift in Sources */,
 				7F52C2CE2468BC5500C76C1E /* ScoreInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

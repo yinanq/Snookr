@@ -22,19 +22,18 @@ class ScoreboardVC: UIViewController {
     var player1 = Player(playerId: .player1)
     var player2 = Player(playerId: .player2)
     
-    let paireredStatusView = PairedStatusView()
-    let pairButton = PairButton()
     let separatorView = SeparatorView()
     let stackView = ScoreboardStackView()
     let resetButton = ResetButton()
     let tapRecognizer = UITapGestureRecognizer()
+//    let pairButton = PairButton()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = SNKColor.background
-        view.addSubviews(separatorView, stackView, paireredStatusView, pairButton, resetButton)
+        view.addSubviews(separatorView, stackView, resetButton)
         layout()
         configureDelegates()
         configureModels()
@@ -43,14 +42,13 @@ class ScoreboardVC: UIViewController {
     }
     
     private func configureDelegates() {
-        pairButton.delegate = self
-        paireredStatusView.delegate = self
         stackView.scoreInfoView.playerNamesView.textView1.delegate = self
         stackView.scoreInfoView.playerNamesView.textView2.delegate = self
         stackView.scoreButtonsView.delegate = self
         stackView.scoreInfoView.undoButtonsView.delegate = self
         stackView.infoButtonView.delegate = self
         resetButton.delegate = self
+//        pairButton.delegate = self
     }
     
     private func configureModels() {
@@ -69,12 +67,7 @@ class ScoreboardVC: UIViewController {
     
     private func layout() {
         NSLayoutConstraint.activate([
-            paireredStatusView.topAnchor.constraint(equalTo: view.topAnchor),
-            paireredStatusView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            paireredStatusView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            pairButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pairButton.topAnchor.constraint(equalTo: stackView.topAnchor, constant: -12),
-            stackView.topAnchor.constraint(equalTo: paireredStatusView.bottomAnchor, constant: SNKPadding.big),
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             stackView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big),
@@ -82,7 +75,7 @@ class ScoreboardVC: UIViewController {
             resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             separatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            separatorView.topAnchor.constraint(equalTo: stackView.scoreInfoView.scoresView.scoreDifView.bottomAnchor, constant: SNKPadding.big),
+            separatorView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 4.5),
             separatorView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big - 4)
         ])
     }
