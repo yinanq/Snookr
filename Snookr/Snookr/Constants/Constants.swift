@@ -44,6 +44,11 @@ enum SNKButtonTag {
     static let redoButton2 = -12
 }
 
+enum SNKCommonKeys {
+    static let player1sName = "1's name"
+    static let player2sName = "2's name"
+}
+
 enum SNKColor {
     static let background = UIColor(white: 0, alpha: 1)
     static let backgroundSecondary = UIColor(red: 0/255, green: 52/255, blue: 30/255, alpha: 1)

@@ -47,6 +47,8 @@
 		7FDD3DD72473A71000292402 /* FramesVC+FramesWonButtonsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3DD62473A71000292402 /* FramesVC+FramesWonButtonsViewDelegate.swift */; };
 		7FDD3DD92473ACF900292402 /* FramesVC+funcPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3DD82473ACF900292402 /* FramesVC+funcPersistence.swift */; };
 		7FDD3DDB2473B8A900292402 /* FramesVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3DDA2473B8A900292402 /* FramesVC+UITextViewDelegate.swift */; };
+		7FDD3DDD2473BDD300292402 /* FramesVC+ScoreboardVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3DDC2473BDD300292402 /* FramesVC+ScoreboardVCDelegate.swift */; };
+		7FDD3DDF2473BE3900292402 /* ScoreboardVC+FramesVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3DDE2473BE3900292402 /* ScoreboardVC+FramesVCDelegate.swift */; };
 		7FE085CB246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE085CA246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift */; };
 		7FE085CD246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE085CC246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift */; };
 		7FEF8A6924675E9E000240A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A6824675E9E000240A0 /* AppDelegate.swift */; };
@@ -105,6 +107,8 @@
 		7FDD3DD62473A71000292402 /* FramesVC+FramesWonButtonsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FramesVC+FramesWonButtonsViewDelegate.swift"; sourceTree = "<group>"; };
 		7FDD3DD82473ACF900292402 /* FramesVC+funcPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FramesVC+funcPersistence.swift"; sourceTree = "<group>"; };
 		7FDD3DDA2473B8A900292402 /* FramesVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FramesVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
+		7FDD3DDC2473BDD300292402 /* FramesVC+ScoreboardVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FramesVC+ScoreboardVCDelegate.swift"; sourceTree = "<group>"; };
+		7FDD3DDE2473BE3900292402 /* ScoreboardVC+FramesVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+FramesVCDelegate.swift"; sourceTree = "<group>"; };
 		7FE085CA246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+ScoreButtonsViewDelegate.swift"; sourceTree = "<group>"; };
 		7FE085CC246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+UndoButtonsViewDelegate.swift"; sourceTree = "<group>"; };
 		7FEF8A6524675E9E000240A0 /* Snookr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snookr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +146,7 @@
 				7FD2BBFF246BE47300C44D26 /* ScoreboardVC+funcPersistence.swift */,
 				7F26984B246E517000AD60B6 /* ScoreboardVC+funcModelUpdaters.swift */,
 				7F39EF84246BDA0700ABB703 /* ScoreboardVC+funcViewUpdaters.swift */,
+				7FDD3DDE2473BE3900292402 /* ScoreboardVC+FramesVCDelegate.swift */,
 				7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */,
 				7FE085CC246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift */,
 				7FE085CA246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift */,
@@ -259,6 +264,7 @@
 			children = (
 				7FDD3DD02473915100292402 /* FramesVC+funcViewUpdaters.swift */,
 				7FDD3DD82473ACF900292402 /* FramesVC+funcPersistence.swift */,
+				7FDD3DDC2473BDD300292402 /* FramesVC+ScoreboardVCDelegate.swift */,
 				7FDD3DDA2473B8A900292402 /* FramesVC+UITextViewDelegate.swift */,
 				7FDD3DD62473A71000292402 /* FramesVC+FramesWonButtonsViewDelegate.swift */,
 				7FDD3DD4247394DA00292402 /* FramesVC+ResetDelegates.swift */,
@@ -488,6 +494,7 @@
 				7FCB0F81246BDE2F00562636 /* ScoreboardVC+ResetDelegates.swift in Sources */,
 				7F26984C246E517000AD60B6 /* ScoreboardVC+funcModelUpdaters.swift in Sources */,
 				7FDD3DD12473915100292402 /* FramesVC+funcViewUpdaters.swift in Sources */,
+				7FDD3DDF2473BE3900292402 /* ScoreboardVC+FramesVCDelegate.swift in Sources */,
 				7F158C89246A902100AF1D38 /* ScoreboardStackView.swift in Sources */,
 				7F52C2D12468BCC000C76C1E /* ScoreButtonsView.swift in Sources */,
 				7F4A3223246A59D700BE7F97 /* SNKAlertVC.swift in Sources */,
@@ -524,6 +531,7 @@
 				7F0F60A4246CB04700F4C52C /* InfoButtonView.swift in Sources */,
 				7FEF8A8424676163000240A0 /* Player.swift in Sources */,
 				7F52C2D32468BE0300C76C1E /* PlayerNamesView.swift in Sources */,
+				7FDD3DDD2473BDD300292402 /* FramesVC+ScoreboardVCDelegate.swift in Sources */,
 				7F4A3225246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift in Sources */,
 				7FDD3DD92473ACF900292402 /* FramesVC+funcPersistence.swift in Sources */,
 				7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */,

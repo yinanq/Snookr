@@ -8,13 +8,20 @@
 
 import UIKit
 
+protocol ScoreboardVCDelegate: class {
+    func scoreboardVCDidChangePlayer1NameTo(_ newName: String)
+    func scoreboardVCDidChangePlayer2NameTo(_ newName: String)
+}
+
 class ScoreboardVC: UIViewController {
+    
+    weak var delegate: ScoreboardVCDelegate!
     
     let defaults = UserDefaults.standard
     
     enum Key {
-        static let player1sName = "1's name"
-        static let player2sName = "2's name"
+        static let player1sName = SNKCommonKeys.player1sName
+        static let player2sName = SNKCommonKeys.player2sName
         static let player1sScore = "1's score"
         static let player2sScore = "2's score"
     }

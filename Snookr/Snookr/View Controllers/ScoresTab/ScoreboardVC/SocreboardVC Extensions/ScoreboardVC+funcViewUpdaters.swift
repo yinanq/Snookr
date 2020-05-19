@@ -17,6 +17,14 @@ extension ScoreboardVC {
         }
     }
     
+    func updateNameChangedByModelByOtherVCFor(_ player: inout Player) {
+        switch player.playerId {
+        case .player1: stackView.scoreInfoView.playerNamesView.textView1.text = player.name
+        case .player2: stackView.scoreInfoView.playerNamesView.textView2.text = player.name
+        case .unassigned: print("error: .unassigned playerId, updateNameChangedByModelByOtherVCFor")
+        }
+    }
+    
     func updateScoresView() {
         stackView.scoreInfoView.scoresView.scoreLabel1.text = String(player1.score)
         stackView.scoreInfoView.scoresView.scoreLabel2.text = String(player2.score)

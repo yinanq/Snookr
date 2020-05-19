@@ -6,15 +6,22 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
+protocol FramesVCDelegate: class {
+    func framesVCDidChangePlayer1NameTo(_ newName: String)
+    func framesVCDidChangePlayer2NameTo(_ newName: String)
+}
+
 import UIKit
 
 class FramesVC: UIViewController {
     
+    weak var delegate: FramesVCDelegate!
+    
     let defaults = UserDefaults.standard
     
     enum Key {
-        static let player1sName = "1's name"
-        static let player2sName = "2's name"
+        static let player1sName = SNKCommonKeys.player1sName
+        static let player2sName = SNKCommonKeys.player2sName
         static let player1sFramesWon = "1's frames won"
         static let player2sFramesWon = "2's frames won"
     }

@@ -55,9 +55,11 @@ extension ScoreboardVC: UITextViewDelegate {
         case SNKTextViewTag.player1:
             player1.name = stackView.scoreInfoView.playerNamesView.textView1.text
             defaults.set(player1.name, forKey: Key.player1sName)
+            delegate.scoreboardVCDidChangePlayer1NameTo(player1.name)
         case SNKTextViewTag.player2:
             player2.name = stackView.scoreInfoView.playerNamesView.textView2.text
             defaults.set(player2.name, forKey: Key.player2sName)
+            delegate.scoreboardVCDidChangePlayer2NameTo(player2.name)
         default: print("error: invalid player tag in setPlayerNameFromViewToModel")
         }
     }

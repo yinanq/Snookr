@@ -12,29 +12,27 @@ class TabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.barStyle = .black
-        tabBar.tintColor = SNKColor.foreground
-        viewControllers = [framesTabVC(), scoreboardTabVC(), infoTabVC()]
-        selectedIndex = 1
+        configureTabBar()
+        configureTabs()
         playLaunchScreenSmootherAnimation()
     }
     
-    private func framesTabVC() -> UIViewController {
+    private func configureTabBar() {
+        tabBar.barStyle = .black
+        tabBar.tintColor = SNKColor.foreground
+    }
+    
+    private func configureTabs() {
         let framesVC = FramesVC()
-        framesVC.tabBarItem = UITabBarItem(title: "Frames", image: UIImage(systemName: "square.grid.3x2.fill"), tag: 11)
-        return framesVC
-    }
-    
-    private func scoreboardTabVC() -> UIViewController {
         let scoreboardVC = ScoreboardVC()
-        scoreboardVC.tabBarItem = UITabBarItem(title: "Scores", image: UIImage(systemName: "square.split.2x1.fill"), tag: 12)
-        return scoreboardVC
-    }
-    
-    private func infoTabVC() -> UIViewController {
         let infoVC = InfoVC()
-        infoVC.tabBarItem = UITabBarItem(title: "About", image: UIImage(systemName: "info.circle.fill"), tag: -1)
-        return infoVC
+        framesVC.delegate = scoreboardVC
+        scoreboardVC.delegate = framesVC
+        framesVC.tabBarItem = UITabBarItem(title: "Frames", image: UIImage(systemName: "square.grid.3x2.fill"), tag: 11)
+        scoreboardVC.tabBarItem = UITabBarItem(title: "Scores", image: UIImage(systemName: "square.split.2x1.fill"), tag: 12)
+        infoVC.tabBarItem = UITabBarItem(title: "About", image: UIImage(systemName: "info.circle.fill"), tag: 21)
+        viewControllers = [framesVC, scoreboardVC, infoVC]
+        selectedIndex = 1
     }
     
     private func playLaunchScreenSmootherAnimation() {
