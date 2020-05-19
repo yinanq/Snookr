@@ -8,22 +8,27 @@
 
 import UIKit
 
-extension ScoreboardVC: ResetButtonDelegate, ResetConfirmViewDelegate {
+extension ScoreboardVC: ResetButtonDelegate, SNKAlertVCDelegate {
     
-    func didTapResetButton() {
-        //used view, not vc, becuase vc's modalTransitionStyle crossDissolve disables button interactivity during too long (and cannot be shorterned) transition animation:
-        let resetConfirmView = ResetConfirmView(delegate: self)
-        view.addSubview(resetConfirmView)
-        NSLayoutConstraint.activate([
-            resetConfirmView.topAnchor.constraint(equalTo: view.topAnchor),
-            resetConfirmView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            resetConfirmView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            resetConfirmView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
+    func didTapResetButton() {        
+        let resetConfirmVC = SNKAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
+        resetConfirmVC.modalPresentationStyle = .overCurrentContext
+        resetConfirmVC.modalTransitionStyle = .crossDissolve
+        present(resetConfirmVC, animated: true)
     }
     
-    func didTapConfirmResetButton() {
+    func didTapConfirmButtonForReset() {
+        UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseOut, animations: {
+            self.view.alpha = 0
+        }) { _ in
+            self.resetScores()
+            UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseIn, animations: {
+                self.view.alpha = 1
+            }, completion: nil)
+        }
+    }
+    
+    private func resetScores() {
         //update model:
         player1.score = 0
         player2.score = 0
@@ -38,7 +43,6 @@ extension ScoreboardVC: ResetButtonDelegate, ResetConfirmViewDelegate {
         clearRedoHistoryAndButtonFor(&player1)
         clearRedoHistoryAndButtonFor(&player2)
         updateResetButton()
-        playFrameStarterAnimation()
         //persist:
         persistScoreFor(&player1)
         persistScoreFor(&player2)

@@ -18,6 +18,7 @@ enum SNKAlpha: CGFloat {
 
 enum SNKAnimationDuration {
     static let short: TimeInterval = 0.2
+    static let medium: TimeInterval = 0.8
     static let long: TimeInterval = 1.2
     static let launchSmootherDelay: TimeInterval = 1.47
     static let launchSmootherDuration: TimeInterval = 0.2

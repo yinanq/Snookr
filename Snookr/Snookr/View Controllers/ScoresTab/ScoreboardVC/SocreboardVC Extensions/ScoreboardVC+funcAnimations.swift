@@ -11,7 +11,7 @@ import UIKit
 //func animations:
 extension ScoreboardVC {
     
-    func playFrameStarterAnimation() {
+    func playNewFrameInAnimation() {
         view.alpha = 0
         UIView.animate(withDuration: SNKAnimationDuration.long, delay: 0, options: .curveEaseIn, animations: { self.view.alpha = 1 })
     }
