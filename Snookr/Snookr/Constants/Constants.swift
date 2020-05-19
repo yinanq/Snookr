@@ -9,6 +9,7 @@
 import UIKit
 
 let SNKPlayerNamePlaceholder = "Player Name"
+let SNKPlayerNameLengthLimit = 20
 
 enum SNKAlpha: CGFloat {
     case disabledButton = 0.2

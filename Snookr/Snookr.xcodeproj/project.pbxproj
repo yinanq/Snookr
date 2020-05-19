@@ -158,16 +158,6 @@
 			path = "SocreboardVC Extensions";
 			sourceTree = "<group>";
 		};
-		7F0F60AA246CB46800F4C52C /* ScoreboardVC */ = {
-			isa = PBXGroup;
-			children = (
-				7FEF8A7D2467601B000240A0 /* ScoreboardVC.swift */,
-				7F0F60A7246CB41A00F4C52C /* SocreboardVC Extensions */,
-				7FEF8A852467617F000240A0 /* ScoreboardVC Subviews */,
-			);
-			path = ScoreboardVC;
-			sourceTree = "<group>";
-		};
 		7F0F60AB246CB47500F4C52C /* InfoTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,8 +233,12 @@
 		7FA5A22C2473364800B9D72C /* ScoresTab */ = {
 			isa = PBXGroup;
 			children = (
-				7F0F60AA246CB46800F4C52C /* ScoreboardVC */,
-				7FACBEC1246CC3B7004E9137 /* PointsAdderVC */,
+				7FEF8A7D2467601B000240A0 /* ScoreboardVC.swift */,
+				7F0F60A7246CB41A00F4C52C /* SocreboardVC Extensions */,
+				7FEF8A852467617F000240A0 /* ScoreboardVC Subviews */,
+				7FACBEC2246CC437004E9137 /* PointsAdderVC.swift */,
+				7F4BF461246DFFA2009B2E78 /* PointsAdderVC Extensions */,
+				7FACBEC4246CE71F004E9137 /* PointsAdderVC Subviews */,
 			);
 			path = ScoresTab;
 			sourceTree = "<group>";
@@ -289,16 +283,6 @@
 				7F52C2D22468BE0300C76C1E /* PlayerNamesView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		7FACBEC1246CC3B7004E9137 /* PointsAdderVC */ = {
-			isa = PBXGroup;
-			children = (
-				7FACBEC2246CC437004E9137 /* PointsAdderVC.swift */,
-				7F4BF461246DFFA2009B2E78 /* PointsAdderVC Extensions */,
-				7FACBEC4246CE71F004E9137 /* PointsAdderVC Subviews */,
-			);
-			path = PointsAdderVC;
 			sourceTree = "<group>";
 		};
 		7FACBEC4246CE71F004E9137 /* PointsAdderVC Subviews */ = {

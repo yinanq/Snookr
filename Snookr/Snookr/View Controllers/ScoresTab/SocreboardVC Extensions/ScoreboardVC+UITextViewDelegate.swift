@@ -19,15 +19,14 @@ extension ScoreboardVC: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" { //"done" (return key) tapped, end editing:
-            view.endEditing(false)
+            textView.resignFirstResponder()
             return false
         } else { //limit length of player name:
-            let limit = 20
             let string = (textView.text + text)
-            if string.count <= limit {
+            if string.count <= SNKPlayerNameLengthLimit {
                 return true
             } else {
-                textView.text = String(string[..<string.index(string.startIndex, offsetBy: limit)])
+                textView.text = String(string[..<string.index(string.startIndex, offsetBy: SNKPlayerNameLengthLimit)])
                 return false
             }
         }
