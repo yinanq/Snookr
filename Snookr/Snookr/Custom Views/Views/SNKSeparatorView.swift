@@ -1,5 +1,5 @@
 //
-//  SeparatorView.swift
+//  SNKSeparatorView.swift
 //  Snookr
 //
 //  Created by Yinan Qiu on 5/10/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeparatorView: UIView {
+class SNKSeparatorView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,7 +20,7 @@ class SeparatorView: UIView {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = SNKColor.backgroundSecondary
-        layer.cornerRadius = 1
+        layer.cornerRadius = SNKPadding.separatorViewWidth / 2
         widthAnchor.constraint(equalToConstant: SNKPadding.separatorViewWidth).isActive = true
     }
 }

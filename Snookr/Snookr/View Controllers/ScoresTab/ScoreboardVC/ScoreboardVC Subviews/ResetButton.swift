@@ -30,13 +30,4 @@ class ResetButton: SNKButton {
     
     @objc func didTapResetButton() { delegate.didTapResetButton() }
     
-    func enable() {
-        isEnabled = true
-        alpha = 1
-    }
-    func disable() {
-        isEnabled = false
-        alpha = SNKAlpha.disabledButton.rawValue
-    }
-    
 }

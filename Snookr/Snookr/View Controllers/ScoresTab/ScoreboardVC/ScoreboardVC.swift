@@ -22,7 +22,7 @@ class ScoreboardVC: UIViewController {
     var player1 = Player(playerId: .player1)
     var player2 = Player(playerId: .player2)
     
-    let separatorView = SeparatorView()
+    let separatorView = SNKSeparatorView()
     let stackView = ScoreboardStackView()
     let resetButton = ResetButton()
     let tapRecognizer = UITapGestureRecognizer()
@@ -59,11 +59,11 @@ class ScoreboardVC: UIViewController {
     }
     
     private func configureViews() {
-        updatePlayerNameView()
+        updatePlayerNamesView()
         updateScoresView()
         updateResetButton()
     }
-    private func updatePlayerNameView() { stackView.scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
+    private func updatePlayerNamesView() { stackView.scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
     
     private func layout() {
         NSLayoutConstraint.activate([
@@ -75,8 +75,8 @@ class ScoreboardVC: UIViewController {
             resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             separatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            separatorView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 4.5),
-            separatorView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big - 4)
+            separatorView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: SNKPadding.separatorViewTopAdj),
+            separatorView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big)
         ])
     }
     

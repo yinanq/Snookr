@@ -25,12 +25,18 @@ class ScoresView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         scoreLabel1 = SNKLabel(fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .left)
         scoreLabel2 = SNKLabel(fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .right)
-        let scoreLabels = [scoreLabel1, scoreLabel2]
-        for scoreLable in scoreLabels {
-            scoreLable!.adjustsFontSizeToFitWidth = true
-            addSubview(scoreLable!)
-            scoreLable!.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        [scoreLabel1, scoreLabel2].forEach { label in
+            label?.adjustsFontSizeToFitWidth = true
+            addSubview(label!)
+            label?.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         }
+        //to delete once confirmed replacement working:
+//        let scoreLabels = [scoreLabel1, scoreLabel2]
+//        for scoreLable in scoreLabels {
+//            scoreLable!.adjustsFontSizeToFitWidth = true
+//            addSubview(scoreLable!)
+//            scoreLable!.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        }
         addSubview(scoreDifView)
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 80),

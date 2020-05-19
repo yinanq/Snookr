@@ -70,7 +70,7 @@ class SNKAlertVC: UIViewController {
             bodyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -15),
             bodyLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: SNKLayoutPercent.bodyTextWidth),
             buttonsView.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 45),
-            buttonsView.widthAnchor.constraint(equalTo: bodyLabel.widthAnchor, constant: -6),
+            buttonsView.widthAnchor.constraint(equalTo: bodyLabel.widthAnchor, constant: -8),
             cancelButton.topAnchor.constraint(equalTo: buttonsView.topAnchor),
             confirmButton.topAnchor.constraint(equalTo: buttonsView.topAnchor),
             cancelButton.leadingAnchor.constraint(equalTo: buttonsView.leadingAnchor),

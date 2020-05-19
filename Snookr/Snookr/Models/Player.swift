@@ -18,6 +18,7 @@ struct Player {
     
     var name = SNKPlayerNamePlaceholder
     var score = 0
+    var framesWon = 0
     var historyUndoable = [Int]()
     var historyRedoable = [Int]()
     var playerId = PlayerId.unassigned
