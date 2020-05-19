@@ -42,8 +42,8 @@ class FramesVC: UIViewController {
     }
     
     private func configureDelegates() {
-//        stackView.scoreInfoView.playerNamesView.textView1.delegate = self
-//        stackView.scoreInfoView.playerNamesView.textView2.delegate = self
+        playerNamesView.textView1.delegate = self
+        playerNamesView.textView2.delegate = self
         framesWonButtonsView.delegate = self
         resetButton.delegate = self
     }

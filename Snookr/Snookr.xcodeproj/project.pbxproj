@@ -46,6 +46,7 @@
 		7FDD3DD5247394DA00292402 /* FramesVC+ResetDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3DD4247394DA00292402 /* FramesVC+ResetDelegates.swift */; };
 		7FDD3DD72473A71000292402 /* FramesVC+FramesWonButtonsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3DD62473A71000292402 /* FramesVC+FramesWonButtonsViewDelegate.swift */; };
 		7FDD3DD92473ACF900292402 /* FramesVC+funcPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3DD82473ACF900292402 /* FramesVC+funcPersistence.swift */; };
+		7FDD3DDB2473B8A900292402 /* FramesVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3DDA2473B8A900292402 /* FramesVC+UITextViewDelegate.swift */; };
 		7FE085CB246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE085CA246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift */; };
 		7FE085CD246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE085CC246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift */; };
 		7FEF8A6924675E9E000240A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A6824675E9E000240A0 /* AppDelegate.swift */; };
@@ -103,6 +104,7 @@
 		7FDD3DD4247394DA00292402 /* FramesVC+ResetDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FramesVC+ResetDelegates.swift"; sourceTree = "<group>"; };
 		7FDD3DD62473A71000292402 /* FramesVC+FramesWonButtonsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FramesVC+FramesWonButtonsViewDelegate.swift"; sourceTree = "<group>"; };
 		7FDD3DD82473ACF900292402 /* FramesVC+funcPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FramesVC+funcPersistence.swift"; sourceTree = "<group>"; };
+		7FDD3DDA2473B8A900292402 /* FramesVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FramesVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		7FE085CA246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+ScoreButtonsViewDelegate.swift"; sourceTree = "<group>"; };
 		7FE085CC246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+UndoButtonsViewDelegate.swift"; sourceTree = "<group>"; };
 		7FEF8A6524675E9E000240A0 /* Snookr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snookr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,8 +259,9 @@
 			children = (
 				7FDD3DD02473915100292402 /* FramesVC+funcViewUpdaters.swift */,
 				7FDD3DD82473ACF900292402 /* FramesVC+funcPersistence.swift */,
-				7FDD3DD4247394DA00292402 /* FramesVC+ResetDelegates.swift */,
+				7FDD3DDA2473B8A900292402 /* FramesVC+UITextViewDelegate.swift */,
 				7FDD3DD62473A71000292402 /* FramesVC+FramesWonButtonsViewDelegate.swift */,
+				7FDD3DD4247394DA00292402 /* FramesVC+ResetDelegates.swift */,
 			);
 			path = "FreamsVC Extensions";
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				7F0F60A6246CB29E00F4C52C /* ScoreboardVC+InfoButtonViewDelegate.swift in Sources */,
 				7FC2ADCD24738EAD00C69541 /* FramesWonButtonsView.swift in Sources */,
 				7F26984A246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift in Sources */,
+				7FDD3DDB2473B8A900292402 /* FramesVC+UITextViewDelegate.swift in Sources */,
 				7FACBEC6246CE753004E9137 /* PointsAdderHeaderView.swift in Sources */,
 				7FDD3DD3247393EB00292402 /* FramesResetButton.swift in Sources */,
 				7F6AE51D2468C5F300767F7C /* UndoButtonsView.swift in Sources */,

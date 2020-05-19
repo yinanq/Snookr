@@ -24,7 +24,7 @@ class FramesResetButton: SNKButton {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func configure() {
-        set(title: "Reset", style: .outline)
+        set(title: "New Match", style: .outline)
         addTarget(self, action: #selector(didTapFramesResetButton), for: .touchUpInside)
     }
     
