@@ -12,7 +12,7 @@ class FramesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = SNKColor.foreground
+//        view.backgroundColor = SNKColor.foreground
     }
 
 }

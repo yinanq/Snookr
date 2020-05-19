@@ -22,8 +22,6 @@ class SNKAlertVC: UIViewController {
     var cancelButton: SNKButton!
     var confirmButton: SNKButton!
     
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-    
     init(title: String, body: String, cancelBtnTitle: String, confirmBtnTitile: String, delegate: SNKAlertVCDelegate) {
         super.init(nibName: nil, bundle: nil)
         titleLabel = SNKLabel(fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge)

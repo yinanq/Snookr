@@ -21,19 +21,19 @@ class TabBarVC: UITabBarController {
     
     private func framesTabVC() -> UIViewController {
         let framesVC = FramesVC()
-        framesVC.tabBarItem = UITabBarItem(title: "Frames", image: nil, tag: 11)
+        framesVC.tabBarItem = UITabBarItem(title: "Frames", image: UIImage(systemName: "square.grid.3x2.fill"), tag: 11)
         return framesVC
     }
     
     private func scoreboardTabVC() -> UIViewController {
         let scoreboardVC = ScoreboardVC()
-        scoreboardVC.tabBarItem = UITabBarItem(title: "Scores", image: nil, tag: 12)
+        scoreboardVC.tabBarItem = UITabBarItem(title: "Scores", image: UIImage(systemName: "square.split.2x1.fill"), tag: 12)
         return scoreboardVC
     }
     
     private func infoTabVC() -> UIViewController {
         let infoVC = InfoVC()
-        infoVC.tabBarItem = UITabBarItem(title: "About", image: nil, tag: -1)
+        infoVC.tabBarItem = UITabBarItem(title: "About", image: UIImage(systemName: "info.circle.fill"), tag: -1)
         return infoVC
     }
     
