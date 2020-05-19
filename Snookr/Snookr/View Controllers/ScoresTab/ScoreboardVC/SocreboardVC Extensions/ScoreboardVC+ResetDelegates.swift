@@ -11,6 +11,7 @@ import UIKit
 extension ScoreboardVC: ResetButtonDelegate, ResetConfirmViewDelegate {
     
     func didTapResetButton() {
+        //used view, not vc, becuase vc's modalTransitionStyle crossDissolve disables button interactivity during too long (and cannot be shorterned) transition animation:
         let resetConfirmView = ResetConfirmView(delegate: self)
         view.addSubview(resetConfirmView)
         NSLayoutConstraint.activate([
@@ -19,11 +20,7 @@ extension ScoreboardVC: ResetButtonDelegate, ResetConfirmViewDelegate {
             resetConfirmView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             resetConfirmView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-//        //not using vc becuase modalTransitionStyle crossDissolve disables button interactivity during too long transition animation:
-//        let resetConfirmVC = ResetConfirmVC(delegate: self)
-//        resetConfirmVC.modalPresentationStyle = .overFullScreen
-//        resetConfirmVC.modalTransitionStyle = .crossDissolve
-//        present(resetConfirmVC, animated: true)
+        
     }
     
     func didTapConfirmResetButton() {

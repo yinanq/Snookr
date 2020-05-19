@@ -29,7 +29,9 @@
 		7F6AE52124690BA000767F7C /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52024690BA000767F7C /* UIStackView+.swift */; };
 		7F6AE52324690F9800767F7C /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52224690F9800767F7C /* SeparatorView.swift */; };
 		7F6AE526246931DD00767F7C /* SNKTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE525246931DD00767F7C /* SNKTextView.swift */; };
+		7F8FAD6924733BBB005C550D /* FramesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8FAD6824733BBB005C550D /* FramesVC.swift */; };
 		7F98D7FD246AA68700E48149 /* SNKInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98D7FC246AA68700E48149 /* SNKInfoButton.swift */; };
+		7FA5A22B2473363000B9D72C /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5A22A2473363000B9D72C /* TabBarVC.swift */; };
 		7FACBEC3246CC437004E9137 /* PointsAdderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACBEC2246CC437004E9137 /* PointsAdderVC.swift */; };
 		7FACBEC6246CE753004E9137 /* PointsAdderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACBEC5246CE753004E9137 /* PointsAdderHeaderView.swift */; };
 		7FACBEC8246CF01C004E9137 /* PointsAdderNumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACBEC7246CF01C004E9137 /* PointsAdderNumberPadView.swift */; };
@@ -78,7 +80,9 @@
 		7F6AE52024690BA000767F7C /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		7F6AE52224690F9800767F7C /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		7F6AE525246931DD00767F7C /* SNKTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKTextView.swift; sourceTree = "<group>"; };
+		7F8FAD6824733BBB005C550D /* FramesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesVC.swift; sourceTree = "<group>"; };
 		7F98D7FC246AA68700E48149 /* SNKInfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKInfoButton.swift; sourceTree = "<group>"; };
+		7FA5A22A2473363000B9D72C /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		7FACBEC2246CC437004E9137 /* PointsAdderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAdderVC.swift; sourceTree = "<group>"; };
 		7FACBEC5246CE753004E9137 /* PointsAdderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAdderHeaderView.swift; sourceTree = "<group>"; };
 		7FACBEC7246CF01C004E9137 /* PointsAdderNumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAdderNumberPadView.swift; sourceTree = "<group>"; };
@@ -145,12 +149,12 @@
 			path = ScoreboardVC;
 			sourceTree = "<group>";
 		};
-		7F0F60AB246CB47500F4C52C /* InfoVC */ = {
+		7F0F60AB246CB47500F4C52C /* InfoTab */ = {
 			isa = PBXGroup;
 			children = (
 				7F0F60A8246CB45300F4C52C /* InfoVC.swift */,
 			);
-			path = InfoVC;
+			path = InfoTab;
 			sourceTree = "<group>";
 		};
 		7F158C8A246A902C00AF1D38 /* ScoreboardStackView Subviews */ = {
@@ -226,6 +230,23 @@
 			path = TextViews;
 			sourceTree = "<group>";
 		};
+		7FA5A22C2473364800B9D72C /* ScoresTab */ = {
+			isa = PBXGroup;
+			children = (
+				7F0F60AA246CB46800F4C52C /* ScoreboardVC */,
+				7FACBEC1246CC3B7004E9137 /* PointsAdderVC */,
+			);
+			path = ScoresTab;
+			sourceTree = "<group>";
+		};
+		7FA5A22D2473370800B9D72C /* FramesTab */ = {
+			isa = PBXGroup;
+			children = (
+				7F8FAD6824733BBB005C550D /* FramesVC.swift */,
+			);
+			path = FramesTab;
+			sourceTree = "<group>";
+		};
 		7FACBEC1246CC3B7004E9137 /* PointsAdderVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,9 +302,10 @@
 		7FEF8A7C24676002000240A0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7F0F60AA246CB46800F4C52C /* ScoreboardVC */,
-				7FACBEC1246CC3B7004E9137 /* PointsAdderVC */,
-				7F0F60AB246CB47500F4C52C /* InfoVC */,
+				7FA5A22A2473363000B9D72C /* TabBarVC.swift */,
+				7FA5A22D2473370800B9D72C /* FramesTab */,
+				7FA5A22C2473364800B9D72C /* ScoresTab */,
+				7F0F60AB246CB47500F4C52C /* InfoTab */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -439,7 +461,9 @@
 				7FEF8A8124676082000240A0 /* Constants.swift in Sources */,
 				7FACBEC8246CF01C004E9137 /* PointsAdderNumberPadView.swift in Sources */,
 				7F98D7FD246AA68700E48149 /* SNKInfoButton.swift in Sources */,
+				7FA5A22B2473363000B9D72C /* TabBarVC.swift in Sources */,
 				7F39EF87246BDB5200ABB703 /* ResetButton.swift in Sources */,
+				7F8FAD6924733BBB005C550D /* FramesVC.swift in Sources */,
 				7F07D6E324709DD30052CF7F /* ScoreboardVC+funcAnimations.swift in Sources */,
 				7FEF8A9624676FC1000240A0 /* SNKScoreButton.swift in Sources */,
 				7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */,
@@ -599,6 +623,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ER5DW7LZQ6;
 				INFOPLIST_FILE = Snookr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -617,6 +642,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ER5DW7LZQ6;
 				INFOPLIST_FILE = Snookr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

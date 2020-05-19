@@ -24,6 +24,7 @@ class InfoVC: UIViewController {
         configureBodyTextViewContainerView()
         configureCloseButton()
         layout()
+        closeButton.isHidden = true
     }
     
     private func configureTitleLabel() {

@@ -17,6 +17,7 @@ class ScoreboardStackView: UIStackView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        infoButtonView.alpha = 0
     }
     
     required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
