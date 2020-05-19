@@ -10,7 +10,7 @@ import UIKit
 
 class InfoVC: UIViewController {
     
-    var titleLabel: SNKLabel!
+    let logoImageView = UIImageView()
     var bodyTextViewContainerView = UIView()
     var bodyTextView = SNKTextView()
     var closeButton: SNKButton!
@@ -20,17 +20,17 @@ class InfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = SNKColor.background
-        configureTitleLabel()
+        configureTitle()
         configureBodyTextViewContainerView()
         configureCloseButton()
         layout()
         closeButton.isHidden = true
     }
     
-    private func configureTitleLabel() {
-        titleLabel = SNKLabel(fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .center)
-        titleLabel.text = "about"
-        view.addSubview(titleLabel)
+    private func configureTitle() {
+        logoImageView.image = UIImage(named: "logo-green")
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(logoImageView)
     }
     
     private func configureBodyTextViewContainerView() {
@@ -62,10 +62,9 @@ class InfoVC: UIViewController {
     
     private func layout() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
-            bodyTextViewContainerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: SNKPadding.big),
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bodyTextViewContainerView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40),
             bodyTextViewContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: SNKLayoutPercent.bodyTextWidth),
             bodyTextViewContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bodyTextView.topAnchor.constraint(equalTo: bodyTextViewContainerView.topAnchor),
