@@ -59,10 +59,10 @@ class ScoreboardVC: UIViewController {
     }
     
     private func configureModels() {
-        if let player1SavedName = defaults.value(forKey: Key.player1sName) { player1.name = player1SavedName as! String }
-        if let player2SavedName = defaults.value(forKey: Key.player2sName) { player2.name = player2SavedName as! String }
-        if let player1SavedScore = defaults.value(forKey: Key.player1sScore) { player1.score = player1SavedScore as! Int }
-        if let player2SavedScore = defaults.value(forKey: Key.player2sScore) { player2.score = player2SavedScore as! Int }
+        player1.name = defaults.string(forKey: Key.player1sName) ?? SNKPlayerNamePlaceholder
+        player2.name = defaults.string(forKey: Key.player2sName) ?? SNKPlayerNamePlaceholder
+        player1.score = defaults.integer(forKey: Key.player1sScore)
+        player2.score = defaults.integer(forKey: Key.player2sScore)
     }
     
     private func configureViews() {

@@ -13,7 +13,7 @@ extension FramesVC: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         disableAndDimAllButNameOfPlayerTagged(textView.tag)
         view.addGestureRecognizer(tapRecognizer)
-        tapRecognizer.addTarget(self.view!, action: #selector(view.endEditing))
+        tapRecognizer.addTarget(view!, action: #selector(view.endEditing))
         textView.selectAll(self)
     }
     

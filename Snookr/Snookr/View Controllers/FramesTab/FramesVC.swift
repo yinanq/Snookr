@@ -56,10 +56,10 @@ class FramesVC: UIViewController {
     }
     
     private func configureModels() {
-        if let player1SavedName = defaults.value(forKey: Key.player1sName) { player1.name = player1SavedName as! String }
-        if let player2SavedName = defaults.value(forKey: Key.player2sName) { player2.name = player2SavedName as! String }
-        if let player1SavedFramesWon = defaults.value(forKey: Key.player1sFramesWon) { player1.framesWon = player1SavedFramesWon as! Int }
-        if let player2SavedFramesWon = defaults.value(forKey: Key.player2sFramesWon) { player2.framesWon = player2SavedFramesWon as! Int }
+        player1.name = defaults.string(forKey: Key.player1sName) ?? SNKPlayerNamePlaceholder
+        player2.name = defaults.string(forKey: Key.player2sName) ?? SNKPlayerNamePlaceholder
+        player1.framesWon = defaults.integer(forKey: Key.player1sFramesWon)
+        player2.framesWon = defaults.integer(forKey: Key.player2sFramesWon)
     }
     
     private func configureViews() {
