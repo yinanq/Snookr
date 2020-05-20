@@ -33,7 +33,6 @@ class ScoreboardVC: UIViewController {
     let stackView = ScoreboardStackView()
     let resetButton = ResetButton()
     let tapRecognizer = UITapGestureRecognizer()
-//    let pairButton = PairButton()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
@@ -53,9 +52,7 @@ class ScoreboardVC: UIViewController {
         stackView.scoreInfoView.playerNamesView.textView2.delegate = self
         stackView.scoreButtonsView.delegate = self
         stackView.scoreInfoView.undoButtonsView.delegate = self
-        stackView.infoButtonView.delegate = self
         resetButton.delegate = self
-//        pairButton.delegate = self
     }
     
     private func configureModels() {

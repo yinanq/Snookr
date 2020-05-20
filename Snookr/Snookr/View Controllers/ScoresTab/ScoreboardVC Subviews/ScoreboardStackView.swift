@@ -12,12 +12,11 @@ class ScoreboardStackView: UIStackView {
 
     let scoreInfoView = ScoreInfoView()
     let scoreButtonsView = ScoreButtonsView()
-    let infoButtonView = InfoButtonView()
+    let spacerView = UIView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
-        infoButtonView.alpha = 0
     }
     
     required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -26,7 +25,10 @@ class ScoreboardStackView: UIStackView {
         translatesAutoresizingMaskIntoConstraints = false
         axis = .vertical
         distribution = .equalSpacing
-        addArrangedSubviews(scoreInfoView, scoreButtonsView, infoButtonView)
+        addArrangedSubviews(scoreInfoView, scoreButtonsView, spacerView)
+        NSLayoutConstraint.activate([
+            spacerView.heightAnchor.constraint(equalToConstant: 45)
+        ])
     }
 
 }
