@@ -27,6 +27,7 @@
 		7F6AE52124690BA000767F7C /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52024690BA000767F7C /* UIStackView+.swift */; };
 		7F6AE52324690F9800767F7C /* SNKSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52224690F9800767F7C /* SNKSeparatorView.swift */; };
 		7F6AE526246931DD00767F7C /* SNKTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE525246931DD00767F7C /* SNKTextView.swift */; };
+		7F74D7892475DAE40081F8AF /* ConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F74D7882475DAE40081F8AF /* ConnectVC.swift */; };
 		7F8FAD6924733BBB005C550D /* FramesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8FAD6824733BBB005C550D /* FramesVC.swift */; };
 		7FA4006F247389540013AE2C /* FramesWonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4006E247389540013AE2C /* FramesWonView.swift */; };
 		7FA5A22B2473363000B9D72C /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5A22A2473363000B9D72C /* TabBarVC.swift */; };
@@ -84,6 +85,7 @@
 		7F6AE52024690BA000767F7C /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		7F6AE52224690F9800767F7C /* SNKSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKSeparatorView.swift; sourceTree = "<group>"; };
 		7F6AE525246931DD00767F7C /* SNKTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKTextView.swift; sourceTree = "<group>"; };
+		7F74D7882475DAE40081F8AF /* ConnectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectVC.swift; sourceTree = "<group>"; };
 		7F8FAD6824733BBB005C550D /* FramesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesVC.swift; sourceTree = "<group>"; };
 		7FA4006E247389540013AE2C /* FramesWonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesWonView.swift; sourceTree = "<group>"; };
 		7FA5A22A2473363000B9D72C /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		7F74D7872475D48A0081F8AF /* ConnectTab */ = {
 			isa = PBXGroup;
 			children = (
+				7F74D7882475DAE40081F8AF /* ConnectVC.swift */,
 			);
 			path = ConnectTab;
 			sourceTree = "<group>";
@@ -323,8 +326,8 @@
 				7FA5A22A2473363000B9D72C /* TabBarVC.swift */,
 				7F4A3222246A59D700BE7F97 /* SNKAlertVC.swift */,
 				7F74D7872475D48A0081F8AF /* ConnectTab */,
-				7FA5A22D2473370800B9D72C /* FramesTab */,
 				7FA5A22C2473364800B9D72C /* ScoresTab */,
+				7FA5A22D2473370800B9D72C /* FramesTab */,
 				7F0F60AB246CB47500F4C52C /* InfoTab */,
 			);
 			path = "View Controllers";
@@ -478,6 +481,7 @@
 				7FDD3DDB2473B8A900292402 /* FramesVC+UITextViewDelegate.swift in Sources */,
 				7FACBEC6246CE753004E9137 /* PointsAdderHeaderView.swift in Sources */,
 				7FDD3DD3247393EB00292402 /* FramesResetButton.swift in Sources */,
+				7F74D7892475DAE40081F8AF /* ConnectVC.swift in Sources */,
 				7F6AE51D2468C5F300767F7C /* UndoButtonsView.swift in Sources */,
 				7FEF8A8124676082000240A0 /* Constants.swift in Sources */,
 				7FDD3DD72473A71000292402 /* FramesVC+FramesWonButtonsViewDelegate.swift in Sources */,
