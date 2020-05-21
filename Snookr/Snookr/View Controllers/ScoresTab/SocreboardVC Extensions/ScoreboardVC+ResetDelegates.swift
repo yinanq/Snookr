@@ -8,16 +8,16 @@
 
 import UIKit
 
-extension ScoreboardVC: ResetButtonDelegate, SNKAlertVCDelegate {
+extension ScoreboardVC: ResetButtonDelegate, ResetAlertVCDelegate {
     
     func didTapResetButton() {        
-        let resetConfirmVC = SNKAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
-        resetConfirmVC.modalPresentationStyle = .overCurrentContext
-        resetConfirmVC.modalTransitionStyle = .crossDissolve
-        present(resetConfirmVC, animated: true)
+        let resetAlertVC = ResetAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
+        resetAlertVC.modalPresentationStyle = .overCurrentContext
+        resetAlertVC.modalTransitionStyle = .crossDissolve
+        present(resetAlertVC, animated: true)
     }
     
-    func didTapConfirmButtonForReset() {
+    func didTapConfirmToReset() {
         UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseOut, animations: {
             self.view.alpha = 0
         }) { _ in

@@ -6,15 +6,13 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-protocol SNKAlertVCDelegate: class {
-    func didTapConfirmButtonForReset()
-}
+//protocol SNKAlertVCDelegate: class {
+//    func didTapConfirmButtonForReset()
+//}
 
 import UIKit
 
 class SNKAlertVC: UIViewController {
-    
-    weak var delegate: SNKAlertVCDelegate!
     
     var titleLabel: SNKLabel!
     var bodyLabel: SNKLabel!
@@ -22,7 +20,7 @@ class SNKAlertVC: UIViewController {
     var cancelButton: SNKButton!
     var confirmButton: SNKButton!
     
-    init(title: String, body: String, cancelBtnTitle: String, confirmBtnTitile: String, delegate: SNKAlertVCDelegate) {
+    init(title: String, body: String, cancelBtnTitle: String, confirmBtnTitile: String) {
         super.init(nibName: nil, bundle: nil)
         titleLabel = SNKLabel(fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge)
         titleLabel.text = title
@@ -30,7 +28,6 @@ class SNKAlertVC: UIViewController {
         bodyLabel.text = body
         cancelButton = SNKButton(title: cancelBtnTitle, style: .solid)
         confirmButton = SNKButton(title: confirmBtnTitile, style: .solid)
-        self.delegate = delegate
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -48,11 +45,7 @@ class SNKAlertVC: UIViewController {
     
     @objc func didTapCancelResetButton() { dismiss(animated: true) }
     
-    @objc func didTapConfirmResetButton() {
-        dismiss(animated: true) {
-            self.delegate.didTapConfirmButtonForReset()
-        }
-    }
+    @objc func didTapConfirmResetButton() { dismiss(animated: true) }
     
     private func configure() {
         view.backgroundColor = SNKColor.background.withAlphaComponent(SNKAlpha.dimmer.rawValue)

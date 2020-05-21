@@ -13,7 +13,6 @@ class ConnectVC: UIViewController {
     
     let mcPeerID = MCPeerID(displayName: UIDevice.current.name) //temp
     var mcSession: MCSession?
-    var mcAdAssistant: MCAdvertiserAssistant? //to delete
     var mcAdvertiser: MCNearbyServiceAdvertiser?
     
     var testLabel: SNKLabel!
@@ -32,9 +31,6 @@ class ConnectVC: UIViewController {
     }
     
     func hostSession(action: UIAlertAction) {
-//        guard let mcSession = mcSession else { return }
-//        mcAdAssistant = MCAdvertiserAssistant(serviceType: SNKmcServiceType, discoveryInfo: nil, session: mcSession)
-//        mcAdAssistant?.start()
         mcAdvertiser = MCNearbyServiceAdvertiser(peer: mcPeerID, discoveryInfo: nil, serviceType: SNKmcServiceType)
         mcAdvertiser?.delegate = self
         mcAdvertiser?.startAdvertisingPeer()

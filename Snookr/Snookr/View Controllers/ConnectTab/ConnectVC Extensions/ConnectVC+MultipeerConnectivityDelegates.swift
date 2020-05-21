@@ -11,22 +11,21 @@ import MultipeerConnectivity
 extension ConnectVC: MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        print("MCNearbyServiceAdvertiser didReceiveInvitationFromPeer \(peerID)")
-//        let ac = UIAlertController(title: "Connection Request", message: "\(peerID) wants to connect with you", preferredStyle: .alert)
-//        ac.addAction(UIAlertAction(title: "Accept", style: .default, handler: acceptConnection))
-//        ac.addAction(UIAlertAction(title: "Reject", style: .default))
-//        ac.view.tintColor = SNKColor.foreground
-//        present(ac, animated: true)
-        invitationHandler(true, self.mcSession)
+        print("MCNearbyServiceAdvertiser didReceiveInvitationFromPeer \(peerID.displayName)")
+        let ac = UIAlertController(title: "Connect?", message: "\(peerID.displayName) wants to connect.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Reject", style: .destructive, handler: { _ in
+            invitationHandler(false, self.mcSession)
+        }))
+        ac.addAction(UIAlertAction(title: "Connect", style: .default, handler: { _ in
+            invitationHandler(true, self.mcSession)
+        }))
+        ac.view.tintColor = SNKColor.foreground
+        present(ac, animated: true)
     }
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
         print("MCNearbyServiceAdvertiser didNotStartAdvertisingPeer, error:")
         print(error)
-    }
-    
-    private func acceptConnection(action: UIAlertAction) {
-        print("acceptConnection")
     }
     
 }
