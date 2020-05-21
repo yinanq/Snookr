@@ -13,8 +13,7 @@
 		7F158C89246A902100AF1D38 /* ScoreboardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */; };
 		7F26984A246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F269849246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift */; };
 		7F26984C246E517000AD60B6 /* ScoreboardVC+funcModelUpdaters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F26984B246E517000AD60B6 /* ScoreboardVC+funcModelUpdaters.swift */; };
-		7F3504BE24761194005A2F52 /* ConnectVC+MCSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3504BD24761194005A2F52 /* ConnectVC+MCSessionDelegate.swift */; };
-		7F3504C0247611B2005A2F52 /* ConnectVC+MCBrowserViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3504BF247611B2005A2F52 /* ConnectVC+MCBrowserViewControllerDelegate.swift */; };
+		7F3504BE24761194005A2F52 /* ConnectVC+MultipeerConnectivityDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3504BD24761194005A2F52 /* ConnectVC+MultipeerConnectivityDelegates.swift */; };
 		7F39EF85246BDA0700ABB703 /* ScoreboardVC+funcViewUpdaters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F39EF84246BDA0700ABB703 /* ScoreboardVC+funcViewUpdaters.swift */; };
 		7F39EF87246BDB5200ABB703 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F39EF86246BDB5200ABB703 /* ResetButton.swift */; };
 		7F3E932F246781AE0067B891 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E932E246781AE0067B891 /* UIView+.swift */; };
@@ -73,8 +72,7 @@
 		7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardStackView.swift; sourceTree = "<group>"; };
 		7F269849246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+PointsAdderVCDelegate.swift"; sourceTree = "<group>"; };
 		7F26984B246E517000AD60B6 /* ScoreboardVC+funcModelUpdaters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+funcModelUpdaters.swift"; sourceTree = "<group>"; };
-		7F3504BD24761194005A2F52 /* ConnectVC+MCSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+MCSessionDelegate.swift"; sourceTree = "<group>"; };
-		7F3504BF247611B2005A2F52 /* ConnectVC+MCBrowserViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+MCBrowserViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		7F3504BD24761194005A2F52 /* ConnectVC+MultipeerConnectivityDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+MultipeerConnectivityDelegates.swift"; sourceTree = "<group>"; };
 		7F39EF84246BDA0700ABB703 /* ScoreboardVC+funcViewUpdaters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+funcViewUpdaters.swift"; sourceTree = "<group>"; };
 		7F39EF86246BDB5200ABB703 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
 		7F3E932E246781AE0067B891 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -178,8 +176,7 @@
 		7F3504C124761365005A2F52 /* ConnectVC Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7F3504BD24761194005A2F52 /* ConnectVC+MCSessionDelegate.swift */,
-				7F3504BF247611B2005A2F52 /* ConnectVC+MCBrowserViewControllerDelegate.swift */,
+				7F3504BD24761194005A2F52 /* ConnectVC+MultipeerConnectivityDelegates.swift */,
 			);
 			path = "ConnectVC Extensions";
 			sourceTree = "<group>";
@@ -481,8 +478,7 @@
 				7F6AE52124690BA000767F7C /* UIStackView+.swift in Sources */,
 				7F3E932F246781AE0067B891 /* UIView+.swift in Sources */,
 				7FEF8A8A2467638D000240A0 /* ScoresView.swift in Sources */,
-				7F3504BE24761194005A2F52 /* ConnectVC+MCSessionDelegate.swift in Sources */,
-				7F3504C0247611B2005A2F52 /* ConnectVC+MCBrowserViewControllerDelegate.swift in Sources */,
+				7F3504BE24761194005A2F52 /* ConnectVC+MultipeerConnectivityDelegates.swift in Sources */,
 				7FD2BC00246BE47300C44D26 /* ScoreboardVC+funcPersistence.swift in Sources */,
 				7FEF8A8E24676402000240A0 /* ScoreHistoryView.swift in Sources */,
 				7FCB0F81246BDE2F00562636 /* ScoreboardVC+ResetDelegates.swift in Sources */,
