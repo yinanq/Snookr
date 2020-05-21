@@ -37,7 +37,13 @@ extension FramesVC: UITextViewDelegate {
         let text = textView.text! //appears never nil, so removed guard
         do {
             let regex = try NSRegularExpression(pattern: "^\\s*$")
-            textView.text = regex.stringByReplacingMatches(in: text, range: NSRange(text.startIndex..., in: text), withTemplate: SNKPlayerNamePlaceholder)
+            var placeholderName: String!
+            switch textView.tag {
+            case SNKTextViewTag.player1: placeholderName = SNKNamePlaceholder.player1
+            case SNKTextViewTag.player2: placeholderName = SNKNamePlaceholder.player2
+            default: print("invalid textView.tag, in textViewDidEndEditing, in FramesVC: UITextViewDelegate")
+            }
+            textView.text = regex.stringByReplacingMatches(in: text, range: NSRange(text.startIndex..., in: text), withTemplate: placeholderName)
         } catch {
             print("error: invalid regex pattern, in FramesVC")
             return

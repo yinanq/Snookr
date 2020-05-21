@@ -30,13 +30,13 @@ class ConnectVC: UIViewController {
         mcSession?.delegate = self
     }
     
-    func hostSession(action: UIAlertAction) {
+    func hostSession(_: UIAlertAction) {
         mcAdvertiser = MCNearbyServiceAdvertiser(peer: mcPeerID, discoveryInfo: nil, serviceType: SNKmcServiceType)
         mcAdvertiser?.delegate = self
         mcAdvertiser?.startAdvertisingPeer()
     }
     
-    func joinSession(action: UIAlertAction) {
+    func joinSession(_: UIAlertAction) {
         guard let mcSession = mcSession else { return }
         let mcBrowserVC = MCBrowserViewController(serviceType: SNKmcServiceType, session: mcSession)
         mcBrowserVC.delegate = self

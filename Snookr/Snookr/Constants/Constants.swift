@@ -8,7 +8,6 @@
 
 import UIKit
 
-let SNKPlayerNamePlaceholder = "Player Name"
 let SNKPlayerNameLengthLimit = 20
 let SNKmcServiceType = "yinan-snookr"
 
@@ -92,6 +91,11 @@ enum SNKPadding {
     static let separatorViewWidth: CGFloat = 2
     static let separatorViewTopAdj: CGFloat = 4.5
     static let difViewWidth: CGFloat = 65
+}
+
+enum SNKNamePlaceholder {
+    static let player1 = "Opponent's Name"
+    static let player2 = "Your Name"
 }
 
 enum SNKTextViewTag {
