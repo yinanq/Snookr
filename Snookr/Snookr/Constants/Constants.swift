@@ -10,6 +10,7 @@ import UIKit
 
 let SNKPlayerNamePlaceholder = "Player Name"
 let SNKPlayerNameLengthLimit = 20
+let SNKmcServiceType = "yinan-snookr"
 
 enum SNKAlpha: CGFloat {
     case disabledButton = 0.2
