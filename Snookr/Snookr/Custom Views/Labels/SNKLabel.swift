@@ -17,7 +17,7 @@ class SNKLabel: UILabel {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    convenience init(color: UIColor = SNKColor.foreground,fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment = .center, numberOfLines: Int = 1) {
+    convenience init(color: UIColor = SNKColor.foreground, fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment = .center, numberOfLines: Int = 1) {
         self.init(frame: .zero)
         textColor = color
         font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)

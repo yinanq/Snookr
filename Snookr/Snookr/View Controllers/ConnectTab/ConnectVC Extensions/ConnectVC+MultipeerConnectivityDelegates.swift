@@ -23,17 +23,14 @@ extension ConnectVC: MCNearbyServiceAdvertiserDelegate {
         present(ac, animated: true)
     }
     
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-        print("MCNearbyServiceAdvertiser didNotStartAdvertisingPeer, error:")
-        print(error)
-    }
+    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) { print("MCNearbyServiceAdvertiser didNotStartAdvertisingPeer, error: \(error)") }
     
 }
 
 extension ConnectVC: MCSessionDelegate {
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        print("MCSession didReceive data fromPeer \(peerID)")
+        print("MCSession didReceive data fromPeer \(peerID.displayName)")
         DispatchQueue.main.async { [weak self] in
             if let testInt = Int(String(decoding: data, as: UTF8.self)) {
                 self?.testLabel.text = "\(testInt)"
