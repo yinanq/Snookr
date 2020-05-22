@@ -39,11 +39,11 @@ class ConnectVC: UIViewController {
         configureModels()
         configureMC()
         configureViews()
-        configureNotificationCenter()
+        configureNotifObservers()
         layoutViews()
     }
     
-    private func configureNotificationCenter() {
+    private func configureNotifObservers() {
         notifCtr.addObserver(forName: .scoreboardVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
         }

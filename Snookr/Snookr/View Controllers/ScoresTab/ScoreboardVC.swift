@@ -34,12 +34,12 @@ class ScoreboardVC: UIViewController {
         view.backgroundColor = SNKColor.background
         configureModels()
         configureViews()
-        configureNotificationCenter()
+        configureNotifObservers()
         layoutViews()
         playLaunchScreenSmootherAnimation()
     }
     
-    private func configureNotificationCenter() {
+    private func configureNotifObservers() {
         notifCtr.addObserver(forName: .connectVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
         }
@@ -56,18 +56,6 @@ class ScoreboardVC: UIViewController {
     private func updateModelAndViewForName(of player: inout Player, to newName: String) {
         updatePlayerNameModel(player: &player, newName: newName)
         updatePlayerNameView(for: player)
-    }
-    
-    private func matchNameFor(_ player: inout Player, newName: String) {
-        switch player.playerId {
-        case .player1:
-            self.updatePlayerNameModel(player: &self.player1, newName: player.name)
-            self.updatePlayerNameView(for: self.player1)
-        case .player2:
-            self.updatePlayerNameModel(player: &self.player2, newName: player.name)
-            self.updatePlayerNameView(for: self.player2)
-        case .unassigned: print("error: .unassigned playerId, in configureNotificationCenter")
-        }
     }
     
     private func configureModels() {

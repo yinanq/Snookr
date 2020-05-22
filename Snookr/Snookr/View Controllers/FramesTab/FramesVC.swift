@@ -36,11 +36,11 @@ class FramesVC: UIViewController {
         view.backgroundColor = SNKColor.background
         configureModels()
         configureViews()
-        configureNotificationCenter()
+        configureNotifObservers()
         layoutViews()
     }
     
-    private func configureNotificationCenter() {
+    private func configureNotifObservers() {
         notifCtr.addObserver(forName: .connectVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
         }
