@@ -11,8 +11,8 @@ import UIKit
 class MeWhichPlayerView: UIView {
     
     let toggleButton = UIButton()
-    let meLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .left)
-    let opponentLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .right)
+    let meLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .right)
+    let opponentLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .left)
     let meStr = "me"
     let opStr = "opponent"
 
@@ -42,7 +42,9 @@ class MeWhichPlayerView: UIView {
             toggleButton.topAnchor.constraint(equalTo: topAnchor),
             toggleButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             meLabel.leadingAnchor.constraint(equalTo: toggleButton.trailingAnchor),
+            meLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -SNKPadding.textViewAdjusterTextAlignedSide),
             meLabel.centerYAnchor.constraint(equalTo: toggleButton.centerYAnchor),
+            opponentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.textViewAdjusterTextAlignedSide),
             opponentLabel.trailingAnchor.constraint(equalTo: toggleButton.leadingAnchor),
             opponentLabel.centerYAnchor.constraint(equalTo: toggleButton.centerYAnchor),
             heightAnchor.constraint(equalTo: toggleButton.heightAnchor)
