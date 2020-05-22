@@ -9,6 +9,14 @@
 //func view updaters:
 extension ScoreboardVC {
     
+    func updatePlayerNameView(for player: Player) {
+        switch player.playerId {
+        case .player1: stackView.scoreInfoView.playerNamesView.textView1.text = player.name
+        case .player2: stackView.scoreInfoView.playerNamesView.textView2.text = player.name
+        case .unassigned: print("error: .unassigned playerId, in updatePlayerNameView")
+        }
+    }
+    
     func updateResetButton() {
         if player1.score == 0 && player2.score == 0 && player1.historyRedoable.isEmpty && player2.historyRedoable.isEmpty {
             if resetButton.isEnabled || resetButton.alpha != SNKAlpha.disabledButton.rawValue { resetButton.disableOutlineStyleButton() }

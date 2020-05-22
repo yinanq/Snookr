@@ -15,6 +15,7 @@ class ConnectVC: UIViewController {
     var mcSession: MCSession?
     var mcAdvertiser: MCNearbyServiceAdvertiser?
     
+    let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
     enum Key {
         static let player1sName = SNKCommonKeys.player1sName
@@ -38,7 +39,27 @@ class ConnectVC: UIViewController {
         configureModels()
         configureMC()
         configureViews()
+        configureNotificationCenter()
         layoutViews()
+    }
+    
+    private func configureNotificationCenter() {
+        notifCtr.addObserver(forName: .scoreboardVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .framesVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .scoreboardVcChangedNameOfPlayer2, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .framesVcChangedNameOfPlayer2, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
+        }
+    }
+    private func updateModelAndViewForName(of player: inout Player, to newName: String) {
+        updatePlayerNameModel(player: &player, newName: newName)
+        updatePlayerNameView(for: player)
     }
     
     func hostSession(_: UIAlertAction) {

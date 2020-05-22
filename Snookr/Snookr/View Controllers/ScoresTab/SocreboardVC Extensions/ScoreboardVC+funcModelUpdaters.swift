@@ -9,6 +9,8 @@
 //func model updaters:
 extension ScoreboardVC {
     
+    func updatePlayerNameModel(player: inout Player, newName: String) { player.name = newName }
+    
     func keepUndoHistoryLimitFor(_ player: inout Player) { if player.historyUndoable.count >= 100 { player.historyUndoable.removeFirst() } }
     
     func keepRedoHistoryLimitFor(_ player: inout Player) { if player.historyRedoable.count >= 100 { player.historyRedoable.removeFirst() } }

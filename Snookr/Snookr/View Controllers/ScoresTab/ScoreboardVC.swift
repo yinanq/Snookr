@@ -8,17 +8,10 @@
 
 import UIKit
 
-protocol ScoreboardVCDelegate: class {
-    func scoreboardVCDidChangePlayer1NameTo(_ newName: String)
-    func scoreboardVCDidChangePlayer2NameTo(_ newName: String)
-}
-
 class ScoreboardVC: UIViewController {
     
-    weak var delegate: ScoreboardVCDelegate!
-    
+    let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
-    
     enum Key {
         static let player1sName = SNKCommonKeys.player1sName
         static let player2sName = SNKCommonKeys.player2sName
@@ -41,8 +34,40 @@ class ScoreboardVC: UIViewController {
         view.backgroundColor = SNKColor.background
         configureModels()
         configureViews()
+        configureNotificationCenter()
         layoutViews()
         playLaunchScreenSmootherAnimation()
+    }
+    
+    private func configureNotificationCenter() {
+        notifCtr.addObserver(forName: .connectVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .framesVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .connectVcChangedNameOfPlayer2, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .framesVcChangedNameOfPlayer2, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
+        }
+    }
+    private func updateModelAndViewForName(of player: inout Player, to newName: String) {
+        updatePlayerNameModel(player: &player, newName: newName)
+        updatePlayerNameView(for: player)
+    }
+    
+    private func matchNameFor(_ player: inout Player, newName: String) {
+        switch player.playerId {
+        case .player1:
+            self.updatePlayerNameModel(player: &self.player1, newName: player.name)
+            self.updatePlayerNameView(for: self.player1)
+        case .player2:
+            self.updatePlayerNameModel(player: &self.player2, newName: player.name)
+            self.updatePlayerNameView(for: self.player2)
+        case .unassigned: print("error: .unassigned playerId, in configureNotificationCenter")
+        }
     }
     
     private func configureModels() {

@@ -58,13 +58,13 @@ extension ScoreboardVC: UITextViewDelegate {
     private func updateAndPersistPlayerNameModel(textViewTag: Int) {
         switch textViewTag {
         case SNKTextViewTag.player1:
-            player1.name = stackView.scoreInfoView.playerNamesView.textView1.text
+            updatePlayerNameModel(player: &player1, newName: stackView.scoreInfoView.playerNamesView.textView1.text)
             defaults.set(player1.name, forKey: Key.player1sName)
-            delegate.scoreboardVCDidChangePlayer1NameTo(player1.name)
+            notifCtr.post(name: .scoreboardVcChangedNameOfPlayer1, object: player1.name)
         case SNKTextViewTag.player2:
-            player2.name = stackView.scoreInfoView.playerNamesView.textView2.text
+            updatePlayerNameModel(player: &player2, newName: stackView.scoreInfoView.playerNamesView.textView2.text)
             defaults.set(player2.name, forKey: Key.player2sName)
-            delegate.scoreboardVCDidChangePlayer2NameTo(player2.name)
+            notifCtr.post(name: .scoreboardVcChangedNameOfPlayer2, object: player2.name)
         default: print("error: invalid player tag in setPlayerNameFromViewToModel")
         }
     }

@@ -6,19 +6,12 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-protocol FramesVCDelegate: class {
-    func framesVCDidChangePlayer1NameTo(_ newName: String)
-    func framesVCDidChangePlayer2NameTo(_ newName: String)
-}
-
 import UIKit
 
 class FramesVC: UIViewController {
-    
-    weak var delegate: FramesVCDelegate!
-    
+        
+    let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
-    
     enum Key {
         static let player1sName = SNKCommonKeys.player1sName
         static let player2sName = SNKCommonKeys.player2sName
@@ -43,15 +36,27 @@ class FramesVC: UIViewController {
         view.backgroundColor = SNKColor.background
         configureModels()
         configureViews()
-        configureDelegates()
+        configureNotificationCenter()
         layoutViews()
     }
     
-    private func configureDelegates() {
-        playerNamesView.textView1.delegate = self
-        playerNamesView.textView2.delegate = self
-        framesWonButtonsView.delegate = self
-        resetButton.delegate = self
+    private func configureNotificationCenter() {
+        notifCtr.addObserver(forName: .connectVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .scoreboardVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .connectVcChangedNameOfPlayer2, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .scoreboardVcChangedNameOfPlayer2, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
+        }
+    }
+    private func updateModelAndViewForName(of player: inout Player, to newName: String) {
+        updatePlayerNameModel(player: &player, newName: newName)
+        updatePlayerNameView(for: player)
     }
     
     private func configureModels() {
@@ -62,8 +67,12 @@ class FramesVC: UIViewController {
     }
     
     private func configureViews() {
+        playerNamesView.textView1.delegate = self
+        playerNamesView.textView2.delegate = self
         updatePlayerNamesView()
+        framesWonButtonsView.delegate = self
         updateFramesWonView()
+        resetButton.delegate = self
         updateResetButton()
         view.addSubviews(separatorView, playerNamesView, framesWonView, framesWonButtonsView, resetButton)
     }

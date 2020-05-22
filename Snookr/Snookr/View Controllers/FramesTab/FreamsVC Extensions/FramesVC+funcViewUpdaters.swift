@@ -9,6 +9,14 @@
 //func view updaters:
 extension FramesVC {
     
+    func updatePlayerNameView(for player: Player) {
+        switch player.playerId {
+        case .player1: playerNamesView.textView1.text = player.name
+        case .player2: playerNamesView.textView2.text = player.name
+        case .unassigned: print("error: .unassigned playerId, in updatePlayerNameView")
+        }
+    }
+    
     func updateFramesWonView() {
         framesWonView.framesWonLabel1.text = String(player1.framesWon)
         framesWonView.framesWonLabel2.text = String(player2.framesWon)
