@@ -10,7 +10,7 @@ import UIKit
 
 class ScoreInfoView: UIView {
     
-    let playerNamesView = PlayerNamesView()
+    let playerNamesView = SNKPlayerNamesView()
     let scoresView = ScoresView()
     let scoreHistoryView = ScoreHistoryView()
     let undoButtonsView = UndoButtonsView()

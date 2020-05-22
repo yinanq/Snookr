@@ -23,7 +23,9 @@
 		7F4BF463246DFFC3009B2E78 /* PointsAdderVC+PointsAdderNumberPadViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4BF462246DFFC3009B2E78 /* PointsAdderVC+PointsAdderNumberPadViewDelegate.swift */; };
 		7F52C2CE2468BC5500C76C1E /* ScoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */; };
 		7F52C2D12468BCC000C76C1E /* ScoreButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */; };
-		7F52C2D32468BE0300C76C1E /* PlayerNamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2D22468BE0300C76C1E /* PlayerNamesView.swift */; };
+		7F52C2D32468BE0300C76C1E /* SNKPlayerNamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2D22468BE0300C76C1E /* SNKPlayerNamesView.swift */; };
+		7F56226F247723DE00458193 /* ConnectVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56226E247723DE00458193 /* ConnectVC+UITextViewDelegate.swift */; };
+		7F56227324774D3A00458193 /* SNKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56227224774D3A00458193 /* SNKView.swift */; };
 		7F6AE51D2468C5F300767F7C /* UndoButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */; };
 		7F6AE52124690BA000767F7C /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52024690BA000767F7C /* UIStackView+.swift */; };
 		7F6AE52324690F9800767F7C /* SNKSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52224690F9800767F7C /* SNKSeparatorView.swift */; };
@@ -83,7 +85,9 @@
 		7F4BF462246DFFC3009B2E78 /* PointsAdderVC+PointsAdderNumberPadViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointsAdderVC+PointsAdderNumberPadViewDelegate.swift"; sourceTree = "<group>"; };
 		7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreInfoView.swift; sourceTree = "<group>"; };
 		7F52C2D02468BCC000C76C1E /* ScoreButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreButtonsView.swift; sourceTree = "<group>"; };
-		7F52C2D22468BE0300C76C1E /* PlayerNamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNamesView.swift; sourceTree = "<group>"; };
+		7F52C2D22468BE0300C76C1E /* SNKPlayerNamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKPlayerNamesView.swift; sourceTree = "<group>"; };
+		7F56226E247723DE00458193 /* ConnectVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
+		7F56227224774D3A00458193 /* SNKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKView.swift; sourceTree = "<group>"; };
 		7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButtonsView.swift; sourceTree = "<group>"; };
 		7F6AE52024690BA000767F7C /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		7F6AE52224690F9800767F7C /* SNKSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKSeparatorView.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				7F3504BD24761194005A2F52 /* ConnectVC+MultipeerConnectivityDelegates.swift */,
+				7F56226E247723DE00458193 /* ConnectVC+UITextViewDelegate.swift */,
 			);
 			path = "ConnectVC Extensions";
 			sourceTree = "<group>";
@@ -285,8 +290,9 @@
 		7FA6A6FE2473880400FF32E4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7F56227224774D3A00458193 /* SNKView.swift */,
 				7F6AE52224690F9800767F7C /* SNKSeparatorView.swift */,
-				7F52C2D22468BE0300C76C1E /* PlayerNamesView.swift */,
+				7F52C2D22468BE0300C76C1E /* SNKPlayerNamesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -519,6 +525,7 @@
 				7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */,
 				7F6AE526246931DD00767F7C /* SNKTextView.swift in Sources */,
 				7FE085CB246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift in Sources */,
+				7F56226F247723DE00458193 /* ConnectVC+UITextViewDelegate.swift in Sources */,
 				7FACBEC3246CC437004E9137 /* PointsAdderVC.swift in Sources */,
 				7FACBECD246D274D004E9137 /* SNKNumberPadButton.swift in Sources */,
 				7F39EF85246BDA0700ABB703 /* ScoreboardVC+funcViewUpdaters.swift in Sources */,
@@ -530,11 +537,12 @@
 				7FEF8A7E2467601B000240A0 /* ScoreboardVC.swift in Sources */,
 				7F6AE52324690F9800767F7C /* SNKSeparatorView.swift in Sources */,
 				7FEF8A8424676163000240A0 /* Player.swift in Sources */,
-				7F52C2D32468BE0300C76C1E /* PlayerNamesView.swift in Sources */,
+				7F52C2D32468BE0300C76C1E /* SNKPlayerNamesView.swift in Sources */,
 				7FDD3DDD2473BDD300292402 /* FramesVC+ScoreboardVCDelegate.swift in Sources */,
 				7F4A3225246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift in Sources */,
 				7FDD3DD92473ACF900292402 /* FramesVC+funcPersistence.swift in Sources */,
 				7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */,
+				7F56227324774D3A00458193 /* SNKView.swift in Sources */,
 				7FEF8A8C246763C2000240A0 /* ScoreDifView.swift in Sources */,
 				7F52C2CE2468BC5500C76C1E /* ScoreInfoView.swift in Sources */,
 			);

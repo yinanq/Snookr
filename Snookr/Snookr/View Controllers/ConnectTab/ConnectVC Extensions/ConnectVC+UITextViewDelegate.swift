@@ -1,14 +1,14 @@
 //
-//  ScoreboardVC+UITextViewDelegate.swift
+//  ConnectVC+UITextViewDelegate.swift
 //  Snookr
 //
-//  Created by Yinan Qiu on 5/11/20.
+//  Created by Yinan Qiu on 5/21/20.
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
 import UIKit
 
-extension ScoreboardVC: UITextViewDelegate {
+extension ConnectVC: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         disableAndDimAllButNameOfPlayerTagged(textView.tag)
@@ -41,11 +41,11 @@ extension ScoreboardVC: UITextViewDelegate {
             switch textView.tag {
             case SNKTextViewTag.player1: placeholderName = SNKNamePlaceholder.player1
             case SNKTextViewTag.player2: placeholderName = SNKNamePlaceholder.player2
-            default: print("invalid textView.tag, in textViewDidEndEditing, in ScoreboardVC: UITextViewDelegate")
+            default: print("invalid textView.tag, in textViewDidEndEditing, in ConnectVC: UITextViewDelegate")
             }
             textView.text = regex.stringByReplacingMatches(in: text, range: NSRange(text.startIndex..., in: text), withTemplate: placeholderName)
         } catch {
-            print("error: invalid regex pattern")
+            print("error: invalid regex pattern, in ConnectVC")
             return
         }
         //update model and view:
@@ -58,23 +58,23 @@ extension ScoreboardVC: UITextViewDelegate {
     private func updateAndPersistPlayerNameModel(textViewTag: Int) {
         switch textViewTag {
         case SNKTextViewTag.player1:
-            player1.name = stackView.scoreInfoView.playerNamesView.textView1.text
+            player1.name = playerNamesView.textView1.text
             defaults.set(player1.name, forKey: Key.player1sName)
-            delegate.scoreboardVCDidChangePlayer1NameTo(player1.name)
+//            delegate.framesVCDidChangePlayer1NameTo(player1.name)
         case SNKTextViewTag.player2:
-            player2.name = stackView.scoreInfoView.playerNamesView.textView2.text
+            player2.name = playerNamesView.textView2.text
             defaults.set(player2.name, forKey: Key.player2sName)
-            delegate.scoreboardVCDidChangePlayer2NameTo(player2.name)
-        default: print("error: invalid player tag in setPlayerNameFromViewToModel")
+//            delegate.framesVCDidChangePlayer2NameTo(player2.name)
+        default: print("error: invalid player tag in setPlayerNameFromViewToModel, in ConnectVC")
         }
     }
     
     private func disableAndDimAllButNameOfPlayerTagged(_ playerTag: Int) {
-        var viewsToDim: [UIView] = [separatorView, stackView.scoreInfoView.scoresView, stackView.scoreInfoView.scoreHistoryView, stackView.scoreInfoView.undoButtonsView, stackView.scoreButtonsView, resetButton]
+        var viewsToDim: [UIView] = [containerView]
         switch playerTag {
-        case SNKTextViewTag.player1: viewsToDim.append(stackView.scoreInfoView.playerNamesView.textView2)
-        case SNKTextViewTag.player2: viewsToDim.append(stackView.scoreInfoView.playerNamesView.textView1)
-        default: print("error: invalid playerTag in disableAndDimAllButNameOfPlayer")
+        case SNKTextViewTag.player1: viewsToDim.append(playerNamesView.textView2)
+        case SNKTextViewTag.player2: viewsToDim.append(playerNamesView.textView1)
+        default: print("error: invalid playerTag in disableAndDimAllButNameOfPlayer, in ConnectVC")
         }
         viewsToDim.forEach { view in
             view.isUserInteractionEnabled = false
@@ -82,12 +82,11 @@ extension ScoreboardVC: UITextViewDelegate {
         }
     }
     private func enableAndUndimAll() {
-        let allViews: [UIView] = [separatorView, stackView.scoreInfoView.scoresView, stackView.scoreInfoView.scoreHistoryView, stackView.scoreInfoView.undoButtonsView, stackView.scoreButtonsView, resetButton, stackView.scoreInfoView.playerNamesView.textView1, stackView.scoreInfoView.playerNamesView.textView2]
+        let allViews: [UIView] = [containerView, playerNamesView.textView1, playerNamesView.textView2]
         for view in allViews {
             view.isUserInteractionEnabled = true
             UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = 1 }
         }
-        updateResetButton() //its alpha became 1 regardless, if was and is disabled then disable again to correct alpha
     }
     
 }

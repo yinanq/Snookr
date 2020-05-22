@@ -39,20 +39,10 @@ class ScoreboardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = SNKColor.background
-        view.addSubviews(separatorView, stackView, resetButton)
-        layout()
-        configureDelegates()
         configureModels()
         configureViews()
+        layoutViews()
         playLaunchScreenSmootherAnimation()
-    }
-    
-    private func configureDelegates() {
-        stackView.scoreInfoView.playerNamesView.textView1.delegate = self
-        stackView.scoreInfoView.playerNamesView.textView2.delegate = self
-        stackView.scoreButtonsView.delegate = self
-        stackView.scoreInfoView.undoButtonsView.delegate = self
-        resetButton.delegate = self
     }
     
     private func configureModels() {
@@ -63,13 +53,18 @@ class ScoreboardVC: UIViewController {
     }
     
     private func configureViews() {
-        updatePlayerNamesView()
+        stackView.scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name)
+        stackView.scoreInfoView.playerNamesView.textView1.delegate = self
+        stackView.scoreInfoView.playerNamesView.textView2.delegate = self
+        stackView.scoreInfoView.undoButtonsView.delegate = self
+        stackView.scoreButtonsView.delegate = self
         updateScoresView()
+        resetButton.delegate = self
         updateResetButton()
+        view.addSubviews(separatorView, stackView, resetButton)
     }
-    private func updatePlayerNamesView() { stackView.scoreInfoView.playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
     
-    private func layout() {
+    private func layoutViews() {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),

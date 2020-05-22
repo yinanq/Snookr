@@ -1,5 +1,5 @@
 //
-//  PlayerNamesView.swift
+//  SNKPlayerNamesView.swift
 //  Snookr
 //
 //  Created by Yinan Qiu on 5/10/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerNamesView: UIView {
+class SNKPlayerNamesView: UIView {
     
     var textView1: SNKTextView!
     var textView2: SNKTextView!
@@ -40,11 +40,11 @@ class PlayerNamesView: UIView {
             textView1.topAnchor.constraint(equalTo: topAnchor, constant: SNKPadding.textViewAdjusterTop),
             textView2.topAnchor.constraint(equalTo: topAnchor, constant: SNKPadding.textViewAdjusterTop),
             textView1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -SNKPadding.textViewAdjusterTextAlignedSide),
-            textView1.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -SNKPadding.difViewWidth/2 + SNKPadding.textViewAdjusterTextUnalignedSide - SNKPadding.small),
-            textView2.leadingAnchor.constraint(equalTo: centerXAnchor, constant: SNKPadding.difViewWidth/2 - SNKPadding.textViewAdjusterTextUnalignedSide + SNKPadding.small),
+            textView1.trailingAnchor.constraint(equalTo: centerXAnchor, constant:  -SNKPadding.big + SNKPadding.textViewAdjusterTextUnalignedSide + -SNKPadding.separatorViewWidth/2),
+            textView2.leadingAnchor.constraint(equalTo: centerXAnchor, constant: SNKPadding.big - SNKPadding.textViewAdjusterTextUnalignedSide + SNKPadding.separatorViewWidth/2),
             textView2.trailingAnchor.constraint(equalTo: trailingAnchor, constant: SNKPadding.textViewAdjusterTextAlignedSide),
-            bottomAnchor.constraint(greaterThanOrEqualTo: textView1.bottomAnchor),
-            bottomAnchor.constraint(greaterThanOrEqualTo: textView2.bottomAnchor)
+            heightAnchor.constraint(equalTo: textView1.heightAnchor, constant: SNKPadding.textViewAdjusterTop),
+            heightAnchor.constraint(equalTo: textView2.heightAnchor, constant: SNKPadding.textViewAdjusterTop)
         ])
     }
 

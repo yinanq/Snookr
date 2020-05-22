@@ -72,8 +72,8 @@ extension FramesVC: UITextViewDelegate {
     private func disableAndDimAllButNameOfPlayerTagged(_ playerTag: Int) {
         var viewsToDim: [UIView] = [separatorView, framesWonView, framesWonButtonsView, resetButton]
         switch playerTag {
-        case 1: viewsToDim.append(playerNamesView.textView2)
-        case 2: viewsToDim.append(playerNamesView.textView1)
+        case SNKTextViewTag.player1: viewsToDim.append(playerNamesView.textView2)
+        case SNKTextViewTag.player2: viewsToDim.append(playerNamesView.textView1)
         default: print("error: invalid playerTag in disableAndDimAllButNameOfPlayer, in FramesVC")
         }
         viewsToDim.forEach { view in

@@ -30,7 +30,7 @@ class FramesVC: UIViewController {
     var player2 = Player(playerId: .player2)
     
     let separatorView = SNKSeparatorView()
-    let playerNamesView = PlayerNamesView()
+    let playerNamesView = SNKPlayerNamesView()
     let framesWonView = FramesWonView()
     let framesWonButtonsView = FramesWonButtonsView()
     let resetButton = FramesResetButton()
@@ -41,11 +41,10 @@ class FramesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = SNKColor.background
-        view.addSubviews(separatorView, playerNamesView, framesWonView, framesWonButtonsView, resetButton)
-        layout()
-        configureDelegates()
         configureModels()
         configureViews()
+        configureDelegates()
+        layoutViews()
     }
     
     private func configureDelegates() {
@@ -66,10 +65,11 @@ class FramesVC: UIViewController {
         updatePlayerNamesView()
         updateFramesWonView()
         updateResetButton()
+        view.addSubviews(separatorView, playerNamesView, framesWonView, framesWonButtonsView, resetButton)
     }
     private func updatePlayerNamesView() { playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
     
-    private func layout() {
+    private func layoutViews() {
         NSLayoutConstraint.activate([
             playerNamesView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
             playerNamesView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),

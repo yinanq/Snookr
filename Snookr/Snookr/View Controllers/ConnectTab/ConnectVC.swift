@@ -15,19 +15,30 @@ class ConnectVC: UIViewController {
     var mcSession: MCSession?
     var mcAdvertiser: MCNearbyServiceAdvertiser?
     
+    let defaults = UserDefaults.standard
+    enum Key {
+        static let player1sName = SNKCommonKeys.player1sName
+        static let player2sName = SNKCommonKeys.player2sName
+    }
+    var player1 = Player(playerId: .player1)
+    var player2 = Player(playerId: .player2)
+    
+    let playerNamesView = SNKPlayerNamesView()
+    let containerView = SNKView()
     var testLabel: SNKLabel!
     let connectButton = SNKButton()
     let testBtn1 = SNKButton()
     let testBtn2 = SNKButton()
+    let tapRecognizer = UITapGestureRecognizer()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        layoutUI()
-        mcSession = MCSession(peer: mcPeerID, securityIdentity: nil, encryptionPreference: .required)
-        mcSession?.delegate = self
+        configureModels()
+        configureMC()
+        configureViews()
+        layoutViews()
     }
     
     func hostSession(_: UIAlertAction) {
@@ -55,10 +66,24 @@ class ConnectVC: UIViewController {
         present(ac, animated: true)
     }
     
-    private func configureUI() {
+    private func configureModels() {
+        player1.name = defaults.string(forKey: Key.player1sName) ?? SNKNamePlaceholder.player1
+        player2.name = defaults.string(forKey: Key.player2sName) ?? SNKNamePlaceholder.player2
+    }
+    
+    private func configureMC() {
+        mcSession = MCSession(peer: mcPeerID, securityIdentity: nil, encryptionPreference: .required)
+        mcSession?.delegate = self
+    }
+    
+    private func configureViews() {
+        playerNamesView.set(player1sName: player1.name, player2sName: player2.name)
+        playerNamesView.textView1.delegate = self
+        playerNamesView.textView2.delegate = self
+        view.addSubviews(playerNamesView, containerView)
+        //test stuff:
         connectButton.set(title: "Connect with Opponent", style: .solid)
         connectButton.addTarget(self, action: #selector(didTapConnectButton), for: .touchUpInside)
-        view.addSubview(connectButton)
         testLabel = SNKLabel(fontSize: 100, fontWeight: .bold)
         testLabel.text = "0"
         testBtn1.set(title: "1", style: .solid)
@@ -67,22 +92,31 @@ class ConnectVC: UIViewController {
         testBtn2.addTarget(self, action: #selector(testTap(sender:)), for: .touchUpInside)
         testBtn1.tag = 1
         testBtn2.tag = 2
-        view.addSubviews(testLabel, testBtn1, testBtn2)
+        //:test stuff
+        containerView.addSubviews(connectButton, testLabel, testBtn1, testBtn2)
     }
     
-    private func layoutUI() {
+    private func layoutViews() {
         NSLayoutConstraint.activate([
-            connectButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
-            connectButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
-            connectButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            testBtn1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
-            testBtn1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
+            playerNamesView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
+            playerNamesView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
+            playerNamesView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
+            containerView.topAnchor.constraint(equalTo: playerNamesView.bottomAnchor, constant: SNKPadding.big),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
+            containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SNKPadding.big),
+            //test stuff:
+            connectButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            connectButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            connectButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            testBtn1.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            testBtn1.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             testBtn1.topAnchor.constraint(equalTo: connectButton.bottomAnchor, constant: 100),
-            testBtn2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
-            testBtn2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
+            testBtn2.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            testBtn2.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             testBtn2.topAnchor.constraint(equalTo: testBtn1.bottomAnchor, constant: SNKPadding.small),
             testLabel.bottomAnchor.constraint(equalTo: connectButton.topAnchor, constant: -100),
-            testLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            testLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
         ])
     }
     
