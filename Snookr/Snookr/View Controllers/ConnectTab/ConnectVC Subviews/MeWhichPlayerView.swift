@@ -32,8 +32,8 @@ class MeWhichPlayerView: UIView {
         
         toggleButton.translatesAutoresizingMaskIntoConstraints = false
         toggleButton.tintColor = SNKColor.foregroundSecondary
-        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.square.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .normal)
-        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.square", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .highlighted)
+        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .normal)
+        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .highlighted)
         
         meLabel.text = meStr
         opponentLabel.text = opStr
