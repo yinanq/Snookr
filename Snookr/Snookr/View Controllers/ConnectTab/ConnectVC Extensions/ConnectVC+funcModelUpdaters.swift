@@ -12,11 +12,4 @@ extension ConnectVC {
     
     func updatePlayerNameModel(player: inout Player, newName: String) { player.name = newName }
     
-    func mcGeneratePeerID() {
-        //to add guard when moved from testPeerIDUserCode to textField to be build
-        mcPeerIDDisplayName = testPeerIDUserCode
-        mcPeerID = MCPeerID(displayName: mcPeerIDDisplayName!)
-        //to add persistence
-    }
-    
 }

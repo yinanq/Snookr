@@ -17,27 +17,31 @@ class ConnectVC: UIViewController {
     var mcPeerID: MCPeerID?
     var mcPeerIDDisplayName: String?
     let mcServiceType = "yinan-snookr"
-    
+    var mcState: McState = .notConnected
+    enum McState {
+        case notConnected
+        case isConnecting
+        case isConnected
+    }
     let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
     enum Key {
         static let player1sName = SNKCommonKeys.player1sName
         static let player2sName = SNKCommonKeys.player2sName
     }
-    
     var player1 = Player(playerId: .player1)
     var player2 = Player(playerId: .player2)
     var mePlayer2 = true //player 2 (not 1) because default is set to right side player
-    
     let separatorView = SNKSeparatorView()
     let playerNamesView = SNKPlayerNamesView()
     let tapRecognizer = UITapGestureRecognizer()
     let containerView = SNKView()
     let meWhichPlayerView = MeWhichPlayerView()
+    let connectButton = ConnectButton()
     
+    //test stuff:
     let testPeerIDUserCode = "147"
     var testLabel: SNKLabel!
-    let connectButton = SNKButton()
     let testBtn1 = SNKButton()
     let testBtn2 = SNKButton()
 
@@ -49,40 +53,9 @@ class ConnectVC: UIViewController {
         configureNotifObservers()
         layoutViews()
     }
+
     
-    @objc func didTapConnectButton() {
-        mcCreateSession()
-        mcAdvertise()
-        mcBrowse()
-        //to add: present activity indicator etc view
-    }
-    private func mcCreateSession() {
-        guard let peerID = mcPeerID else {
-            print("error: no mcPeerID, in mcCreateSession")
-            return
-        }
-        mcSession = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .required)
-        mcSession?.delegate = self
-    }
-    private func mcAdvertise() {
-        guard let peerID = mcPeerID else {
-            print("error: no mcPeerID, in mcAdvertise")
-            return
-        }
-        mcAdvertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: mcServiceType)
-        mcAdvertiser?.delegate = self
-        mcAdvertiser?.startAdvertisingPeer()
-    }
-    private func mcBrowse() {
-        guard let peerID = mcPeerID else {
-            print("error: no mcPeerID, in mcBrowse")
-            return
-        }
-        mcBrowser = MCNearbyServiceBrowser(peer: peerID, serviceType: mcServiceType)
-        mcBrowser?.delegate = self
-        mcBrowser?.startBrowsingForPeers()
-    }
-    
+    //test stuff:
     @objc func testTap(sender: SNKButton) {
         testLabel.text = "\(sender.tag)"
         syncConnectedOpponent(testBtnTag: sender.tag)
@@ -104,6 +77,7 @@ class ConnectVC: UIViewController {
         }
     }
     
+    
     private func configureNotifObservers() {
         notifCtr.addObserver(forName: .scoreboardVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
@@ -123,20 +97,18 @@ class ConnectVC: UIViewController {
         updatePlayerNameView(for: player)
     }
     
+    
     private func configureModels() {
         player1.name = defaults.string(forKey: Key.player1sName) ?? SNKNamePlaceholder.player1
         player2.name = defaults.string(forKey: Key.player2sName) ?? SNKNamePlaceholder.player2
         mcGeneratePeerID()
     }
-    
     private func configureViews() {
         playerNamesView.set(player1sName: player1.name, player2sName: player2.name)
         playerNamesView.textView1.delegate = self
         playerNamesView.textView2.delegate = self
-        view.addSubviews(separatorView, playerNamesView, containerView)
+        connectButton.delegate = self
         //test stuff:
-        connectButton.set(title: "Connect with Opponent", style: .solid)
-        connectButton.addTarget(self, action: #selector(didTapConnectButton), for: .touchUpInside)
         testLabel = SNKLabel(fontSize: 100, fontWeight: .bold)
         testLabel.text = "0"
         testBtn1.set(title: "test 1", style: .solid)
@@ -147,8 +119,8 @@ class ConnectVC: UIViewController {
         testBtn2.tag = 2
         //:test stuff
         containerView.addSubviews(meWhichPlayerView, connectButton, testLabel, testBtn1, testBtn2)
+        view.addSubviews(separatorView, playerNamesView, containerView)
     }
-    
     private func layoutViews() {
         NSLayoutConstraint.activate([
             separatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -164,19 +136,18 @@ class ConnectVC: UIViewController {
             meWhichPlayerView.topAnchor.constraint(equalTo: containerView.topAnchor),
             meWhichPlayerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             meWhichPlayerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            //test stuff:
-            testLabel.topAnchor.constraint(equalTo: meWhichPlayerView.bottomAnchor, constant: 50),
-            testLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             connectButton.topAnchor.constraint(equalTo: testLabel.bottomAnchor, constant: SNKPadding.big),
             connectButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             connectButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            //test stuff:
+            testLabel.topAnchor.constraint(equalTo: meWhichPlayerView.bottomAnchor, constant: 50),
+            testLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             testBtn1.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            testBtn1.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            testBtn1.topAnchor.constraint(equalTo: connectButton.bottomAnchor, constant: 100),
-            testBtn2.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            testBtn2.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            testBtn2.topAnchor.constraint(equalTo: testBtn1.bottomAnchor, constant: SNKPadding.small)
+            testBtn1.widthAnchor.constraint(equalToConstant: 100),
+            testBtn1.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            testBtn2.leadingAnchor.constraint(equalTo: testBtn1.trailingAnchor, constant: SNKPadding.small),
+            testBtn2.widthAnchor.constraint(equalToConstant: 100),
+            testBtn2.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
         ])
     }
-    
 }
