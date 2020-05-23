@@ -10,10 +10,10 @@ import Foundation
 
 struct Player {
     
-    enum PlayerId {
-        case player1
-        case player2
-        case unassigned
+    enum PlayerId: Int {
+        case player1 = 1
+        case player2 = 2
+        case unassigned = 0
     }
     
     var name = "Player Name"
@@ -26,5 +26,5 @@ struct Player {
     init(playerId: PlayerId) {
         self.playerId = playerId
     }
-    
+
 }

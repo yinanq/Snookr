@@ -14,11 +14,10 @@ class InfoVC: UIViewController {
     var bodyTextViewContainerView = UIView()
     var bodyTextView = SNKTextView()
     var closeButton: SNKButton!
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
         view.backgroundColor = SNKColor.background
         configureTitle()
         configureBodyTextViewContainerView()

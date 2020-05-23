@@ -11,9 +11,12 @@ import MultipeerConnectivity
 
 class ConnectVC: UIViewController {
     
-    let mcPeerID = MCPeerID(displayName: UIDevice.current.name) //temp
     var mcSession: MCSession?
     var mcAdvertiser: MCNearbyServiceAdvertiser?
+    var mcBrowser: MCNearbyServiceBrowser?
+    var mcPeerID: MCPeerID?
+    var mcPeerIDDisplayName: String?
+    let mcServiceType = "yinan-snookr"
     
     let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
@@ -24,57 +27,60 @@ class ConnectVC: UIViewController {
     
     var player1 = Player(playerId: .player1)
     var player2 = Player(playerId: .player2)
-    var userIsPlayer2 = true
+    var mePlayer2 = true //player 2 (not 1) because default is set to right side player
     
     let separatorView = SNKSeparatorView()
     let playerNamesView = SNKPlayerNamesView()
+    let tapRecognizer = UITapGestureRecognizer()
     let containerView = SNKView()
     let meWhichPlayerView = MeWhichPlayerView()
+    
+    let testPeerIDUserCode = "147"
     var testLabel: SNKLabel!
     let connectButton = SNKButton()
     let testBtn1 = SNKButton()
     let testBtn2 = SNKButton()
-    let tapRecognizer = UITapGestureRecognizer()
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
         configureModels()
-        configureMC()
         configureViews()
         configureNotifObservers()
         layoutViews()
     }
     
-    private func configureMC() {
-        mcSession = MCSession(peer: mcPeerID, securityIdentity: nil, encryptionPreference: .required)
+    @objc func didTapConnectButton() {
+        mcCreateSession()
+        mcAdvertise()
+        mcBrowse()
+        //to add: present activity indicator etc view
+    }
+    private func mcCreateSession() {
+        guard let peerID = mcPeerID else {
+            print("error: no mcPeerID, in mcCreateSession")
+            return
+        }
+        mcSession = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .required)
         mcSession?.delegate = self
     }
-    
-    func hostSession(_: UIAlertAction) {
-        mcAdvertiser = MCNearbyServiceAdvertiser(peer: mcPeerID, discoveryInfo: nil, serviceType: SNKmcServiceType)
+    private func mcAdvertise() {
+        guard let peerID = mcPeerID else {
+            print("error: no mcPeerID, in mcAdvertise")
+            return
+        }
+        mcAdvertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: mcServiceType)
         mcAdvertiser?.delegate = self
         mcAdvertiser?.startAdvertisingPeer()
     }
-    
-    func joinSession(_: UIAlertAction) {
-        guard let mcSession = mcSession else { return }
-        let mcBrowserVC = MCBrowserViewController(serviceType: SNKmcServiceType, session: mcSession)
-        mcBrowserVC.delegate = self
-        present(mcBrowserVC, animated: true)
-//        let mcBrowser = MCNearbyServiceBrowser(peer: mcPeerID, serviceType: SNKmcServiceType)
-//        mcBrowser.delegate = self
-//        mcBrowser.startBrowsingForPeers()
-    }
-    
-    @objc func didTapConnectButton() {
-        let ac = UIAlertController(title: "Connect with Opponent", message: "temp message", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "temp host session", style: .default, handler: hostSession)) //temp
-        ac.addAction(UIAlertAction(title: "temp join session", style: .default, handler: joinSession)) //temp
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        ac.view.tintColor = SNKColor.foreground
-        present(ac, animated: true)
+    private func mcBrowse() {
+        guard let peerID = mcPeerID else {
+            print("error: no mcPeerID, in mcBrowse")
+            return
+        }
+        mcBrowser = MCNearbyServiceBrowser(peer: peerID, serviceType: mcServiceType)
+        mcBrowser?.delegate = self
+        mcBrowser?.startBrowsingForPeers()
     }
     
     @objc func testTap(sender: SNKButton) {
@@ -98,11 +104,6 @@ class ConnectVC: UIViewController {
         }
     }
     
-    
-    
-    
-    
-    
     private func configureNotifObservers() {
         notifCtr.addObserver(forName: .scoreboardVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
@@ -125,6 +126,7 @@ class ConnectVC: UIViewController {
     private func configureModels() {
         player1.name = defaults.string(forKey: Key.player1sName) ?? SNKNamePlaceholder.player1
         player2.name = defaults.string(forKey: Key.player2sName) ?? SNKNamePlaceholder.player2
+        mcGeneratePeerID()
     }
     
     private func configureViews() {
