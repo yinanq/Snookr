@@ -10,18 +10,20 @@ import UIKit
 
 class ScoreboardVC: UIViewController {
     
+    var mcState: SNKmcState = .notConnected
+    
     let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
     enum Key {
-        static let player1sName = SNKCommonKeys.player1sName
-        static let player2sName = SNKCommonKeys.player2sName
+        static let player1sName = SNKCommonKey.player1sName
+        static let player2sName = SNKCommonKey.player2sName
         static let player1sScore = "1's score"
         static let player2sScore = "2's score"
     }
     
     var player1 = Player(playerId: .player1)
     var player2 = Player(playerId: .player2)
-    
+    var opponentIs: SNKWhichPlayer = .player1
     let separatorView = SNKSeparatorView()
     let stackView = ScoreboardStackView()
     let resetButton = ResetButton()
@@ -39,16 +41,23 @@ class ScoreboardVC: UIViewController {
     }
     
     private func configureNotifObservers() {
-        notifCtr.addObserver(forName: .connectVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
+        notifCtr.addObserver(forName: .connectVCChangedMCState, object: nil, queue: .main) { notification in
+            self.mcState = notification.object as! SNKmcState
+            self.updateViewsBasedOnMCState()
+        }
+        notifCtr.addObserver(forName: .connectVCChangedWhoswho, object: nil, queue: nil) { notification in
+            self.opponentIs = notification.object as! SNKWhichPlayer
+        }
+        notifCtr.addObserver(forName: .connectVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
         }
-        notifCtr.addObserver(forName: .framesVcChangedNameOfPlayer1, object: nil, queue: nil) { notification in
+        notifCtr.addObserver(forName: .framesVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
         }
-        notifCtr.addObserver(forName: .connectVcChangedNameOfPlayer2, object: nil, queue: nil) { notification in
+        notifCtr.addObserver(forName: .connectVCChangedNameOfPlayer2, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
         }
-        notifCtr.addObserver(forName: .framesVcChangedNameOfPlayer2, object: nil, queue: nil) { notification in
+        notifCtr.addObserver(forName: .framesVCChangedNameOfPlayer2, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
         }
     }
@@ -62,6 +71,21 @@ class ScoreboardVC: UIViewController {
         player2.name = defaults.string(forKey: Key.player2sName) ?? SNKNamePlaceholder.player2
         player1.score = defaults.integer(forKey: Key.player1sScore)
         player2.score = defaults.integer(forKey: Key.player2sScore)
+        if let mcStateB4ThisTabFirstOpen = defaults.value(forKey: SNKCommonKey.mcStateRawValue) as? Int {
+            switch mcStateB4ThisTabFirstOpen {
+            case SNKmcState.notConnected.rawValue: mcState = .notConnected
+            case SNKmcState.isConnected.rawValue: mcState = .isConnected
+            case SNKmcState.isConnecting.rawValue: mcState = .isConnecting
+            default: print("error: invalid case for mcStateB4ThisTabFirstOpen")
+            }
+        } else { print("error: no mcStateB4ThisTabFirstOpen")}
+        if let opponentIs = defaults.value(forKey: SNKCommonKey.opponentIsRawValue) as? Int {
+            switch opponentIs {
+            case SNKWhichPlayer.player1.rawValue: self.opponentIs = .player1
+            case SNKWhichPlayer.player2.rawValue: self.opponentIs = .player2
+            default: print("error: invalid case for opponentIs from persistence")
+            }
+        }
     }
     
     private func configureViews() {
@@ -74,6 +98,7 @@ class ScoreboardVC: UIViewController {
         resetButton.delegate = self
         updateResetButton()
         view.addSubviews(separatorView, stackView, resetButton)
+        updateViewsBasedOnMCState()
     }
     
     private func layoutViews() {

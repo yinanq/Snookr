@@ -12,9 +12,26 @@ extension ConnectVC: MCSessionDelegate {
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("session didReceive data fromPeer \(peerID.displayName)")
-        DispatchQueue.main.async { [weak self] in
-            if let testInt = Int(String(decoding: data, as: UTF8.self)) {
-                self?.testLabel.text = "\(testInt)"
+        DispatchQueue.main.async {
+            let jD = JSONDecoder()
+            do {
+                let decoded = try jD.decode(MCData.self, from: data)
+                switch decoded.type {
+                case SNKDataTypeForMC.name:
+                    switch self.opponentIs {
+                    case .player1:
+                        self.mcUpdateName(of: &self.player1, to: decoded.name ?? "?")
+                    case .player2:
+                        self.mcUpdateName(of: &self.player2, to: decoded.name ?? "?")
+                    }
+                case SNKDataTypeForMC.frame:
+                    print("frame!")
+                case SNKDataTypeForMC.socre:
+                    print("score!")
+                default: print("error: invalid case of decoded.type, in session didReceive")
+                }
+            } catch {
+                print("error: received data not decodable, in session didReceive.")
             }
         }
     }
@@ -24,17 +41,15 @@ extension ConnectVC: MCSessionDelegate {
         case .connecting: print("peer \(peerID.displayName) is connecting")
         case .connected:
             print("peer \(peerID.displayName) is connected")
-            mcStopConnectingButDontDisconnect()
-            mcState = .isConnected
             DispatchQueue.main.async {
-                self.connectButton.setToDisconnectButton()
+                self.mcStopConnectingButDontDisconnect()
+                self.updateMCState(to: .isConnected)
             }
         case .notConnected:
             print("peer \(peerID.displayName) is not connected")
-            mcDisconnect()
-            mcState = .notConnected
             DispatchQueue.main.async {
-                self.connectButton.setToConnectButton()
+                self.mcDisconnect()
+                self.updateMCState(to: .notConnected)
             }
         @unknown default: print("peer \(peerID.displayName) is in unknown state")
         }

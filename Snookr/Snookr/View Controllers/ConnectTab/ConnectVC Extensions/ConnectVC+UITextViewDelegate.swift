@@ -58,13 +58,15 @@ extension ConnectVC: UITextViewDelegate {
     private func updateAndPersistPlayerNameModel(textViewTag: Int) {
         switch textViewTag {
         case SNKTextViewTag.player1:
-            player1.name = playerNamesView.textView1.text
+            updatePlayerNameModel(player: &player1, newName: playerNamesView.textView1.text)
+            notifCtr.post(name: .connectVCChangedNameOfPlayer1, object: player1.name)
             defaults.set(player1.name, forKey: Key.player1sName)
-            notifCtr.post(name: .connectVcChangedNameOfPlayer1, object: player1.name)
+            if mcState == .isConnected { mcSend(snkDataTypeForMC: SNKDataTypeForMC.name, name: player1.name) }
         case SNKTextViewTag.player2:
-            player2.name = playerNamesView.textView2.text
+            updatePlayerNameModel(player: &player2, newName: playerNamesView.textView2.text)
+            notifCtr.post(name: .connectVCChangedNameOfPlayer2, object: player2.name)
             defaults.set(player2.name, forKey: Key.player2sName)
-            notifCtr.post(name: .connectVcChangedNameOfPlayer2, object: player2.name)
+            if mcState == .isConnected { mcSend(snkDataTypeForMC: SNKDataTypeForMC.name, name: player2.name) }
         default: print("error: invalid player tag in setPlayerNameFromViewToModel, in ConnectVC")
         }
     }

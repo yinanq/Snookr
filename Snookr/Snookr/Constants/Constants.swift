@@ -44,9 +44,11 @@ enum SNKButtonTag {
     static let redoButton2 = -12
 }
 
-enum SNKCommonKeys {
-    static let player1sName = "1's name"
-    static let player2sName = "2's name"
+enum SNKCommonKey {
+    static let player1sName = "player1sName"
+    static let player2sName = "player2sName"
+    static let mcStateRawValue = "mcState"
+    static let opponentIsRawValue = "opponentIs"
 }
 
 enum SNKColor {
@@ -61,6 +63,14 @@ enum SNKColor {
 enum SNKCornerRadius {
     static let big: CGFloat = 10
     static let small: CGFloat = 5
+}
+
+enum SNKDataTypeForMC {
+    static let name = 0
+    static let frame = 1
+    static let socre = 2
+    static let resetFrame = -1
+    static let resetScore = -2
 }
 
 enum SNKFontSize {
@@ -78,6 +88,19 @@ enum SNKFontWeight {
     static let forFontSizeSmall: UIFont.Weight = .bold
 }
 
+enum SNKmcState: Int {
+    case notConnected = -1
+    case isConnecting = 0
+    case isConnected = 1
+}
+
+enum SNKNamePlaceholder {
+//    static let player1 = "Opponent's Name"
+//    static let player2 = "Your Name"
+    static let player1 = "Player Name"
+    static let player2 = "Player Name"
+}
+
 enum SNKPadding {
     static let big: CGFloat = 20
     static let small: CGFloat = 8
@@ -91,14 +114,12 @@ enum SNKPadding {
     static let difViewWidth: CGFloat = 65
 }
 
-enum SNKNamePlaceholder {
-//    static let player1 = "Opponent's Name"
-//    static let player2 = "Your Name"
-    static let player1 = "Player Name"
-    static let player2 = "Player Name"
-}
-
 enum SNKTextViewTag {
     static let player1 = 1
     static let player2 = 2
+}
+
+enum SNKWhichPlayer: Int {
+    case player1 = 1
+    case player2 = 2
 }

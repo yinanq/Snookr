@@ -9,10 +9,14 @@
 import Foundation
 
 extension Notification.Name {
-    static let connectVcChangedNameOfPlayer1 = Notification.Name("connectVcChangedNameOfPlayer1")
-    static let connectVcChangedNameOfPlayer2 = Notification.Name("connectVcChangedNameOfPlayer2")
-    static let scoreboardVcChangedNameOfPlayer1 = Notification.Name("scoreboardVcChangedNameOfPlayer1")
-    static let scoreboardVcChangedNameOfPlayer2 = Notification.Name("scoreboardVcChangedNameOfPlayer2")
-    static let framesVcChangedNameOfPlayer1 = Notification.Name("framesVcChangedNameOfPlayer1")
-    static let framesVcChangedNameOfPlayer2 = Notification.Name("framesVcChangedNameOfPlayer2")
+    
+    static let connectVCChangedNameOfPlayer1 = Notification.Name("connectVcChangedNameOfPlayer1")
+    static let connectVCChangedNameOfPlayer2 = Notification.Name("connectVcChangedNameOfPlayer2")
+    static let scoreboardVCChangedNameOfPlayer1 = Notification.Name("scoreboardVcChangedNameOfPlayer1")
+    static let scoreboardVCChangedNameOfPlayer2 = Notification.Name("scoreboardVcChangedNameOfPlayer2")
+    static let framesVCChangedNameOfPlayer1 = Notification.Name("framesVcChangedNameOfPlayer1")
+    static let framesVCChangedNameOfPlayer2 = Notification.Name("framesVcChangedNameOfPlayer2")
+    static let connectVCChangedMCState = Notification.Name("connectVCChangedMCState")
+    static let connectVCChangedWhoswho = Notification.Name("connectVCChangedWhoswho")
+
 }

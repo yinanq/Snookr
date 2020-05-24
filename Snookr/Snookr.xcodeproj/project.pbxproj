@@ -30,14 +30,15 @@
 		7F56226F247723DE00458193 /* ConnectVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56226E247723DE00458193 /* ConnectVC+UITextViewDelegate.swift */; };
 		7F56227324774D3A00458193 /* SNKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56227224774D3A00458193 /* SNKView.swift */; };
 		7F56227524776E1800458193 /* NotificationName+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56227424776E1800458193 /* NotificationName+.swift */; };
+		7F56D6B12479D040006807E6 /* MCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56D6B02479D040006807E6 /* MCData.swift */; };
+		7F56D6B3247A0A51006807E6 /* ConnectVC+MeWhichPlayerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56D6B2247A0A51006807E6 /* ConnectVC+MeWhichPlayerViewDelegate.swift */; };
 		7F6AE51D2468C5F300767F7C /* UndoButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */; };
 		7F6AE52124690BA000767F7C /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52024690BA000767F7C /* UIStackView+.swift */; };
 		7F6AE52324690F9800767F7C /* SNKSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52224690F9800767F7C /* SNKSeparatorView.swift */; };
 		7F6AE526246931DD00767F7C /* SNKTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE525246931DD00767F7C /* SNKTextView.swift */; };
 		7F74D7892475DAE40081F8AF /* ConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F74D7882475DAE40081F8AF /* ConnectVC.swift */; };
 		7F79AFBE2478EC18001321E9 /* ConnectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79AFBD2478EC18001321E9 /* ConnectButton.swift */; };
-		7F79AFC02478F2E6001321E9 /* ConnectVC+ConnectButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79AFBF2478F2E6001321E9 /* ConnectVC+ConnectButtonDelegate.swift */; };
-		7F79AFC22478F86F001321E9 /* ConnectVC+funcMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79AFC12478F86F001321E9 /* ConnectVC+funcMC.swift */; };
+		7F79AFC22478F86F001321E9 /* ConnectVC+MC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79AFC12478F86F001321E9 /* ConnectVC+MC.swift */; };
 		7F8FAD6924733BBB005C550D /* FramesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8FAD6824733BBB005C550D /* FramesVC.swift */; };
 		7FA4006F247389540013AE2C /* FramesWonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4006E247389540013AE2C /* FramesWonView.swift */; };
 		7FA5A22B2473363000B9D72C /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5A22A2473363000B9D72C /* TabBarVC.swift */; };
@@ -98,14 +99,15 @@
 		7F56226E247723DE00458193 /* ConnectVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		7F56227224774D3A00458193 /* SNKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKView.swift; sourceTree = "<group>"; };
 		7F56227424776E1800458193 /* NotificationName+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+.swift"; sourceTree = "<group>"; };
+		7F56D6B02479D040006807E6 /* MCData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCData.swift; sourceTree = "<group>"; };
+		7F56D6B2247A0A51006807E6 /* ConnectVC+MeWhichPlayerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+MeWhichPlayerViewDelegate.swift"; sourceTree = "<group>"; };
 		7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButtonsView.swift; sourceTree = "<group>"; };
 		7F6AE52024690BA000767F7C /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		7F6AE52224690F9800767F7C /* SNKSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKSeparatorView.swift; sourceTree = "<group>"; };
 		7F6AE525246931DD00767F7C /* SNKTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKTextView.swift; sourceTree = "<group>"; };
 		7F74D7882475DAE40081F8AF /* ConnectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectVC.swift; sourceTree = "<group>"; };
 		7F79AFBD2478EC18001321E9 /* ConnectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectButton.swift; sourceTree = "<group>"; };
-		7F79AFBF2478F2E6001321E9 /* ConnectVC+ConnectButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+ConnectButtonDelegate.swift"; sourceTree = "<group>"; };
-		7F79AFC12478F86F001321E9 /* ConnectVC+funcMC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+funcMC.swift"; sourceTree = "<group>"; };
+		7F79AFC12478F86F001321E9 /* ConnectVC+MC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+MC.swift"; sourceTree = "<group>"; };
 		7F8FAD6824733BBB005C550D /* FramesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesVC.swift; sourceTree = "<group>"; };
 		7FA4006E247389540013AE2C /* FramesWonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesWonView.swift; sourceTree = "<group>"; };
 		7FA5A22A2473363000B9D72C /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
@@ -193,11 +195,11 @@
 		7F3504C124761365005A2F52 /* ConnectVC Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7F79AFC12478F86F001321E9 /* ConnectVC+funcMC.swift */,
+				7F79AFC12478F86F001321E9 /* ConnectVC+MC.swift */,
+				7F3504BD24761194005A2F52 /* ConnectVC+MCDelegates.swift */,
 				7F46E1E62477919F002712A8 /* ConnectVC+funcModelUpdaters.swift */,
 				7F46E1E8247791D6002712A8 /* ConnectVC+funcViewUpdaters.swift */,
-				7F79AFBF2478F2E6001321E9 /* ConnectVC+ConnectButtonDelegate.swift */,
-				7F3504BD24761194005A2F52 /* ConnectVC+MCDelegates.swift */,
+				7F56D6B2247A0A51006807E6 /* ConnectVC+MeWhichPlayerViewDelegate.swift */,
 				7F56226E247723DE00458193 /* ConnectVC+UITextViewDelegate.swift */,
 			);
 			path = "ConnectVC Extensions";
@@ -365,10 +367,10 @@
 				7FEF8A7324675E9E000240A0 /* LaunchScreen.storyboard */,
 				7FEF8A7624675E9E000240A0 /* Info.plist */,
 				7FEF8A7F24676070000240A0 /* Constants */,
+				7F3E932D2467815B0067B891 /* Extensions */,
 				7FEF8A8224676108000240A0 /* Models */,
 				7FEF8A7C24676002000240A0 /* View Controllers */,
 				7FEF8A8824676338000240A0 /* Custom Views */,
-				7F3E932D2467815B0067B891 /* Extensions */,
 			);
 			path = Snookr;
 			sourceTree = "<group>";
@@ -398,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				7FEF8A8324676163000240A0 /* Player.swift */,
+				7F56D6B02479D040006807E6 /* MCData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				7F74D7892475DAE40081F8AF /* ConnectVC.swift in Sources */,
 				7F6AE51D2468C5F300767F7C /* UndoButtonsView.swift in Sources */,
 				7FEF8A8124676082000240A0 /* Constants.swift in Sources */,
+				7F56D6B3247A0A51006807E6 /* ConnectVC+MeWhichPlayerViewDelegate.swift in Sources */,
 				7FDD3DD72473A71000292402 /* FramesVC+FramesWonButtonsViewDelegate.swift in Sources */,
 				7FACBEC8246CF01C004E9137 /* PointsAdderNumberPadView.swift in Sources */,
 				7F46E1E72477919F002712A8 /* ConnectVC+funcModelUpdaters.swift in Sources */,
@@ -561,8 +565,8 @@
 				7FD4E6C424765F1C008EC198 /* ResetAlertVC.swift in Sources */,
 				7FEF8A9024676429000240A0 /* SNKButton.swift in Sources */,
 				7FCA75A5247121730066B001 /* PairButton.swift in Sources */,
-				7F79AFC02478F2E6001321E9 /* ConnectVC+ConnectButtonDelegate.swift in Sources */,
 				7F016CB424714DE200549E48 /* ScoreboardVC+PairingDelegates.swift in Sources */,
+				7F56D6B12479D040006807E6 /* MCData.swift in Sources */,
 				7F56227524776E1800458193 /* NotificationName+.swift in Sources */,
 				7FEF8A6924675E9E000240A0 /* AppDelegate.swift in Sources */,
 				7FEF8A7E2467601B000240A0 /* ScoreboardVC.swift in Sources */,
@@ -572,7 +576,7 @@
 				7F4A3225246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift in Sources */,
 				7FDD3DD92473ACF900292402 /* FramesVC+funcPersistence.swift in Sources */,
 				7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */,
-				7F79AFC22478F86F001321E9 /* ConnectVC+funcMC.swift in Sources */,
+				7F79AFC22478F86F001321E9 /* ConnectVC+MC.swift in Sources */,
 				7F56227324774D3A00458193 /* SNKView.swift in Sources */,
 				7F46E1E9247791D6002712A8 /* ConnectVC+funcViewUpdaters.swift in Sources */,
 				7FEF8A8C246763C2000240A0 /* ScoreDifView.swift in Sources */,

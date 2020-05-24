@@ -19,9 +19,9 @@ struct Player {
     var name = "Player Name"
     var score = 0
     var framesWon = 0
-    var historyUndoable = [Int]()
-    var historyRedoable = [Int]()
-    var playerId = PlayerId.unassigned
+    var historyUndoable: [Int] = []
+    var historyRedoable: [Int] = []
+    var playerId: PlayerId = .unassigned
     
     init(playerId: PlayerId) {
         self.playerId = playerId

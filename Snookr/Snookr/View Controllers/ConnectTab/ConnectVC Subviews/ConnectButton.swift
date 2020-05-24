@@ -23,11 +23,6 @@ class ConnectButton: SNKButton {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    convenience init(delegate: ConnectButtonDelegate) {
-        self.init(frame: .zero)
-        self.delegate = delegate
-    }
-    
     private func configure() {
         set(title: "Connect", style: .solid)
         addTarget(self, action: #selector(didTapConnectButton), for: .touchUpInside)

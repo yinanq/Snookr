@@ -6,9 +6,15 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
+protocol MeWhichPlayerViewDelegate: class {
+    func didTapToggleButton()
+}
+
 import UIKit
 
 class MeWhichPlayerView: UIView {
+    
+    weak var delegate: MeWhichPlayerViewDelegate!
     
     let toggleButton = UIButton()
     let meLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .right)
@@ -22,6 +28,11 @@ class MeWhichPlayerView: UIView {
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    convenience init(delegate: MeWhichPlayerViewDelegate) {
+        self.init(frame: .zero)
+        self.delegate = delegate
+    }
     
     private func configure() {
         backgroundColor = SNKColor.background
@@ -48,19 +59,25 @@ class MeWhichPlayerView: UIView {
             heightAnchor.constraint(equalTo: toggleButton.heightAnchor)
         ])
         
-        toggleButton.addTarget(self, action: #selector(fakeToggle), for: .touchUpInside)
+        toggleButton.addTarget(self, action: #selector(didTapToggleButton), for: .touchUpInside)
     }
     
-    @objc func fakeToggle() {
-        if meLabel.text == meStr && opponentLabel.text == opStr {
-            meLabel.text = opStr
-            opponentLabel.text = meStr
-        } else if meLabel.text == opStr && opponentLabel.text == meStr {
-            meLabel.text = meStr
-            opponentLabel.text = opStr
-        } else {
-            print("error in fakeToggle")
-        }
+    @objc func didTapToggleButton() { delegate.didTapToggleButton() }
+    
+    func setOpponentToPlayer1() {
+        opponentLabel.text = opStr
+        meLabel.text = meStr
+    }
+    func setOpponentToPlayer2() {
+        opponentLabel.text = meStr
+        meLabel.text = opStr
+    }
+    
+    func lockToggleButton() {
+        toggleButton.isEnabled = false
+    }
+    func unlockToggleButton() {
+        toggleButton.isEnabled = true
     }
     
 }
