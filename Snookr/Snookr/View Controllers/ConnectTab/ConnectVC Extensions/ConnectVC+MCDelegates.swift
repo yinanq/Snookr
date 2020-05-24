@@ -17,17 +17,21 @@ extension ConnectVC: MCSessionDelegate {
             do {
                 let decoded = try jD.decode(MCData.self, from: data)
                 switch decoded.type {
+                case SNKDataTypeForMC.socre:
+                    print("score!")
+                case SNKDataTypeForMC.frame:
+                    print("frame!")
+                case SNKDataTypeForMC.resetScore:
+                    print("resetScore!")
+                case SNKDataTypeForMC.resetFrame:
+                    print("resetFrame!")
                 case SNKDataTypeForMC.name:
                     switch self.opponentIs {
                     case .player1:
                         self.mcUpdateName(of: &self.player1, to: decoded.name ?? "?")
                     case .player2:
                         self.mcUpdateName(of: &self.player2, to: decoded.name ?? "?")
-                    }
-                case SNKDataTypeForMC.frame:
-                    print("frame!")
-                case SNKDataTypeForMC.socre:
-                    print("score!")
+                }
                 default: print("error: invalid case of decoded.type, in session didReceive")
                 }
             } catch {

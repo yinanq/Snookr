@@ -54,7 +54,7 @@ extension ScoreboardVC {
         switch player.playerId {
         case .player1: stackView.scoreInfoView.playerNamesView.textView1.text = player.name
         case .player2: stackView.scoreInfoView.playerNamesView.textView2.text = player.name
-        case .unassigned: print("error: .unassigned playerId, in updatePlayerNameView")
+        case .unassigned: print("error: in updatePlayerNameView")
         }
     }
     
