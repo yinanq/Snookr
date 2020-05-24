@@ -11,6 +11,8 @@ import MultipeerConnectivity
 
 class ConnectVC: UIViewController {
     
+    let testPeerIDUserCode = "147"//to be replaced by user entered per session passcode
+    
     var mcState: SNKmcState = .notConnected
     
     var mcSession: MCSession?
@@ -34,10 +36,6 @@ class ConnectVC: UIViewController {
     let containerView = SNKView()
     let meWhichPlayerView = MeWhichPlayerView()
     let connectButton = ConnectButton()
-    
-    //test stuff:
-    let testPeerIDUserCode = "147"
-    var testLabel: SNKLabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,11 +91,7 @@ class ConnectVC: UIViewController {
         }
         meWhichPlayerView.delegate = self
         connectButton.delegate = self
-        //test stuff:
-        testLabel = SNKLabel(fontSize: 100, fontWeight: .bold)
-        testLabel.text = "0"
-        //:test stuff
-        containerView.addSubviews(meWhichPlayerView, connectButton, testLabel)
+        containerView.addSubviews(meWhichPlayerView, connectButton)
         view.addSubviews(separatorView, playerNamesView, containerView)
     }
     private func layoutViews() {
@@ -115,12 +109,9 @@ class ConnectVC: UIViewController {
             meWhichPlayerView.topAnchor.constraint(equalTo: containerView.topAnchor),
             meWhichPlayerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             meWhichPlayerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            connectButton.topAnchor.constraint(equalTo: testLabel.bottomAnchor, constant: SNKPadding.big),
+            connectButton.topAnchor.constraint(equalTo: containerView.centerYAnchor),
             connectButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             connectButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            //test stuff:
-            testLabel.topAnchor.constraint(equalTo: meWhichPlayerView.bottomAnchor, constant: 50),
-            testLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
         ])
     }
 }
