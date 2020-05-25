@@ -16,7 +16,10 @@ extension ConnectVC: CBCentralManagerDelegate {
         case .resetting: print("central.state is .resetting")
         case .unsupported: print("central.state is .unsupported")
         case .unauthorized: print("central.state is .unauthorized")
-        case .poweredOff: print("central.state is .poweredOff")
+        case .poweredOff:
+            print("central.state is .poweredOff")
+            cbDisconnectOrCancel()
+            updateCBState(to: .notConnected)
         case .poweredOn:
             print("central.state is .poweredOn")
             cbCentralManager.scanForPeripherals(withServices: [cbSnookrUUID], options: nil)
@@ -26,16 +29,14 @@ extension ConnectVC: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         print("central did discover peripheral \(peripheral.name ?? "w/o name")")
-        if advertisementData[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID] == [cbSnookrUUID] {
-            guard cbUserDefinedLocalName != nil else {
-                print("error: cbUserDefinedLocalName is still nil when central didDiscover peripheral")
-                return
-            }
-            if advertisementData[CBAdvertisementDataLocalNameKey] as? String == cbUserDefinedLocalName! {
-                cbChosenPeripheral = peripheral
-                cbChosenPeripheral.delegate = self
-                central.connect(cbChosenPeripheral, options: nil)
-            }
+        guard cbUserDefinedLocalName != nil else {
+            print("error: cbUserDefinedLocalName is still nil when central didDiscover peripheral")
+            return
+        }
+        if advertisementData[CBAdvertisementDataLocalNameKey] as? String == cbUserDefinedLocalName! {
+            cbChosenPeripheral = peripheral
+            cbChosenPeripheral.delegate = self
+            central.connect(cbChosenPeripheral, options: nil)
         }
     }
     

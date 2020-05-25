@@ -18,5 +18,6 @@ extension Notification.Name {
     static let framesVCChangedNameOfPlayer2 = Notification.Name("framesVcChangedNameOfPlayer2")
     static let connectVCChangedMCState = Notification.Name("connectVCChangedMCState")
     static let connectVCChangedWhoswho = Notification.Name("connectVCChangedWhoswho")
+    static let connectVCChangedCBState = Notification.Name("connectVCChangedCBState")
 
 }

@@ -49,11 +49,18 @@ enum SNKButtonTag {
     static let redoButton2 = -12
 }
 
+enum SNKcbState: Int {
+    case notConnected = -1
+    case isConnecting = 0
+    case isConnected = 1
+}
+
 enum SNKCommonKey {
     static let player1sName = "player1sName"
     static let player2sName = "player2sName"
     static let mcStateRawValue = "mcState"
-    static let opponentIsRawValue = "opponentIs"
+    static let cbStateRawValue = "cbStateRawValue"
+    static let opponentIsRawValue = "opponentIsRawValue"
 }
 
 enum SNKColor {

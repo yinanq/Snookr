@@ -23,6 +23,10 @@ class ConnectVC: UIViewController {
     var cbChosenCharacteristic: CBCharacteristic!
     //cb peripheral side:
     var cbPeripheralManager: CBPeripheralManager!
+    //cb state markers:
+    var cbState: SNKcbState = .notConnected
+    var cbStateCentral: SNKcbState = .notConnected
+    var cbStatePeripheral: SNKcbState = .notConnected
     
     let testPeerIDUserCode = "147"//to be replaced by user entered per session passcode
     
@@ -61,6 +65,7 @@ class ConnectVC: UIViewController {
         configureNotifObservers()
         layoutViews()
         pseudoPersistMCState()
+        pseudoPersistCBState()
         cbUserDefinedLocalName = "147"//to be replaced by user entered per session passcode
     }
     
@@ -117,7 +122,9 @@ class ConnectVC: UIViewController {
     }
     @objc func didTapTesetButton() {
         guard let data = "hahaha147".data(using: .utf8) else { return }
-        cbChosenPeripheral.writeValue(data, for: cbChosenCharacteristic!, type: .withResponse)
+        guard let peripheral = cbChosenPeripheral else { return }
+        guard let characteristic = cbChosenCharacteristic else { return }
+        peripheral.writeValue(data, for: characteristic, type: .withResponse)
     }
     private func layoutViews() {
         NSLayoutConstraint.activate([

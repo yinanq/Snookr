@@ -16,8 +16,10 @@ extension ConnectVC: CBPeripheralManagerDelegate {
         case .resetting: print("CBPeripheralManager.state is .resetting")
         case .unsupported: print("CBPeripheralManager.state is .unsupported")
         case .unauthorized: print("CBPeripheralManager.state is .unauthorized")
-        case .poweredOff: print("CBPeripheralManager.state is .poweredOff")
-            
+        case .poweredOff:
+            print("CBPeripheralManager.state is .poweredOff")
+            cbDisconnectOrCancel()
+            updateCBState(to: .notConnected)
         case .poweredOn:
             print("CBPeripheralManager.state is .poweredOn")
             let characteristic = CBMutableCharacteristic(type: cbSnookrCharacteristicUUID, properties: .write, value: nil, permissions: .writeable)
@@ -39,10 +41,35 @@ extension ConnectVC: CBPeripheralManagerDelegate {
         cbPeripheralManager.stopAdvertising()
         for request in requests {
             if let value = request.value {
-                print(String(data: value, encoding: .utf8) as String?)
+                let string = String(data: value, encoding: .utf8)!
+                print("opponent's central has \(string)")
+                if string == SNKCBConnectionAck.connected {
+                    cbStatePeripheral = .isConnected
+                    if cbStateCentral == .isConnected {
+                        updateCBState(to: .isConnected)
+                    }
+                }
+                if string == SNKCBConnectionAck.disconnected {
+                    cbDisconnectOrCancel()
+                    updateCBState(to: .notConnected)
+                }
             }
-            self.cbPeripheralManager.respond(to: request, withResult: .success)
+            if let peripherlManager = self.cbPeripheralManager {
+                peripherlManager.respond(to: request, withResult: .success)
+            }
         }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+        //to handle response if going with central driven approach?
+    }
+    
+    func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
+        print("central did subscribe to characteristic \(characteristic)")
+    }
+    
+    func peripheralManagerIsReady(toUpdateSubscribers peripheral: CBPeripheralManager) {
+        print("more space in the transmit queue became available")
     }
     
     func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) { print("peripheral did start advertising") }

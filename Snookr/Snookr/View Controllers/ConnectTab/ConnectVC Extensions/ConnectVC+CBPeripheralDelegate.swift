@@ -26,8 +26,13 @@ extension ConnectVC: CBPeripheralDelegate {
             return
         }
         cbChosenCharacteristic = characteristics[0]
-        guard let data = SNKCBConnectionAck.connected.data(using: .utf8) else { return }
-        peripheral.writeValue(data, for: cbChosenCharacteristic, type: .withResponse)
+        if let data = SNKCBConnectionAck.connected.data(using: .utf8) {
+            peripheral.writeValue(data, for: cbChosenCharacteristic, type: .withResponse)
+        }
+        cbStateCentral = .isConnected
+        if cbStatePeripheral == .isConnected {
+            updateCBState(to: .isConnected)
+        }
     }
     
 }
