@@ -8,8 +8,21 @@
 
 import UIKit
 import MultipeerConnectivity
+import CoreBluetooth
 
 class ConnectVC: UIViewController {
+    
+    //cb shared identifiers:
+    let cbSnookrUUID = CBUUID(string: "4E33A1D9-9FE0-46FB-B3C9-3604A5A0D05A")//a different key is used in production app
+    var cbUserDefinedLocalName: String!
+    let cbSnookrServiceUUID = CBUUID(string: "B78716C9-29E0-4EDB-9219-9E69F9414C87")//a different key is used in production app
+    let cbSnookrCharacteristicUUID = CBUUID(string: "B6F15CF2-A726-462D-8A07-257956821E6E")//a different key is used in production app
+    //cb central side:
+    var cbCentralManager: CBCentralManager!
+    var cbChosenPeripheral: CBPeripheral!
+    var cbChosenCharacteristic: CBCharacteristic!
+    //cb peripheral side:
+    var cbPeripheralManager: CBPeripheralManager!
     
     let testPeerIDUserCode = "147"//to be replaced by user entered per session passcode
     
@@ -36,6 +49,9 @@ class ConnectVC: UIViewController {
     let containerView = SNKView()
     let meWhichPlayerView = MeWhichPlayerView()
     let connectButton = ConnectButton()
+    
+    //test:
+    let testButton = SNKButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +61,7 @@ class ConnectVC: UIViewController {
         configureNotifObservers()
         layoutViews()
         pseudoPersistMCState()
+        cbUserDefinedLocalName = "147"//to be replaced by user entered per session passcode
     }
     
     
@@ -93,6 +110,14 @@ class ConnectVC: UIViewController {
         connectButton.delegate = self
         containerView.addSubviews(meWhichPlayerView, connectButton)
         view.addSubviews(separatorView, playerNamesView, containerView)
+        //test:
+        testButton.setTitle("test send string", for: .normal)
+        containerView.addSubview(testButton)
+        testButton.addTarget(self, action: #selector(didTapTesetButton), for: .touchUpInside)
+    }
+    @objc func didTapTesetButton() {
+        guard let data = "hahaha147".data(using: .utf8) else { return }
+        cbChosenPeripheral.writeValue(data, for: cbChosenCharacteristic!, type: .withResponse)
     }
     private func layoutViews() {
         NSLayoutConstraint.activate([
@@ -112,6 +137,10 @@ class ConnectVC: UIViewController {
             connectButton.topAnchor.constraint(equalTo: containerView.centerYAnchor),
             connectButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             connectButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            //test:
+            testButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            testButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            testButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
     }
 }

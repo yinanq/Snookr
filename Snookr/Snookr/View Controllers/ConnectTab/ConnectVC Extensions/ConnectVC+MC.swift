@@ -8,19 +8,6 @@
 
 import MultipeerConnectivity
 
-extension ConnectVC: ConnectButtonDelegate {
-    func didTapConnectButton() {
-        switch mcState {
-        case .notConnected: //button is Connect
-            mcStartConnecting()
-            updateMCState(to: .isConnecting)
-        case .isConnecting, .isConnected: //button is Cancel or Disconnect
-            mcDisconnect()
-            updateMCState(to: .notConnected)
-        }
-    }
-}
-
 extension ConnectVC {
     
     func updateMCState(to mcState: SNKmcState) {

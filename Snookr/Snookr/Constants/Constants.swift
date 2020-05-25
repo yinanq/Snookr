@@ -24,6 +24,11 @@ enum SNKAnimationDuration {
     static let launchSmootherDuration: TimeInterval = 0.2
 }
 
+enum SNKCBConnectionAck {
+    static let connected = "connected"
+    static let disconnected = "disconnected"
+}
+
 enum SNKLayoutPercent {
     static let bodyTextWidth: CGFloat = 0.8
 }
