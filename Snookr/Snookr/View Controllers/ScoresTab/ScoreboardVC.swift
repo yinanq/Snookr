@@ -14,12 +14,6 @@ class ScoreboardVC: UIViewController {
     
     let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
-    enum Key {
-        static let player1sName = SNKCommonKey.player1sName
-        static let player2sName = SNKCommonKey.player2sName
-        static let player1sScore = "1's score"
-        static let player2sScore = "2's score"
-    }
     
     var player1 = Player(playerId: .player1)
     var player2 = Player(playerId: .player2)
@@ -67,10 +61,10 @@ class ScoreboardVC: UIViewController {
     }
     
     private func configureModels() {
-        player1.name = defaults.string(forKey: Key.player1sName) ?? SNKNamePlaceholder.player1
-        player2.name = defaults.string(forKey: Key.player2sName) ?? SNKNamePlaceholder.player2
-        player1.score = defaults.integer(forKey: Key.player1sScore)
-        player2.score = defaults.integer(forKey: Key.player2sScore)
+        player1.name = defaults.string(forKey: SNKCommonKey.player1sName) ?? SNKNamePlaceholder.player1
+        player2.name = defaults.string(forKey: SNKCommonKey.player2sName) ?? SNKNamePlaceholder.player2
+        player1.score = defaults.integer(forKey: SNKCommonKey.player1sScore)
+        player2.score = defaults.integer(forKey: SNKCommonKey.player2sScore)
         if let cbStateB4ThisTabFirstOpen = defaults.value(forKey: SNKCommonKey.cbStateRawValue) as? Int {
             switch cbStateB4ThisTabFirstOpen {
             case SNKcbState.notConnected.rawValue: cbState = .notConnected

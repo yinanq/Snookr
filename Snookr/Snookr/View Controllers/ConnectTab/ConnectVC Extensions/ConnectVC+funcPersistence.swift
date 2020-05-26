@@ -11,8 +11,8 @@ extension ConnectVC {
     func cbPersistOpponentFrame(to receivedValue: Int) {
         var key: String!
         switch opponentIs {
-        case .player1: key = SNKCommonKey.player1sFrames
-        case .player2: key = SNKCommonKey.player2sFrames
+        case .player1: key = SNKCommonKey.player1sFrame
+        case .player2: key = SNKCommonKey.player2sFrame
         }
         if let key = key { defaults.set(receivedValue, forKey: key) }
     }

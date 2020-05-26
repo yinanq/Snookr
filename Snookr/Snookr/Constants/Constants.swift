@@ -57,12 +57,14 @@ enum SNKcbState: Int {
 }
 
 enum SNKCommonKey {
-    static let player1sName = "player1sName"
-    static let player2sName = "player2sName"
     static let cbStateRawValue = "cbStateRawValue"
     static let opponentIsRawValue = "opponentIsRawValue"
-    static let player1sFrames = "player1sFrames"
-    static let player2sFrames = "player2sFrames"
+    static let player1sName = "player1sName"
+    static let player2sName = "player2sName"
+    static let player1sFrame = "player1sFrame"
+    static let player2sFrame = "player2sFrame"
+    static let player1sScore = "player1sScore"
+    static let player2sScore = "player2sScore"
 }
 
 enum SNKColor {

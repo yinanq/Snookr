@@ -10,13 +10,13 @@
 extension ScoreboardVC {
     
     func persistScoreFor(_ player: inout Player) {
-        var keyString: String!
+        var key: String!
         switch player.playerId {
-        case .player1: keyString = Key.player1sScore
-        case .player2: keyString = Key.player2sScore
+        case .player1: key = SNKCommonKey.player1sScore
+        case .player2: key = SNKCommonKey.player2sScore
         case .unassigned: print("error: .unassigned playerId in persistScoreFor")
         }
-        if let ks = keyString { defaults.set(player.score, forKey: ks) }
+        if let key = key { defaults.set(player.score, forKey: key) }
     }
     
 }

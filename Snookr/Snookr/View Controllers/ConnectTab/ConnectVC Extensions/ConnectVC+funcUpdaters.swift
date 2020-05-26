@@ -14,12 +14,12 @@ extension ConnectVC {
             updatePlayerNameModel(player: &player1, newName: receivedName)
             updatePlayerNameView(for: player1)
             notifCtr.post(name: .connectVCChangedNameOfPlayer1, object: receivedName)
-            defaults.set(player1.name, forKey: Key.player1sName)
+            defaults.set(player1.name, forKey: SNKCommonKey.player1sName)
         case .player2:
             updatePlayerNameModel(player: &player2, newName: receivedName)
             updatePlayerNameView(for: player2)
             notifCtr.post(name: .connectVCChangedNameOfPlayer2, object: receivedName)
-            defaults.set(player2.name, forKey: Key.player2sName)
+            defaults.set(player2.name, forKey: SNKCommonKey.player2sName)
         }
     }
     

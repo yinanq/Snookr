@@ -10,13 +10,13 @@
 extension FramesVC {
     
     func persistFramesWon(of player: inout Player) {
-        var keyString: String!
+        var key: String!
         switch player.playerId {
-        case .player1: keyString = Key.player1sFramesWon
-        case .player2: keyString = Key.player2sFramesWon
+        case .player1: key = SNKCommonKey.player1sFrame
+        case .player2: key = SNKCommonKey.player2sFrame
         case .unassigned: print("error: .unassigned playerId in persistScoreFor")
         }
-        if let ks = keyString { defaults.set(player.framesWon, forKey: ks) }
+        if let key = key { defaults.set(player.framesWon, forKey: key) }
     }
     
 }

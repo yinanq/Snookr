@@ -58,10 +58,10 @@ extension ConnectVC: CBPeripheralDelegate {
         switch opponentIs {
         case .player1:
             myName = player2.name
-            myFrame = defaults.integer(forKey: SNKCommonKey.player2sFrames)
+            myFrame = defaults.integer(forKey: SNKCommonKey.player2sFrame)
         case .player2:
             myName = player1.name
-            myFrame = defaults.integer(forKey: SNKCommonKey.player1sFrames)
+            myFrame = defaults.integer(forKey: SNKCommonKey.player1sFrame)
         }
         //        cbSend(snkCBDataType: SNKcbDataType.cbConnected)
         cbSend(snkCBDataType: SNKcbDataType.cbConnected, playerName: myName, frame: myFrame)

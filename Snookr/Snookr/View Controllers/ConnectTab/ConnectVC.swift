@@ -30,10 +30,6 @@ class ConnectVC: UIViewController {
     //Core Bluetooth properties END
     let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
-    enum Key {
-        static let player1sName = SNKCommonKey.player1sName
-        static let player2sName = SNKCommonKey.player2sName
-    }
     var player1 = Player(playerId: .player1)
     var player2 = Player(playerId: .player2)
     var opponentIs: SNKWhichPlayer = .player1
@@ -88,8 +84,8 @@ class ConnectVC: UIViewController {
     
     
     private func configureModels() {
-        player1.name = defaults.string(forKey: Key.player1sName) ?? SNKNamePlaceholder.player1
-        player2.name = defaults.string(forKey: Key.player2sName) ?? SNKNamePlaceholder.player2
+        player1.name = defaults.string(forKey: SNKCommonKey.player1sName) ?? SNKNamePlaceholder.player1
+        player2.name = defaults.string(forKey: SNKCommonKey.player2sName) ?? SNKNamePlaceholder.player2
         if let opponentIs = defaults.value(forKey: SNKCommonKey.opponentIsRawValue) as? Int {
             switch opponentIs {
             case SNKWhichPlayer.player1.rawValue: self.opponentIs = .player1
