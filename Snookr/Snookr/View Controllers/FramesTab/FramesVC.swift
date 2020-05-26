@@ -74,12 +74,12 @@ class FramesVC: UIViewController {
         player2.framesWon = defaults.integer(forKey: Key.player2sFramesWon)
         if let cbStateB4ThisTabFirstOpen = defaults.value(forKey: SNKCommonKey.cbStateRawValue) as? Int {
             switch cbStateB4ThisTabFirstOpen {
-            case SNKmcState.notConnected.rawValue: cbState = .notConnected
-            case SNKmcState.isConnected.rawValue: cbState = .isConnected
-            case SNKmcState.isConnecting.rawValue: cbState = .isConnecting
+            case SNKcbState.notConnected.rawValue: cbState = .notConnected
+            case SNKcbState.isConnected.rawValue: cbState = .isConnected
+            case SNKcbState.isConnecting.rawValue: cbState = .isConnecting
             default: print("error: invalid case for cbStateB4ThisTabFirstOpen")
             }
-        } else { print("error: no mcStateB4ThisTabFirstOpen")}
+        } else { print("error: no cbStateB4ThisTabFirstOpen")}
         if let opponentIs = defaults.value(forKey: SNKCommonKey.opponentIsRawValue) as? Int {
             switch opponentIs {
             case SNKWhichPlayer.player1.rawValue: self.opponentIs = .player1

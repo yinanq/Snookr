@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MultipeerConnectivity
 import CoreBluetooth
 
 class ConnectVC: UIViewController {
@@ -44,9 +43,6 @@ class ConnectVC: UIViewController {
     let containerView = SNKView()
     let meWhichPlayerView = MeWhichPlayerView()
     let connectButton = ConnectButton()
-    
-    //test:
-    let testButton = SNKButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,10 +100,6 @@ class ConnectVC: UIViewController {
         connectButton.delegate = self
         containerView.addSubviews(meWhichPlayerView, connectButton)
         view.addSubviews(separatorView, playerNamesView, containerView)
-        //test:
-        testButton.setTitle("test send string", for: .normal)
-        containerView.addSubview(testButton)
-        testButton.addTarget(self, action: #selector(didTapTesetButton), for: .touchUpInside)
     }
     @objc func didTapTesetButton() {
         guard let data = "hahaha147".data(using: .utf8) else { return }
@@ -133,10 +125,6 @@ class ConnectVC: UIViewController {
             connectButton.topAnchor.constraint(equalTo: containerView.centerYAnchor),
             connectButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             connectButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            //test:
-            testButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            testButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            testButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
     }
 }

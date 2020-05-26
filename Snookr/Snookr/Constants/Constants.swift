@@ -82,14 +82,6 @@ enum SNKCornerRadius {
     static let small: CGFloat = 5
 }
 
-enum SNKDataTypeForMC {
-    static let name = 0
-    static let frame = 1
-    static let socre = 2
-    static let resetFrame = -1
-    static let resetScore = -2
-}
-
 enum SNKFontSize {
     static let gigantic: CGFloat = 120
     static let huge: CGFloat = 90
@@ -103,12 +95,6 @@ enum SNKFontWeight {
     static let forFontSizeHuge: UIFont.Weight = .semibold
     static let forFontSizeRegular: UIFont.Weight = .bold
     static let forFontSizeSmall: UIFont.Weight = .bold
-}
-
-enum SNKmcState: Int {
-    case notConnected = -1
-    case isConnecting = 0
-    case isConnected = 1
 }
 
 enum SNKLayoutPercent {

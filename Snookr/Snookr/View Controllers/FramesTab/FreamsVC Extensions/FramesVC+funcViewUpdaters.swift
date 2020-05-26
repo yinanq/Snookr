@@ -6,17 +6,16 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-//func view updaters:
 extension FramesVC {
     
     func updateViewsBasedOnCBState() {
         switch cbState {
-        case .notConnected: unlockOpponentInfoAfterMC()
-        case .isConnected: lockOpponentInfoDuringMC()
-        case .isConnecting: lockOpponentInfoDuringMC()
+        case .notConnected: unlockOpponentInfoAfterCB()
+        case .isConnected: lockOpponentInfoDuringCB()
+        case .isConnecting: lockOpponentInfoDuringCB()
         }
     }
-    private func lockOpponentInfoDuringMC() {
+    private func lockOpponentInfoDuringCB() {
         switch opponentIs {
         case .player1:
             self.playerNamesView.textView1.isEditable = false
@@ -29,7 +28,7 @@ extension FramesVC {
         }
 
     }
-    private func unlockOpponentInfoAfterMC() {
+    private func unlockOpponentInfoAfterCB() {
         switch opponentIs {
         case .player1:
             self.playerNamesView.textView1.isEditable = true

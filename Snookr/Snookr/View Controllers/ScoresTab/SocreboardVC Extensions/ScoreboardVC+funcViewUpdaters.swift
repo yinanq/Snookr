@@ -11,12 +11,12 @@ extension ScoreboardVC {
     
     func updateViewsBasedOnCBState() {
         switch cbState {
-        case .notConnected: unlockOpponentInfoAfterMC()
-        case .isConnected: lockOpponentInfoDuringMC()
-        case .isConnecting: lockOpponentInfoDuringMC()
+        case .notConnected: unlockOpponentInfoAfterCB()
+        case .isConnected: lockOpponentInfoDuringCB()
+        case .isConnecting: lockOpponentInfoDuringCB()
         }
     }
-    private func lockOpponentInfoDuringMC() {
+    private func lockOpponentInfoDuringCB() {
         switch opponentIs {
         case .player1:
             self.stackView.scoreInfoView.playerNamesView.textView1.isEditable = false
@@ -33,7 +33,7 @@ extension ScoreboardVC {
         }
 
     }
-    private func unlockOpponentInfoAfterMC() {
+    private func unlockOpponentInfoAfterCB() {
         switch opponentIs {
         case .player1:
             self.stackView.scoreInfoView.playerNamesView.textView1.isEditable = true
