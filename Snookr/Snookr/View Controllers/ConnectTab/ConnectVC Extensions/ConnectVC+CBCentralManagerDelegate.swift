@@ -22,6 +22,7 @@ extension ConnectVC: CBCentralManagerDelegate {
             updateCBState(to: .notConnected)
         case .poweredOn:
             print("central.state is .poweredOn")
+            cbStateCentral = .notConnected
             cbCentralManager.scanForPeripherals(withServices: [cbSnookrUUID], options: nil)
         @unknown default: print("central.state is @unknown default")
         }
@@ -29,11 +30,15 @@ extension ConnectVC: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         print("central did discover peripheral \(peripheral.name ?? "w/o name")")
+        cbStateCentral = .notConnected
         guard cbUserDefinedLocalName != nil else {
-            print("error: cbUserDefinedLocalName is still nil when central didDiscover peripheral")
+            print("error: user defined local name is still nil when central did discover peripheral")
+            cbDisconnectOrCancel()
+            updateCBState(to: .notConnected)
             return
         }
         if advertisementData[CBAdvertisementDataLocalNameKey] as? String == cbUserDefinedLocalName! {
+            print("central confirmed matching user defined local name from peripheral")
             cbChosenPeripheral = peripheral
             cbChosenPeripheral.delegate = self
             central.connect(cbChosenPeripheral, options: nil)
@@ -41,11 +46,20 @@ extension ConnectVC: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("central didConnect peripheral \(peripheral.name ?? "w/o name")")
+        print("central did connect peripheral \(peripheral.name ?? "w/o name")")
+        cbStateCentral = .notConnected
         central.stopScan()
         print("central stopped scanning, for central.stopScan()")
         peripheral.delegate = self
         peripheral.discoverServices([cbSnookrServiceUUID])
     }
     
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        print("central did fail to connect peripheral \(peripheral.name ?? "w/o name"), likely because peripheral canceled connecting")
+        cbDisconnectOrCancel()
+        updateCBState(to: .notConnected)
+    }
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        print("central did disconnect peripheral \(peripheral.name ?? "w/o name")")
+    }
 }

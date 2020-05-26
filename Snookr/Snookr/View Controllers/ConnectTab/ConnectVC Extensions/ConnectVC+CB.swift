@@ -33,15 +33,12 @@ extension ConnectVC {
             centralManager.stopScan()
             if let peripheral = cbChosenPeripheral {
                 if let characteristic = cbChosenCharacteristic {
-                    guard let data = SNKCBConnectionAck.disconnected.data(using: .utf8) else { return }
-                    peripheral.writeValue(data, for: characteristic, type: .withResponse)
+                    if let data = SNKCBConnectionAck.disconnected.data(using: .utf8) { peripheral.writeValue(data, for: characteristic, type: .withResponse) }
                     cbChosenCharacteristic = nil
-                } else { print("super edge case of having connected peripheral but not found its characteristic yet") }
-            }
-            centralManager.retrieveConnectedPeripherals(withServices: [cbSnookrUUID]).forEach { peripheral in
+                }//else is still-ok edge case: Cancel is tapped when central has found peripheral and possibily peripheral's service too but hasn't found peripheral's service's characteristic
                 centralManager.cancelPeripheralConnection(peripheral)
+                cbChosenPeripheral = nil
             }
-            cbChosenPeripheral = nil
             cbCentralManager = nil
         }
         if let peripheralManager = cbPeripheralManager {
@@ -71,6 +68,7 @@ extension ConnectVC {
             connectButton.setToCancelButton()
         }
     }
+    
     //like a global variable, for other VCs to first launch with correct cbState, but overwrite persisted value when app launches:
     func pseudoPersistCBState() { defaults.set(cbState.rawValue, forKey: SNKCommonKey.cbStateRawValue) }//to change if cb connection auto resumes when app relaunches from killed
     private func lockOpponentInfoEditability() {

@@ -12,32 +12,38 @@ extension ConnectVC: CBPeripheralManagerDelegate {
     
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         switch peripheral.state {
-        case .unknown: print("CBPeripheralManager.state is .unknown")
-        case .resetting: print("CBPeripheralManager.state is .resetting")
-        case .unsupported: print("CBPeripheralManager.state is .unsupported")
-        case .unauthorized: print("CBPeripheralManager.state is .unauthorized")
+        case .unknown: print("peripheral.state is .unknown")
+        case .resetting: print("peripheral.state is .resetting")
+        case .unsupported: print("peripheral.state is .unsupported")
+        case .unauthorized: print("peripheral.state is .unauthorized")
         case .poweredOff:
-            print("CBPeripheralManager.state is .poweredOff")
+            print("peripheral.state is .poweredOff")
             cbDisconnectOrCancel()
             updateCBState(to: .notConnected)
         case .poweredOn:
-            print("CBPeripheralManager.state is .poweredOn")
+            print("peripheral.state is .poweredOn")
+            cbStatePeripheral = .notConnected
             let characteristic = CBMutableCharacteristic(type: cbSnookrCharacteristicUUID, properties: .write, value: nil, permissions: .writeable)
             let service = CBMutableService(type: cbSnookrServiceUUID, primary: true)
             service.characteristics = [characteristic]
             peripheral.add(service)
             guard cbUserDefinedLocalName != nil else {
-                print("error: cbUserDefinedLocalName is still nil when CBPeripheralManager.startAdvertising")
+                print("error: cbUserDefinedLocalName is still nil when peripheral is about to start advertising")
                 return
             }
             peripheral.startAdvertising([CBAdvertisementDataServiceUUIDsKey: [cbSnookrUUID], CBAdvertisementDataLocalNameKey: cbUserDefinedLocalName!])
-            
-        @unknown default: print("CBPeripheralManager.state is @unknown default")
+        @unknown default: print("peripheral.state is @unknown default")
         }
     }
     
+    func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
+        print("peripheral did start advertising")
+        cbStatePeripheral = .notConnected
+    }
+    
+    
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
-        print("CBPeripheralManager didReceiveWrite requests")
+        print("peripheral did receive write requests")
         cbPeripheralManager.stopAdvertising()
         for request in requests {
             if let value = request.value {
@@ -59,19 +65,11 @@ extension ConnectVC: CBPeripheralManagerDelegate {
             }
         }
     }
+
     
-    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
-        //to handle response if going with central driven approach?
+    func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
+        print("peripheral did modify services")
+        cbDisconnectOrCancel()
+        updateCBState(to: .notConnected)
     }
-    
-    func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
-        print("central did subscribe to characteristic \(characteristic)")
-    }
-    
-    func peripheralManagerIsReady(toUpdateSubscribers peripheral: CBPeripheralManager) {
-        print("more space in the transmit queue became available")
-    }
-    
-    func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) { print("peripheral did start advertising") }
-    func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) { print("peripheral did modify services") }
 }
