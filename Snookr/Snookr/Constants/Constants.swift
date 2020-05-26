@@ -75,6 +75,7 @@ enum SNKColor {
     static let foregroundSecondary = UIColor(red: 0/255, green: 147/255, blue: 85/255, alpha: 1)
     static let foregroundTertiary = UIColor(red: 0/255, green: 88/255, blue: 50/255, alpha: 1)
     static let foregroundHighlited = UIColor(white: 1, alpha: 1)
+    static let destructive = UIColor.systemPink
 }
 
 enum SNKCornerRadius {

@@ -79,8 +79,8 @@ extension ConnectVC {
         }
     }
     
-    //like a global variable, for other VCs to first launch with correct cbState, but overwrite persisted value when app launches:
-    func pseudoPersistCBState() { defaults.set(cbState.rawValue, forKey: SNKCommonKey.cbStateRawValue) }//to change if cb connection auto resumes when app relaunches from killed
+    //pseudoPersistCBState() works like a global variable, for other VCs to first launch with correct Bluetooth connection state marker set by Connect VC, but when app launches from killed, first tab Connect VC overwrites saved state to notConnected, in case app was killed and persistence didn't have chance to update saved state to notConnected:
+    func pseudoPersistCBState() { defaults.set(cbState.rawValue, forKey: SNKCommonKey.cbStateRawValue) }
     private func lockOpponentInfoEditability() {
         meWhichPlayerView.lockToggleButton()
         switch opponentIs {

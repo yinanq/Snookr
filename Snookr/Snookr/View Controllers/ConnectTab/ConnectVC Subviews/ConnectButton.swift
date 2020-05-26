@@ -40,7 +40,7 @@ class ConnectButton: SNKButton {
     }
     func setToDisconnectButton() {
         setTitle("Disconnect", for: .normal)
-        backgroundColor = .systemPink
+        backgroundColor = SNKColor.destructive
     }
     
 }

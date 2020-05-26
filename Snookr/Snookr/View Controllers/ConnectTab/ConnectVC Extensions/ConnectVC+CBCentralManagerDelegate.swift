@@ -49,7 +49,7 @@ extension ConnectVC: CBCentralManagerDelegate {
         print("central did connect peripheral \(peripheral.name ?? "w/o name")")
         cbStateCentral = .notConnected
         central.stopScan()
-        print("central stopped scanning, for central.stopScan()")
+        print("central stopped scanning, assumed for central.stopScan()")
         peripheral.delegate = self
         peripheral.discoverServices([cbSnookrServiceUUID])
     }

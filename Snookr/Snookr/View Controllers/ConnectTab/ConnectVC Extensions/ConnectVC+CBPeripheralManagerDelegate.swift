@@ -38,7 +38,6 @@ extension ConnectVC: CBPeripheralManagerDelegate {
                     case SNKcbDataType.resetFrame:
                         print(".resetFrame.")
                     case SNKcbDataType.playerName:
-                        print(".playerName.")
                         switch self.opponentIs {
                         case .player1:
                             self.cbUpdateName(of: &self.player1, to: data.playerName ?? "?")
