@@ -11,7 +11,7 @@ import CoreBluetooth
 extension ConnectVC: CBPeripheralManagerDelegate {
     
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
-        print("peripheral did receive write requests")
+//        print("peripheral did receive write requests")
         cbPeripheralManager.stopAdvertising()
         for request in requests {
             if let data = request.value {
@@ -20,30 +20,30 @@ extension ConnectVC: CBPeripheralManagerDelegate {
                     let data = try jD.decode(SNKcbData.self, from: data)
                     switch data.snkCBDataType {
                     case SNKcbDataType.cbConnected:
-                        print("received cbConnected")
+                        print("peripheral received cbConnected from central")
                         cbStatePeripheral = .isConnected
                         if cbStateCentral == .isConnected {
                             updateCBState(to: .isConnected)
                         }
+                        if let opponentName = data.playerName { cbUpdateOpponentName(to: opponentName) }
+                        if let opponentFrame = data.frame { cbPersistOpponentFrame(to: opponentFrame) }
                     case SNKcbDataType.cbDisconnected:
-                        print("received cbDisconnected")
+                        print("peripheral received cbDisconnected from central")
                         cbDisconnectOrCancel()
                         updateCBState(to: .notConnected)
                     case SNKcbDataType.socre:
                         print(".socre.")
                     case SNKcbDataType.frame:
-                        print(".frame.")
-                    case SNKcbDataType.resetScore:
-                        print(".resetFrame.")
-                    case SNKcbDataType.resetFrame:
-                        print(".resetFrame.")
-                    case SNKcbDataType.playerName:
-                        switch self.opponentIs {
-                        case .player1:
-                            self.cbUpdateName(of: &self.player1, to: data.playerName ?? "?")
-                        case .player2:
-                            self.cbUpdateName(of: &self.player2, to: data.playerName ?? "?")
+                        if let opponentFrame = data.frame {
+                            notifCtr.post(name: .connectVCReceivedUpdatedFrame, object: opponentFrame)
+                            cbPersistOpponentFrame(to: opponentFrame)
                         }
+                    case SNKcbDataType.resetScore:
+                        print(".resetScore.")
+                    case SNKcbDataType.resetFrame:
+                        notifCtr.post(name: .connectVCReceivedResetFrames, object: nil)
+                    case SNKcbDataType.playerName:
+                        if let opponentName = data.playerName { cbUpdateOpponentName(to: opponentName) }
                     default: print("error: invalid case, in peripheral did receive write requests")
                     }
                 } catch {

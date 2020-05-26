@@ -60,11 +60,21 @@ class ConnectVC: UIViewController {
         notifCtr.addObserver(forName: .scoreboardVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
         }
-        notifCtr.addObserver(forName: .framesVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
-            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
-        }
         notifCtr.addObserver(forName: .scoreboardVCChangedNameOfPlayer2, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .framesVCChangedFramesOfEitherPlayer, object: nil, queue: nil) { notification in
+            if self.cbState == .isConnected {
+                self.cbSend(snkCBDataType: SNKcbDataType.frame, frame: notification.object as? Int)
+            }
+        }
+        notifCtr.addObserver(forName: .framesVCDidResetFrames, object: nil, queue: nil) { _ in
+            if self.cbState == .isConnected {
+                self.cbSend(snkCBDataType: SNKcbDataType.resetFrame)
+            }
+        }
+        notifCtr.addObserver(forName: .framesVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
         }
         notifCtr.addObserver(forName: .framesVCChangedNameOfPlayer2, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)

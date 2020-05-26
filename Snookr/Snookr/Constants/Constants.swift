@@ -24,11 +24,6 @@ enum SNKAnimationDuration {
     static let launchSmootherDuration: TimeInterval = 0.2
 }
 
-enum SNKCBConnectionAck {
-    static let connected = "connected"
-    static let disconnected = "disconnected"
-}
-
 enum SNKButtonSize {
     static let small: CGFloat = 44
     static let smallerVisual: CGFloat = 30
@@ -66,6 +61,8 @@ enum SNKCommonKey {
     static let player2sName = "player2sName"
     static let cbStateRawValue = "cbStateRawValue"
     static let opponentIsRawValue = "opponentIsRawValue"
+    static let player1sFrames = "player1sFrames"
+    static let player2sFrames = "player2sFrames"
 }
 
 enum SNKColor {
@@ -105,8 +102,8 @@ enum SNKLayoutPercent {
 enum SNKNamePlaceholder {
 //    static let player1 = "Opponent's Name"
 //    static let player2 = "Your Name"
-    static let player1 = "Player Name"
-    static let player2 = "Player Name"
+    static let player1 = "Enter Player Name"
+    static let player2 = "Enter Player Name"
 }
 
 enum SNKPadding {

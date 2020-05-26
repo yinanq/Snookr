@@ -21,14 +21,19 @@ extension FramesVC: FramesResetButtonDelegate, ResetAlertVCDelegate {
         UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseOut, animations: {
             self.view.alpha = 0
         }) { _ in
-            self.resetFramesWon()
+            self.resetFramesWonAndNotify()
             UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseIn, animations: {
                 self.view.alpha = 1
             }, completion: nil)
         }
     }
+    
+    private func resetFramesWonAndNotify() {
+        resetFramesWon()
+        notifCtr.post(name: .framesVCDidResetFrames, object: nil)
+    }
 
-    private func resetFramesWon() {
+    func resetFramesWon() {
         //update model:
         player1.framesWon = 0
         player2.framesWon = 0
@@ -36,8 +41,8 @@ extension FramesVC: FramesResetButtonDelegate, ResetAlertVCDelegate {
         updateFramesWonView()
         updateResetButton()
         //persist:
-        persistFramesWonFor(&player1)
-        persistFramesWonFor(&player2)
+        persistFramesWon(of: &player1)
+        persistFramesWon(of: &player2)
     }
     
 }

@@ -9,7 +9,7 @@
 //func persistence:
 extension FramesVC {
     
-    func persistFramesWonFor(_ player: inout Player) {
+    func persistFramesWon(of player: inout Player) {
         var keyString: String!
         switch player.playerId {
         case .player1: keyString = Key.player1sFramesWon

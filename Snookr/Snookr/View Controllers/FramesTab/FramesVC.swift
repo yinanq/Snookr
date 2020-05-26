@@ -17,8 +17,8 @@ class FramesVC: UIViewController {
     enum Key {
         static let player1sName = SNKCommonKey.player1sName
         static let player2sName = SNKCommonKey.player2sName
-        static let player1sFramesWon = "1's frames won"
-        static let player2sFramesWon = "2's frames won"
+        static let player1sFramesWon = SNKCommonKey.player1sFrames
+        static let player2sFramesWon = SNKCommonKey.player2sFrames
     }
     
     var player1 = Player(playerId: .player1)
@@ -42,6 +42,24 @@ class FramesVC: UIViewController {
     }
     
     private func configureNotifObservers() {
+        notifCtr.addObserver(forName: .connectVCReceivedUpdatedFrame, object: nil, queue: .main) { notification in
+            let updatedFrame = notification.object as! Int
+            switch self.opponentIs {
+            case .player1:
+                self.updateFramesWonModel(of: &self.player1, to: updatedFrame)
+                self.updateFramesWonView(of: &self.player1)
+                self.persistFramesWon(of: &self.player1)
+            case .player2:
+                self.updateFramesWonModel(of: &self.player2, to: updatedFrame)
+                self.updateFramesWonView(of: &self.player2)
+                self.persistFramesWon(of: &self.player2)
+            }
+            self.updateResetButton()
+        }
+        notifCtr.addObserver(forName: .connectVCReceivedResetFrames, object: nil, queue: .main) { _ in
+            self.resetFramesWon()
+            //to add pop up saying it was reset by your opponent
+        }
         notifCtr.addObserver(forName: .connectVCChangedCBState, object: nil, queue: .main) { notification in
             self.cbState = notification.object as! SNKcbState
             self.updateViewsBasedOnCBState()
@@ -52,11 +70,11 @@ class FramesVC: UIViewController {
         notifCtr.addObserver(forName: .connectVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
         }
-        notifCtr.addObserver(forName: .scoreboardVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
-            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
-        }
         notifCtr.addObserver(forName: .connectVCChangedNameOfPlayer2, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .scoreboardVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
+            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
         }
         notifCtr.addObserver(forName: .scoreboardVCChangedNameOfPlayer2, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
@@ -96,7 +114,7 @@ class FramesVC: UIViewController {
         framesWonButtonsView.delegate = self
         updateFramesWonView()
         resetButton.delegate = self
-        updateResetButton()
+//        updateResetButton()
         view.addSubviews(separatorView, playerNamesView, framesWonView, framesWonButtonsView, resetButton)
         updateViewsBasedOnCBState()
     }

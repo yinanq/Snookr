@@ -54,7 +54,7 @@ extension FramesVC {
         framesWonView.framesWonLabel2.text = String(player2.framesWon)
     }
     
-    func updateFramesWonViewFor(_ player: inout Player) {
+    func updateFramesWonView(of player: inout Player) {
         switch player.playerId {
         case .player1: framesWonView.framesWonLabel1.text = String(player.framesWon)
         case .player2: framesWonView.framesWonLabel2.text = String(player.framesWon)

@@ -21,15 +21,17 @@ extension FramesVC: FramesWonButtonsViewDelegate {
     
     private func addOneFrameFor(_ player: inout Player) {
         player.framesWon += 1
-        updateFramesWonViewFor(&player)
-        persistFramesWonFor(&player)
+        updateFramesWonView(of: &player)
+        persistFramesWon(of: &player)
+        notifCtr.post(name: .framesVCChangedFramesOfEitherPlayer, object: player.framesWon)
     }
     
     private func subtractOneFrameFor(_ player: inout Player) {
         guard player.framesWon > 0 else { return }
         player.framesWon -= 1
-        updateFramesWonViewFor(&player)
-        persistFramesWonFor(&player)
+        updateFramesWonView(of: &player)
+        persistFramesWon(of: &player)
+        notifCtr.post(name: .framesVCChangedFramesOfEitherPlayer, object: player.framesWon)
     }
     
 }

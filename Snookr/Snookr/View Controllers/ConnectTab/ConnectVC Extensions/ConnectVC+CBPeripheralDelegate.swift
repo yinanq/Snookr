@@ -44,11 +44,27 @@ extension ConnectVC: CBPeripheralDelegate {
             return
         }
         cbChosenCharacteristic = characteristics[0]
-        cbSend(snkCBDataType: SNKcbDataType.cbConnected)
+        sendConnectConfAndStartingScoreInfo()
         cbStateCentral = .isConnected
         if cbStatePeripheral == .isConnected {
             updateCBState(to: .isConnected)
         }
+    }
+    
+    private func sendConnectConfAndStartingScoreInfo() {
+        var myName: String
+        var myFrame: Int
+        //        var myScore: Int
+        switch opponentIs {
+        case .player1:
+            myName = player2.name
+            myFrame = defaults.integer(forKey: SNKCommonKey.player2sFrames)
+        case .player2:
+            myName = player1.name
+            myFrame = defaults.integer(forKey: SNKCommonKey.player1sFrames)
+        }
+        //        cbSend(snkCBDataType: SNKcbDataType.cbConnected)
+        cbSend(snkCBDataType: SNKcbDataType.cbConnected, playerName: myName, frame: myFrame)
     }
     
 }

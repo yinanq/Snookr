@@ -61,5 +61,7 @@ extension ConnectVC: CBCentralManagerDelegate {
     }
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("central did disconnect peripheral \(peripheral.name ?? "w/o name")")
+        cbDisconnectOrCancel()
+        updateCBState(to: .notConnected)
     }
 }

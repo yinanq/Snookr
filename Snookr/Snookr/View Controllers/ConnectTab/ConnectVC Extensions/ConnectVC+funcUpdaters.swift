@@ -8,17 +8,18 @@
 
 extension ConnectVC {
     
-    func cbUpdateName(of player: inout Player, to newName: String) {
-        updatePlayerNameModel(player: &player, newName: newName)
-        updatePlayerNameView(for: player)
-        switch player.playerId {
+    func cbUpdateOpponentName(to receivedName: String) {
+        switch opponentIs {
         case .player1:
-            notifCtr.post(name: .connectVCChangedNameOfPlayer1, object: player.name)
-            defaults.set(player.name, forKey: Key.player1sName)
+            updatePlayerNameModel(player: &player1, newName: receivedName)
+            updatePlayerNameView(for: player1)
+            notifCtr.post(name: .connectVCChangedNameOfPlayer1, object: receivedName)
+            defaults.set(player1.name, forKey: Key.player1sName)
         case .player2:
-            notifCtr.post(name: .connectVCChangedNameOfPlayer2, object: player.name)
-            defaults.set(player.name, forKey: Key.player2sName)
-        case .unassigned: print("error: .unassigned playerId in cbUpdateName")
+            updatePlayerNameModel(player: &player2, newName: receivedName)
+            updatePlayerNameView(for: player2)
+            notifCtr.post(name: .connectVCChangedNameOfPlayer2, object: receivedName)
+            defaults.set(player2.name, forKey: Key.player2sName)
         }
     }
     
