@@ -29,10 +29,6 @@ enum SNKCBConnectionAck {
     static let disconnected = "disconnected"
 }
 
-enum SNKLayoutPercent {
-    static let bodyTextWidth: CGFloat = 0.8
-}
-
 enum SNKButtonSize {
     static let small: CGFloat = 44
     static let smallerVisual: CGFloat = 30
@@ -49,6 +45,16 @@ enum SNKButtonTag {
     static let redoButton2 = -12
 }
 
+enum SNKcbDataType {
+    static let cbConnected = "cbConnected"
+    static let cbDisconnected = "cbDisconnected"
+    static let playerName = "playerName"
+    static let frame = "frame"
+    static let socre = "socre"
+    static let resetFrame = "resetFrame"
+    static let resetScore = "resetScore"
+}
+
 enum SNKcbState: Int {
     case notConnected = -1
     case isConnecting = 0
@@ -58,7 +64,6 @@ enum SNKcbState: Int {
 enum SNKCommonKey {
     static let player1sName = "player1sName"
     static let player2sName = "player2sName"
-    static let mcStateRawValue = "mcState"
     static let cbStateRawValue = "cbStateRawValue"
     static let opponentIsRawValue = "opponentIsRawValue"
 }
@@ -104,6 +109,10 @@ enum SNKmcState: Int {
     case notConnected = -1
     case isConnecting = 0
     case isConnected = 1
+}
+
+enum SNKLayoutPercent {
+    static let bodyTextWidth: CGFloat = 0.8
 }
 
 enum SNKNamePlaceholder {

@@ -23,6 +23,21 @@ extension ConnectVC: ConnectButtonDelegate {
 
 extension ConnectVC {
     
+    func cbSend(snkCBDataType: String, playerName: String? = nil, frame: Int? = nil, score: Int? = nil, scoreHist1: Int? = nil, scoreHist2: Int? = nil, scoreHist3: Int? = nil) {
+        let data = SNKcbData(snkCBDataType: snkCBDataType, playerName: playerName, frame: frame, score: score, scoreHist1: scoreHist1, scoreHist2: scoreHist2, scoreHist3: scoreHist3)
+        let jE = JSONEncoder()
+        do {
+            let data = try jE.encode(data)
+            guard let peripheral = cbChosenPeripheral, let characteristic = cbChosenCharacteristic else {
+                print("error: no cbChosenPeripheral and/or cbChosenCharacteristic when trying to send data")
+                return
+            }
+            peripheral.writeValue(data, for: characteristic, type: .withResponse)
+        } catch {
+            print("error: encoding failed, in cbSend.")
+        }
+    }
+    
     func cbStartConnecting() {
         cbCentralManager = CBCentralManager(delegate: self, queue: nil)
         cbPeripheralManager = CBPeripheralManager(delegate: self, queue: nil)
@@ -31,14 +46,9 @@ extension ConnectVC {
     func cbDisconnectOrCancel() {
         if let centralManager = cbCentralManager {
             centralManager.stopScan()
-            if let peripheral = cbChosenPeripheral {
-                if let characteristic = cbChosenCharacteristic {
-                    if let data = SNKCBConnectionAck.disconnected.data(using: .utf8) { peripheral.writeValue(data, for: characteristic, type: .withResponse) }
-                    cbChosenCharacteristic = nil
-                }//else is still-ok edge case: Cancel is tapped when central has found peripheral and possibily peripheral's service too but hasn't found peripheral's service's characteristic
-                centralManager.cancelPeripheralConnection(peripheral)
-                cbChosenPeripheral = nil
-            }
+            cbSend(snkCBDataType: SNKcbDataType.cbDisconnected)
+            cbChosenCharacteristic = nil
+            cbChosenPeripheral = nil
             cbCentralManager = nil
         }
         if let peripheralManager = cbPeripheralManager {

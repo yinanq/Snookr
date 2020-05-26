@@ -9,8 +9,8 @@
 //func view updaters:
 extension FramesVC {
     
-    func updateViewsBasedOnMCState() {
-        switch mcState {
+    func updateViewsBasedOnCBState() {
+        switch cbState {
         case .notConnected: unlockOpponentInfoAfterMC()
         case .isConnected: lockOpponentInfoDuringMC()
         case .isConnecting: lockOpponentInfoDuringMC()

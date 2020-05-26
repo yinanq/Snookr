@@ -10,6 +10,51 @@ import CoreBluetooth
 
 extension ConnectVC: CBPeripheralManagerDelegate {
     
+    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
+        print("peripheral did receive write requests")
+        cbPeripheralManager.stopAdvertising()
+        for request in requests {
+            if let data = request.value {
+                let jD = JSONDecoder()
+                do {
+                    let data = try jD.decode(SNKcbData.self, from: data)
+                    switch data.snkCBDataType {
+                    case SNKcbDataType.cbConnected:
+                        print("received cbConnected")
+                        cbStatePeripheral = .isConnected
+                        if cbStateCentral == .isConnected {
+                            updateCBState(to: .isConnected)
+                        }
+                    case SNKcbDataType.cbDisconnected:
+                        print("received cbDisconnected")
+                        cbDisconnectOrCancel()
+                        updateCBState(to: .notConnected)
+                    case SNKcbDataType.socre:
+                        print(".socre.")
+                    case SNKcbDataType.frame:
+                        print(".frame.")
+                    case SNKcbDataType.resetScore:
+                        print(".resetFrame.")
+                    case SNKcbDataType.resetFrame:
+                        print(".resetFrame.")
+                    case SNKcbDataType.playerName:
+                        print(".playerName.")
+                        switch self.opponentIs {
+                        case .player1:
+                            self.cbUpdateName(of: &self.player1, to: data.playerName ?? "?")
+                        case .player2:
+                            self.cbUpdateName(of: &self.player2, to: data.playerName ?? "?")
+                        }
+                    default: print("error: invalid case, in peripheral did receive write requests")
+                    }
+                } catch {
+                    print("error: decoding failed, in peripheral did receive write requests")
+                }
+            }
+            if let peripherlManager = self.cbPeripheralManager { peripherlManager.respond(to: request, withResult: .success) }
+        }
+    }
+    
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         switch peripheral.state {
         case .unknown: print("peripheral.state is .unknown")
@@ -40,32 +85,6 @@ extension ConnectVC: CBPeripheralManagerDelegate {
         print("peripheral did start advertising")
         cbStatePeripheral = .notConnected
     }
-    
-    
-    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
-        print("peripheral did receive write requests")
-        cbPeripheralManager.stopAdvertising()
-        for request in requests {
-            if let value = request.value {
-                let string = String(data: value, encoding: .utf8)!
-                print("opponent's central has \(string)")
-                if string == SNKCBConnectionAck.connected {
-                    cbStatePeripheral = .isConnected
-                    if cbStateCentral == .isConnected {
-                        updateCBState(to: .isConnected)
-                    }
-                }
-                if string == SNKCBConnectionAck.disconnected {
-                    cbDisconnectOrCancel()
-                    updateCBState(to: .notConnected)
-                }
-            }
-            if let peripherlManager = self.cbPeripheralManager {
-                peripherlManager.respond(to: request, withResult: .success)
-            }
-        }
-    }
-
     
     func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
         print("peripheral did modify services")

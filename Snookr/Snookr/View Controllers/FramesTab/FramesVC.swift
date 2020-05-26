@@ -10,7 +10,7 @@ import UIKit
 
 class FramesVC: UIViewController {
     
-    var mcState: SNKmcState = .notConnected
+    var cbState: SNKcbState = .notConnected
         
     let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
@@ -42,9 +42,9 @@ class FramesVC: UIViewController {
     }
     
     private func configureNotifObservers() {
-        notifCtr.addObserver(forName: .connectVCChangedMCState, object: nil, queue: .main) { notification in
-            self.mcState = notification.object as! SNKmcState
-            self.updateViewsBasedOnMCState()
+        notifCtr.addObserver(forName: .connectVCChangedCBState, object: nil, queue: .main) { notification in
+            self.cbState = notification.object as! SNKcbState
+            self.updateViewsBasedOnCBState()
         }
         notifCtr.addObserver(forName: .connectVCChangedWhoswho, object: nil, queue: nil) { notification in
             self.opponentIs = notification.object as! SNKWhichPlayer
@@ -72,12 +72,12 @@ class FramesVC: UIViewController {
         player2.name = defaults.string(forKey: Key.player2sName) ?? SNKNamePlaceholder.player2
         player1.framesWon = defaults.integer(forKey: Key.player1sFramesWon)
         player2.framesWon = defaults.integer(forKey: Key.player2sFramesWon)
-        if let mcStateB4ThisTabFirstOpen = defaults.value(forKey: SNKCommonKey.mcStateRawValue) as? Int {
-            switch mcStateB4ThisTabFirstOpen {
-            case SNKmcState.notConnected.rawValue: mcState = .notConnected
-            case SNKmcState.isConnected.rawValue: mcState = .isConnected
-            case SNKmcState.isConnecting.rawValue: mcState = .isConnecting
-            default: print("error: invalid case for mcStateB4ThisTabFirstOpen")
+        if let cbStateB4ThisTabFirstOpen = defaults.value(forKey: SNKCommonKey.cbStateRawValue) as? Int {
+            switch cbStateB4ThisTabFirstOpen {
+            case SNKmcState.notConnected.rawValue: cbState = .notConnected
+            case SNKmcState.isConnected.rawValue: cbState = .isConnected
+            case SNKmcState.isConnecting.rawValue: cbState = .isConnecting
+            default: print("error: invalid case for cbStateB4ThisTabFirstOpen")
             }
         } else { print("error: no mcStateB4ThisTabFirstOpen")}
         if let opponentIs = defaults.value(forKey: SNKCommonKey.opponentIsRawValue) as? Int {
@@ -98,7 +98,7 @@ class FramesVC: UIViewController {
         resetButton.delegate = self
         updateResetButton()
         view.addSubviews(separatorView, playerNamesView, framesWonView, framesWonButtonsView, resetButton)
-        updateViewsBasedOnMCState()
+        updateViewsBasedOnCBState()
     }
     private func updatePlayerNamesView() { playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
     

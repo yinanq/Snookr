@@ -61,12 +61,12 @@ extension ConnectVC: UITextViewDelegate {
             updatePlayerNameModel(player: &player1, newName: playerNamesView.textView1.text)
             notifCtr.post(name: .connectVCChangedNameOfPlayer1, object: player1.name)
             defaults.set(player1.name, forKey: Key.player1sName)
-            if mcState == .isConnected { mcSend(snkDataTypeForMC: SNKDataTypeForMC.name, name: player1.name) }
+            if cbState == .isConnected { cbSend(snkCBDataType: SNKcbDataType.playerName, playerName: player1.name)}
         case SNKTextViewTag.player2:
             updatePlayerNameModel(player: &player2, newName: playerNamesView.textView2.text)
             notifCtr.post(name: .connectVCChangedNameOfPlayer2, object: player2.name)
             defaults.set(player2.name, forKey: Key.player2sName)
-            if mcState == .isConnected { mcSend(snkDataTypeForMC: SNKDataTypeForMC.name, name: player2.name) }
+            if cbState == .isConnected { cbSend(snkCBDataType: SNKcbDataType.playerName, playerName: player2.name)}
         default: print("error: invalid player tag in setPlayerNameFromViewToModel, in ConnectVC")
         }
     }

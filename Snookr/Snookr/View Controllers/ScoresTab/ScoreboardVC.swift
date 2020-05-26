@@ -10,7 +10,7 @@ import UIKit
 
 class ScoreboardVC: UIViewController {
     
-    var mcState: SNKmcState = .notConnected
+    var cbState: SNKcbState = .notConnected
     
     let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
@@ -41,9 +41,9 @@ class ScoreboardVC: UIViewController {
     }
     
     private func configureNotifObservers() {
-        notifCtr.addObserver(forName: .connectVCChangedMCState, object: nil, queue: .main) { notification in
-            self.mcState = notification.object as! SNKmcState
-            self.updateViewsBasedOnMCState()
+        notifCtr.addObserver(forName: .connectVCChangedCBState, object: nil, queue: .main) { notification in
+            self.cbState = notification.object as! SNKcbState
+            self.updateViewsBasedOnCBState()
         }
         notifCtr.addObserver(forName: .connectVCChangedWhoswho, object: nil, queue: nil) { notification in
             self.opponentIs = notification.object as! SNKWhichPlayer
@@ -71,11 +71,11 @@ class ScoreboardVC: UIViewController {
         player2.name = defaults.string(forKey: Key.player2sName) ?? SNKNamePlaceholder.player2
         player1.score = defaults.integer(forKey: Key.player1sScore)
         player2.score = defaults.integer(forKey: Key.player2sScore)
-        if let mcStateB4ThisTabFirstOpen = defaults.value(forKey: SNKCommonKey.mcStateRawValue) as? Int {
-            switch mcStateB4ThisTabFirstOpen {
-            case SNKmcState.notConnected.rawValue: mcState = .notConnected
-            case SNKmcState.isConnected.rawValue: mcState = .isConnected
-            case SNKmcState.isConnecting.rawValue: mcState = .isConnecting
+        if let cbStateB4ThisTabFirstOpen = defaults.value(forKey: SNKCommonKey.cbStateRawValue) as? Int {
+            switch cbStateB4ThisTabFirstOpen {
+            case SNKmcState.notConnected.rawValue: cbState = .notConnected
+            case SNKmcState.isConnected.rawValue: cbState = .isConnected
+            case SNKmcState.isConnecting.rawValue: cbState = .isConnecting
             default: print("error: invalid case for mcStateB4ThisTabFirstOpen")
             }
         } else { print("error: no mcStateB4ThisTabFirstOpen")}
@@ -98,7 +98,7 @@ class ScoreboardVC: UIViewController {
         resetButton.delegate = self
         updateResetButton()
         view.addSubviews(separatorView, stackView, resetButton)
-        updateViewsBasedOnMCState()
+        updateViewsBasedOnCBState()
     }
     
     private func layoutViews() {

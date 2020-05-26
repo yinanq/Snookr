@@ -12,6 +12,7 @@ import CoreBluetooth
 
 class ConnectVC: UIViewController {
     
+    //Core Bluetooth properties:
     //cb shared identifiers:
     let cbSnookrUUID = CBUUID(string: "4E33A1D9-9FE0-46FB-B3C9-3604A5A0D05A")//a different key is used in production app
     var cbUserDefinedLocalName: String!
@@ -27,17 +28,7 @@ class ConnectVC: UIViewController {
     var cbState: SNKcbState = .notConnected
     var cbStateCentral: SNKcbState = .notConnected
     var cbStatePeripheral: SNKcbState = .notConnected
-    
-    let testPeerIDUserCode = "147"//to be replaced by user entered per session passcode
-    
-    var mcState: SNKmcState = .notConnected
-    
-    var mcSession: MCSession?
-    var mcAdvertiser: MCNearbyServiceAdvertiser?
-    var mcBrowser: MCNearbyServiceBrowser?
-    var mcPeerID: MCPeerID?
-    var mcPeerIDDisplayName: String?
-    let mcServiceType = "yinan-snookr"
+    //Core Bluetooth properties END
     let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
     enum Key {
@@ -64,7 +55,6 @@ class ConnectVC: UIViewController {
         configureViews()
         configureNotifObservers()
         layoutViews()
-        pseudoPersistMCState()
         pseudoPersistCBState()
         cbUserDefinedLocalName = "147"//to be replaced by user entered per session passcode
     }
@@ -87,7 +77,7 @@ class ConnectVC: UIViewController {
     private func updateModelAndViewForName(of player: inout Player, to newName: String) {
         updatePlayerNameModel(player: &player, newName: newName)
         updatePlayerNameView(for: player)
-        if mcState == .isConnected { mcSend(snkDataTypeForMC: SNKDataTypeForMC.name, name: player.name) }
+        if cbState == .isConnected { cbSend(snkCBDataType: SNKcbDataType.playerName, playerName: player.name)}
     }
     
     
@@ -101,7 +91,6 @@ class ConnectVC: UIViewController {
             default: print("error: invalid case for opponentIs from persistence")
             }
         }
-        mcGeneratePeerID()//tester code, see notes in definition
     }
     private func configureViews() {
         playerNamesView.set(player1sName: player1.name, player2sName: player2.name)

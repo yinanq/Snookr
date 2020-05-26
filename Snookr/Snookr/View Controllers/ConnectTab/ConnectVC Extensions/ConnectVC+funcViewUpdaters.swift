@@ -6,8 +6,6 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-//func view updaters:
-
 extension ConnectVC {
     
     func updatePlayerNameView(for player: Player) {
