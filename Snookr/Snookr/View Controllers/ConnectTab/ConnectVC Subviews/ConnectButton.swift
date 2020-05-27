@@ -16,6 +16,8 @@ class ConnectButton: SNKButton {
     
     weak var delegate: ConnectButtonDelegate!
     
+    let ai = UIActivityIndicatorView(style: .medium)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -26,6 +28,7 @@ class ConnectButton: SNKButton {
     private func configure() {
         set(title: "Connect", style: .solid)
         addTarget(self, action: #selector(didTapConnectButton), for: .touchUpInside)
+        addActivityIndicator()
     }
     
     @objc func didTapConnectButton() { delegate.didTapConnectButton() }
@@ -33,14 +36,26 @@ class ConnectButton: SNKButton {
     func setToConnectButton() {
         setTitle("Connect", for: .normal)
         backgroundColor = SNKColor.foreground
+        ai.stopAnimating()
     }
     func setToCancelButton() {
         setTitle("Cancel", for: .normal)
-        backgroundColor = SNKColor.foregroundSecondary
+        ai.startAnimating()
     }
     func setToDisconnectButton() {
         setTitle("Disconnect", for: .normal)
         backgroundColor = SNKColor.destructive
+        ai.stopAnimating()
+    }
+    
+    private func addActivityIndicator() {
+        addSubview(ai)
+        ai.color = SNKColor.background
+        ai.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            ai.centerYAnchor.constraint(equalTo: centerYAnchor),
+            ai.leadingAnchor.constraint(equalTo: titleLabel!.trailingAnchor, constant: SNKPadding.small)
+        ])
     }
     
 }
