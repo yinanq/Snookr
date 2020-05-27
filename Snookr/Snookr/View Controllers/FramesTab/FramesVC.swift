@@ -21,6 +21,7 @@ class FramesVC: UIViewController {
     let framesWonView = FramesWonView()
     let framesWonButtonsView = FramesWonButtonsView()
     let resetButton = FramesResetButton()
+//    let connectedStatusView = SNKConnectedStatusView()
     let tapRecognizer = UITapGestureRecognizer()
     
     override func viewDidLoad() {
@@ -50,8 +51,7 @@ class FramesVC: UIViewController {
             self.updateResetButton()
         }
         notifCtr.addObserver(forName: .connectVCReceivedResetFrames, object: nil, queue: .main) { _ in
-            self.resetFramesWon()
-            //to add pop up saying it was reset by your opponent
+            self.cbOpponentDidTapConfirmToReset()
         }
         //cb connection state:
         notifCtr.addObserver(forName: .connectVCChangedCBState, object: nil, queue: .main) { notification in
@@ -118,6 +118,10 @@ class FramesVC: UIViewController {
     
     private func layoutViews() {
         NSLayoutConstraint.activate([
+//            connectedStatusView.topAnchor.constraint(equalTo: view.topAnchor),
+//            connectedStatusView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            connectedStatusView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            connectedStatusView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -SNKPadding.tiny),
             playerNamesView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
             playerNamesView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             playerNamesView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
@@ -132,7 +136,7 @@ class FramesVC: UIViewController {
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             separatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             separatorView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big + SNKPadding.separatorViewTopAdj),
-            separatorView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big)
+            separatorView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big),
         ])
     }
     

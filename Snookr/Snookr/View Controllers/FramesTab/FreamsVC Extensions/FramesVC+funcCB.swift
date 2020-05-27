@@ -6,6 +6,8 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
+import UIKit
+
 extension FramesVC {
     
     func cbUpdateForState() {

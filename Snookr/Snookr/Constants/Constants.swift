@@ -104,8 +104,8 @@ enum SNKLayoutPercent {
 enum SNKNamePlaceholder {
 //    static let player1 = "Opponent's Name"
 //    static let player2 = "Your Name"
-    static let player1 = "Enter Player Name"
-    static let player2 = "Enter Player Name"
+    static let player1 = "Player Name"
+    static let player2 = "Player Name"
 }
 
 enum SNKPadding {

@@ -8,19 +8,6 @@
 
 import CoreBluetooth
 
-extension ConnectVC: ConnectButtonDelegate {
-    func didTapConnectButton() {
-        switch cbState {
-        case .notConnected: //button is Connect
-            cbStartConnecting()
-            updateCBState(to: .isConnecting)
-        case .isConnecting, .isConnected: //button is Cancel or Disconnect
-            cbDisconnectOrCancel()
-            updateCBState(to: .notConnected)
-        }
-    }
-}
-
 extension ConnectVC {
     
     func cbSend(snkCBDataType: String, playerName: String? = nil, frame: Int? = nil, score: Int? = nil, scoreHist1: Int? = nil, scoreHist2: Int? = nil, scoreHist3: Int? = nil) {

@@ -28,12 +28,23 @@ extension FramesVC: FramesResetButtonDelegate, ResetAlertVCDelegate {
         }
     }
     
+    func cbOpponentDidTapConfirmToReset() {
+        UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseOut, animations: {
+            self.view.alpha = 0
+        }) { _ in
+            self.resetFramesWon()
+            UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseIn, animations: {
+                self.view.alpha = 1
+            }, completion: nil)
+        }
+    }
+    
     private func resetFramesWonAndNotify() {
         resetFramesWon()
         notifCtr.post(name: .framesVCDidResetFrames, object: nil)
     }
 
-    func resetFramesWon() {
+    private func resetFramesWon() {
         //update model:
         player1.framesWon = 0
         player2.framesWon = 0

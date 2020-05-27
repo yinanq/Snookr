@@ -39,13 +39,13 @@ class SNKAlertVC: UIViewController {
     }
     
     private func addButtonTargets() {
-        cancelButton.addTarget(self, action: #selector(didTapCancelResetButton), for: .touchUpInside)
-        confirmButton.addTarget(self, action: #selector(didTapConfirmResetButton), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
     }
     
-    @objc func didTapCancelResetButton() { dismiss(animated: true) }
+    @objc func didTapCancelButton() { dismiss(animated: true) }
     
-    @objc func didTapConfirmResetButton() { dismiss(animated: true) }
+    @objc func didTapConfirmButton() { dismiss(animated: true) }
     
     private func configure() {
         view.backgroundColor = SNKColor.background.withAlphaComponent(SNKAlpha.dimmer.rawValue)

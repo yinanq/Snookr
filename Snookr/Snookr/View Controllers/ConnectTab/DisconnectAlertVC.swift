@@ -1,22 +1,22 @@
 //
-//  ResetAlertVC.swift
+//  DisconnectAlertVC.swift
 //  Snookr
 //
-//  Created by Yinan Qiu on 5/21/20.
+//  Created by Yinan Qiu on 5/26/20.
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-protocol ResetAlertVCDelegate: class {
-    func didTapConfirmToReset()
+protocol DisconnectAlertVCDelegate: class {
+    func didTapConfirmToDisconnect()
 }
 
 import UIKit
 
-class ResetAlertVC: SNKAlertVC {
+class DisconnectAlertVC: SNKAlertVC {
     
-    weak var delegate: ResetAlertVCDelegate!
+    weak var delegate: DisconnectAlertVCDelegate!
     
-    init(title: String, body: String, cancelBtnTitle: String, confirmBtnTitile: String, delegate: ResetAlertVCDelegate) {
+    init(title: String, body: String, cancelBtnTitle: String, confirmBtnTitile: String, delegate: DisconnectAlertVCDelegate) {
         super.init(title: title, body: body, cancelBtnTitle: cancelBtnTitle, confirmBtnTitile: confirmBtnTitile)
         self.delegate = delegate
     }
@@ -27,12 +27,13 @@ class ResetAlertVC: SNKAlertVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        confirmButton.backgroundColor = SNKColor.destructive
         confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
     }
     
     @objc override func didTapConfirmButton() {
         dismiss(animated: true) {
-            self.delegate.didTapConfirmToReset()
+            self.delegate.didTapConfirmToDisconnect()
         }
     }
     
