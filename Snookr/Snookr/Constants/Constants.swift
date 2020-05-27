@@ -122,8 +122,8 @@ enum SNKPadding {
 }
 
 enum SNKTabBarImage {
-    static let connect = UIImage(systemName: "person.crop.circle.badge.plus")
-    static let connected = UIImage(systemName: "person.crop.circle.badge.checkmark")
+    static let connect = UIImage(systemName: "person.badge.plus.fill")
+    static let connected = UIImage(systemName: "person.2.fill")
     static let scores = UIImage(systemName: "square.split.2x1.fill")
     static let frames = UIImage(systemName: "square.grid.3x2.fill")
     static let about = UIImage(systemName: "info.circle.fill")
