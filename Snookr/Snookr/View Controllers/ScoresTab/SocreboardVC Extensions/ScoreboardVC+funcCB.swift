@@ -73,7 +73,9 @@ extension ScoreboardVC {
     
     func cbUpdateForState() {
         switch cbState {
-        case .notConnected: cbUnlockOpponentInfoAfterCB()
+        case .notConnected:
+            cbUnlockOpponentInfoAfterCB()
+            cbClearOpponentUndoHistory()
         case .isConnected, .isConnecting:
             cbLockOpponentInfoDuringCB()
             cbClearOpponentUndoHistory()
@@ -96,9 +98,11 @@ extension ScoreboardVC {
         case .player1:
             player1.historyUndoable.removeAll()
             player1.historyRedoable.removeAll()
+            updateScoreHistoryViewAndUndoButtonsViewFor(&player1)
         case .player2:
             player2.historyUndoable.removeAll()
             player2.historyRedoable.removeAll()
+            updateScoreHistoryViewAndUndoButtonsViewFor(&player2)
         }
     }
     
