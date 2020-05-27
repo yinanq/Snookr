@@ -26,7 +26,7 @@ extension ConnectVC: ConnectButtonDelegate, DisconnectAlertVCDelegate {
     }
     
     private func didTapDisconnectButton() {
-        let alertVC = DisconnectAlertVC(title: "Sure?", body: "Gonna disconnect from your opponent. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
+        let alertVC = DisconnectAlertVC(title: "Sure?", body: "Disconnect from your opponent?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
         alertVC.modalPresentationStyle = .overCurrentContext
         alertVC.modalTransitionStyle = .crossDissolve
         present(alertVC, animated: true)
