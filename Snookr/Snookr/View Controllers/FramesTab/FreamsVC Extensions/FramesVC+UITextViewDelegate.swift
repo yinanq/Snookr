@@ -59,11 +59,11 @@ extension FramesVC: UITextViewDelegate {
         switch textViewTag {
         case SNKTextViewTag.player1:
             player1.name = playerNamesView.textView1.text
-            defaults.set(player1.name, forKey: Key.player1sName)
+            defaults.set(player1.name, forKey: SNKCommonKey.player1sName)
             notifCtr.post(name: .framesVCChangedNameOfPlayer1, object: player1.name)
         case SNKTextViewTag.player2:
             player2.name = playerNamesView.textView2.text
-            defaults.set(player2.name, forKey: Key.player2sName)
+            defaults.set(player2.name, forKey: SNKCommonKey.player2sName)
             notifCtr.post(name: .framesVCChangedNameOfPlayer2, object: player2.name)
         default: print("error: invalid player tag in setPlayerNameFromViewToModel, in FramesVC")
         }

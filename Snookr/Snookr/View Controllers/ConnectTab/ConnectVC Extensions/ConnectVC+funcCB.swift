@@ -1,5 +1,5 @@
 //
-//  ConnectVC+CB.swift
+//  ConnectVC+funcCB.swift
 //  Snookr
 //
 //  Created by Yinan Qiu on 5/24/20.
@@ -25,6 +25,10 @@ extension ConnectVC {
     
     func cbSend(snkCBDataType: String, playerName: String? = nil, frame: Int? = nil, score: Int? = nil, scoreHist1: Int? = nil, scoreHist2: Int? = nil, scoreHist3: Int? = nil) {
         let data = SNKcbData(snkCBDataType: snkCBDataType, playerName: playerName, frame: frame, score: score, scoreHist1: scoreHist1, scoreHist2: scoreHist2, scoreHist3: scoreHist3)
+        cbSend(data)
+    }
+    
+    func cbSend(_ data: SNKcbData) {
         let jE = JSONEncoder()
         do {
             let data = try jE.encode(data)
@@ -79,7 +83,7 @@ extension ConnectVC {
         }
     }
     
-    //pseudoPersistCBState() works like a global variable, for other VCs to first launch with correct Bluetooth connection state marker set by Connect VC, but when app launches from killed, first tab Connect VC overwrites saved state to notConnected, in case app was killed and persistence didn't have chance to update saved state to notConnected:
+    //pseudoPersistCBState works like a global variable, for other VCs to first launch with correct Bluetooth connection state marker set by Connect VC, but when app launches from killed, first tab Connect VC overwrites saved state to notConnected, in case app was killed and persistence didn't have chance to update saved state to notConnected:
     func pseudoPersistCBState() { defaults.set(cbState.rawValue, forKey: SNKCommonKey.cbStateRawValue) }
     private func lockOpponentInfoEditability() {
         meWhichPlayerView.lockToggleButton()

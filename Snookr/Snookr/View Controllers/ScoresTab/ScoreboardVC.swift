@@ -31,17 +31,29 @@ class ScoreboardVC: UIViewController {
         configureViews()
         configureNotifObservers()
         layoutViews()
-        playLaunchScreenSmootherAnimation()
+//        playLaunchScreenSmootherAnimation()
     }
     
     private func configureNotifObservers() {
+        //cb opponent score:
+        notifCtr.addObserver(forName: .connectVCReceivedUpdatedScore, object: nil, queue: .main) { notification in
+            let data = notification.object as! SNKcbData
+            self.cbUpdateOpponentScoreToReceived(data)
+        }
+        notifCtr.addObserver(forName: .connectVCReceivedResetScores, object: nil, queue: .main) { notification in
+            self.resetScores()
+            //to add pop up saying it was reset by your opponent
+        }
+        //cb connection state:
         notifCtr.addObserver(forName: .connectVCChangedCBState, object: nil, queue: .main) { notification in
             self.cbState = notification.object as! SNKcbState
-            self.updateViewsBasedOnCBState()
+            self.cbUpdateForState()
         }
+        //opponentIs:
         notifCtr.addObserver(forName: .connectVCChangedWhoswho, object: nil, queue: nil) { notification in
             self.opponentIs = notification.object as! SNKWhichPlayer
         }
+        //name:
         notifCtr.addObserver(forName: .connectVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
         }
@@ -92,7 +104,7 @@ class ScoreboardVC: UIViewController {
         resetButton.delegate = self
         updateResetButton()
         view.addSubviews(separatorView, stackView, resetButton)
-        updateViewsBasedOnCBState()
+        cbUpdateForState()
     }
     
     private func layoutViews() {

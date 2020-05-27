@@ -25,6 +25,7 @@ extension ScoreboardVC: UndoButtonsViewDelegate {
         persistScoreFor(&player)
         player.historyRedoable.append(player.historyUndoable.popLast()!)
         updateScoreHistoryViewAndUndoButtonsViewFor(&player)
+        cbNotifyData(of: player)
     }
     
     func didTapRedoButton(tag: Int) {
@@ -45,6 +46,7 @@ extension ScoreboardVC: UndoButtonsViewDelegate {
         player.historyUndoable.append(player.historyRedoable.popLast()!)
         keepRedoHistoryLimitFor(&player)
         updateScoreHistoryViewAndUndoButtonsViewFor(&player)
+        cbNotifyData(of: player)
     }
     
     private func updateCommonViews() {

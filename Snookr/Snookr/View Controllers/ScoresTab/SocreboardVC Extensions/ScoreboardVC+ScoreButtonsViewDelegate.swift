@@ -45,6 +45,7 @@ extension ScoreboardVC: ScoreButtonsViewDelegate {
         updateScoreHistoryViewAndUndoButtonsViewFor(&player)
         keepUndoHistoryLimitFor(&player)
         clearRedoHistoryAndButtonFor(&player)
+        cbNotifyData(of: player)
     }
     private func updateCommonViews() {
         updateScoresView()

@@ -6,49 +6,7 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-//func view updaters:
 extension ScoreboardVC {
-    
-    func updateViewsBasedOnCBState() {
-        switch cbState {
-        case .notConnected: unlockOpponentInfoAfterCB()
-        case .isConnected: lockOpponentInfoDuringCB()
-        case .isConnecting: lockOpponentInfoDuringCB()
-        }
-    }
-    private func lockOpponentInfoDuringCB() {
-        switch opponentIs {
-        case .player1:
-            self.stackView.scoreInfoView.playerNamesView.textView1.isEditable = false
-            self.stackView.scoreInfoView.undoButtonsView.undoButton1.alpha = 0
-            self.stackView.scoreInfoView.undoButtonsView.redoButton1.alpha = 0
-            self.stackView.scoreButtonsView.plusButton1.alpha = 0
-            self.stackView.scoreButtonsView.plusOneButton1.alpha = 0
-        case .player2:
-            self.stackView.scoreInfoView.playerNamesView.textView2.isEditable = false
-            self.stackView.scoreInfoView.undoButtonsView.undoButton2.alpha = 0
-            self.stackView.scoreInfoView.undoButtonsView.redoButton2.alpha = 0
-            self.stackView.scoreButtonsView.plusButton2.alpha = 0
-            self.stackView.scoreButtonsView.plusOneButton2.alpha = 0
-        }
-
-    }
-    private func unlockOpponentInfoAfterCB() {
-        switch opponentIs {
-        case .player1:
-            self.stackView.scoreInfoView.playerNamesView.textView1.isEditable = true
-            self.stackView.scoreInfoView.undoButtonsView.undoButton1.alpha = 1
-            self.stackView.scoreInfoView.undoButtonsView.redoButton1.alpha = 1
-            self.stackView.scoreButtonsView.plusButton1.alpha = 1
-            self.stackView.scoreButtonsView.plusOneButton1.alpha = 1
-        case .player2:
-            self.stackView.scoreInfoView.playerNamesView.textView2.isEditable = true
-            self.stackView.scoreInfoView.undoButtonsView.undoButton2.alpha = 1
-            self.stackView.scoreInfoView.undoButtonsView.redoButton2.alpha = 1
-            self.stackView.scoreButtonsView.plusButton2.alpha = 1
-            self.stackView.scoreButtonsView.plusOneButton2.alpha = 1
-        }
-    }
     
     func updatePlayerNameView(for player: Player) {
         switch player.playerId {

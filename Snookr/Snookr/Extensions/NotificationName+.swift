@@ -19,6 +19,8 @@ extension Notification.Name {
     static let connectVCReceivedResetScores = Notification.Name("connectVCReceivedResetScores")
     static let connectVCReceivedResetFrames = Notification.Name("connectVCReceivedResetFrames")
     
+    static let scoreboardVCChangedScoreOfEitherPlayer = Notification.Name("scoreboardVCChangedScoreOfEitherPlayer")
+    static let scoreboardVCDidResetScores = Notification.Name("scoreboardVCDidResetScores")
     static let scoreboardVCChangedNameOfPlayer1 = Notification.Name("scoreboardVcChangedNameOfPlayer1")
     static let scoreboardVCChangedNameOfPlayer2 = Notification.Name("scoreboardVcChangedNameOfPlayer2")
     

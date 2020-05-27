@@ -21,14 +21,19 @@ extension ScoreboardVC: ResetButtonDelegate, ResetAlertVCDelegate {
         UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseOut, animations: {
             self.view.alpha = 0
         }) { _ in
-            self.resetScores()
+            self.resetScoresAndNotify()
             UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseIn, animations: {
                 self.view.alpha = 1
             }, completion: nil)
         }
     }
     
-    private func resetScores() {
+    private func resetScoresAndNotify() {
+        resetScores()
+        notifCtr.post(name: .scoreboardVCDidResetScores, object: nil)
+    }
+    
+    func resetScores() {
         //update model:
         player1.score = 0
         player2.score = 0

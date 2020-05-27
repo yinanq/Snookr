@@ -25,5 +25,6 @@ extension ScoreboardVC: PointsAdderVCDelegate {
         keepUndoHistoryLimitFor(&player)
         updateScoreHistoryViewAndUndoButtonsViewFor(&player)
         clearRedoHistoryAndButtonFor(&player)
+        cbNotifyData(of: player)
     }
 }

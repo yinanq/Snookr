@@ -53,30 +53,36 @@ class ConnectVC: UIViewController {
     
     
     private func configureNotifObservers() {
-        notifCtr.addObserver(forName: .scoreboardVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
-            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
+        //score:
+        notifCtr.addObserver(forName: .scoreboardVCChangedScoreOfEitherPlayer, object: nil, queue: nil) { notification in
+            let data = notification.object as! SNKcbData
+            if self.cbState == .isConnected { self.cbSend(data) }
         }
-        notifCtr.addObserver(forName: .scoreboardVCChangedNameOfPlayer2, object: nil, queue: nil) { notification in
-            self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
+        notifCtr.addObserver(forName: .scoreboardVCDidResetScores, object: nil, queue: nil) { notification in
+            if self.cbState == .isConnected { self.cbSend(snkCBDataType: SNKcbDataType.resetScore)}
         }
+        //frame:
         notifCtr.addObserver(forName: .framesVCChangedFramesOfEitherPlayer, object: nil, queue: nil) { notification in
-            if self.cbState == .isConnected {
-                self.cbSend(snkCBDataType: SNKcbDataType.frame, frame: notification.object as? Int)
-            }
+            if self.cbState == .isConnected { self.cbSend(snkCBDataType: SNKcbDataType.frame, frame: notification.object as? Int) }
         }
         notifCtr.addObserver(forName: .framesVCDidResetFrames, object: nil, queue: nil) { _ in
-            if self.cbState == .isConnected {
-                self.cbSend(snkCBDataType: SNKcbDataType.resetFrame)
-            }
+            if self.cbState == .isConnected { self.cbSend(snkCBDataType: SNKcbDataType.resetFrame) }
+        }
+        //player name:
+        notifCtr.addObserver(forName: .scoreboardVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
+            self.updateAndMaybeCBSendName(of: &self.player1, to: notification.object as! String)
+        }
+        notifCtr.addObserver(forName: .scoreboardVCChangedNameOfPlayer2, object: nil, queue: nil) { notification in
+            self.updateAndMaybeCBSendName(of: &self.player2, to: notification.object as! String)
         }
         notifCtr.addObserver(forName: .framesVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
-            self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
+            self.updateAndMaybeCBSendName(of: &self.player1, to: notification.object as! String)
         }
         notifCtr.addObserver(forName: .framesVCChangedNameOfPlayer2, object: nil, queue: nil) { notification in
-            self.updateModelAndViewForName(of: &self.player2, to: notification.object as! String)
+            self.updateAndMaybeCBSendName(of: &self.player2, to: notification.object as! String)
         }
     }
-    private func updateModelAndViewForName(of player: inout Player, to newName: String) {
+    private func updateAndMaybeCBSendName(of player: inout Player, to newName: String) {
         updatePlayerNameModel(player: &player, newName: newName)
         updatePlayerNameView(for: player)
         if cbState == .isConnected { cbSend(snkCBDataType: SNKcbDataType.playerName, playerName: player.name)}

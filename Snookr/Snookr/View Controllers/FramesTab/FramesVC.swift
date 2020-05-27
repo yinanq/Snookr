@@ -11,16 +11,8 @@ import UIKit
 class FramesVC: UIViewController {
     
     var cbState: SNKcbState = .notConnected
-        
     let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
-    enum Key {
-        static let player1sName = SNKCommonKey.player1sName
-        static let player2sName = SNKCommonKey.player2sName
-        static let player1sFrame = SNKCommonKey.player1sFrame
-        static let player2sFrame = SNKCommonKey.player2sFrame
-    }
-    
     var player1 = Player(playerId: .player1)
     var player2 = Player(playerId: .player2)
     var opponentIs: SNKWhichPlayer = .player1
@@ -42,6 +34,7 @@ class FramesVC: UIViewController {
     }
     
     private func configureNotifObservers() {
+        //cb opponent frame:
         notifCtr.addObserver(forName: .connectVCReceivedUpdatedFrame, object: nil, queue: .main) { notification in
             let updatedFrame = notification.object as! Int
             switch self.opponentIs {
@@ -60,13 +53,16 @@ class FramesVC: UIViewController {
             self.resetFramesWon()
             //to add pop up saying it was reset by your opponent
         }
+        //cb connection state:
         notifCtr.addObserver(forName: .connectVCChangedCBState, object: nil, queue: .main) { notification in
             self.cbState = notification.object as! SNKcbState
-            self.updateViewsBasedOnCBState()
+            self.cbUpdateForState()
         }
+        //opponentIs:
         notifCtr.addObserver(forName: .connectVCChangedWhoswho, object: nil, queue: nil) { notification in
             self.opponentIs = notification.object as! SNKWhichPlayer
         }
+        //name:
         notifCtr.addObserver(forName: .connectVCChangedNameOfPlayer1, object: nil, queue: nil) { notification in
             self.updateModelAndViewForName(of: &self.player1, to: notification.object as! String)
         }
@@ -86,10 +82,10 @@ class FramesVC: UIViewController {
     }
     
     private func configureModels() {
-        player1.name = defaults.string(forKey: Key.player1sName) ?? SNKNamePlaceholder.player1
-        player2.name = defaults.string(forKey: Key.player2sName) ?? SNKNamePlaceholder.player2
-        player1.framesWon = defaults.integer(forKey: Key.player1sFrame)
-        player2.framesWon = defaults.integer(forKey: Key.player2sFrame)
+        player1.name = defaults.string(forKey: SNKCommonKey.player1sName) ?? SNKNamePlaceholder.player1
+        player2.name = defaults.string(forKey: SNKCommonKey.player2sName) ?? SNKNamePlaceholder.player2
+        player1.framesWon = defaults.integer(forKey: SNKCommonKey.player1sFrame)
+        player2.framesWon = defaults.integer(forKey: SNKCommonKey.player2sFrame)
         if let cbStateB4ThisTabFirstOpen = defaults.value(forKey: SNKCommonKey.cbStateRawValue) as? Int {
             switch cbStateB4ThisTabFirstOpen {
             case SNKcbState.notConnected.rawValue: cbState = .notConnected
@@ -114,9 +110,9 @@ class FramesVC: UIViewController {
         framesWonButtonsView.delegate = self
         updateFramesWonView()
         resetButton.delegate = self
-//        updateResetButton()
+        updateResetButton()
         view.addSubviews(separatorView, playerNamesView, framesWonView, framesWonButtonsView, resetButton)
-        updateViewsBasedOnCBState()
+        cbUpdateForState()
     }
     private func updatePlayerNamesView() { playerNamesView.set(player1sName: player1.name, player2sName: player2.name) }
     

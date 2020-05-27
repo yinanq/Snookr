@@ -54,17 +54,18 @@ extension ConnectVC: CBPeripheralDelegate {
     private func sendConnectConfAndStartingScoreInfo() {
         var myName: String
         var myFrame: Int
-        //        var myScore: Int
+        var myScore: Int
         switch opponentIs {
         case .player1:
             myName = player2.name
             myFrame = defaults.integer(forKey: SNKCommonKey.player2sFrame)
+            myScore = defaults.integer(forKey: SNKCommonKey.player2sScore)
         case .player2:
             myName = player1.name
             myFrame = defaults.integer(forKey: SNKCommonKey.player1sFrame)
+            myScore = defaults.integer(forKey: SNKCommonKey.player1sScore)
         }
-        //        cbSend(snkCBDataType: SNKcbDataType.cbConnected)
-        cbSend(snkCBDataType: SNKcbDataType.cbConnected, playerName: myName, frame: myFrame)
+        cbSend(snkCBDataType: SNKcbDataType.cbConnected, playerName: myName, frame: myFrame, score: myScore)
     }
-    
+
 }

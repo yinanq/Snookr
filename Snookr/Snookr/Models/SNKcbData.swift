@@ -19,7 +19,7 @@ struct SNKcbData: Codable {
     var score: Int?
     var scoreHist1: Int?
     var scoreHist2: Int?
-    var scoreHIst3: Int?
+    var scoreHist3: Int?
     
     init(snkCBDataType: String, playerName: String? = nil, frame: Int? = nil, score: Int? = nil, scoreHist1: Int? = nil, scoreHist2: Int? = nil, scoreHist3: Int? = nil) {
         self.snkCBDataType = snkCBDataType
@@ -28,7 +28,7 @@ struct SNKcbData: Codable {
         self.score = score
         self.scoreHist1 = scoreHist1
         self.scoreHist2 = scoreHist2
-        self.scoreHIst3 = scoreHist3
+        self.scoreHist3 = scoreHist3
     }
     
 }

@@ -6,7 +6,6 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-//func model updaters:
 extension ScoreboardVC {
     
     func updatePlayerNameModel(player: inout Player, newName: String) { player.name = newName }
