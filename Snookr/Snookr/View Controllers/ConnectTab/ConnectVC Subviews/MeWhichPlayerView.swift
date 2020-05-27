@@ -17,8 +17,8 @@ class MeWhichPlayerView: UIView {
     weak var delegate: MeWhichPlayerViewDelegate!
     
     let toggleButton = UIButton()
-    let meLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .right)
-    let opponentLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .left)
+    let meLabel = SNKLabel(color: SNKColor.foreground, fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .right)
+    let opponentLabel = SNKLabel(color: SNKColor.foreground, fontSize: SNKFontSize.regular, fontWeight: .regular, textAlignment: .left)
     let meStr = "me"
     let opStr = "opponent"
 
@@ -40,9 +40,9 @@ class MeWhichPlayerView: UIView {
         addSubviews(toggleButton, meLabel, opponentLabel)
         
         toggleButton.translatesAutoresizingMaskIntoConstraints = false
-        toggleButton.tintColor = SNKColor.foregroundSecondary
-        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .normal)
-        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .highlighted)
+        toggleButton.tintColor = SNKColor.foreground
+        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .normal)
+        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .highlighted)
         
         meLabel.text = meStr
         opponentLabel.text = opStr
@@ -74,10 +74,14 @@ class MeWhichPlayerView: UIView {
     }
     
     func lockToggleButton() {
-        toggleButton.isEnabled = false
+//        toggleButton.isEnabled = false
+        toggleButton.isUserInteractionEnabled = false
+        toggleButton.tintColor = SNKColor.backgroundSecondary
     }
     func unlockToggleButton() {
-        toggleButton.isEnabled = true
+//        toggleButton.isEnabled = true
+        toggleButton.isUserInteractionEnabled = true
+        toggleButton.tintColor = SNKColor.foreground
     }
     
 }

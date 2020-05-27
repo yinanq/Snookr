@@ -16,6 +16,7 @@ class ConnectButton: SNKButton {
     
     weak var delegate: ConnectButtonDelegate!
     
+    let connectTitle = "Connect with Opponent"
     let ai = UIActivityIndicatorView(style: .medium)
     
     override init(frame: CGRect) {
@@ -26,7 +27,7 @@ class ConnectButton: SNKButton {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func configure() {
-        set(title: "Connect", style: .solid)
+        set(title: connectTitle, style: .solid)
         addTarget(self, action: #selector(didTapConnectButton), for: .touchUpInside)
         addActivityIndicator()
     }
@@ -34,7 +35,7 @@ class ConnectButton: SNKButton {
     @objc func didTapConnectButton() { delegate.didTapConnectButton() }
     
     func setToConnectButton() {
-        setTitle("Connect", for: .normal)
+        setTitle(connectTitle, for: .normal)
         backgroundColor = SNKColor.foreground
         ai.stopAnimating()
     }
