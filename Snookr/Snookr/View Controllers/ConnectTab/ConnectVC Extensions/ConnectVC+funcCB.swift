@@ -34,7 +34,12 @@ extension ConnectVC {
         cbPeripheralManager = CBPeripheralManager(delegate: self, queue: nil)
     }
     
-    func cbDisconnectOrCancel() {
+    func disconnectAndUpdateCBState() {
+        cbDisconnectOrCancel()
+        updateCBState(to: .notConnected)
+    }
+    
+    private func cbDisconnectOrCancel() {
         if let centralManager = cbCentralManager {
             centralManager.stopScan()
             cbSend(snkCBDataType: SNKcbDataType.cbDisconnected)

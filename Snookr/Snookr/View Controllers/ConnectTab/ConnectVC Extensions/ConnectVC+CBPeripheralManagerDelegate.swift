@@ -39,8 +39,7 @@ extension ConnectVC: CBPeripheralManagerDelegate {
                         }
                     case SNKcbDataType.cbDisconnected:
                         print("peripheral received cbDisconnected from central")
-                        cbDisconnectOrCancel()
-                        updateCBState(to: .notConnected)
+                        disconnectAndUpdateCBState()
                     //score:
                     case SNKcbDataType.socre:
                         notifCtr.post(name: .connectVCReceivedUpdatedScore, object: data)
@@ -80,8 +79,7 @@ extension ConnectVC: CBPeripheralManagerDelegate {
         case .unauthorized: print("peripheral.state is .unauthorized")
         case .poweredOff:
             print("peripheral.state is .poweredOff")
-            cbDisconnectOrCancel()
-            updateCBState(to: .notConnected)
+            disconnectAndUpdateCBState()
         case .poweredOn:
             print("peripheral.state is .poweredOn")
             cbStatePeripheral = .notConnected
@@ -105,7 +103,6 @@ extension ConnectVC: CBPeripheralManagerDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
         print("peripheral did modify services")
-        cbDisconnectOrCancel()
-        updateCBState(to: .notConnected)
+        disconnectAndUpdateCBState()
     }
 }

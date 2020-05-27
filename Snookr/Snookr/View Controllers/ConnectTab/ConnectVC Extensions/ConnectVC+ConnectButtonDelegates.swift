@@ -14,15 +14,10 @@ extension ConnectVC: ConnectButtonDelegate, DisconnectAlertVCDelegate {
             cbStartConnecting()
             updateCBState(to: .isConnecting)
         case .isConnecting: //button is Cancel or Disconnect
-            disconnect()
+            disconnectAndUpdateCBState()
         case .isConnected:
             didTapDisconnectButton()
         }
-    }
-    
-    private func disconnect() {
-        cbDisconnectOrCancel()
-        updateCBState(to: .notConnected)
     }
     
     private func didTapDisconnectButton() {
@@ -32,6 +27,6 @@ extension ConnectVC: ConnectButtonDelegate, DisconnectAlertVCDelegate {
         present(alertVC, animated: true)
     }
     
-    func didTapConfirmToDisconnect() { disconnect() }
+    func didTapConfirmToDisconnect() { disconnectAndUpdateCBState() }
     
 }

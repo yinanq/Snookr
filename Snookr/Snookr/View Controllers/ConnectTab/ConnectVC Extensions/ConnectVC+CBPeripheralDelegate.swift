@@ -15,14 +15,12 @@ extension ConnectVC: CBPeripheralDelegate {
         cbStateCentral = .notConnected
         guard let services = peripheral.services else {
             print("central discovered Services is nil, likely because peripheral canceled connecting")
-            cbDisconnectOrCancel()
-            updateCBState(to: .notConnected)
+            disconnectAndUpdateCBState()
             return
         }
         guard !services.isEmpty else {
             print("central discovered Services is empty, likely because peripheral canceled connecting")
-            cbDisconnectOrCancel()
-            updateCBState(to: .notConnected)
+            disconnectAndUpdateCBState()
             return
         }
         peripheral.discoverCharacteristics([cbSnookrCharacteristicUUID], for: services[0])
@@ -33,14 +31,12 @@ extension ConnectVC: CBPeripheralDelegate {
         cbStateCentral = .notConnected
         guard let characteristics = service.characteristics else {
             print("central discovered Characteristics is nil, likely because peripheral canceled connecting")
-            cbDisconnectOrCancel()
-            updateCBState(to: .notConnected)
+            disconnectAndUpdateCBState()
             return
         }
         guard !characteristics.isEmpty else {
             print("central discovered Characteristics is empty, likely because peripheral canceled connecting")
-            cbDisconnectOrCancel()
-            updateCBState(to: .notConnected)
+            disconnectAndUpdateCBState()
             return
         }
         cbChosenCharacteristic = characteristics[0]

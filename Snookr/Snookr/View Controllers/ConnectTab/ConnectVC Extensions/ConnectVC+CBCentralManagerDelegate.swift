@@ -18,8 +18,7 @@ extension ConnectVC: CBCentralManagerDelegate {
         case .unauthorized: print("central.state is .unauthorized")
         case .poweredOff:
             print("central.state is .poweredOff")
-            cbDisconnectOrCancel()
-            updateCBState(to: .notConnected)
+            disconnectAndUpdateCBState()
         case .poweredOn:
             print("central.state is .poweredOn")
             cbStateCentral = .notConnected
@@ -33,8 +32,7 @@ extension ConnectVC: CBCentralManagerDelegate {
         cbStateCentral = .notConnected
         guard cbUserDefinedLocalName != nil else {
             print("error: user defined local name is still nil when central did discover peripheral")
-            cbDisconnectOrCancel()
-            updateCBState(to: .notConnected)
+            disconnectAndUpdateCBState()
             return
         }
         if advertisementData[CBAdvertisementDataLocalNameKey] as? String == cbUserDefinedLocalName! {
@@ -56,12 +54,10 @@ extension ConnectVC: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         print("central did fail to connect peripheral \(peripheral.name ?? "w/o name"), likely because peripheral canceled connecting")
-        cbDisconnectOrCancel()
-        updateCBState(to: .notConnected)
+        disconnectAndUpdateCBState()
     }
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("central did disconnect peripheral \(peripheral.name ?? "w/o name")")
-        cbDisconnectOrCancel()
-        updateCBState(to: .notConnected)
+        disconnectAndUpdateCBState()
     }
 }
