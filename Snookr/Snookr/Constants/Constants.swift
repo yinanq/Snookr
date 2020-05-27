@@ -129,6 +129,14 @@ enum SNKTabBarImage {
     static let about = UIImage(systemName: "info.circle.fill")
 }
 
+enum SNKTabBarTitle {
+    static let connect = "Connect"
+    static let connected = "Connected"
+    static let scores = "Scores"
+    static let frames = "Frames"
+    static let about = "About"
+}
+
 enum SNKTextViewTag {
     static let player1 = 1
     static let player2 = 2

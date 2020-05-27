@@ -66,11 +66,13 @@ extension ConnectVC {
             cbStateCentral = .notConnected
             cbStatePeripheral = .notConnected
             tabBarItem.image = SNKTabBarImage.connect
+            tabBarItem.title = SNKTabBarTitle.connect
         case .isConnected:
             lockOpponentInfoEditability()
             meWhichPlayerView.lockToggleButton()
             connectButton.setToDisconnectButton()
             tabBarItem.image = SNKTabBarImage.connected
+            tabBarItem.title = SNKTabBarTitle.connected
         case .isConnecting:
             lockOpponentInfoEditability()
             meWhichPlayerView.lockToggleButton()
