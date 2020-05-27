@@ -15,14 +15,15 @@ extension ScoreboardVC {
         var h2: Int?
         var h3: Int?
         let hist = player.historyUndoable
-        if hist.count >= 1 {
-            h1 = hist[0]
-        }
-        if hist.count >= 2{
-            h2 = hist[1]
-        }
-        if hist.count >= 3{
-            h3 = hist[2]
+        if !hist.isEmpty {
+            h1 = hist.last
+            let count = hist.count
+            if count >= 2 {
+                h2 = hist[count-2]
+            }
+            if count >= 3 {
+                h3 = hist[count-3]
+            }
         }
         let data = SNKcbData(snkCBDataType: SNKcbDataType.socre, score: player.score, scoreHist1: h1, scoreHist2: h2, scoreHist3: h3)
         notifCtr.post(name: .scoreboardVCChangedScoreOfEitherPlayer, object: data)
@@ -33,15 +34,39 @@ extension ScoreboardVC {
         case .player1:
             if let score = data.score { player1.score = score }
             persistScoreFor(&player1)
-            if let sH = data.scoreHist1 { stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = "+\(sH)" }
-            if let sH = data.scoreHist2 { stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = "+\(sH)" }
-            if let sH = data.scoreHist3 { stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = "+\(sH)" }
+            if let sH = data.scoreHist1 {
+                stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = "+\(sH)"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel1.text = " "
+            }
+            if let sH = data.scoreHist2 {
+                stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = "+\(sH)"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel1.text = " "
+            }
+            if let sH = data.scoreHist3 {
+                stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = "+\(sH)"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel1.text = " "
+            }
         case .player2:
             if let score = data.score { player2.score = score }
             persistScoreFor(&player2)
-            if let sH = data.scoreHist1 { stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = "+\(sH)" }
-            if let sH = data.scoreHist2 { stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = "+\(sH)" }
-            if let sH = data.scoreHist3 { stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = "+\(sH)" }
+            if let sH = data.scoreHist1 {
+                stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = "+\(sH)"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.lastScoreUpdateLabel2.text = " "
+            }
+            if let sH = data.scoreHist2 {
+                stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = "+\(sH)"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.secondLastScoreUpdateLabel2.text = " "
+            }
+            if let sH = data.scoreHist3 {
+                stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = "+\(sH)"
+            } else {
+                stackView.scoreInfoView.scoreHistoryView.thirdLastScoreUpdateLabel2.text = " "
+            }
         }
         updateScoresView()
     }
