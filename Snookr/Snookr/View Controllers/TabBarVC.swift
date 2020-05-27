@@ -27,10 +27,10 @@ class TabBarVC: UITabBarController {
         let scoreboardVC = ScoreboardVC()
         let framesVC = FramesVC()
         let infoVC = InfoVC()
-        connectVC.tabBarItem = UITabBarItem(title: "Connect", image: UIImage(systemName: "person.badge.plus.fill"), tag: 0)
-        scoreboardVC.tabBarItem = UITabBarItem(title: "Scores", image: UIImage(systemName: "square.split.2x1.fill"), tag: 12)
-        framesVC.tabBarItem = UITabBarItem(title: "Frames", image: UIImage(systemName: "square.grid.3x2.fill"), tag: 11)
-        infoVC.tabBarItem = UITabBarItem(title: "About", image: UIImage(systemName: "info.circle.fill"), tag: 21)
+        connectVC.tabBarItem = UITabBarItem(title: "Connect", image: SNKTabBarImage.connect, tag: 0)
+        scoreboardVC.tabBarItem = UITabBarItem(title: "Scores", image: SNKTabBarImage.scores, tag: 12)
+        framesVC.tabBarItem = UITabBarItem(title: "Frames", image: SNKTabBarImage.frames, tag: 11)
+        infoVC.tabBarItem = UITabBarItem(title: "About", image: SNKTabBarImage.about, tag: 21)
         viewControllers = [connectVC, scoreboardVC, framesVC, infoVC]
         selectedIndex = 0
     }

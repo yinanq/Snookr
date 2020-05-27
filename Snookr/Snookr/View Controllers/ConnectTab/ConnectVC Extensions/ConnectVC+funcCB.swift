@@ -6,6 +6,7 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
+import UIKit
 import CoreBluetooth
 
 extension ConnectVC {
@@ -64,10 +65,12 @@ extension ConnectVC {
             connectButton.setToConnectButton()
             cbStateCentral = .notConnected
             cbStatePeripheral = .notConnected
+            tabBarItem.image = SNKTabBarImage.connect
         case .isConnected:
             lockOpponentInfoEditability()
             meWhichPlayerView.lockToggleButton()
             connectButton.setToDisconnectButton()
+            tabBarItem.image = SNKTabBarImage.connected
         case .isConnecting:
             lockOpponentInfoEditability()
             meWhichPlayerView.lockToggleButton()

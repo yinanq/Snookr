@@ -121,6 +121,14 @@ enum SNKPadding {
     static let difViewWidth: CGFloat = 65
 }
 
+enum SNKTabBarImage {
+    static let connect = UIImage(systemName: "person.crop.circle.badge.plus")
+    static let connected = UIImage(systemName: "person.crop.circle.badge.checkmark")
+    static let scores = UIImage(systemName: "square.split.2x1.fill")
+    static let frames = UIImage(systemName: "square.grid.3x2.fill")
+    static let about = UIImage(systemName: "info.circle.fill")
+}
+
 enum SNKTextViewTag {
     static let player1 = 1
     static let player2 = 2
