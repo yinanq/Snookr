@@ -13,8 +13,8 @@ class ConnectVC: UIViewController {
     
     //Core Bluetooth properties:
     //cb shared identifiers:
-    let cbSnookrUUID = CBUUID(string: "4E33A1D9-9FE0-46FB-B3C9-3604A5A0D05A")//a different key is used in production app
     var cbUserDefinedLocalName: String!
+    let cbSnookrUUID = CBUUID(string: "4E33A1D9-9FE0-46FB-B3C9-3604A5A0D05A")//a different key is used in production app
     let cbSnookrServiceUUID = CBUUID(string: "B78716C9-29E0-4EDB-9219-9E69F9414C87")//a different key is used in production app
     let cbSnookrCharacteristicUUID = CBUUID(string: "B6F15CF2-A726-462D-8A07-257956821E6E")//a different key is used in production app
     //cb central side:
