@@ -33,6 +33,7 @@ class TabBarVC: UITabBarController {
         infoVC.tabBarItem = UITabBarItem(title: "About", image: SNKTabBarImage.about, tag: 21)
         viewControllers = [connectVC, scoreboardVC, framesVC, infoVC]
         selectedIndex = 0
+//        print("tab bar")
     }
     
     private func playLaunchScreenSmootherAnimation() {

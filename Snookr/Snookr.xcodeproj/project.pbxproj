@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F07D6E324709DD30052CF7F /* ScoreboardVC+funcAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F07D6E224709DD30052CF7F /* ScoreboardVC+funcAnimations.swift */; };
 		7F0F60A9246CB45300F4C52C /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F60A8246CB45300F4C52C /* InfoVC.swift */; };
 		7F158C89246A902100AF1D38 /* ScoreboardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */; };
 		7F26984A246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F269849246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift */; };
@@ -44,7 +43,6 @@
 		7F74D7892475DAE40081F8AF /* ConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F74D7882475DAE40081F8AF /* ConnectVC.swift */; };
 		7F79AFBE2478EC18001321E9 /* ConnectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79AFBD2478EC18001321E9 /* ConnectButton.swift */; };
 		7F8FAD6924733BBB005C550D /* FramesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8FAD6824733BBB005C550D /* FramesVC.swift */; };
-		7F94A53C247E285A00727967 /* SNKConnectedStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94A53B247E285A00727967 /* SNKConnectedStatusView.swift */; };
 		7F94A53E247E304A00727967 /* ConnectVC+ConnectButtonDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94A53D247E304A00727967 /* ConnectVC+ConnectButtonDelegates.swift */; };
 		7F94A540247E31C600727967 /* DisconnectAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94A53F247E31C600727967 /* DisconnectAlertVC.swift */; };
 		7FA4006F247389540013AE2C /* FramesWonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4006E247389540013AE2C /* FramesWonView.swift */; };
@@ -87,7 +85,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7F07D6E224709DD30052CF7F /* ScoreboardVC+funcAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+funcAnimations.swift"; sourceTree = "<group>"; };
 		7F0F60A8246CB45300F4C52C /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardStackView.swift; sourceTree = "<group>"; };
 		7F269849246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+PointsAdderVCDelegate.swift"; sourceTree = "<group>"; };
@@ -124,7 +121,6 @@
 		7F74D7882475DAE40081F8AF /* ConnectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectVC.swift; sourceTree = "<group>"; };
 		7F79AFBD2478EC18001321E9 /* ConnectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectButton.swift; sourceTree = "<group>"; };
 		7F8FAD6824733BBB005C550D /* FramesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesVC.swift; sourceTree = "<group>"; };
-		7F94A53B247E285A00727967 /* SNKConnectedStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKConnectedStatusView.swift; sourceTree = "<group>"; };
 		7F94A53D247E304A00727967 /* ConnectVC+ConnectButtonDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+ConnectButtonDelegates.swift"; sourceTree = "<group>"; };
 		7F94A53F247E31C600727967 /* DisconnectAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectAlertVC.swift; sourceTree = "<group>"; };
 		7FA4006E247389540013AE2C /* FramesWonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesWonView.swift; sourceTree = "<group>"; };
@@ -186,7 +182,6 @@
 				7F26984B246E517000AD60B6 /* ScoreboardVC+funcModelUpdaters.swift */,
 				7F39EF84246BDA0700ABB703 /* ScoreboardVC+funcViewUpdaters.swift */,
 				7FD2BBFF246BE47300C44D26 /* ScoreboardVC+funcPersistence.swift */,
-				7F07D6E224709DD30052CF7F /* ScoreboardVC+funcAnimations.swift */,
 				7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */,
 				7FE085CC246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift */,
 				7FE085CA246B8FCD00AB5010 /* ScoreboardVC+ScoreButtonsViewDelegate.swift */,
@@ -354,7 +349,6 @@
 				7F56227224774D3A00458193 /* SNKView.swift */,
 				7F6AE52224690F9800767F7C /* SNKSeparatorView.swift */,
 				7F52C2D22468BE0300C76C1E /* SNKPlayerNamesView.swift */,
-				7F94A53B247E285A00727967 /* SNKConnectedStatusView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -592,7 +586,6 @@
 				7F39EF87246BDB5200ABB703 /* ResetButton.swift in Sources */,
 				7FB848CC247CB8480004B144 /* SNKcbData.swift in Sources */,
 				7F8FAD6924733BBB005C550D /* FramesVC.swift in Sources */,
-				7F07D6E324709DD30052CF7F /* ScoreboardVC+funcAnimations.swift in Sources */,
 				7FDD3DD5247394DA00292402 /* FramesVC+ResetDelegates.swift in Sources */,
 				7FEF8A9624676FC1000240A0 /* SNKScoreButton.swift in Sources */,
 				7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */,
@@ -622,7 +615,6 @@
 				7F46E1E9247791D6002712A8 /* ConnectVC+funcViewUpdaters.swift in Sources */,
 				7F732503247B1C710034F275 /* ConnectVC+CBCentralManagerDelegate.swift in Sources */,
 				7F54D50F247D0FAD00F4285E /* ConnectVC+funcCBPersistence.swift in Sources */,
-				7F94A53C247E285A00727967 /* SNKConnectedStatusView.swift in Sources */,
 				7FEF8A8C246763C2000240A0 /* ScoreDifView.swift in Sources */,
 				7F52C2CE2468BC5500C76C1E /* ScoreInfoView.swift in Sources */,
 			);

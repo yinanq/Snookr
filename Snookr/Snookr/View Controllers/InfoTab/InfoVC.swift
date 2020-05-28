@@ -21,6 +21,7 @@ class InfoVC: UIViewController {
         configureTitle()
         configureBodyTextViewContainerView()
         layout()
+//        print("info tab")
     }
     
     private func configureTitle() {

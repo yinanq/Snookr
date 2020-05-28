@@ -11,10 +11,8 @@ import UIKit
 class ScoreboardVC: UIViewController {
     
     var cbState: SNKcbState = .notConnected
-    
     let notifCtr = NotificationCenter.default
     let defaults = UserDefaults.standard
-    
     var player1 = Player(playerId: .player1)
     var player2 = Player(playerId: .player2)
     var opponentIs: SNKWhichPlayer = .player1
@@ -31,7 +29,7 @@ class ScoreboardVC: UIViewController {
         configureViews()
         configureNotifObservers()
         layoutViews()
-//        playLaunchScreenSmootherAnimation()
+//        print("scores tab")
     }
     
     private func configureNotifObservers() {
@@ -42,7 +40,7 @@ class ScoreboardVC: UIViewController {
         }
         notifCtr.addObserver(forName: .connectVCReceivedResetScores, object: nil, queue: .main) { notification in
             self.resetScores()
-            //to add pop up saying it was reset by your opponent
+            //to add indicator showing it was reset by opponent via bluetooth
         }
         //cb connection state:
         notifCtr.addObserver(forName: .connectVCChangedCBState, object: nil, queue: .main) { notification in
@@ -121,5 +119,4 @@ class ScoreboardVC: UIViewController {
             separatorView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big)
         ])
     }
-    
 }

@@ -43,7 +43,8 @@ class ConnectVC: UIViewController {
     let connectButton = ConnectButton()
     let connectedTextViewContainerView = UIView()
     let connectedTextView = ConnectedTextView()
-
+    var isFirstLaunch = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .dark
@@ -52,8 +53,16 @@ class ConnectVC: UIViewController {
         configureNotifObservers()
         layoutViews()
         pseudoPersistCBState()
+        playLaunchScreenSmootherAnimation()
+//        print("connect tab")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if isFirstLaunch {
+            playLaunchScreenSmootherAnimation()
+            isFirstLaunch = false
+        }
+    }
     
     private func configureNotifObservers() {
         //score:
@@ -90,7 +99,6 @@ class ConnectVC: UIViewController {
         updatePlayerNameView(for: player)
         if cbState == .isConnected { cbSend(snkCBDataType: SNKcbDataType.playerName, playerName: player.name)}
     }
-    
     
     private func configureModels() {
         player1.name = defaults.string(forKey: SNKCommonKey.player1sName) ?? SNKNamePlaceholder.player1
@@ -149,5 +157,9 @@ class ConnectVC: UIViewController {
             connectedTextView.centerYAnchor.constraint(equalTo: connectedTextViewContainerView.centerYAnchor),
             connectedTextView.centerXAnchor.constraint(equalTo: connectedTextViewContainerView.centerXAnchor)
         ])
+    }
+    private func playLaunchScreenSmootherAnimation() {
+        view.alpha = 0
+        UIView.animate(withDuration: SNKAnimationDuration.long, delay: SNKAnimationDuration.launchSmootherDelay + SNKAnimationDuration.launchSmootherDuration, options: .curveEaseIn, animations: { self.view.alpha = 1 })
     }
 }
