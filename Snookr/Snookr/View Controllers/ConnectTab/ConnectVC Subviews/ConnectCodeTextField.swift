@@ -23,6 +23,14 @@ class ConnectCodeTextField: UITextField {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        if action == #selector(paste(_:)) {
+            return false
+        } else {
+            return super.canPerformAction(action, withSender: sender)
+        }
+    }
+    
     private func configure() {
         keyboardType = .numberPad
         layer.cornerRadius = SNKCornerRadius.big
@@ -52,4 +60,5 @@ class ConnectCodeTextField: UITextField {
         isEnabled = true
         layer.borderColor = SNKColor.foreground.cgColor
     }
+    
 }
