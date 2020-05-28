@@ -55,7 +55,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Snookr uses Bluetooth to sync scores between you and your opponent during a connected session.</string>
+	<string>in order to auto sync scores, only during each connected session you choose to start and end</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-peripheral</string>
