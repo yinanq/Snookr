@@ -18,7 +18,7 @@ class ConnectInstructionTextView: UITextView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func configure() {
-        text = "Create a 3-digit code and Connect. Opponent nearby must enter same code and hit Connect on their app."
+        text = "Create a 3-digit code to connect. Opponent nearby must enter same code and hit connect button on their app too."
         font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .regular)
         textColor = SNKColor.foreground
         textAlignment = .center
@@ -26,7 +26,7 @@ class ConnectInstructionTextView: UITextView {
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: 300),
+            widthAnchor.constraint(equalToConstant: SNKBodyWidth.fixed),
             heightAnchor.constraint(equalToConstant: 82)
         ])
         hide()

@@ -11,7 +11,7 @@ extension ConnectVC: ConnectButtonDelegate, DisconnectAlertVCDelegate {
     func didTapConnectButton() {
         switch cbState {
         case .notConnected: //button is Connect
-            if connectCodeTextField.text?.count ?? 0 == 3 {
+            if connectCodeTextField.text?.count ?? 0 == SNKUserInputLimit.connectCodeLengthLimit {
                 cbUserDefinedLocalName = connectCodeTextField.text
                 cbStartConnecting()
                 updateCBState(to: .isConnecting)

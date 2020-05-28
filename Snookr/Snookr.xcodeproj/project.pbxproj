@@ -50,7 +50,7 @@
 		7FA4006F247389540013AE2C /* FramesWonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4006E247389540013AE2C /* FramesWonView.swift */; };
 		7FA4B06C247F0E70003CDD64 /* ConnectInstructionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4B06B247F0E70003CDD64 /* ConnectInstructionTextView.swift */; };
 		7FA4B06E247F16E1003CDD64 /* ConnectCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4B06D247F16E1003CDD64 /* ConnectCodeTextField.swift */; };
-		7FA4B070247F2507003CDD64 /* ConnectVC+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4B06F247F2507003CDD64 /* ConnectVC+UITextFieldDelegate.swift */; };
+		7FA4B070247F2507003CDD64 /* ConnectVC+UITextFieldDelegateAnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4B06F247F2507003CDD64 /* ConnectVC+UITextFieldDelegateAnd.swift */; };
 		7FA4B072247F4459003CDD64 /* ConnectedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4B071247F4459003CDD64 /* ConnectedTextView.swift */; };
 		7FA5A22B2473363000B9D72C /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5A22A2473363000B9D72C /* TabBarVC.swift */; };
 		7FACBEC3246CC437004E9137 /* PointsAdderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACBEC2246CC437004E9137 /* PointsAdderVC.swift */; };
@@ -130,7 +130,7 @@
 		7FA4006E247389540013AE2C /* FramesWonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesWonView.swift; sourceTree = "<group>"; };
 		7FA4B06B247F0E70003CDD64 /* ConnectInstructionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectInstructionTextView.swift; sourceTree = "<group>"; };
 		7FA4B06D247F16E1003CDD64 /* ConnectCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectCodeTextField.swift; sourceTree = "<group>"; };
-		7FA4B06F247F2507003CDD64 /* ConnectVC+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		7FA4B06F247F2507003CDD64 /* ConnectVC+UITextFieldDelegateAnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+UITextFieldDelegateAnd.swift"; sourceTree = "<group>"; };
 		7FA4B071247F4459003CDD64 /* ConnectedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedTextView.swift; sourceTree = "<group>"; };
 		7FA5A22A2473363000B9D72C /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		7FACBEC2246CC437004E9137 /* PointsAdderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAdderVC.swift; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 				7F46E1E8247791D6002712A8 /* ConnectVC+funcViewUpdaters.swift */,
 				7F94A53D247E304A00727967 /* ConnectVC+ConnectButtonDelegates.swift */,
 				7F56D6B2247A0A51006807E6 /* ConnectVC+MeWhichPlayerViewDelegate.swift */,
-				7FA4B06F247F2507003CDD64 /* ConnectVC+UITextFieldDelegate.swift */,
+				7FA4B06F247F2507003CDD64 /* ConnectVC+UITextFieldDelegateAnd.swift */,
 				7F56226E247723DE00458193 /* ConnectVC+UITextViewDelegate.swift */,
 			);
 			path = "ConnectVC Extensions";
@@ -572,7 +572,7 @@
 				7F4A3223246A59D700BE7F97 /* SNKAlertVC.swift in Sources */,
 				7FC2ADCD24738EAD00C69541 /* FramesWonButtonsView.swift in Sources */,
 				7F26984A246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift in Sources */,
-				7FA4B070247F2507003CDD64 /* ConnectVC+UITextFieldDelegate.swift in Sources */,
+				7FA4B070247F2507003CDD64 /* ConnectVC+UITextFieldDelegateAnd.swift in Sources */,
 				7FDD3DDB2473B8A900292402 /* FramesVC+UITextViewDelegate.swift in Sources */,
 				7FACBEC6246CE753004E9137 /* PointsAdderHeaderView.swift in Sources */,
 				7FA4B072247F4459003CDD64 /* ConnectedTextView.swift in Sources */,

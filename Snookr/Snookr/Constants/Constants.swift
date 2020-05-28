@@ -95,8 +95,9 @@ enum SNKFontWeight {
     static let forFontSizeSmall: UIFont.Weight = .bold
 }
 
-enum SNKLayoutPercent {
-    static let bodyTextWidth: CGFloat = 0.8
+enum SNKBodyWidth {
+    static let fixed: CGFloat = 347
+    static let percent: CGFloat = 0.8
 }
 
 enum SNKNamePlaceholder {

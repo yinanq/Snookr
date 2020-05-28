@@ -66,6 +66,7 @@ extension ConnectVC {
             cbStateCentral = .notConnected
             cbStatePeripheral = .notConnected
             connectCodeTextField.enable()
+            connectedTextView.setToNotConnected()
             tabBarItem.image = SNKTabBarImage.connect
             tabBarItem.title = SNKTabBarTitle.connect
         case .isConnecting:
@@ -75,6 +76,7 @@ extension ConnectVC {
             connectCodeTextField.disable()
         case .isConnected:
             connectButton.setToDisconnectButton()
+            connectedTextView.setToConnected()
             tabBarItem.image = SNKTabBarImage.connected
             tabBarItem.title = SNKTabBarTitle.connected
             //should not need, unless skipped isConnecting:

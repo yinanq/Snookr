@@ -41,6 +41,8 @@ class ConnectVC: UIViewController {
     let connectCodeTextField = ConnectCodeTextField()
     let connectInstructionTextView = ConnectInstructionTextView()
     let connectButton = ConnectButton()
+    let connectedTextViewContainerView = UIView()
+    let connectedTextView = ConnectedTextView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,14 +115,10 @@ class ConnectVC: UIViewController {
         connectCodeTextField.delegate = self
         connectCodeTextField.snkDelegate = self
         connectButton.delegate = self
-        containerView.addSubviews(meWhichPlayerView, connectInstructionTextView, connectCodeTextField, connectButton)
+        connectedTextViewContainerView.translatesAutoresizingMaskIntoConstraints = false
+        connectedTextViewContainerView.addSubview(connectedTextView)
+        containerView.addSubviews(meWhichPlayerView, connectInstructionTextView, connectCodeTextField, connectButton, connectedTextViewContainerView)
         view.addSubviews(separatorView, playerNamesView, containerView)
-    }
-    @objc func didTapTesetButton() {
-        guard let data = "hahaha147".data(using: .utf8) else { return }
-        guard let peripheral = cbChosenPeripheral else { return }
-        guard let characteristic = cbChosenCharacteristic else { return }
-        peripheral.writeValue(data, for: characteristic, type: .withResponse)
     }
     private func layoutViews() {
         NSLayoutConstraint.activate([
@@ -141,9 +139,15 @@ class ConnectVC: UIViewController {
             connectCodeTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             connectInstructionTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             connectInstructionTextView.bottomAnchor.constraint(equalTo: connectButton.topAnchor),
-            connectButton.topAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 35),
+            connectButton.topAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -5),
             connectButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             connectButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            connectedTextViewContainerView.topAnchor.constraint(equalTo: connectButton.bottomAnchor),
+            connectedTextViewContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            connectedTextViewContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            connectedTextViewContainerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            connectedTextView.centerYAnchor.constraint(equalTo: connectedTextViewContainerView.centerYAnchor),
+            connectedTextView.centerXAnchor.constraint(equalTo: connectedTextViewContainerView.centerXAnchor)
         ])
     }
 }

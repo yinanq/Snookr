@@ -1,5 +1,5 @@
 //
-//  ConnectVC+UITextFieldDelegate.swift
+//  ConnectVC+UITextFieldDelegateAnd.swift
 //  Snookr
 //
 //  Created by Yinan Qiu on 5/27/20.
@@ -7,6 +7,19 @@
 //
 
 import UIKit
+
+extension ConnectVC: ConnectCodeTextFieldDelegate {
+    func connectCodeTextFieldEditingChanged(textField: ConnectCodeTextField) {
+        if let count = textField.text?.count {
+            if count == 3 {
+                connectButton.enableSolidStyleButton()
+                cbUserDefinedLocalName = connectCodeTextField.text
+            } else {
+                connectButton.disableSolidStyleButton()
+            }
+        }
+    }
+}
 
 extension ConnectVC: UITextFieldDelegate {
     
@@ -43,30 +56,17 @@ extension ConnectVC: UITextFieldDelegate {
     }
     
     private func dim() {
-        [separatorView, playerNamesView, meWhichPlayerView].forEach { view in
+        [separatorView, playerNamesView, meWhichPlayerView, connectedTextView].forEach { view in
             view.isUserInteractionEnabled = false
             UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = SNKAlpha.dimTo.rawValue }
         }
     }
     
     private func undim() {
-        [separatorView, playerNamesView, meWhichPlayerView].forEach { view in
+        [separatorView, playerNamesView, meWhichPlayerView, connectedTextView].forEach { view in
             view.isUserInteractionEnabled = true
             UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = 1 }
         }
     }
     
-}
-
-extension ConnectVC: ConnectCodeTextFieldDelegate {
-    func connectCodeTextFieldEditingChanged(textField: ConnectCodeTextField) {
-        if let count = textField.text?.count {
-            if count == 3 {
-                connectButton.enableSolidStyleButton()
-                cbUserDefinedLocalName = connectCodeTextField.text
-            } else {
-                connectButton.disableSolidStyleButton()
-            }
-        }
-    }
 }
