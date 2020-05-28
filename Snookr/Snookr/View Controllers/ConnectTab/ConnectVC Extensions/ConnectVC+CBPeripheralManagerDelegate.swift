@@ -20,7 +20,7 @@ extension ConnectVC: CBPeripheralManagerDelegate {
                     let data = try jD.decode(SNKcbData.self, from: data)
                     switch data.snkCBDataType {
                     case SNKcbDataType.cbConnected:
-                        print("peripheral received cbConnected from central")
+//                        print("peripheral received cbConnected from central")
                         cbStatePeripheral = .isConnected
                         if cbStateCentral == .isConnected {
                             updateCBState(to: .isConnected)
@@ -38,7 +38,7 @@ extension ConnectVC: CBPeripheralManagerDelegate {
                             cbPersistOpponentScore(to: data)
                         }
                     case SNKcbDataType.cbDisconnected:
-                        print("peripheral received cbDisconnected from central")
+//                        print("peripheral received cbDisconnected from central")
                         disconnectAndUpdateCBState()
                     //score:
                     case SNKcbDataType.socre:
@@ -75,13 +75,19 @@ extension ConnectVC: CBPeripheralManagerDelegate {
         switch peripheral.state {
         case .unknown: print("peripheral.state is .unknown")
         case .resetting: print("peripheral.state is .resetting")
-        case .unsupported: print("peripheral.state is .unsupported")
-        case .unauthorized: print("peripheral.state is .unauthorized")
+        case .unsupported:
+//            print("peripheral.state is .unsupported")
+            disconnectAndUpdateCBState()
+            cbPresentBluetoothNotAvailableAlert()
+        case .unauthorized:
+//            print("peripheral.state is .unauthorized")
+            disconnectAndUpdateCBState()
+            cbPresentBluetoothPermissionAlert()
         case .poweredOff:
-            print("peripheral.state is .poweredOff")
+//            print("peripheral.state is .poweredOff")
             disconnectAndUpdateCBState()
         case .poweredOn:
-            print("peripheral.state is .poweredOn")
+//            print("peripheral.state is .poweredOn")
             cbStatePeripheral = .notConnected
             let characteristic = CBMutableCharacteristic(type: cbSnookrCharacteristicUUID, properties: .write, value: nil, permissions: .writeable)
             let service = CBMutableService(type: cbSnookrServiceUUID, primary: true)
@@ -97,12 +103,12 @@ extension ConnectVC: CBPeripheralManagerDelegate {
     }
     
     func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
-        print("peripheral did start advertising")
+//        print("peripheral did start advertising")
         cbStatePeripheral = .notConnected
     }
     
     func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
-        print("peripheral did modify services")
+//        print("peripheral did modify services")
         disconnectAndUpdateCBState()
     }
 }

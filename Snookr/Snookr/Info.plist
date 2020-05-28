@@ -55,7 +55,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>in order to auto sync scores, only during each connected session you choose to start and end</string>
+	<string>in order to auto sync scores between you and your opponent, only during each connected session</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-peripheral</string>

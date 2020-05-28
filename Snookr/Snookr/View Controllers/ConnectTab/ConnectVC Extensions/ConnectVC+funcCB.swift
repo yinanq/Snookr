@@ -102,4 +102,22 @@ extension ConnectVC {
         playerNamesView.textView1.isEditable = true
         playerNamesView.textView2.isEditable = true
     }
+    
+    func cbPresentBluetoothPermissionAlert() {
+        let ac = UIAlertController(title: "Bluetooth permission needed", message: "Snookr needs to use Bluetooth to sync score data between you and your opponent. Please give permission in the Settings app > Snookr > Bluetooth.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+            self.disconnectAndUpdateCBState()
+        }))
+        ac.overrideUserInterfaceStyle = .dark
+        present(ac, animated: true)
+    }
+    
+    func cbPresentBluetoothNotAvailableAlert() {
+        let ac = UIAlertController(title: "Bluetooth unsupported :(", message: "It appears this device does not have Bluetooth. If so, the Connect feature will not work on this device :(", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+            self.disconnectAndUpdateCBState()
+        }))
+        ac.overrideUserInterfaceStyle = .dark
+        present(ac, animated: true)
+    }
 }
