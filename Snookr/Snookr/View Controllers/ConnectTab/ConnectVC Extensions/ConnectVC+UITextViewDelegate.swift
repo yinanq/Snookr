@@ -22,11 +22,12 @@ extension ConnectVC: UITextViewDelegate {
             textView.resignFirstResponder()
             return false
         } else { //limit length of player name:
+            let limit = SNKUserInputLimit.playerNameLengthLimit
             let string = (textView.text + text)
-            if string.count <= SNKPlayerNameLengthLimit {
+            if string.count <= limit {
                 return true
             } else {
-                textView.text = String(string[..<string.index(string.startIndex, offsetBy: SNKPlayerNameLengthLimit)])
+                textView.text = String(string[..<string.index(string.startIndex, offsetBy: limit)])
                 return false
             }
         }

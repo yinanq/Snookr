@@ -38,6 +38,8 @@ class ConnectVC: UIViewController {
     let tapRecognizer = UITapGestureRecognizer()
     let containerView = SNKView()
     let meWhichPlayerView = MeWhichPlayerView()
+    let connectCodeTextField = ConnectCodeTextField()
+    let connectInstructionTextView = ConnectInstructionTextView()
     let connectButton = ConnectButton()
 
     override func viewDidLoad() {
@@ -48,7 +50,6 @@ class ConnectVC: UIViewController {
         configureNotifObservers()
         layoutViews()
         pseudoPersistCBState()
-        cbUserDefinedLocalName = "147"//to be replaced by user entered per session passcode
     }
     
     
@@ -109,8 +110,10 @@ class ConnectVC: UIViewController {
         case .player2: meWhichPlayerView.setOpponentToPlayer2()
         }
         meWhichPlayerView.delegate = self
+        connectCodeTextField.delegate = self
+        connectCodeTextField.snkDelegate = self
         connectButton.delegate = self
-        containerView.addSubviews(meWhichPlayerView, connectButton)
+        containerView.addSubviews(meWhichPlayerView, connectInstructionTextView, connectCodeTextField, connectButton)
         view.addSubviews(separatorView, playerNamesView, containerView)
     }
     @objc func didTapTesetButton() {
@@ -134,7 +137,11 @@ class ConnectVC: UIViewController {
             meWhichPlayerView.topAnchor.constraint(equalTo: containerView.topAnchor),
             meWhichPlayerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             meWhichPlayerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            connectButton.topAnchor.constraint(equalTo: containerView.centerYAnchor),
+            connectCodeTextField.bottomAnchor.constraint(equalTo: connectInstructionTextView.topAnchor),
+            connectCodeTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            connectInstructionTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            connectInstructionTextView.bottomAnchor.constraint(equalTo: connectButton.topAnchor),
+            connectButton.topAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 25),
             connectButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             connectButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
         ])

@@ -8,8 +8,6 @@
 
 import UIKit
 
-let SNKPlayerNameLengthLimit = 20
-
 enum SNKAlpha: CGFloat {
     case disabledButton = 0.2
     case dimmer = 0.9
@@ -104,8 +102,8 @@ enum SNKLayoutPercent {
 enum SNKNamePlaceholder {
 //    static let player1 = "Opponent's Name"
 //    static let player2 = "Your Name"
-    static let player1 = "Player Name"
-    static let player2 = "Player Name"
+    static let player1 = "Enter Player Name"
+    static let player2 = "Enter Player Name"
 }
 
 enum SNKPadding {
@@ -140,6 +138,11 @@ enum SNKTabBarTitle {
 enum SNKTextViewTag {
     static let player1 = 1
     static let player2 = 2
+}
+
+enum SNKUserInputLimit {
+    static let playerNameLengthLimit = 20
+    static let connectCodeLengthLimit = 3
 }
 
 enum SNKWhichPlayer: Int {

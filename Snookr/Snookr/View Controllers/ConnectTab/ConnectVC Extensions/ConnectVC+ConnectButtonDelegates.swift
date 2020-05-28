@@ -11,13 +11,23 @@ extension ConnectVC: ConnectButtonDelegate, DisconnectAlertVCDelegate {
     func didTapConnectButton() {
         switch cbState {
         case .notConnected: //button is Connect
-            cbStartConnecting()
-            updateCBState(to: .isConnecting)
+            if connectCodeTextField.text?.count ?? 0 == 3 {
+                cbUserDefinedLocalName = connectCodeTextField.text
+                cbStartConnecting()
+                updateCBState(to: .isConnecting)
+            } else {
+                requestConnectCode()
+            }
         case .isConnecting: //button is Cancel or Disconnect
             disconnectAndUpdateCBState()
         case .isConnected:
             didTapDisconnectButton()
         }
+    }
+    
+    private func requestConnectCode() {
+        connectCodeTextField.becomeFirstResponder()
+        connectButton.disableSolidStyleButton()
     }
     
     private func didTapDisconnectButton() {

@@ -13,7 +13,6 @@ class InfoVC: UIViewController {
     let logoImageView = UIImageView()
     var bodyTextViewContainerView = UIView()
     var bodyTextView = SNKTextView()
-    var closeButton: SNKButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +20,7 @@ class InfoVC: UIViewController {
         view.backgroundColor = SNKColor.background
         configureTitle()
         configureBodyTextViewContainerView()
-        configureCloseButton()
         layout()
-        closeButton.isHidden = true
     }
     
     private func configureTitle() {
@@ -52,11 +49,6 @@ class InfoVC: UIViewController {
         view.addSubview(bodyTextViewContainerView)
     }
     
-    private func configureCloseButton() {
-        closeButton = SNKButton(title: "Back to Playing Snooker", style: .solid)
-        closeButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
-        view.addSubview(closeButton)
-    }
     @objc func didTapCloseButton() { dismiss(animated: true) }
     
     private func layout() {
@@ -70,9 +62,6 @@ class InfoVC: UIViewController {
             bodyTextView.leadingAnchor.constraint(equalTo: bodyTextViewContainerView.leadingAnchor),
             bodyTextView.trailingAnchor.constraint(equalTo: bodyTextViewContainerView.trailingAnchor),
             bodyTextView.bottomAnchor.constraint(equalTo: bodyTextViewContainerView.bottomAnchor),
-            closeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SNKPadding.big),
-            closeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big)
         ])
     }
     

@@ -30,13 +30,6 @@ class ScoresView: UIView {
             addSubview(label!)
             label?.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         }
-        //to delete once confirmed replacement working:
-//        let scoreLabels = [scoreLabel1, scoreLabel2]
-//        for scoreLable in scoreLabels {
-//            scoreLable!.adjustsFontSizeToFitWidth = true
-//            addSubview(scoreLable!)
-//            scoreLable!.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//        }
         addSubview(scoreDifView)
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 80),

@@ -16,7 +16,7 @@ class ConnectButton: SNKButton {
     
     weak var delegate: ConnectButtonDelegate!
     
-    let connectTitle = "Connect with Opponent"
+    let connectTitle = "Connect to Opponent"
     let ai = UIActivityIndicatorView(style: .medium)
     
     override init(frame: CGRect) {

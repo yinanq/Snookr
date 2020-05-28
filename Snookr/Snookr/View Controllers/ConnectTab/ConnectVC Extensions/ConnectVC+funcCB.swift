@@ -65,18 +65,22 @@ extension ConnectVC {
             connectButton.setToConnectButton()
             cbStateCentral = .notConnected
             cbStatePeripheral = .notConnected
+            connectCodeTextField.enable()
             tabBarItem.image = SNKTabBarImage.connect
             tabBarItem.title = SNKTabBarTitle.connect
-        case .isConnected:
-            lockOpponentInfoEditability()
-            meWhichPlayerView.lockToggleButton()
-            connectButton.setToDisconnectButton()
-            tabBarItem.image = SNKTabBarImage.connected
-            tabBarItem.title = SNKTabBarTitle.connected
         case .isConnecting:
             lockOpponentInfoEditability()
             meWhichPlayerView.lockToggleButton()
             connectButton.setToCancelButton()
+            connectCodeTextField.disable()
+        case .isConnected:
+            connectButton.setToDisconnectButton()
+            tabBarItem.image = SNKTabBarImage.connected
+            tabBarItem.title = SNKTabBarTitle.connected
+            //should not need, unless skipped isConnecting:
+            lockOpponentInfoEditability()
+            meWhichPlayerView.lockToggleButton()
+            connectCodeTextField.disable()
         }
     }
     
