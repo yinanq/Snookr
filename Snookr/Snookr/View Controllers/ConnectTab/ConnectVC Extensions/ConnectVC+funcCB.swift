@@ -41,16 +41,20 @@ extension ConnectVC {
     }
     
     private func cbDisconnectOrCancel() {
+        if let peripheralManager = cbPeripheralManager {
+//            print("cbDisconnectOrCancel by cbPeripheralManager")
+            peripheralManager.stopAdvertising()
+            cbPeripheralNotifyData = cbPeripheralNotifyDataString.data(using: .utf8)
+            peripheralManager.updateValue(cbPeripheralNotifyData, for: cbNotifierCharacteristic, onSubscribedCentrals: nil)
+            cbPeripheralManager = nil
+        }
         if let centralManager = cbCentralManager {
+//            print("cbDisconnectOrCancel by cbCentralManager")
             centralManager.stopScan()
             cbSend(snkCBDataType: SNKcbDataType.cbDisconnected)
             cbChosenCharacteristic = nil
             cbChosenPeripheral = nil
             cbCentralManager = nil
-        }
-        if let peripheralManager = cbPeripheralManager {
-            peripheralManager.stopAdvertising()
-            cbPeripheralManager = nil
         }
     }
     

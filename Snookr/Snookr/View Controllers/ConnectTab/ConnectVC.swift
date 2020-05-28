@@ -17,12 +17,16 @@ class ConnectVC: UIViewController {
     let cbSnookrUUID = CBUUID(string: "4E33A1D9-9FE0-46FB-B3C9-3604A5A0D05A")//a different key is used in production app
     let cbSnookrServiceUUID = CBUUID(string: "B78716C9-29E0-4EDB-9219-9E69F9414C87")//a different key is used in production app
     let cbSnookrCharacteristicUUID = CBUUID(string: "B6F15CF2-A726-462D-8A07-257956821E6E")//a different key is used in production app
+//    let cbSnookrNotifierCharacteristicUUID = CBUUID(string: "CF32EFFC-1C23-4B94-AE0E-8A6F9DF308F9")//a different key is used in production app
     //cb central side:
     var cbCentralManager: CBCentralManager!
     var cbChosenPeripheral: CBPeripheral!
     var cbChosenCharacteristic: CBCharacteristic!
     //cb peripheral side:
     var cbPeripheralManager: CBPeripheralManager!
+    let cbPeripheralNotifyDataString = "a"
+    var cbPeripheralNotifyData: Data!
+    var cbNotifierCharacteristic: CBMutableCharacteristic!
     //cb state markers:
     var cbState: SNKcbState = .notConnected
     var cbStateCentral: SNKcbState = .notConnected

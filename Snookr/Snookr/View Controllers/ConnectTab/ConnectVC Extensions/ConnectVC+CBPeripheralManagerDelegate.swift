@@ -89,12 +89,15 @@ extension ConnectVC: CBPeripheralManagerDelegate {
         case .poweredOn:
 //            print("peripheral.state is .poweredOn")
             cbStatePeripheral = .notConnected
-            let characteristic = CBMutableCharacteristic(type: cbSnookrCharacteristicUUID, properties: .write, value: nil, permissions: .writeable)
             let service = CBMutableService(type: cbSnookrServiceUUID, primary: true)
-            service.characteristics = [characteristic]
+            let writableCharacteristic = CBMutableCharacteristic(type: cbSnookrCharacteristicUUID, properties: .write, value: nil, permissions: .writeable)
+            cbNotifierCharacteristic = CBMutableCharacteristic(type: cbSnookrCharacteristicUUID, properties: .notify, value: nil, permissions: .readable)
+//            cbNotifierCharacteristic.permissions
+            service.characteristics = [writableCharacteristic, cbNotifierCharacteristic]
             peripheral.add(service)
             guard cbUserDefinedLocalName != nil else {
                 print("error: cbUserDefinedLocalName is still nil when peripheral is about to start advertising")
+                disconnectAndUpdateCBState()
                 return
             }
             peripheral.startAdvertising([CBAdvertisementDataServiceUUIDsKey: [cbSnookrUUID], CBAdvertisementDataLocalNameKey: cbUserDefinedLocalName!])
@@ -107,8 +110,4 @@ extension ConnectVC: CBPeripheralManagerDelegate {
         cbStatePeripheral = .notConnected
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
-//        print("peripheral did modify services")
-        disconnectAndUpdateCBState()
-    }
 }
