@@ -34,16 +34,16 @@ class ConnectCodeTextField: UITextField {
     private func configure() {
         keyboardType = .numberPad
         layer.cornerRadius = SNKCornerRadius.big
-        layer.borderWidth = 2
+        layer.borderWidth = SNKBorderWidth.regular
         layer.borderColor = SNKColor.foreground.cgColor
         textAlignment = .center
         textColor = SNKColor.foreground
         tintColor = SNKColor.foreground
-        font = UIFont.systemFont(ofSize: SNKFontSize.huge, weight: .thin)
+        font = UIFont.systemFont(ofSize: SNKFontSize.huge, weight: SNKFontWeight.forFontSizeHuge)
         attributedPlaceholder = NSAttributedString(string: "000", attributes: [NSAttributedString.Key.foregroundColor: SNKColor.backgroundSecondary])
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: 200),
+            widthAnchor.constraint(equalToConstant: 195),
             heightAnchor.constraint(equalToConstant: 90)
         ])
         addTarget(self, action: #selector(connectCodeTextFieldEditingChanged), for: .editingChanged)

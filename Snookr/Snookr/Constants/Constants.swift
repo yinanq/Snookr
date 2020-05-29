@@ -22,6 +22,10 @@ enum SNKAnimationDuration {
     static let launchSmootherDuration: TimeInterval = 0.2
 }
 
+enum SNKBorderWidth {
+    static let regular: CGFloat = 2
+}
+
 enum SNKButtonSize {
     static let small: CGFloat = 44
     static let smallerVisual: CGFloat = 30
