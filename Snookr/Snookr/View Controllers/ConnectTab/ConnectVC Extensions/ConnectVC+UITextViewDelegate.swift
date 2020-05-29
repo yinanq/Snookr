@@ -73,7 +73,7 @@ extension ConnectVC: UITextViewDelegate {
     }
     
     private func disableAndDimAllButNameOfPlayerTagged(_ playerTag: Int) {
-        var viewsToDim: [UIView] = [separatorView, containerView]
+        var viewsToDim: [UIView] = [separatorView, meWhichPlayerView, containerView]
         switch playerTag {
         case SNKTextViewTag.player1: viewsToDim.append(playerNamesView.textView2)
         case SNKTextViewTag.player2: viewsToDim.append(playerNamesView.textView1)
@@ -85,7 +85,7 @@ extension ConnectVC: UITextViewDelegate {
         }
     }
     private func enableAndUndimAll() {
-        let allViews: [UIView] = [separatorView, containerView, playerNamesView.textView1, playerNamesView.textView2]
+        let allViews: [UIView] = [separatorView, meWhichPlayerView, containerView, playerNamesView.textView1, playerNamesView.textView2]
         for view in allViews {
             view.isUserInteractionEnabled = true
             UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = 1 }
