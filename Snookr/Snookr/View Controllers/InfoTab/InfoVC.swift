@@ -33,7 +33,7 @@ class InfoVC: UIViewController {
     private func configureBodyTextViewContainerView() {
         let string = "Snookr is a scoreboard for the cue sport snooker. It's designed and developed by Yinan Qiu. Feel free to contact him if you have feedback, questions, or feature requests. Last but not least, he wishes you loads of ranking points, mate!"
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 10
+        paragraphStyle.lineSpacing = SNKPadding.lineSpacing
         paragraphStyle.alignment = .justified
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,

@@ -10,8 +10,8 @@ import UIKit
 
 class ConnectedTextView: UITextView {
     
-    let notConnectedText = "When connected, scores will auto sync via Bluetooth. You and your opponent each update your own score from your own app. If not connected, you can use Snookr as a standalone scoreboard."
-    let connectedText = "Now connected, scores will auto sync via Bluetooth. You and your opponent each update your own score from your own app. Go to Scores tab and give it a try!"
+    let notConnectedText = "If connected, scores will auto sync via Bluetooth between your and your opponent's apps. If not connected, Snookr is a standalone scoreboard."
+    let connectedText = "Now connected, scores auto sync via Bluetooth. You and your opponent each update your own score from your own app. Go to Scores and give it a try!"
 
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -21,21 +21,29 @@ class ConnectedTextView: UITextView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func configure() {
-        font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .regular)
-        textAlignment = .center
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = SNKPadding.lineSpacing
+        paragraphStyle.alignment = .justified
+        let attributes: [NSAttributedString.Key: Any] = [
+            .paragraphStyle: paragraphStyle,
+            .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular),
+            .foregroundColor: SNKColor.foregroundTertiary,
+        ]
+        let maString = NSMutableAttributedString(string: notConnectedText, attributes: attributes)
+        attributedText = maString
         isEditable = false
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalToConstant: SNKBodyWidth.fixed),
-            heightAnchor.constraint(equalToConstant: 128)
+            heightAnchor.constraint(equalToConstant: 140)
         ])
         setToNotConnected()
     }
     
     func setToNotConnected() {
         text = notConnectedText
-        textColor = SNKColor.foregroundSecondary
+        textColor = SNKColor.backgroundSecondary
     }
     
     func setToConnected() {

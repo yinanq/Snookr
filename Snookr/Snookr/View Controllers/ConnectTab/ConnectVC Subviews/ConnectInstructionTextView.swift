@@ -18,8 +18,9 @@ class ConnectInstructionTextView: UITextView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func configure() {
-        text = "Create a 3-digit code to connect. Opponent nearby must enter same code and hit connect button on their app too."
-        font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .regular)
+        backgroundColor = nil
+        text = "Create a 3-digit code to connect. Opponent nearby must enter same code and hit connect on their app."
+        font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
         textColor = SNKColor.foreground
         textAlignment = .center
         isEditable = false
@@ -29,11 +30,21 @@ class ConnectInstructionTextView: UITextView {
             widthAnchor.constraint(equalToConstant: SNKBodyWidth.fixed),
             heightAnchor.constraint(equalToConstant: 82)
         ])
-        hide()
+        alpha = 0
     }
     
-    func hide() { isHidden = true }
+    func hide() {
+//        isHidden = true
+        UIView.animate(withDuration: SNKAnimationDuration.short) {
+            self.alpha = 0
+        }
+    }
     
-    func unhide() { isHidden = false }
+    func unhide() {
+//        isHidden = false
+        UIView.animate(withDuration: SNKAnimationDuration.short) {
+            self.alpha = 1
+        }
+    }
     
 }

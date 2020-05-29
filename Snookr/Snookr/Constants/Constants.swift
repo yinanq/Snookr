@@ -118,6 +118,7 @@ enum SNKPadding {
     static let separatorViewWidth: CGFloat = 2
     static let separatorViewTopAdj: CGFloat = 4.5
     static let difViewWidth: CGFloat = 65
+    static let lineSpacing: CGFloat = 10
 }
 
 enum SNKTabBarImage {
