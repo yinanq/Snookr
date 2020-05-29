@@ -96,7 +96,7 @@ enum SNKFontWeight {
 }
 
 enum SNKBodyWidth {
-    static let fixed: CGFloat = 347
+    static let fixed: CGFloat = 345
     static let percent: CGFloat = 0.8
 }
 

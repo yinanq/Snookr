@@ -11,7 +11,7 @@ import UIKit
 class ConnectedTextView: UITextView {
     
     let notConnectedText = "If connected, scores will auto sync via Bluetooth between your and your opponent's apps. If not connected, Snookr is a standalone scoreboard."
-    let connectedText = "Now connected, scores auto sync via Bluetooth. You and your opponent each update your own score from your own app. Go to Scores and give it a try!"
+    let connectedText = "Now connected, scores and frames auto sync. You and your opponent can each update from your own app. Open Scores tab and Give it a try!"
 
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -23,7 +23,7 @@ class ConnectedTextView: UITextView {
     private func configure() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = SNKPadding.lineSpacing
-        paragraphStyle.alignment = .justified
+        paragraphStyle.alignment = .left
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
             .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular),

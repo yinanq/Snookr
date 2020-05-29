@@ -34,7 +34,7 @@ class InfoVC: UIViewController {
         let string = "Snookr is a scoreboard for the cue sport snooker. It's designed and developed by Yinan Qiu. Feel free to contact him if you have feedback, questions, or feature requests. Last but not least, he wishes you loads of ranking points, mate!"
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = SNKPadding.lineSpacing
-        paragraphStyle.alignment = .justified
+        paragraphStyle.alignment = .left
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
             .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular),
@@ -55,9 +55,9 @@ class InfoVC: UIViewController {
     private func layout() {
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
-            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.leadingAnchor.constraint(equalTo: bodyTextView.leadingAnchor, constant: 5),
             bodyTextViewContainerView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40),
-            bodyTextViewContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: SNKBodyWidth.percent),
+            bodyTextViewContainerView.widthAnchor.constraint(equalToConstant: SNKBodyWidth.fixed),
             bodyTextViewContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bodyTextView.topAnchor.constraint(equalTo: bodyTextViewContainerView.topAnchor),
             bodyTextView.leadingAnchor.constraint(equalTo: bodyTextViewContainerView.leadingAnchor),
