@@ -11,7 +11,7 @@ import UIKit
 class ConnectedTextView: UITextView {
     
     let notConnectedText = "When connected, scores auto sync via Bluetooth between two Snookr apps. When not connected, Snookr is a standalone scoreboard."
-    let connectedText = "Now connected, scores auto sync. You and your opponent can each update from your own app. Open Scores tab and Give it a try!"
+    let connectedText = "Now connected, scores auto sync. You and your opponent can each update from your own app. Open Scores tab and give it a try!"
 
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
