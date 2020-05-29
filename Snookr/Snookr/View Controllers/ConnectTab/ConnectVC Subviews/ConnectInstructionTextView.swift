@@ -19,7 +19,7 @@ class ConnectInstructionTextView: UITextView {
     
     private func configure() {
         backgroundColor = nil
-        text = "Create a 3-digit code to connect. Opponent nearby must enter same code and hit connect on their app."
+        text = "Create a 3-digit code and connect. Ask opponent nearby to enter same code and hit connect on their app too."
         font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
         textColor = SNKColor.foreground
         textAlignment = .center
