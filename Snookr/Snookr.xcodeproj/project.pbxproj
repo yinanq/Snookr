@@ -242,8 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				7F46E1EB2477B354002712A8 /* MeWhichPlayerView.swift */,
-				7FA4B06D247F16E1003CDD64 /* ConnectCodeTextField.swift */,
 				7FA4B06B247F0E70003CDD64 /* ConnectInstructionTextView.swift */,
+				7FA4B06D247F16E1003CDD64 /* ConnectCodeTextField.swift */,
 				7F79AFBD2478EC18001321E9 /* ConnectButton.swift */,
 				7FA4B071247F4459003CDD64 /* ConnectedTextView.swift */,
 			);

@@ -144,7 +144,7 @@ class ConnectVC: UIViewController {
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SNKPadding.big),
             connectInstructionTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            connectInstructionTextView.bottomAnchor.constraint(equalTo: connectCodeTextField.topAnchor, constant: -SNKPadding.small),
+            connectInstructionTextView.bottomAnchor.constraint(equalTo: connectCodeTextField.topAnchor, constant: -SNKPadding.tiny),
             connectCodeTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             connectCodeTextField.bottomAnchor.constraint(equalTo: connectButton.topAnchor, constant: -SNKPadding.big),
             connectButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),

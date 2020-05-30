@@ -119,6 +119,7 @@ enum SNKPadding {
     static let textViewAdjusterTop: CGFloat = -8
     static let textViewAdjusterTextAlignedSide: CGFloat = 3
     static let textViewAdjusterTextUnalignedSide: CGFloat = 9
+    static let textViewAdjusterBodyText: CGFloat = 5
     static let separatorViewWidth: CGFloat = 2
     static let separatorViewTopAdj: CGFloat = 4.5
     static let difViewWidth: CGFloat = 65

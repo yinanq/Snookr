@@ -34,10 +34,12 @@ class ConnectedTextView: UITextView {
         isEditable = false
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: SNKBodyWidth.fixed),
-            heightAnchor.constraint(equalToConstant: 140)
-        ])
+//        NSLayoutConstraint.activate([
+//            widthAnchor.constraint(equalToConstant: SNKBodyWidth.fixed),
+//            heightAnchor.constraint(equalToConstant: 140)
+//        ])
+        widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 2 * (SNKPadding.big - SNKPadding.textViewAdjusterBodyText)).isActive = true
+        clipsToBounds = false
         setToNotConnected()
     }
     
