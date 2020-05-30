@@ -64,8 +64,8 @@ extension ConnectVC: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
 //        print("peripheral did update value for characteristic")
         if let data = characteristic.value {
-            if data == cbPeripheralNotifyData {
-//                print("peripheral has disconnected and informed central to disconnect too")
+            if data == cbPeripheralNotifyData! {
+                print("peripheral has disconnected and informed central to disconnect too")
                 disconnectAndUpdateCBState()
             }
         }
