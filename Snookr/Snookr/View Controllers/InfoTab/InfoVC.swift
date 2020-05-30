@@ -55,12 +55,10 @@ class InfoVC: UIViewController {
     private func layout() {
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
-            logoImageView.leadingAnchor.constraint(equalTo: bodyTextView.leadingAnchor, constant: 5),
+            logoImageView.leadingAnchor.constraint(equalTo: bodyTextViewContainerView.leadingAnchor, constant: 5),
             bodyTextViewContainerView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40),
-            bodyTextViewContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
-            bodyTextViewContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
-//            bodyTextViewContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: SNKBodyWidth.percent),
-//            bodyTextViewContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bodyTextViewContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big + -SNKPadding.textViewAdjusterBodyText),
+            bodyTextViewContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big + SNKPadding.textViewAdjusterBodyText),
             bodyTextView.topAnchor.constraint(equalTo: bodyTextViewContainerView.topAnchor),
             bodyTextView.leadingAnchor.constraint(equalTo: bodyTextViewContainerView.leadingAnchor),
             bodyTextView.trailingAnchor.constraint(equalTo: bodyTextViewContainerView.trailingAnchor),

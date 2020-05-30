@@ -92,7 +92,6 @@ extension ConnectVC: CBPeripheralManagerDelegate {
             let service = CBMutableService(type: cbSnookrServiceUUID, primary: true)
             let writableCharacteristic = CBMutableCharacteristic(type: cbSnookrCharacteristicUUID, properties: .write, value: nil, permissions: .writeable)
             cbNotifierCharacteristic = CBMutableCharacteristic(type: cbSnookrCharacteristicUUID, properties: .notify, value: nil, permissions: .readable)
-//            cbNotifierCharacteristic.permissions
             service.characteristics = [writableCharacteristic, cbNotifierCharacteristic]
             peripheral.add(service)
             guard cbUserDefinedLocalName != nil else {

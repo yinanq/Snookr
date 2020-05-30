@@ -23,8 +23,8 @@ class ConnectVC: UIViewController {
     var cbChosenCharacteristic: CBCharacteristic!
     //cb peripheral side:
     var cbPeripheralManager: CBPeripheralManager!
-    let cbPeripheralNotifyDataString = "a"
-    var cbPeripheralNotifyData: Data!
+//    let cbPeripheralNotifyDataString = "a"
+    var cbPeripheralNotifyData = "a".data(using: .utf8)
     var cbNotifierCharacteristic: CBMutableCharacteristic!
     //cb state markers:
     var cbState: SNKcbState = .notConnected

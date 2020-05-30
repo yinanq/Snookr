@@ -44,8 +44,13 @@ extension ConnectVC {
         if let peripheralManager = cbPeripheralManager {
 //            print("cbDisconnectOrCancel by cbPeripheralManager")
             peripheralManager.stopAdvertising()
-            cbPeripheralNotifyData = cbPeripheralNotifyDataString.data(using: .utf8)
-            peripheralManager.updateValue(cbPeripheralNotifyData, for: cbNotifierCharacteristic, onSubscribedCentrals: nil)
+//            cbPeripheralNotifyData = cbPeripheralNotifyDataString.data(using: .utf8)
+            if let characteristic = cbNotifierCharacteristic {
+                if let data = cbPeripheralNotifyData {
+                    peripheralManager.updateValue(data, for: characteristic, onSubscribedCentrals: nil)
+                }
+                cbNotifierCharacteristic = nil
+            }
             cbPeripheralManager = nil
         }
         if let centralManager = cbCentralManager {

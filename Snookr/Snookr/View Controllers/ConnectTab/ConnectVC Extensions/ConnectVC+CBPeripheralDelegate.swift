@@ -54,15 +54,6 @@ extension ConnectVC: CBPeripheralDelegate {
                     updateCBState(to: .isConnected)
                 }
             }
-//            if characteristic.properties.rawValue == 136 {
-//                cbChosenCharacteristic = characteristic
-//                print("saved writable characteristic")
-//                sendConnectConfAndStartingScoreInfo()
-//                cbStateCentral = .isConnected
-//                if cbStatePeripheral == .isConnected {
-//                    updateCBState(to: .isConnected)
-//                }
-//            }
         }
     }
     
@@ -73,7 +64,7 @@ extension ConnectVC: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
 //        print("peripheral did update value for characteristic")
         if let data = characteristic.value {
-            if data == cbPeripheralNotifyDataString.data(using: .utf8) {
+            if data == cbPeripheralNotifyData {
 //                print("peripheral has disconnected and informed central to disconnect too")
                 disconnectAndUpdateCBState()
             }
