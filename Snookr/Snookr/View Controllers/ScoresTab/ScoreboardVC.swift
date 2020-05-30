@@ -37,6 +37,7 @@ class ScoreboardVC: UIViewController {
         notifCtr.addObserver(forName: .connectVCReceivedUpdatedScore, object: nil, queue: .main) { notification in
             let data = notification.object as! SNKcbData
             self.cbUpdateOpponentScoreToReceived(data)
+            self.updateResetButton()
         }
         notifCtr.addObserver(forName: .connectVCReceivedResetScores, object: nil, queue: .main) { notification in
             self.resetScores()
