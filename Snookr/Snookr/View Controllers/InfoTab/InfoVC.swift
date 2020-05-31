@@ -21,7 +21,6 @@ class InfoVC: UIViewController {
         configureTitle()
         configureBodyTextViewContainerView()
         layout()
-//        print("info tab")
     }
     
     private func configureTitle() {
@@ -31,17 +30,18 @@ class InfoVC: UIViewController {
     }
     
     private func configureBodyTextViewContainerView() {
-        let string = "Snookr is a scoreboard for the cue sport snooker. It's designed and developed by Yinan Qiu. Feel free to contact him if you have feedback, questions, or feature requests. Last but not least, he wishes you loads of ranking points, mate!"
+        let string = "Snookr is a connected scoreboard for snooker. You and your opponent at the snooker table can each use your own Snookr app on your own iPhone in the Bluetooth-connected mode. You can also choose not to turn on Bluetooth connection and just update both players' scores on one iPhone.\nThis app is designed and developed by Yinan Qiu. Feel free to contact him if you have feedback, questions, or feature requests. He wishes you loads of ranking points, mate!"
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = SNKPadding.lineSpacing
         paragraphStyle.alignment = .left
+        paragraphStyle.paragraphSpacing = 20
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
             .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular),
             .foregroundColor: SNKColor.foreground,
         ]
         let maString = NSMutableAttributedString(string: string, attributes: attributes)
-        maString.addAttribute(.link, value: "https://yinan.design/contact", range: NSRange(location: 105, length: 11))
+        maString.addAttribute(.link, value: "https://yinan.design/contact", range: NSRange(location: 344, length: 11))
         bodyTextView.isEditable = false
         bodyTextView.linkTextAttributes = [NSAttributedString.Key.underlineStyle: true]
         bodyTextView.attributedText = maString
