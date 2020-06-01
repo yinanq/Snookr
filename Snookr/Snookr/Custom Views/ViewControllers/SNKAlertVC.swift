@@ -19,6 +19,7 @@ class SNKAlertVC: UIViewController {
     let buttonsView = UIView()
     var cancelButton: SNKButton!
     var confirmButton: SNKButton!
+    var buttonsTopConstraint: NSLayoutConstraint!
     
     init(title: String, body: String, cancelBtnTitle: String, confirmBtnTitile: String) {
         super.init(nibName: nil, bundle: nil)
@@ -58,11 +59,13 @@ class SNKAlertVC: UIViewController {
             view.addSubview(subview!)
             subview?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         }
+        buttonsTopConstraint = buttonsView.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 45)
         NSLayoutConstraint.activate([
             titleLabel.bottomAnchor.constraint(equalTo: bodyLabel.topAnchor, constant: -SNKPadding.big),
             bodyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -15),
             bodyLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: SNKBodyWidth.percent),
-            buttonsView.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 45),
+//            buttonsView.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 45),
+            buttonsTopConstraint,
             buttonsView.widthAnchor.constraint(equalTo: bodyLabel.widthAnchor, constant: -8),
             cancelButton.topAnchor.constraint(equalTo: buttonsView.topAnchor),
             confirmButton.topAnchor.constraint(equalTo: buttonsView.topAnchor),

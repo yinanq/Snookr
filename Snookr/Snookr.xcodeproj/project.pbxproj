@@ -41,6 +41,8 @@
 		7F732505247B24900034F275 /* ConnectVC+funcCB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F732504247B24900034F275 /* ConnectVC+funcCB.swift */; };
 		7F732507247B35AC0034F275 /* ConnectVC+CBPeripheralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F732506247B35AC0034F275 /* ConnectVC+CBPeripheralManagerDelegate.swift */; };
 		7F74D7892475DAE40081F8AF /* ConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F74D7882475DAE40081F8AF /* ConnectVC.swift */; };
+		7F77796C24849D8900F29350 /* WinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77796B24849D8900F29350 /* WinButton.swift */; };
+		7F7779722484A80A00F29350 /* ScoreResetAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7779712484A80A00F29350 /* ScoreResetAlertVC.swift */; };
 		7F79AFBE2478EC18001321E9 /* ConnectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79AFBD2478EC18001321E9 /* ConnectButton.swift */; };
 		7F8FAD6924733BBB005C550D /* FramesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8FAD6824733BBB005C550D /* FramesVC.swift */; };
 		7F94A53E247E304A00727967 /* ConnectVC+ConnectButtonDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94A53D247E304A00727967 /* ConnectVC+ConnectButtonDelegates.swift */; };
@@ -119,6 +121,8 @@
 		7F732504247B24900034F275 /* ConnectVC+funcCB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+funcCB.swift"; sourceTree = "<group>"; };
 		7F732506247B35AC0034F275 /* ConnectVC+CBPeripheralManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+CBPeripheralManagerDelegate.swift"; sourceTree = "<group>"; };
 		7F74D7882475DAE40081F8AF /* ConnectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectVC.swift; sourceTree = "<group>"; };
+		7F77796B24849D8900F29350 /* WinButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinButton.swift; sourceTree = "<group>"; };
+		7F7779712484A80A00F29350 /* ScoreResetAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreResetAlertVC.swift; sourceTree = "<group>"; };
 		7F79AFBD2478EC18001321E9 /* ConnectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectButton.swift; sourceTree = "<group>"; };
 		7F8FAD6824733BBB005C550D /* FramesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesVC.swift; sourceTree = "<group>"; };
 		7F94A53D247E304A00727967 /* ConnectVC+ConnectButtonDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+ConnectButtonDelegates.swift"; sourceTree = "<group>"; };
@@ -305,6 +309,7 @@
 				7FACBEC2246CC437004E9137 /* PointsAdderVC.swift */,
 				7F4BF461246DFFA2009B2E78 /* PointsAdderVC Extensions */,
 				7FACBEC4246CE71F004E9137 /* PointsAdderVC Subviews */,
+				7F7779712484A80A00F29350 /* ScoreResetAlertVC.swift */,
 			);
 			path = ScoresTab;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 				7F8FAD6824733BBB005C550D /* FramesVC.swift */,
 				7FA6A6FC2473878900FF32E4 /* FreamsVC Extensions */,
 				7FA6A6FD247387A800FF32E4 /* FramesVC Subviews */,
+				7FD4E6C324765F1C008EC198 /* ResetAlertVC.swift */,
 			);
 			path = FramesTab;
 			sourceTree = "<group>";
@@ -407,7 +413,6 @@
 			isa = PBXGroup;
 			children = (
 				7FA5A22A2473363000B9D72C /* TabBarVC.swift */,
-				7FD4E6C324765F1C008EC198 /* ResetAlertVC.swift */,
 				7F74D7872475D48A0081F8AF /* ConnectTab */,
 				7FA5A22C2473364800B9D72C /* ScoresTab */,
 				7FA5A22D2473370800B9D72C /* FramesTab */,
@@ -439,6 +444,7 @@
 				7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */,
 				7F158C8A246A902C00AF1D38 /* ScoreboardStackView Subviews */,
 				7F39EF86246BDB5200ABB703 /* ResetButton.swift */,
+				7F77796B24849D8900F29350 /* WinButton.swift */,
 			);
 			path = "ScoreboardVC Subviews";
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 				7FACBEC8246CF01C004E9137 /* PointsAdderNumberPadView.swift in Sources */,
 				7FA4B06E247F16E1003CDD64 /* ConnectCodeTextField.swift in Sources */,
 				7F46E1E72477919F002712A8 /* ConnectVC+funcModelUpdaters.swift in Sources */,
+				7F77796C24849D8900F29350 /* WinButton.swift in Sources */,
 				7FA4006F247389540013AE2C /* FramesWonView.swift in Sources */,
 				7FA5A22B2473363000B9D72C /* TabBarVC.swift in Sources */,
 				7F320872247DE6B200FC1782 /* FramesVC+funcCB.swift in Sources */,
@@ -604,6 +611,7 @@
 				7F94A540247E31C600727967 /* DisconnectAlertVC.swift in Sources */,
 				7FEF8A7E2467601B000240A0 /* ScoreboardVC.swift in Sources */,
 				7F6AE52324690F9800767F7C /* SNKSeparatorView.swift in Sources */,
+				7F7779722484A80A00F29350 /* ScoreResetAlertVC.swift in Sources */,
 				7F3EA39A247DB0FB0053BF12 /* ScoreboardVC+funcCB.swift in Sources */,
 				7FEF8A8424676163000240A0 /* Player.swift in Sources */,
 				7F52C2D32468BE0300C76C1E /* SNKPlayerNamesView.swift in Sources */,
@@ -753,7 +761,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ER5DW7LZQ6;
 				INFOPLIST_FILE = Snookr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -761,7 +769,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = design.yinan.SnookrApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -774,7 +782,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ER5DW7LZQ6;
 				INFOPLIST_FILE = Snookr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -782,7 +790,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = design.yinan.SnookrApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

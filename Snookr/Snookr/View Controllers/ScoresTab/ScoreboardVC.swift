@@ -16,9 +16,12 @@ class ScoreboardVC: UIViewController {
     var player1 = Player(playerId: .player1)
     var player2 = Player(playerId: .player2)
     var opponentIs: SNKWhichPlayer = .player1
+    var currentWinnerIs: SNKWhichPlayer?
     let separatorView = SNKSeparatorView()
     let stackView = ScoreboardStackView()
     let resetButton = ResetButton()
+//    let winButton1 = WinButton()
+//    let winButton2 = WinButton()
     let tapRecognizer = UITapGestureRecognizer()
     
     override func viewDidLoad() {
@@ -29,7 +32,6 @@ class ScoreboardVC: UIViewController {
         configureViews()
         configureNotifObservers()
         layoutViews()
-//        print("scores tab")
     }
     
     private func configureNotifObservers() {
@@ -102,6 +104,11 @@ class ScoreboardVC: UIViewController {
         updateScoresView()
         resetButton.delegate = self
         updateResetButton()
+//        winButton1.delegate = self
+//        winButton2.delegate = self
+//        winButton1.tag = 1
+//        winButton2.tag = 2
+//        view.addSubviews(separatorView, stackView, resetButton, winButton1, winButton2)
         view.addSubviews(separatorView, stackView, resetButton)
         cbUpdateForState()
     }
@@ -115,6 +122,13 @@ class ScoreboardVC: UIViewController {
             resetButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SNKPadding.big),
             resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
+//            resetButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            winButton1.bottomAnchor.constraint(equalTo: resetButton.bottomAnchor),
+//            winButton2.bottomAnchor.constraint(equalTo: resetButton.bottomAnchor),
+//            winButton1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
+//            winButton1.trailingAnchor.constraint(equalTo: resetButton.leadingAnchor, constant: -SNKPadding.small),
+//            winButton2.leadingAnchor.constraint(equalTo: resetButton.trailingAnchor, constant: SNKPadding.small),
+//            winButton2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             separatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             separatorView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: SNKPadding.separatorViewTopAdj),
             separatorView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big)

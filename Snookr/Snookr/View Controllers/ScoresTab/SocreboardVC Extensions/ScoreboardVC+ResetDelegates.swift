@@ -8,13 +8,19 @@
 
 import UIKit
 
-extension ScoreboardVC: ResetButtonDelegate, ResetAlertVCDelegate {
+extension ScoreboardVC: ResetButtonDelegate, ResetAlertVCDelegate, ScoreResetAlertVCDelegate {
     
     func didTapResetButton() {        
-        let resetAlertVC = ResetAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
+//        let resetAlertVC = ResetAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
+        let resetAlertVC = ScoreResetAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self, winnerDelegate: self)
         resetAlertVC.modalPresentationStyle = .overCurrentContext
         resetAlertVC.modalTransitionStyle = .crossDissolve
         present(resetAlertVC, animated: true)
+        
+    }
+    
+    func didTapAddFrameToggle() {
+        print("didTapAddFrameToggle")
     }
     
     func didTapConfirmToReset() {
