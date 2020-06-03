@@ -33,7 +33,7 @@ class SnookersTitleVC: UIViewController {
     }
     
     private func configureChildren() {
-        numberLabel.text = "9"
+        numberLabel.text = "0"
         titleLabel.text = titleText
         view.addSubviews(numberLabel, titleLabel)
         NSLayoutConstraint.activate([

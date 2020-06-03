@@ -26,10 +26,10 @@ class SnookersDifVC: UIViewController {
     }
     
     private func configureChildren() {
-        difTitleLabel.text = "Score Difference"
+        difTitleLabel.text = "Difference"
         difSegControl.translatesAutoresizingMaskIntoConstraints = false
-        difSegControl.insertSegment(withTitle: "By Current Scores", at: 0, animated: true)
-        difSegControl.insertSegment(withTitle: "Enter New Difference", at: 1, animated: true)
+        difSegControl.insertSegment(withTitle: "Current Scores", at: 0, animated: true)
+        difSegControl.insertSegment(withTitle: "Enter Difference", at: 1, animated: true)
         difSegControl.selectedSegmentIndex = 0
         difSegControl.selectedSegmentTintColor = SNKColor.background
         difSegControl.backgroundColor = SNKColor.backgroundSecondary
