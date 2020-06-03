@@ -26,9 +26,7 @@ class ScoreboardStackView: UIStackView {
         axis = .vertical
         distribution = .equalSpacing
         addArrangedSubviews(scoreInfoView, scoreButtonsView, spacerView)
-        NSLayoutConstraint.activate([
-            spacerView.heightAnchor.constraint(equalToConstant: 45)
-        ])
+        spacerView.heightAnchor.constraint(equalToConstant: 45).isActive = true
     }
 
 }

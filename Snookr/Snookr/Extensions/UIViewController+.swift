@@ -10,14 +10,20 @@ import UIKit
 
 @nonobjc extension UIViewController {
     
-    func addChildVC(_ childVC: UIViewController, frame: CGRect? = nil) {
+    func addAndConfigureChildVC(_ childVC: UIViewController, frame: CGRect? = nil) {
         addChild(childVC)
         if let frame = frame { childVC.view.frame = frame }
         view.addSubview(childVC.view)
         childVC.didMove(toParent: self)
     }
     
-    func removeFromParentVC() {
+    func addAndConfigureChildVCSkipView(_ childVC: UIViewController, frame: CGRect? = nil) {
+        addChild(childVC)
+        if let frame = frame { childVC.view.frame = frame }
+        childVC.didMove(toParent: self)
+    }
+    
+    func removeAndClearFromParentVC() {
         willMove(toParent: nil)
         view.removeFromSuperview()
         removeFromParent()
