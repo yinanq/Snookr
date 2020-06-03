@@ -10,6 +10,14 @@ import UIKit
 
 class SnookersTitleVC: UIViewController {
     
+    var toTie = false
+    var titleText: String {
+        if toTie {
+            return "snookers required to tie"
+        } else {
+            return "snookers required"
+        }
+    }
     let numberLabel = SNKLabel(fontSize: SNKFontSize.gigantic, fontWeight: SNKFontWeight.forFontSizeGigantic, textAlignment: .left)
     let titleLabel = SNKLabel(fontSize: SNKFontSize.title, fontWeight: .bold, textAlignment: .left, numberOfLines: 0)
 
@@ -25,8 +33,8 @@ class SnookersTitleVC: UIViewController {
     }
     
     private func configureChildren() {
-        numberLabel.text = "0"
-        titleLabel.text = "snookers required to win"
+        numberLabel.text = "9"
+        titleLabel.text = titleText
         view.addSubviews(numberLabel, titleLabel)
         NSLayoutConstraint.activate([
             numberLabel.topAnchor.constraint(equalTo: view.topAnchor),
