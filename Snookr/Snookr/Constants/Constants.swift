@@ -87,6 +87,7 @@ enum SNKCornerRadius {
 enum SNKFontSize {
     static let gigantic: CGFloat = 120
     static let huge: CGFloat = 90
+    static let title: CGFloat = 36
     static let big: CGFloat = 24
     static let regular: CGFloat = 18
     static let small: CGFloat = 8
@@ -131,6 +132,7 @@ enum SNKTabBarImage {
     static let connected = UIImage(systemName: "person.2.fill")
     static let scores = UIImage(systemName: "square.split.2x1.fill")
     static let frames = UIImage(systemName: "square.grid.3x2.fill")
+    static let snookers = UIImage(systemName: "divide.square.fill")
     static let about = UIImage(systemName: "info.circle.fill")
 }
 

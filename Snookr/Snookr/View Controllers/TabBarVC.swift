@@ -26,14 +26,15 @@ class TabBarVC: UITabBarController {
         let connectVC = ConnectVC()
         let scoreboardVC = ScoreboardVC()
         let framesVC = FramesVC()
+        let snookersVC = SnookersVC()
         let infoVC = InfoVC()
         connectVC.tabBarItem = UITabBarItem(title: "Connect", image: SNKTabBarImage.connect, tag: 0)
         scoreboardVC.tabBarItem = UITabBarItem(title: "Scores", image: SNKTabBarImage.scores, tag: 12)
         framesVC.tabBarItem = UITabBarItem(title: "Frames", image: SNKTabBarImage.frames, tag: 11)
+        snookersVC.tabBarItem = UITabBarItem(title: "Snookers", image: SNKTabBarImage.snookers, tag: 13)
         infoVC.tabBarItem = UITabBarItem(title: "About", image: SNKTabBarImage.about, tag: 21)
-        viewControllers = [connectVC, scoreboardVC, framesVC, infoVC]
+        viewControllers = [connectVC, scoreboardVC, framesVC, snookersVC, infoVC]
         selectedIndex = 0
-//        print("tab bar")
     }
     
     private func playLaunchScreenSmootherAnimation() {

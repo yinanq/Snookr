@@ -22,6 +22,9 @@
 		7F4991CA247B806900CCAFB6 /* ConnectVC+CBPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4991C9247B806900CCAFB6 /* ConnectVC+CBPeripheralDelegate.swift */; };
 		7F4A3223246A59D700BE7F97 /* SNKAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A3222246A59D700BE7F97 /* SNKAlertVC.swift */; };
 		7F4A3225246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */; };
+		7F4B89232486F7870099EDEB /* Snookers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B89222486F7870099EDEB /* Snookers.swift */; };
+		7F4B892624875DB90099EDEB /* SNKNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B892524875DB90099EDEB /* SNKNumberTextField.swift */; };
+		7F4B8929248766930099EDEB /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B8928248766930099EDEB /* UIViewController+.swift */; };
 		7F4BF460246DE33A009B2E78 /* SNKXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4BF45F246DE33A009B2E78 /* SNKXButton.swift */; };
 		7F4BF463246DFFC3009B2E78 /* PointsAdderVC+PointsAdderNumberPadViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4BF462246DFFC3009B2E78 /* PointsAdderVC+PointsAdderNumberPadViewDelegate.swift */; };
 		7F52C2CE2468BC5500C76C1E /* ScoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */; };
@@ -102,6 +105,9 @@
 		7F4991C9247B806900CCAFB6 /* ConnectVC+CBPeripheralDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+CBPeripheralDelegate.swift"; sourceTree = "<group>"; };
 		7F4A3222246A59D700BE7F97 /* SNKAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKAlertVC.swift; sourceTree = "<group>"; };
 		7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
+		7F4B89222486F7870099EDEB /* Snookers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snookers.swift; sourceTree = "<group>"; };
+		7F4B892524875DB90099EDEB /* SNKNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKNumberTextField.swift; sourceTree = "<group>"; };
+		7F4B8928248766930099EDEB /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		7F4BF45F246DE33A009B2E78 /* SNKXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKXButton.swift; sourceTree = "<group>"; };
 		7F4BF462246DFFC3009B2E78 /* PointsAdderVC+PointsAdderNumberPadViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointsAdderVC+PointsAdderNumberPadViewDelegate.swift"; sourceTree = "<group>"; };
 		7F52C2CD2468BC5500C76C1E /* ScoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreInfoView.swift; sourceTree = "<group>"; };
@@ -235,6 +241,7 @@
 		7F3E932D2467815B0067B891 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7F4B8928248766930099EDEB /* UIViewController+.swift */,
 				7F3E932E246781AE0067B891 /* UIView+.swift */,
 				7F6AE52024690BA000767F7C /* UIStackView+.swift */,
 				7F56227424776E1800458193 /* NotificationName+.swift */,
@@ -252,6 +259,30 @@
 				7FA4B071247F4459003CDD64 /* ConnectedTextView.swift */,
 			);
 			path = "ConnectVC Subviews";
+			sourceTree = "<group>";
+		};
+		7F4B89212486F67E0099EDEB /* SnookersTab */ = {
+			isa = PBXGroup;
+			children = (
+				7F4B89222486F7870099EDEB /* Snookers.swift */,
+				7F4B8927248765E30099EDEB /* Child View Controllers */,
+			);
+			path = SnookersTab;
+			sourceTree = "<group>";
+		};
+		7F4B892424875D870099EDEB /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				7F4B892524875DB90099EDEB /* SNKNumberTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		7F4B8927248765E30099EDEB /* Child View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Child View Controllers";
 			sourceTree = "<group>";
 		};
 		7F4BF461246DFFA2009B2E78 /* PointsAdderVC Extensions */ = {
@@ -416,6 +447,7 @@
 				7F74D7872475D48A0081F8AF /* ConnectTab */,
 				7FA5A22C2473364800B9D72C /* ScoresTab */,
 				7FA5A22D2473370800B9D72C /* FramesTab */,
+				7F4B89212486F67E0099EDEB /* SnookersTab */,
 				7F0F60AB246CB47500F4C52C /* InfoTab */,
 			);
 			path = "View Controllers";
@@ -456,6 +488,7 @@
 				7FA6A6FE2473880400FF32E4 /* Views */,
 				7FEF8A9724676FD5000240A0 /* Buttons */,
 				7FEF8A9824676FE5000240A0 /* Labels */,
+				7F4B892424875D870099EDEB /* TextFields */,
 				7F6AE5242469319A00767F7C /* TextViews */,
 			);
 			path = "Custom Views";
@@ -551,6 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FE085CD246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift in Sources */,
+				7F4B89232486F7870099EDEB /* Snookers.swift in Sources */,
 				7F4BF460246DE33A009B2E78 /* SNKXButton.swift in Sources */,
 				7F732505247B24900034F275 /* ConnectVC+funcCB.swift in Sources */,
 				7F0F60A9246CB45300F4C52C /* InfoVC.swift in Sources */,
@@ -560,6 +594,7 @@
 				7FE4A2B62477818C00BCBFF6 /* FramesVC+funcModelUpdaters.swift in Sources */,
 				7F732507247B35AC0034F275 /* ConnectVC+CBPeripheralManagerDelegate.swift in Sources */,
 				7F3E932F246781AE0067B891 /* UIView+.swift in Sources */,
+				7F4B892624875DB90099EDEB /* SNKNumberTextField.swift in Sources */,
 				7FEF8A8A2467638D000240A0 /* ScoresView.swift in Sources */,
 				7FD2BC00246BE47300C44D26 /* ScoreboardVC+funcPersistence.swift in Sources */,
 				7FEF8A8E24676402000240A0 /* ScoreHistoryView.swift in Sources */,
@@ -622,6 +657,7 @@
 				7F56227324774D3A00458193 /* SNKView.swift in Sources */,
 				7F46E1E9247791D6002712A8 /* ConnectVC+funcViewUpdaters.swift in Sources */,
 				7F732503247B1C710034F275 /* ConnectVC+CBCentralManagerDelegate.swift in Sources */,
+				7F4B8929248766930099EDEB /* UIViewController+.swift in Sources */,
 				7F54D50F247D0FAD00F4285E /* ConnectVC+funcCBPersistence.swift in Sources */,
 				7FEF8A8C246763C2000240A0 /* ScoreDifView.swift in Sources */,
 				7F52C2CE2468BC5500C76C1E /* ScoreInfoView.swift in Sources */,

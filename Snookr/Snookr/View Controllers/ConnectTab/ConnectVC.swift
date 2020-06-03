@@ -55,7 +55,6 @@ class ConnectVC: UIViewController {
         layoutViews()
         pseudoPersistCBState()
         playLaunchScreenSmootherAnimation()
-//        print("connect tab")
     }
     
     override func viewDidAppear(_ animated: Bool) {
