@@ -78,6 +78,7 @@ enum SNKColor {
     static let foregroundSecondary = UIColor(red: 0/255, green: 147/255, blue: 85/255, alpha: 1)
     static let foregroundTertiary = UIColor(red: 0/255, green: 88/255, blue: 50/255, alpha: 1)
     static let foregroundHighlited = UIColor(white: 1, alpha: 1)
+    static let foregroundGrey = UIColor.systemGray
     static let destructive = UIColor.systemPink
 }
 
@@ -136,7 +137,7 @@ enum SNKTabBarImage {
     static let connected = UIImage(systemName: "person.2.fill")
     static let scores = UIImage(systemName: "square.split.2x1.fill")
     static let frames = UIImage(systemName: "square.grid.3x2.fill")
-    static let snookers = UIImage(systemName: "questionmark.square.fill")
+    static let snookers = UIImage(systemName: "equal.square.fill")
     static let about = UIImage(systemName: "info.circle.fill")
 }
 

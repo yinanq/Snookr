@@ -18,7 +18,7 @@ extension SnookersBallsVC: UIPickerViewDelegate {
             }
         }
         let label = SNKLabel(color: SNKColor.foreground, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
-        if row == 0 { label.textColor = .systemGray }
+        if row == 0 { label.textColor = SNKColor.foregroundGrey }
         label.translatesAutoresizingMaskIntoConstraints = true
         label.text = ballsPickerOptionStrings[row]
         return label

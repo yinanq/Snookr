@@ -38,7 +38,7 @@ class InfoVC: UIViewController {
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
             .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular),
-            .foregroundColor: SNKColor.foreground,
+            .foregroundColor: SNKColor.foregroundGrey,
         ]
         let maString = NSMutableAttributedString(string: string, attributes: attributes)
         maString.addAttribute(.link, value: "https://yinan.design/contact", range: NSRange(location: 344, length: 11))
