@@ -8,14 +8,19 @@
 
 import UIKit
 
-protocol SnookersDifVCDelegate: class {
-    func snookersDifVCsnkNumberTextFieldDidBeginEditing(_ textField: UITextField)
-    func snookersDifVCsnkTextFieldDidEndEditing(_ textField: UITextField)
+protocol SnookersDifVCTextFieldDelegate: class {
+    func snookersDifVCsnkNumberTextFieldDidBeginEditing()
+    func snookersDifVCsnkTextFieldDidEndEditing()
+}
+
+protocol SnookersDifVCCalculatorDelegate: class {
+    func snookersDifVCDidChangeDif(to newDif: Int)
 }
 
 class SnookersDifVC: UIViewController {
     
-    weak var delegate: SnookersDifVCDelegate!
+    weak var textFieldDelegate: SnookersDifVCTextFieldDelegate!
+    weak var calculatorDelegate: SnookersDifVCCalculatorDelegate!
     
     let defaults = UserDefaults.standard
     var currentScoreDif = 0

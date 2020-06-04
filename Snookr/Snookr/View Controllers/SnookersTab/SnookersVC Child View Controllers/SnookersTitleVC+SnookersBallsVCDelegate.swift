@@ -14,6 +14,7 @@ extension SnookersTitleVC: SnookersBallsVCDelegate {
     }
     
     func snookersBallsVCPickerDidUnselect() {
+        ballsTotalPoints = nil
         resetNumberOfSnookersRequired()
     }
     

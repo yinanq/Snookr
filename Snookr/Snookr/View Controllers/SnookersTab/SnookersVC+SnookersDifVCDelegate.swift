@@ -8,15 +8,15 @@
 
 import UIKit
 
-extension SnookersVC: SnookersDifVCDelegate {
+extension SnookersVC: SnookersDifVCTextFieldDelegate {
     
-    func snookersDifVCsnkNumberTextFieldDidBeginEditing(_ textField: UITextField) {
+    func snookersDifVCsnkNumberTextFieldDidBeginEditing() {
         dim()
         view.addGestureRecognizer(tapRecognizer)
         tapRecognizer.addTarget(view!, action: #selector(view.endEditing))
     }
     
-    func snookersDifVCsnkTextFieldDidEndEditing(_ textField: UITextField) {
+    func snookersDifVCsnkTextFieldDidEndEditing() {
         undim()
         view.removeGestureRecognizer(tapRecognizer)
     }

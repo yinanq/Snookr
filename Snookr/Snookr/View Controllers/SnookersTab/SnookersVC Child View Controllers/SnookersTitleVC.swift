@@ -12,7 +12,7 @@ class SnookersTitleVC: UIViewController {
     
     let numberLabel = SNKLabel(fontSize: SNKFontSize.gigantic, fontWeight: SNKFontWeight.forFontSizeGigantic, textAlignment: .left)
     let titleLabel = SNKLabel(fontSize: SNKFontSize.title, fontWeight: .bold, textAlignment: .left, numberOfLines: 0)
-    var scoreDif = 60
+    var scoreDif = 0
     var ballsTotalPoints: Int?
 
     override func viewDidLoad() {
@@ -57,7 +57,7 @@ class SnookersTitleVC: UIViewController {
                 numberLabel.text = "1"
                 titleLabel.text = "\(perSnookerPoints)-point snooker to tie"
             } else {
-                let remainder = dif / perSnookerPoints
+                let remainder = dif % perSnookerPoints
                 var number = dif / perSnookerPoints
                 if remainder == 0 {
                     numberLabel.text = String(number)

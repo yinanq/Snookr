@@ -28,7 +28,8 @@ class SnookersVC: UIViewController {
     }
     
     private func configureChildren() {
-        difVC.delegate = self
+        difVC.textFieldDelegate = self
+        difVC.calculatorDelegate = titleVC
         ballsVC.delegate = titleVC
         addAndConfigureChildVCSkipView(titleVC)
         addAndConfigureChildVCSkipView(difVC)

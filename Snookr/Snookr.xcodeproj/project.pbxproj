@@ -90,10 +90,12 @@
 		7FEF8A9024676429000240A0 /* SNKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A8F24676429000240A0 /* SNKButton.swift */; };
 		7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A93246764A5000240A0 /* SNKLabel.swift */; };
 		7FEF8A9624676FC1000240A0 /* SNKScoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */; };
-		7FF0BFBE248872D10020C821 /* SnookersDifVC+UITextFieldDelegateAnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0BFBD248872D10020C821 /* SnookersDifVC+UITextFieldDelegateAnd.swift */; };
+		7FF0BFBE248872D10020C821 /* SnookersDifVC+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0BFBD248872D10020C821 /* SnookersDifVC+UITextFieldDelegate.swift */; };
 		7FF0BFC024889E9B0020C821 /* SnookersBallsVC+UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0BFBF24889E9B0020C821 /* SnookersBallsVC+UIPickerViewDelegate.swift */; };
 		7FF0BFC224889EA80020C821 /* SnookersBallsVC+UIPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0BFC124889EA80020C821 /* SnookersBallsVC+UIPickerViewDataSource.swift */; };
 		7FF0BFC42488B4DA0020C821 /* SnookersTitleVC+SnookersBallsVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0BFC32488B4DA0020C821 /* SnookersTitleVC+SnookersBallsVCDelegate.swift */; };
+		7FF0BFC62488D0170020C821 /* SnookersTitleVC+SnookersDifVCCalculatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0BFC52488D0170020C821 /* SnookersTitleVC+SnookersDifVCCalculatorDelegate.swift */; };
+		7FF0BFC82488D31F0020C821 /* SnookersDifVC+SNKNumberTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0BFC72488D31F0020C821 /* SnookersDifVC+SNKNumberTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,10 +184,12 @@
 		7FEF8A8F24676429000240A0 /* SNKButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKButton.swift; sourceTree = "<group>"; };
 		7FEF8A93246764A5000240A0 /* SNKLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKLabel.swift; sourceTree = "<group>"; };
 		7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKScoreButton.swift; sourceTree = "<group>"; };
-		7FF0BFBD248872D10020C821 /* SnookersDifVC+UITextFieldDelegateAnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnookersDifVC+UITextFieldDelegateAnd.swift"; sourceTree = "<group>"; };
+		7FF0BFBD248872D10020C821 /* SnookersDifVC+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnookersDifVC+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		7FF0BFBF24889E9B0020C821 /* SnookersBallsVC+UIPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnookersBallsVC+UIPickerViewDelegate.swift"; sourceTree = "<group>"; };
 		7FF0BFC124889EA80020C821 /* SnookersBallsVC+UIPickerViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnookersBallsVC+UIPickerViewDataSource.swift"; sourceTree = "<group>"; };
 		7FF0BFC32488B4DA0020C821 /* SnookersTitleVC+SnookersBallsVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnookersTitleVC+SnookersBallsVCDelegate.swift"; sourceTree = "<group>"; };
+		7FF0BFC52488D0170020C821 /* SnookersTitleVC+SnookersDifVCCalculatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnookersTitleVC+SnookersDifVCCalculatorDelegate.swift"; sourceTree = "<group>"; };
+		7FF0BFC72488D31F0020C821 /* SnookersDifVC+SNKNumberTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnookersDifVC+SNKNumberTextFieldDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,7 +283,7 @@
 			children = (
 				7F4B89222486F7870099EDEB /* SnookersVC.swift */,
 				7F5D8EF3248871E800F66B70 /* SnookersVC+SnookersDifVCDelegate.swift */,
-				7F4B8927248765E30099EDEB /* Child View Controllers */,
+				7F4B8927248765E30099EDEB /* SnookersVC Child View Controllers */,
 			);
 			path = SnookersTab;
 			sourceTree = "<group>";
@@ -292,18 +296,20 @@
 			path = TextFields;
 			sourceTree = "<group>";
 		};
-		7F4B8927248765E30099EDEB /* Child View Controllers */ = {
+		7F4B8927248765E30099EDEB /* SnookersVC Child View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				7F4B892A248776DE0099EDEB /* SnookersTitleVC.swift */,
+				7FF0BFC52488D0170020C821 /* SnookersTitleVC+SnookersDifVCCalculatorDelegate.swift */,
 				7FF0BFC32488B4DA0020C821 /* SnookersTitleVC+SnookersBallsVCDelegate.swift */,
 				7F4B892C248776F20099EDEB /* SnookersDifVC.swift */,
-				7FF0BFBD248872D10020C821 /* SnookersDifVC+UITextFieldDelegateAnd.swift */,
+				7FF0BFBD248872D10020C821 /* SnookersDifVC+UITextFieldDelegate.swift */,
+				7FF0BFC72488D31F0020C821 /* SnookersDifVC+SNKNumberTextFieldDelegate.swift */,
 				7F4B892E248777030099EDEB /* SnookersBallsVC.swift */,
 				7FF0BFBF24889E9B0020C821 /* SnookersBallsVC+UIPickerViewDelegate.swift */,
 				7FF0BFC124889EA80020C821 /* SnookersBallsVC+UIPickerViewDataSource.swift */,
 			);
-			path = "Child View Controllers";
+			path = "SnookersVC Child View Controllers";
 			sourceTree = "<group>";
 		};
 		7F4BF461246DFFA2009B2E78 /* PointsAdderVC Extensions */ = {
@@ -623,6 +629,7 @@
 				7FCB0F81246BDE2F00562636 /* ScoreboardVC+ResetDelegates.swift in Sources */,
 				7F26984C246E517000AD60B6 /* ScoreboardVC+funcModelUpdaters.swift in Sources */,
 				7FDD3DD12473915100292402 /* FramesVC+funcViewUpdaters.swift in Sources */,
+				7FF0BFC62488D0170020C821 /* SnookersTitleVC+SnookersDifVCCalculatorDelegate.swift in Sources */,
 				7F4991CA247B806900CCAFB6 /* ConnectVC+CBPeripheralDelegate.swift in Sources */,
 				7F158C89246A902100AF1D38 /* ScoreboardStackView.swift in Sources */,
 				7F52C2D12468BCC000C76C1E /* ScoreButtonsView.swift in Sources */,
@@ -667,10 +674,11 @@
 				7FF0BFC224889EA80020C821 /* SnookersBallsVC+UIPickerViewDataSource.swift in Sources */,
 				7FA4B06C247F0E70003CDD64 /* ConnectInstructionTextView.swift in Sources */,
 				7F94A540247E31C600727967 /* DisconnectAlertVC.swift in Sources */,
+				7FF0BFC82488D31F0020C821 /* SnookersDifVC+SNKNumberTextFieldDelegate.swift in Sources */,
 				7FEF8A7E2467601B000240A0 /* ScoreboardVC.swift in Sources */,
 				7F6AE52324690F9800767F7C /* SNKSeparatorView.swift in Sources */,
 				7F7779722484A80A00F29350 /* ScoreResetAlertVC.swift in Sources */,
-				7FF0BFBE248872D10020C821 /* SnookersDifVC+UITextFieldDelegateAnd.swift in Sources */,
+				7FF0BFBE248872D10020C821 /* SnookersDifVC+UITextFieldDelegate.swift in Sources */,
 				7F3EA39A247DB0FB0053BF12 /* ScoreboardVC+funcCB.swift in Sources */,
 				7FEF8A8424676163000240A0 /* Player.swift in Sources */,
 				7F4B892B248776DE0099EDEB /* SnookersTitleVC.swift in Sources */,
