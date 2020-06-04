@@ -12,6 +12,7 @@ class SnookersTitleVC: UIViewController {
     
     let numberLabel = SNKLabel(fontSize: SNKFontSize.gigantic, fontWeight: SNKFontWeight.forFontSizeGigantic, textAlignment: .left)
     let titleLabel = SNKLabel(fontSize: SNKFontSize.title, fontWeight: .bold, textAlignment: .left, numberOfLines: 0)
+    
     var scoreDif = 0
     var ballsTotalPoints: Int?
 

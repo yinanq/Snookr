@@ -35,7 +35,9 @@ extension ScoreboardVC {
     func updateScoresView() {
         stackView.scoreInfoView.scoresView.scoreLabel1.text = String(player1.score)
         stackView.scoreInfoView.scoresView.scoreLabel2.text = String(player2.score)
-        stackView.scoreInfoView.scoresView.scoreDifView.set(difference: abs(player1.score - player2.score))
+        let difference = abs(player1.score - player2.score)
+        stackView.scoreInfoView.scoresView.scoreDifView.set(difference)
+        notifCtr.post(name: .scoreboardVCDidChangeScoreDif, object: difference)
     }
     
     func updateScoreHistoryViewAndUndoButtonsViewFor(_ player: inout Player) {

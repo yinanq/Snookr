@@ -23,6 +23,7 @@ extension Notification.Name {
     static let scoreboardVCDidResetScores = Notification.Name("scoreboardVCDidResetScores")
     static let scoreboardVCChangedNameOfPlayer1 = Notification.Name("scoreboardVcChangedNameOfPlayer1")
     static let scoreboardVCChangedNameOfPlayer2 = Notification.Name("scoreboardVcChangedNameOfPlayer2")
+    static let scoreboardVCDidChangeScoreDif = Notification.Name("scoreboardVCDidChangeScoreDif")
     
     static let framesVCChangedFramesOfEitherPlayer = Notification.Name("framesVCChangedFramesOfEitherPlayer")
     static let framesVCDidResetFrames = Notification.Name("framesVCDidResetFrames")

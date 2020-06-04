@@ -53,6 +53,6 @@ class ScoreDifView: UIView {
         ])
     }
     
-    func set(difference: Int) { differenceLabel.text = String(difference) }
+    func set(_ difference: Int) { differenceLabel.text = String(difference) }
 
 }

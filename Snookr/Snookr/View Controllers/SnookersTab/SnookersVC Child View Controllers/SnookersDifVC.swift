@@ -22,7 +22,6 @@ class SnookersDifVC: UIViewController {
     weak var textFieldDelegate: SnookersDifVCTextFieldDelegate!
     weak var calculatorDelegate: SnookersDifVCCalculatorDelegate!
     
-    let defaults = UserDefaults.standard
     var currentScoreDif = 0
     var userInputDif = 0
     let difTitleLabel = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .left, numberOfLines: 0)
@@ -36,10 +35,12 @@ class SnookersDifVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        updateCurrentScoreDif()
+        initCurrentScoreDif()
+        updateCalculatorDelegate()
     }
     
-    private func updateCurrentScoreDif() {
+    private func initCurrentScoreDif() {
+        let defaults = UserDefaults.standard
         let score1 = defaults.integer(forKey: SNKCommonKey.player1sScore)
         let score2 = defaults.integer(forKey: SNKCommonKey.player2sScore)
         currentScoreDif = abs(score1 - score2)
@@ -50,6 +51,12 @@ class SnookersDifVC: UIViewController {
     private func configureSelf() {
         overrideUserInterfaceStyle = .dark
         view.translatesAutoresizingMaskIntoConstraints = false
+        NotificationCenter.default.addObserver(forName: .scoreboardVCDidChangeScoreDif, object: nil, queue: nil) { notif in
+            self.currentScoreDif = notif.object as! Int
+            if self.difSegControl.selectedSegmentIndex == 0 {
+                self.difTextField.useCurrentScores(dif: self.currentScoreDif)
+            }
+        }
     }
     
     private func configureChildren() {
@@ -82,6 +89,13 @@ class SnookersDifVC: UIViewController {
         case 0: difTextField.useCurrentScores(dif: currentScoreDif)
         case 1: difTextField.useUserInput(lastUserInputDif: userInputDif)
         default: print("invalid case in difSegControlDidChangeValue")
+        }
+        updateCalculatorDelegate()
+    }
+    
+    private func updateCalculatorDelegate() {
+        if let number = Int(difTextField.text ?? "0") {
+            calculatorDelegate.snookersDifVCDidChangeDif(to: number)
         }
     }
 
