@@ -74,6 +74,7 @@ enum SNKColor {
     static let backgroundSecondary = UIColor(red: 0/255, green: 52/255, blue: 30/255, alpha: 1)
     static let backgroundTertiary = UIColor(red: 47/255, green: 85/255, blue: 69/255, alpha: 1)
     static let backgroundGrey = UIColor.systemGray6
+    static let backgroundGreyCGColor = backgroundGrey.cgColor
     static let foreground = UIColor(red: 0/255, green: 255/255, blue: 147/255, alpha: 1)
     static let foregroundSecondary = UIColor(red: 0/255, green: 147/255, blue: 85/255, alpha: 1)
     static let foregroundTertiary = UIColor(red: 0/255, green: 88/255, blue: 50/255, alpha: 1)

@@ -67,7 +67,7 @@ class SNKButton: UIButton {
         isEnabled = false
 //        alpha = SNKAlpha.disabledButton.rawValue
         setTitleColor(SNKColor.backgroundGrey, for: .normal)
-        layer.borderColor = SNKColor.backgroundGrey.cgColor
+        layer.borderColor = SNKColor.backgroundGreyCGColor
     }
     
     func enableSolidStyleButton() {
