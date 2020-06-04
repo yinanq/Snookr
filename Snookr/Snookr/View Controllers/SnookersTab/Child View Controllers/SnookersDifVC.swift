@@ -53,8 +53,7 @@ class SnookersDifVC: UIViewController {
         difSegControl.insertSegment(withTitle: "Current Scores", at: 0, animated: true)
         difSegControl.insertSegment(withTitle: "Enter Difference", at: 1, animated: true)
         difSegControl.selectedSegmentIndex = 0
-        difSegControl.selectedSegmentTintColor = SNKColor.background
-        difSegControl.backgroundColor = SNKColor.backgroundSecondary
+        difSegControl.selectedSegmentTintColor = SNKColor.backgroundSecondary
         difSegControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SNKColor.foreground], for: .normal)
         difSegControl.addTarget(self, action: #selector(difSegControlDidChangeValue), for: .valueChanged)
         difTextField.delegate = self

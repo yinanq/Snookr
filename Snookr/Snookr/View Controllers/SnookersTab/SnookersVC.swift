@@ -28,8 +28,9 @@ class SnookersVC: UIViewController {
     }
     
     private func configureChildren() {
-        addAndConfigureChildVCSkipView(titleVC)
         difVC.delegate = self
+        ballsVC.delegate = titleVC
+        addAndConfigureChildVCSkipView(titleVC)
         addAndConfigureChildVCSkipView(difVC)
         addAndConfigureChildVCSkipView(ballsVC)
         stackView.translatesAutoresizingMaskIntoConstraints = false
