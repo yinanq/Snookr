@@ -462,7 +462,7 @@
 				7F3E932D2467815B0067B891 /* Extensions */,
 				7FEF8A8224676108000240A0 /* Models */,
 				7FEF8A7C24676002000240A0 /* View Controllers */,
-				7FEF8A8824676338000240A0 /* Custom Views */,
+				7FEF8A8824676338000240A0 /* SNK Custom Components */,
 			);
 			path = Snookr;
 			sourceTree = "<group>";
@@ -508,7 +508,7 @@
 			path = "ScoreboardVC Subviews";
 			sourceTree = "<group>";
 		};
-		7FEF8A8824676338000240A0 /* Custom Views */ = {
+		7FEF8A8824676338000240A0 /* SNK Custom Components */ = {
 			isa = PBXGroup;
 			children = (
 				7FD4E6C224765ED5008EC198 /* ViewControllers */,
@@ -518,7 +518,7 @@
 				7F4B892424875D870099EDEB /* TextFields */,
 				7F6AE5242469319A00767F7C /* TextViews */,
 			);
-			path = "Custom Views";
+			path = "SNK Custom Components";
 			sourceTree = "<group>";
 		};
 		7FEF8A9724676FD5000240A0 /* Buttons */ = {

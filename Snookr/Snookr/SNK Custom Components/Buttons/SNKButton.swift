@@ -59,11 +59,15 @@ class SNKButton: UIButton {
     
     func enableOutlineStyleButton() {
         isEnabled = true
-        alpha = 1
+//        alpha = 1
+        setTitleColor(SNKColor.foreground, for: .normal)
+        layer.borderColor = SNKColor.foreground.cgColor
     }
     func disableOutlineStyleButton() {
         isEnabled = false
-        alpha = SNKAlpha.disabledButton.rawValue
+//        alpha = SNKAlpha.disabledButton.rawValue
+        setTitleColor(SNKColor.backgroundGrey, for: .normal)
+        layer.borderColor = SNKColor.backgroundGrey.cgColor
     }
     
     func enableSolidStyleButton() {
@@ -72,7 +76,7 @@ class SNKButton: UIButton {
     }
     func disableSolidStyleButton() {
         isEnabled = false
-        backgroundColor = SNKColor.backgroundSecondary
+        backgroundColor = SNKColor.backgroundGrey
     }
 
 }

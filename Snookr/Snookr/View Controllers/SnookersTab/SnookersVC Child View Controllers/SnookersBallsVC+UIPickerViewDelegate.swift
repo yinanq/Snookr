@@ -10,8 +10,22 @@ import UIKit
 
 extension SnookersBallsVC: UIPickerViewDelegate {
     
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: ballsPickerOptionStrings[row], attributes: [NSAttributedString.Key.foregroundColor: SNKColor.foreground])
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        for view in pickerView.subviews {
+            if view.frame.size.height < 2 {
+                view.frame.size.height = 2
+                view.backgroundColor = UIColor(red: 49/255, green: 49/255, blue: 54/255, alpha: 1)
+            }
+        }
+        let label = SNKLabel(color: SNKColor.foreground, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
+        if row == 0 { label.textColor = .systemGray }
+        label.translatesAutoresizingMaskIntoConstraints = true
+        label.text = ballsPickerOptionStrings[row]
+        return label
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 44
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

@@ -27,6 +27,7 @@ class SnookersDifVC: UIViewController {
     let difTitleLabel = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .left, numberOfLines: 0)
     let difSegControl = UISegmentedControl()
     let difTextField = SNKNumberTextField(size: .small)
+    let containerView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,22 +66,34 @@ class SnookersDifVC: UIViewController {
         difSegControl.insertSegment(withTitle: "Current Scores", at: 0, animated: true)
         difSegControl.insertSegment(withTitle: "Enter Difference", at: 1, animated: true)
         difSegControl.selectedSegmentIndex = 0
-        difSegControl.selectedSegmentTintColor = SNKColor.backgroundSecondary
-        difSegControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SNKColor.foreground], for: .normal)
+        difSegControl.selectedSegmentTintColor = SNKColor.backgroundGrey
+        difSegControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemGray], for: .normal)
+        difSegControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SNKColor.foreground], for: .selected)
+//        difSegControl.selectedSegmentTintColor = SNKColor.foreground
+//        difSegControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SNKColor.foreground], for: .normal)
+//        difSegControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SNKColor.backgroundGrey], for: .selected)
         difSegControl.addTarget(self, action: #selector(difSegControlDidChangeValue), for: .valueChanged)
         difTextField.delegate = self
         difTextField.snkDelegate = self
-        view.addSubviews(difTitleLabel, difSegControl, difTextField)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.backgroundColor = SNKColor.backgroundGrey
+        containerView.layer.cornerRadius = SNKCornerRadius.big
+        containerView.addSubviews(difSegControl, difTextField)
+        view.addSubviews(difTitleLabel, containerView)
         NSLayoutConstraint.activate([
             difTitleLabel.topAnchor.constraint(equalTo: view.topAnchor),
             difTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             difTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            difSegControl.topAnchor.constraint(equalTo: difTitleLabel.bottomAnchor, constant: SNKPadding.small),
-            difSegControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            difSegControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            difTextField.topAnchor.constraint(equalTo: difSegControl.bottomAnchor, constant: 16),
+            containerView.topAnchor.constraint(equalTo: difTitleLabel.bottomAnchor, constant: SNKPadding.tiny),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            difSegControl.topAnchor.constraint(equalTo: containerView.topAnchor, constant: SNKPadding.small),
+            difSegControl.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: SNKPadding.small),
+            difSegControl.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -SNKPadding.small),
+            difTextField.topAnchor.constraint(equalTo: difSegControl.bottomAnchor, constant: SNKPadding.small),
             difTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            view.bottomAnchor.constraint(equalTo: difTextField.bottomAnchor)
+            containerView.bottomAnchor.constraint(equalTo: difTextField.bottomAnchor, constant: SNKPadding.small),
+            view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
     }
     

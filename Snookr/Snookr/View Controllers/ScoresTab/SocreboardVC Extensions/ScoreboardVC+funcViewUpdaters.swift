@@ -18,9 +18,9 @@ extension ScoreboardVC {
     
     func updateResetButton() {
         if player1.score == 0 && player2.score == 0 && player1.historyRedoable.isEmpty && player2.historyRedoable.isEmpty {
-            if resetButton.isEnabled || resetButton.alpha != SNKAlpha.disabledButton.rawValue { resetButton.disableOutlineStyleButton() }
+            if resetButton.isEnabled { resetButton.disableOutlineStyleButton() }
         } else {
-            if !resetButton.isEnabled || resetButton.alpha != 1 { resetButton.enableOutlineStyleButton() }
+            if !resetButton.isEnabled { resetButton.enableOutlineStyleButton() }
         }
     }
     

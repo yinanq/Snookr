@@ -75,12 +75,10 @@ class MeWhichPlayerView: UIView {
     }
     
     func lockToggleButton() {
-//        toggleButton.isEnabled = false
         toggleButton.isUserInteractionEnabled = false
-        toggleButton.tintColor = SNKColor.backgroundSecondary
+        toggleButton.tintColor = SNKColor.backgroundGrey
     }
     func unlockToggleButton() {
-//        toggleButton.isEnabled = true
         toggleButton.isUserInteractionEnabled = true
         toggleButton.tintColor = SNKColor.foregroundSecondary
     }

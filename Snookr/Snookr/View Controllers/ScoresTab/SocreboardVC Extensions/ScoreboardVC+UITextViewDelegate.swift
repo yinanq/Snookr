@@ -88,7 +88,6 @@ extension ScoreboardVC: UITextViewDelegate {
             view.isUserInteractionEnabled = true
             UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = 1 }
         }
-        updateResetButton() //its alpha became 1 regardless, if was and is disabled then disable again to correct alpha
     }
     
 }

@@ -20,7 +20,7 @@ class SnookersBallsVC: UIViewController {
     let ballsTitleLable = SNKLabel(fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .left, numberOfLines: 0)
     let ballsPicker = UIPickerView()
     let ballsPickerOptionStrings = [
-        "Select:",
+        "Select",
         "Pink",
         "Blue",
         "Brown",
@@ -57,15 +57,17 @@ class SnookersBallsVC: UIViewController {
     }
     
     private func configureChildren() {
-        ballsTitleLable.text = "Balls Remaining"
+        ballsTitleLable.text = "Colors Remaining"
         ballsPicker.translatesAutoresizingMaskIntoConstraints = false
         ballsPicker.delegate = self
+        ballsPicker.backgroundColor = SNKColor.backgroundGrey
+        ballsPicker.layer.cornerRadius = SNKCornerRadius.big
         view.addSubviews(ballsTitleLable, ballsPicker)
         NSLayoutConstraint.activate([
             ballsTitleLable.topAnchor.constraint(equalTo: view.topAnchor),
             ballsTitleLable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             ballsTitleLable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            ballsPicker.topAnchor.constraint(equalTo: ballsTitleLable.bottomAnchor),
+            ballsPicker.topAnchor.constraint(equalTo: ballsTitleLable.bottomAnchor, constant: SNKPadding.tiny),
             ballsPicker.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             ballsPicker.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             view.bottomAnchor.constraint(equalTo: ballsPicker.bottomAnchor)

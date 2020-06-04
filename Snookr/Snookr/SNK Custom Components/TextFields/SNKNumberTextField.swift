@@ -49,7 +49,7 @@ class SNKNumberTextField: UITextField {
         switch size {
         case .big:
             font = UIFont.systemFont(ofSize: SNKFontSize.huge, weight: SNKFontWeight.forFontSizeHuge)
-            attributedPlaceholder = NSAttributedString(string: "000", attributes: [NSAttributedString.Key.foregroundColor: SNKColor.backgroundSecondary])
+            attributedPlaceholder = NSAttributedString(string: "000", attributes: [NSAttributedString.Key.foregroundColor: SNKColor.backgroundGrey])
             NSLayoutConstraint.activate([
                 widthAnchor.constraint(equalToConstant: 195),
                 heightAnchor.constraint(equalToConstant: 90)
@@ -80,14 +80,12 @@ class SNKNumberTextField: UITextField {
     func useCurrentScores(dif: Int) {
         isEnabled = false
         layer.borderWidth = 0
-        backgroundColor = SNKColor.backgroundSecondary
         text = String(dif)
     }
     
     func useUserInput(lastUserInputDif: Int = 0) {
         isEnabled = true
         layer.borderWidth = 2
-        backgroundColor = nil
         text = String(lastUserInputDif)
     }
 
