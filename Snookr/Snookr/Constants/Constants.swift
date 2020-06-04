@@ -96,6 +96,7 @@ enum SNKFontSize {
 enum SNKFontWeight {
     static let forFontSizeGigantic: UIFont.Weight = .semibold
     static let forFontSizeHuge: UIFont.Weight = .semibold
+    static let forFontSizeBig: UIFont.Weight = .bold
     static let forFontSizeRegular: UIFont.Weight = .bold
     static let forFontSizeSmall: UIFont.Weight = .bold
 }
@@ -124,6 +125,7 @@ enum SNKPadding {
     static let separatorViewWidth: CGFloat = 2
     static let separatorViewTopAdj: CGFloat = 4.5
     static let difViewWidth: CGFloat = 65
+    static let difViewHeight: CGFloat = 48
     static let lineSpacing: CGFloat = 10
 }
 
@@ -132,7 +134,7 @@ enum SNKTabBarImage {
     static let connected = UIImage(systemName: "person.2.fill")
     static let scores = UIImage(systemName: "square.split.2x1.fill")
     static let frames = UIImage(systemName: "square.grid.3x2.fill")
-    static let snookers = UIImage(systemName: "divide.square.fill")
+    static let snookers = UIImage(systemName: "questionmark.square.fill")
     static let about = UIImage(systemName: "info.circle.fill")
 }
 

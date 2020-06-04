@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension ConnectVC: ConnectCodeTextFieldDelegate {
-    func connectCodeTextFieldEditingChanged(textField: ConnectCodeTextField) {
+extension ConnectVC: SNKNumberTextFieldDelegate {    
+    func snkNumberTextFieldEditingChanged(textField: SNKNumberTextField) {
         if let count = textField.text?.count {
             if count == 3 {
                 connectButton.enableSolidStyleButton()

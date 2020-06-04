@@ -14,6 +14,7 @@ class SnookersVC: UIViewController {
     let titleVC = SnookersTitleVC()
     let difVC = SnookersDifVC()
     let ballsVC = SnookersBallsVC()
+    let tapRecognizer = UITapGestureRecognizer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +24,12 @@ class SnookersVC: UIViewController {
     
     private func configureSelf() {
         overrideUserInterfaceStyle = .dark
+        view.backgroundColor = SNKColor.background
     }
     
     private func configureChildren() {
         addAndConfigureChildVCSkipView(titleVC)
+        difVC.delegate = self
         addAndConfigureChildVCSkipView(difVC)
         addAndConfigureChildVCSkipView(ballsVC)
         stackView.translatesAutoresizingMaskIntoConstraints = false

@@ -13,9 +13,9 @@ class SnookersTitleVC: UIViewController {
     var toTie = false
     var titleText: String {
         if toTie {
-            return "snookers required to tie"
+            return "4-point snookers to tie"
         } else {
-            return "snookers required"
+            return "4-point snookers to win"
         }
     }
     let numberLabel = SNKLabel(fontSize: SNKFontSize.gigantic, fontWeight: SNKFontWeight.forFontSizeGigantic, textAlignment: .left)

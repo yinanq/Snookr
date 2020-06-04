@@ -22,7 +22,7 @@
 		7F4991CA247B806900CCAFB6 /* ConnectVC+CBPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4991C9247B806900CCAFB6 /* ConnectVC+CBPeripheralDelegate.swift */; };
 		7F4A3223246A59D700BE7F97 /* SNKAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A3222246A59D700BE7F97 /* SNKAlertVC.swift */; };
 		7F4A3225246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */; };
-		7F4B89232486F7870099EDEB /* Snookers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B89222486F7870099EDEB /* Snookers.swift */; };
+		7F4B89232486F7870099EDEB /* SnookersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B89222486F7870099EDEB /* SnookersVC.swift */; };
 		7F4B892624875DB90099EDEB /* SNKNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B892524875DB90099EDEB /* SNKNumberTextField.swift */; };
 		7F4B8929248766930099EDEB /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B8928248766930099EDEB /* UIViewController+.swift */; };
 		7F4B892B248776DE0099EDEB /* SnookersTitleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B892A248776DE0099EDEB /* SnookersTitleVC.swift */; };
@@ -39,6 +39,7 @@
 		7F56227324774D3A00458193 /* SNKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56227224774D3A00458193 /* SNKView.swift */; };
 		7F56227524776E1800458193 /* NotificationName+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56227424776E1800458193 /* NotificationName+.swift */; };
 		7F56D6B3247A0A51006807E6 /* ConnectVC+MeWhichPlayerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56D6B2247A0A51006807E6 /* ConnectVC+MeWhichPlayerViewDelegate.swift */; };
+		7F5D8EF4248871E800F66B70 /* SnookersVC+SnookersDifVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D8EF3248871E800F66B70 /* SnookersVC+SnookersDifVCDelegate.swift */; };
 		7F6AE51D2468C5F300767F7C /* UndoButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */; };
 		7F6AE52124690BA000767F7C /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52024690BA000767F7C /* UIStackView+.swift */; };
 		7F6AE52324690F9800767F7C /* SNKSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE52224690F9800767F7C /* SNKSeparatorView.swift */; };
@@ -55,7 +56,6 @@
 		7F94A540247E31C600727967 /* DisconnectAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F94A53F247E31C600727967 /* DisconnectAlertVC.swift */; };
 		7FA4006F247389540013AE2C /* FramesWonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4006E247389540013AE2C /* FramesWonView.swift */; };
 		7FA4B06C247F0E70003CDD64 /* ConnectInstructionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4B06B247F0E70003CDD64 /* ConnectInstructionTextView.swift */; };
-		7FA4B06E247F16E1003CDD64 /* ConnectCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4B06D247F16E1003CDD64 /* ConnectCodeTextField.swift */; };
 		7FA4B070247F2507003CDD64 /* ConnectVC+UITextFieldDelegateAnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4B06F247F2507003CDD64 /* ConnectVC+UITextFieldDelegateAnd.swift */; };
 		7FA4B072247F4459003CDD64 /* ConnectedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4B071247F4459003CDD64 /* ConnectedTextView.swift */; };
 		7FA5A22B2473363000B9D72C /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5A22A2473363000B9D72C /* TabBarVC.swift */; };
@@ -90,6 +90,7 @@
 		7FEF8A9024676429000240A0 /* SNKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A8F24676429000240A0 /* SNKButton.swift */; };
 		7FEF8A94246764A5000240A0 /* SNKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A93246764A5000240A0 /* SNKLabel.swift */; };
 		7FEF8A9624676FC1000240A0 /* SNKScoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */; };
+		7FF0BFBE248872D10020C821 /* SnookersDifVC+UITextFieldDelegateAnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0BFBD248872D10020C821 /* SnookersDifVC+UITextFieldDelegateAnd.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,7 +109,7 @@
 		7F4991C9247B806900CCAFB6 /* ConnectVC+CBPeripheralDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+CBPeripheralDelegate.swift"; sourceTree = "<group>"; };
 		7F4A3222246A59D700BE7F97 /* SNKAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKAlertVC.swift; sourceTree = "<group>"; };
 		7F4A3224246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
-		7F4B89222486F7870099EDEB /* Snookers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snookers.swift; sourceTree = "<group>"; };
+		7F4B89222486F7870099EDEB /* SnookersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnookersVC.swift; sourceTree = "<group>"; };
 		7F4B892524875DB90099EDEB /* SNKNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKNumberTextField.swift; sourceTree = "<group>"; };
 		7F4B8928248766930099EDEB /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		7F4B892A248776DE0099EDEB /* SnookersTitleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnookersTitleVC.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		7F56227224774D3A00458193 /* SNKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKView.swift; sourceTree = "<group>"; };
 		7F56227424776E1800458193 /* NotificationName+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+.swift"; sourceTree = "<group>"; };
 		7F56D6B2247A0A51006807E6 /* ConnectVC+MeWhichPlayerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+MeWhichPlayerViewDelegate.swift"; sourceTree = "<group>"; };
+		7F5D8EF3248871E800F66B70 /* SnookersVC+SnookersDifVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnookersVC+SnookersDifVCDelegate.swift"; sourceTree = "<group>"; };
 		7F6AE51C2468C5F300767F7C /* UndoButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButtonsView.swift; sourceTree = "<group>"; };
 		7F6AE52024690BA000767F7C /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		7F6AE52224690F9800767F7C /* SNKSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKSeparatorView.swift; sourceTree = "<group>"; };
@@ -141,7 +143,6 @@
 		7F94A53F247E31C600727967 /* DisconnectAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectAlertVC.swift; sourceTree = "<group>"; };
 		7FA4006E247389540013AE2C /* FramesWonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesWonView.swift; sourceTree = "<group>"; };
 		7FA4B06B247F0E70003CDD64 /* ConnectInstructionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectInstructionTextView.swift; sourceTree = "<group>"; };
-		7FA4B06D247F16E1003CDD64 /* ConnectCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectCodeTextField.swift; sourceTree = "<group>"; };
 		7FA4B06F247F2507003CDD64 /* ConnectVC+UITextFieldDelegateAnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+UITextFieldDelegateAnd.swift"; sourceTree = "<group>"; };
 		7FA4B071247F4459003CDD64 /* ConnectedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedTextView.swift; sourceTree = "<group>"; };
 		7FA5A22A2473363000B9D72C /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
@@ -178,6 +179,7 @@
 		7FEF8A8F24676429000240A0 /* SNKButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKButton.swift; sourceTree = "<group>"; };
 		7FEF8A93246764A5000240A0 /* SNKLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKLabel.swift; sourceTree = "<group>"; };
 		7FEF8A9524676FC1000240A0 /* SNKScoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKScoreButton.swift; sourceTree = "<group>"; };
+		7FF0BFBD248872D10020C821 /* SnookersDifVC+UITextFieldDelegateAnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnookersDifVC+UITextFieldDelegateAnd.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,7 +262,6 @@
 			children = (
 				7F46E1EB2477B354002712A8 /* MeWhichPlayerView.swift */,
 				7FA4B06B247F0E70003CDD64 /* ConnectInstructionTextView.swift */,
-				7FA4B06D247F16E1003CDD64 /* ConnectCodeTextField.swift */,
 				7F79AFBD2478EC18001321E9 /* ConnectButton.swift */,
 				7FA4B071247F4459003CDD64 /* ConnectedTextView.swift */,
 			);
@@ -270,7 +271,8 @@
 		7F4B89212486F67E0099EDEB /* SnookersTab */ = {
 			isa = PBXGroup;
 			children = (
-				7F4B89222486F7870099EDEB /* Snookers.swift */,
+				7F4B89222486F7870099EDEB /* SnookersVC.swift */,
+				7F5D8EF3248871E800F66B70 /* SnookersVC+SnookersDifVCDelegate.swift */,
 				7F4B8927248765E30099EDEB /* Child View Controllers */,
 			);
 			path = SnookersTab;
@@ -289,6 +291,7 @@
 			children = (
 				7F4B892A248776DE0099EDEB /* SnookersTitleVC.swift */,
 				7F4B892C248776F20099EDEB /* SnookersDifVC.swift */,
+				7FF0BFBD248872D10020C821 /* SnookersDifVC+UITextFieldDelegateAnd.swift */,
 				7F4B892E248777030099EDEB /* SnookersBallsVC.swift */,
 			);
 			path = "Child View Controllers";
@@ -593,7 +596,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FE085CD246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift in Sources */,
-				7F4B89232486F7870099EDEB /* Snookers.swift in Sources */,
+				7F4B89232486F7870099EDEB /* SnookersVC.swift in Sources */,
 				7F4BF460246DE33A009B2E78 /* SNKXButton.swift in Sources */,
 				7F732505247B24900034F275 /* ConnectVC+funcCB.swift in Sources */,
 				7F0F60A9246CB45300F4C52C /* InfoVC.swift in Sources */,
@@ -629,7 +632,6 @@
 				7F56D6B3247A0A51006807E6 /* ConnectVC+MeWhichPlayerViewDelegate.swift in Sources */,
 				7FDD3DD72473A71000292402 /* FramesVC+FramesWonButtonsViewDelegate.swift in Sources */,
 				7FACBEC8246CF01C004E9137 /* PointsAdderNumberPadView.swift in Sources */,
-				7FA4B06E247F16E1003CDD64 /* ConnectCodeTextField.swift in Sources */,
 				7F46E1E72477919F002712A8 /* ConnectVC+funcModelUpdaters.swift in Sources */,
 				7F77796C24849D8900F29350 /* WinButton.swift in Sources */,
 				7FA4006F247389540013AE2C /* FramesWonView.swift in Sources */,
@@ -657,6 +659,7 @@
 				7FEF8A7E2467601B000240A0 /* ScoreboardVC.swift in Sources */,
 				7F6AE52324690F9800767F7C /* SNKSeparatorView.swift in Sources */,
 				7F7779722484A80A00F29350 /* ScoreResetAlertVC.swift in Sources */,
+				7FF0BFBE248872D10020C821 /* SnookersDifVC+UITextFieldDelegateAnd.swift in Sources */,
 				7F3EA39A247DB0FB0053BF12 /* ScoreboardVC+funcCB.swift in Sources */,
 				7FEF8A8424676163000240A0 /* Player.swift in Sources */,
 				7F4B892B248776DE0099EDEB /* SnookersTitleVC.swift in Sources */,
@@ -665,6 +668,7 @@
 				7F4A3225246A666F00BE7F97 /* ScoreboardVC+UITextViewDelegate.swift in Sources */,
 				7FDD3DD92473ACF900292402 /* FramesVC+funcPersistence.swift in Sources */,
 				7FEF8A6B24675E9E000240A0 /* SceneDelegate.swift in Sources */,
+				7F5D8EF4248871E800F66B70 /* SnookersVC+SnookersDifVCDelegate.swift in Sources */,
 				7F56227324774D3A00458193 /* SNKView.swift in Sources */,
 				7F46E1E9247791D6002712A8 /* ConnectVC+funcViewUpdaters.swift in Sources */,
 				7F732503247B1C710034F275 /* ConnectVC+CBCentralManagerDelegate.swift in Sources */,

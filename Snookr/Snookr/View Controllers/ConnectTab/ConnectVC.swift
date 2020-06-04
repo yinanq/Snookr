@@ -39,7 +39,7 @@ class ConnectVC: UIViewController {
     let playerNamesView = SNKPlayerNamesView()
     let meWhichPlayerView = MeWhichPlayerView()
     let containerView = SNKView()
-    let connectCodeTextField = ConnectCodeTextField()
+    let connectCodeTextField = SNKNumberTextField(size: .big)
     let connectInstructionTextView = ConnectInstructionTextView()
     let connectButton = ConnectButton()
     let connectedTextView = ConnectedTextView()
