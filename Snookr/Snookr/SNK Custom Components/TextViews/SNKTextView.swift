@@ -17,17 +17,19 @@ class SNKTextView: UITextView {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    convenience init(fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment = .center) {
+    convenience init(fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment = .center, textAndTintColor: UIColor = SNKColor.foreground) {
         self.init(frame: .zero)
         font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
+        textColor = textAndTintColor
+        tintColor = textAndTintColor
         self.textAlignment = textAlignment
     }
     
     private func configure() {
+        textContainer.lineFragmentPadding = 0
+        textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         translatesAutoresizingMaskIntoConstraints = false
         isScrollEnabled = false
-        textColor = SNKColor.foreground
-        tintColor = SNKColor.foreground
         backgroundColor = nil
         autocorrectionType = .no
         autocapitalizationType = .words

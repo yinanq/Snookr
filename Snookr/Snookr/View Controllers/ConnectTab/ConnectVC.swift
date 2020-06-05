@@ -130,7 +130,7 @@ class ConnectVC: UIViewController {
         NSLayoutConstraint.activate([
             separatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             separatorView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big + SNKPadding.separatorViewTopAdj),
-            separatorView.bottomAnchor.constraint(equalTo: playerNamesView.bottomAnchor, constant: SNKPadding.textViewAdjusterTop - 3.5),
+            separatorView.bottomAnchor.constraint(equalTo: playerNamesView.bottomAnchor, constant: -3.5),
             playerNamesView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
             playerNamesView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             playerNamesView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
@@ -141,15 +141,17 @@ class ConnectVC: UIViewController {
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SNKPadding.big),
-            connectInstructionTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            connectInstructionTextView.bottomAnchor.constraint(equalTo: connectCodeTextField.topAnchor, constant: -SNKPadding.tiny),
+            connectInstructionTextView.leadingAnchor.constraint(equalTo: connectButton.leadingAnchor),
+            connectInstructionTextView.trailingAnchor.constraint(equalTo: connectButton.trailingAnchor),
+            connectInstructionTextView.lastBaselineAnchor.constraint(equalTo: connectCodeTextField.topAnchor, constant: -SNKPadding.big),
             connectCodeTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            connectCodeTextField.bottomAnchor.constraint(equalTo: connectButton.topAnchor, constant: -SNKPadding.big + -2),
+            connectCodeTextField.bottomAnchor.constraint(equalTo: connectButton.topAnchor, constant: -SNKPadding.big),
             connectButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             connectButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             connectButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            connectedTextView.topAnchor.constraint(equalTo: connectButton.bottomAnchor, constant: SNKPadding.small),
-            connectedTextView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+            connectedTextView.topAnchor.constraint(equalTo: connectButton.bottomAnchor, constant: SNKPadding.big),
+            connectedTextView.leadingAnchor.constraint(equalTo: connectButton.leadingAnchor),
+            connectedTextView.trailingAnchor.constraint(equalTo: connectButton.trailingAnchor),
         ])
     }
     private func playLaunchScreenSmootherAnimation() {

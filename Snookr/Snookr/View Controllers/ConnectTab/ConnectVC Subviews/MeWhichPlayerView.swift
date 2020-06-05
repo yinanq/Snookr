@@ -50,9 +50,9 @@ class MeWhichPlayerView: UIView {
             toggleButton.topAnchor.constraint(equalTo: topAnchor),
             toggleButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             meLabel.leadingAnchor.constraint(equalTo: toggleButton.trailingAnchor),
-            meLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -SNKPadding.textViewAdjusterTextAlignedSide),
+            meLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             meLabel.centerYAnchor.constraint(equalTo: toggleButton.centerYAnchor),
-            opponentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.textViewAdjusterTextAlignedSide),
+            opponentLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             opponentLabel.trailingAnchor.constraint(equalTo: toggleButton.leadingAnchor),
             opponentLabel.centerYAnchor.constraint(equalTo: toggleButton.centerYAnchor),
             heightAnchor.constraint(equalTo: toggleButton.heightAnchor)

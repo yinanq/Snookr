@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConnectInstructionTextView: UITextView {
+class ConnectInstructionTextView: SNKTextView {
 
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -29,29 +29,19 @@ class ConnectInstructionTextView: UITextView {
         let text = "Create a 3-digit code and connect. Ask opponent nearby to enter same code and hit connect on their app too."
         let maString = NSMutableAttributedString(string: text, attributes: attributes)
         attributedText = maString
-        
         isEditable = false
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-//            widthAnchor.constraint(equalToConstant: SNKBodyWidth.fixed),
-//            heightAnchor.constraint(equalToConstant: 82)
-            widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 2 * (SNKPadding.big - SNKPadding.textViewAdjusterBodyText)),
-            heightAnchor.constraint(equalToConstant: 105)
-        ])
         alpha = 0
-//        backgroundColor = SNKColor.backgroundSecondary
     }
     
     func hide() {
-//        isHidden = true
         UIView.animate(withDuration: SNKAnimationDuration.short) {
             self.alpha = 0
         }
     }
     
     func unhide() {
-//        isHidden = false
         UIView.animate(withDuration: SNKAnimationDuration.short) {
             self.alpha = 1
         }

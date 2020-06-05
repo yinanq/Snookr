@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConnectedTextView: UITextView {
+class ConnectedTextView: SNKTextView {
     
     let notConnectedText = "When connected, scores auto sync via Bluetooth between two Snookr apps. When not connected, Snookr is a standalone scoreboard."
     let connectedText = "Now connected, scores auto sync. You and your opponent can each update from your own app. Open Scores tab and give it a try!"
@@ -33,13 +33,6 @@ class ConnectedTextView: UITextView {
         attributedText = maString
         isEditable = false
         isUserInteractionEnabled = false
-        translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            widthAnchor.constraint(equalToConstant: SNKBodyWidth.fixed),
-//            heightAnchor.constraint(equalToConstant: 140)
-//        ])
-        widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 2 * (SNKPadding.big - SNKPadding.textViewAdjusterBodyText)).isActive = true
-        clipsToBounds = false
         setToNotConnected()
     }
     

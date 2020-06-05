@@ -30,7 +30,7 @@ class InfoVC: UIViewController {
     }
     
     private func configureBodyTextViewContainerView() {
-        let string = "Snookr is a connected scoreboard for snooker. You and your opponent at the snooker table can each use your own Snookr app on your own iPhone in the Bluetooth-connected mode. You can also choose not to turn on Bluetooth connection and just update both players' scores on one iPhone.\nThis app is designed and developed by Yinan Qiu. Feel free to contact him if you have feedback, questions, or feature requests. He wishes you loads of ranking points, mate!"
+        let string = "Snookr is a snooker scoreboard and a calculator of how many snookers are required. You and your opponent at the snooker table can each use your own Snookr app on your own iPhone in the Bluetooth-connected mode. You can also choose not to turn on Bluetooth connection and just update both players' scores on one iPhone.\nSnookr is designed and developed by Yinan Qiu. Feel free to contact him if you have feedback, questions, or feature requests. Last but not least, he wishes you loads of ranking points, mate!"
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = SNKPadding.lineSpacing
         paragraphStyle.alignment = .left
@@ -41,7 +41,7 @@ class InfoVC: UIViewController {
             .foregroundColor: SNKColor.foregroundGray,
         ]
         let maString = NSMutableAttributedString(string: string, attributes: attributes)
-        maString.addAttribute(.link, value: "https://yinan.design/contact", range: NSRange(location: 344, length: 11))
+        maString.addAttribute(.link, value: "https://yinan.design/contact", range: NSRange(location: 379, length: 11))
         bodyTextView.isEditable = false
         bodyTextView.linkTextAttributes = [NSAttributedString.Key.underlineStyle: true]
         bodyTextView.attributedText = maString
@@ -55,10 +55,10 @@ class InfoVC: UIViewController {
     private func layout() {
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
-            logoImageView.leadingAnchor.constraint(equalTo: bodyTextViewContainerView.leadingAnchor, constant: 5),
-            bodyTextViewContainerView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40),
-            bodyTextViewContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big + -SNKPadding.textViewAdjusterBodyText),
-            bodyTextViewContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big + SNKPadding.textViewAdjusterBodyText),
+            logoImageView.leadingAnchor.constraint(equalTo: bodyTextViewContainerView.leadingAnchor),
+            bodyTextViewContainerView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 30),
+            bodyTextViewContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
+            bodyTextViewContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             bodyTextView.topAnchor.constraint(equalTo: bodyTextViewContainerView.topAnchor),
             bodyTextView.leadingAnchor.constraint(equalTo: bodyTextViewContainerView.leadingAnchor),
             bodyTextView.trailingAnchor.constraint(equalTo: bodyTextViewContainerView.trailingAnchor),
