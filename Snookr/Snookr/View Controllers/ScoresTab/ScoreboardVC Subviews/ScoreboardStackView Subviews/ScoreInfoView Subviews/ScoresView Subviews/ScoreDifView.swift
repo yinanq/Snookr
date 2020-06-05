@@ -27,7 +27,8 @@ class ScoreDifView: UIView {
     private func configureView() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = SNKColor.backgroundGray
-        layer.cornerRadius = SNKCornerRadius.small
+//        layer.cornerRadius = SNKCornerRadius.small
+        layer.cornerRadius = SNKCornerRadius.big
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalToConstant: SNKPadding.difViewWidth),
             heightAnchor.constraint(equalToConstant: SNKPadding.difViewHeight)
@@ -35,19 +36,20 @@ class ScoreDifView: UIView {
     }
     
     private func addLabels() {
-        let titleLabel = SNKLabel(fontSize: SNKFontSize.small, fontWeight: SNKFontWeight.forFontSizeSmall, textAlignment: .center)
+//        let titleLabel = SNKLabel(fontSize: SNKFontSize.small, fontWeight: SNKFontWeight.forFontSizeSmall, textAlignment: .center)
+//        titleLabel.text = "DIFFERENCE"
         differenceLabel = SNKLabel(fontSize: SNKFontSize.big, fontWeight: SNKFontWeight.forFontSizeBig, textAlignment: .center)
-        titleLabel.text = "DIFFERENCE"
         differenceLabel.adjustsFontSizeToFitWidth = true
-        let labels = [titleLabel, differenceLabel]
-        for label in labels {
-            addSubview(label!)
-            label!.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        }
-        addSubviews(titleLabel, differenceLabel)
+//        let labels = [titleLabel, differenceLabel]
+//        for label in labels {
+//            addSubview(label!)
+//            label!.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+//        }
+        addSubview(differenceLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: SNKPadding.tiny),
-            differenceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+//            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: SNKPadding.tiny),
+//            differenceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            differenceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             differenceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.small),
             differenceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -SNKPadding.small)
         ])
