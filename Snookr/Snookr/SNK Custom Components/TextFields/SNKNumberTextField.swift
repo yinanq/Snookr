@@ -49,7 +49,7 @@ class SNKNumberTextField: UITextField {
         switch size {
         case .big:
             font = UIFont.systemFont(ofSize: SNKFontSize.huge, weight: SNKFontWeight.forFontSizeHuge)
-            attributedPlaceholder = NSAttributedString(string: "000", attributes: [NSAttributedString.Key.foregroundColor: SNKColor.backgroundGrey])
+            attributedPlaceholder = NSAttributedString(string: "000", attributes: [NSAttributedString.Key.foregroundColor: SNKColor.backgroundGray])
             NSLayoutConstraint.activate([
                 widthAnchor.constraint(equalToConstant: 195),
                 heightAnchor.constraint(equalToConstant: 90)

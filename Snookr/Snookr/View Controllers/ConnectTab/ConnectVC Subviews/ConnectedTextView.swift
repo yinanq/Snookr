@@ -45,7 +45,7 @@ class ConnectedTextView: UITextView {
     
     func setToNotConnected() {
         text = notConnectedText
-        textColor = SNKColor.foregroundGrey
+        textColor = SNKColor.foregroundGray
     }
     
     func setToConnected() {

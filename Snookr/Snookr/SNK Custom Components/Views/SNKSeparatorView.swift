@@ -19,7 +19,7 @@ class SNKSeparatorView: UIView {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = SNKColor.backgroundGrey
+        backgroundColor = SNKColor.backgroundGray
         layer.cornerRadius = SNKPadding.separatorViewWidth / 2
         widthAnchor.constraint(equalToConstant: SNKPadding.separatorViewWidth).isActive = true
     }

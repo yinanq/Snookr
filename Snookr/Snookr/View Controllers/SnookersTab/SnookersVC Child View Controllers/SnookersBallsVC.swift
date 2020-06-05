@@ -60,7 +60,7 @@ class SnookersBallsVC: UIViewController {
         ballsTitleLable.text = "Colors Remaining"
         ballsPicker.translatesAutoresizingMaskIntoConstraints = false
         ballsPicker.delegate = self
-        ballsPicker.backgroundColor = SNKColor.backgroundGrey
+        ballsPicker.backgroundColor = SNKColor.backgroundGray
         ballsPicker.layer.cornerRadius = SNKCornerRadius.big
         view.addSubviews(ballsTitleLable, ballsPicker)
         NSLayoutConstraint.activate([
