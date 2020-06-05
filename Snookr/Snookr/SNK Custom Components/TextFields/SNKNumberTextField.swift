@@ -30,11 +30,6 @@ class SNKNumberTextField: UITextField {
     
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         return false
-//        if action == #selector(paste(_:)) {
-//            return false
-//        } else {
-//            return super.canPerformAction(action, withSender: sender)
-//        }
     }
     
     private func configure(size: Size) {

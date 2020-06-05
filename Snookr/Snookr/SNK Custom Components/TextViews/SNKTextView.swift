@@ -17,6 +17,17 @@ class SNKTextView: UITextView {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        switch action {
+        case #selector(copy(_:)):
+            return super.canPerformAction(action, withSender: sender)
+        case #selector(paste(_:)):
+            return super.canPerformAction(action, withSender: sender)
+        default:
+            return false
+        }
+    }
+    
     convenience init(fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment = .center, textAndTintColor: UIColor = SNKColor.foreground) {
         self.init(frame: .zero)
         font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
