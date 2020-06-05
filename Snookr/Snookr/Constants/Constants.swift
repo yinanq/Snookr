@@ -80,6 +80,12 @@ enum SNKColor {
     static let foregroundHighlited = UIColor(white: 1, alpha: 1)
     static let foregroundGray = UIColor(red: 142/255, green: 142/255, blue: 147/255, alpha: 1) //systemGray in dark mode
     static let destructive = UIColor(red: 255/255, green: 55/255, blue: 95/255, alpha: 1) //systemPink in dark mode
+    static let ballPink = UIColor(hue: 0.95, saturation: 0.5, brightness: 1, alpha: 1)
+    static let ballBlue = UIColor(hue: 0.58, saturation: 0.68, brightness: 1, alpha: 1)
+    static let ballBrown = UIColor(hue: 0.08, saturation: 0.5, brightness: 1, alpha: 1)
+    static let ballGreen = UIColor(hue: 0.39, saturation: 0.65, brightness: 1, alpha: 1)
+    static let ballYellow = UIColor(hue: 0.15, saturation: 0.6, brightness: 1, alpha: 1)
+    static let ballRed = UIColor(hue: 0.99, saturation: 0.63, brightness: 1, alpha: 1)
 }
 
 enum SNKCornerRadius {
