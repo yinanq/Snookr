@@ -134,7 +134,7 @@ class ConnectVC: UIViewController {
             playerNamesView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SNKPadding.big),
             playerNamesView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             playerNamesView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
-            meWhichPlayerView.topAnchor.constraint(equalTo: playerNamesView.bottomAnchor),
+            meWhichPlayerView.topAnchor.constraint(equalTo: playerNamesView.bottomAnchor, constant: SNKPadding.tiny),
             meWhichPlayerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             meWhichPlayerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             containerView.topAnchor.constraint(equalTo: meWhichPlayerView.bottomAnchor),

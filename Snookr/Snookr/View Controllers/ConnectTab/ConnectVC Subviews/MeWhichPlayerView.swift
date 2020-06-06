@@ -17,10 +17,12 @@ class MeWhichPlayerView: UIView {
     weak var delegate: MeWhichPlayerViewDelegate!
     
     let toggleButton = UIButton()
-    let meLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .right)
-    let opponentLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .left)
-    let meStr = "me"
-    let opStr = "opponent"
+    let meLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
+    let opponentLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
+    var opponentLabelLeading: NSLayoutConstraint!
+    var opponentLabelTrailing: NSLayoutConstraint!
+    var meLabelLeading: NSLayoutConstraint!
+    var meLabelTrailing: NSLayoutConstraint!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,41 +39,47 @@ class MeWhichPlayerView: UIView {
     private func configure() {
         backgroundColor = SNKColor.background
         translatesAutoresizingMaskIntoConstraints = false
-        addSubviews(toggleButton, meLabel, opponentLabel)
-        
         toggleButton.translatesAutoresizingMaskIntoConstraints = false
         toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .normal)
         toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .highlighted)
-        
-        meLabel.text = meStr
-        opponentLabel.text = opStr
-        
+        opponentLabel.text = "opponent"
+        meLabel.text = "me"
+        addSubviews(opponentLabel, meLabel, toggleButton)
+        meLabelLeading = meLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
+        meLabelTrailing = meLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+        opponentLabelLeading = opponentLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
+        opponentLabelTrailing = opponentLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         NSLayoutConstraint.activate([
             toggleButton.topAnchor.constraint(equalTo: topAnchor),
             toggleButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            meLabel.leadingAnchor.constraint(equalTo: toggleButton.trailingAnchor),
-            meLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             meLabel.centerYAnchor.constraint(equalTo: toggleButton.centerYAnchor),
-            opponentLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            opponentLabel.trailingAnchor.constraint(equalTo: toggleButton.leadingAnchor),
             opponentLabel.centerYAnchor.constraint(equalTo: toggleButton.centerYAnchor),
+            meLabel.centerYAnchor.constraint(equalTo: toggleButton.centerYAnchor),
             heightAnchor.constraint(equalTo: toggleButton.heightAnchor)
         ])
-        
         toggleButton.addTarget(self, action: #selector(didTapToggleButton), for: .touchUpInside)
-        
         unlockToggleButton()
     }
     
     @objc func didTapToggleButton() { delegate.didTapToggleButton() }
     
     func setOpponentToPlayer1() {
-        opponentLabel.text = opStr
-        meLabel.text = meStr
+        UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseInOut, animations: {
+            self.opponentLabelLeading.isActive = true
+            self.opponentLabelTrailing.isActive = false
+            self.meLabelLeading.isActive = false
+            self.meLabelTrailing.isActive = true
+            self.layoutIfNeeded()
+        }, completion: nil)
     }
     func setOpponentToPlayer2() {
-        opponentLabel.text = meStr
-        meLabel.text = opStr
+        UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseInOut, animations: {
+            self.opponentLabelLeading.isActive = false
+            self.opponentLabelTrailing.isActive = true
+            self.meLabelLeading.isActive = true
+            self.meLabelTrailing.isActive = false
+            self.layoutIfNeeded()
+        }, completion: nil)
     }
     
     func lockToggleButton() {

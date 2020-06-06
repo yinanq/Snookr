@@ -32,16 +32,20 @@ class InfoVC: UIViewController {
     private func configureBodyTextViewContainerView() {
         let string = "The Scoreboard\nTo get the most out of this scoreboard, you and your opponent at the snooker table can each use your own Snookr app on your own iPhone in the Bluetooth-connected mode. Of course, you can also choose not to turn on Bluetooth connection and just update both players' scores from one Snookr app on one iPhone.\nThe Snookers Calculator\nThe Snookers tab is where you can check how many snookers are required when there is not enough points left on the table. It can be used with or without the scoreboard part of Snookr.\nThe Author\nSnookr is designed and developed by Yinan Qiu. Feel free to contact him if you have feedback, questions, or feature requests. Last but not least, he wishes you loads of ranking points, mate!"
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = SNKPadding.lineSpacing
+        paragraphStyle.lineSpacing = SNKPadding.lineSpacingSmall
         paragraphStyle.alignment = .left
         paragraphStyle.paragraphSpacing = 20
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
-            .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular),
-            .foregroundColor: SNKColor.foregroundGray,
+            .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .regular),
+            .foregroundColor: SNKColor.foregroundWhite
         ]
         let maString = NSMutableAttributedString(string: string, attributes: attributes)
         maString.addAttribute(.link, value: "https://yinan.design/contact", range: NSRange(location: 601, length: 11))
+        let sectionTitleFont = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
+        maString.addAttribute(.font, value: sectionTitleFont, range: NSRange(location: 0, length: 14))
+        maString.addAttribute(.font, value: sectionTitleFont, range: NSRange(location: 321, length: 24))
+        maString.addAttribute(.font, value: sectionTitleFont, range: NSRange(location: 530, length: 11))
         bodyTextView.isEditable = false
         bodyTextView.linkTextAttributes = [NSAttributedString.Key.underlineStyle: true]
         bodyTextView.attributedText = maString

@@ -10,8 +10,8 @@ import UIKit
 
 class ConnectedTextView: SNKTextView {
     
-    let notConnectedText = "When connected, scores auto sync via Bluetooth between two Snookr apps. When not connected, Snookr is a standalone scoreboard."
-    let connectedText = "Now connected, scores auto sync. You and your opponent can each update from your own app. Open Scores tab and give it a try!"
+    var maStringForNotConnected: NSMutableAttributedString!
+    var maStringForConnected: NSMutableAttributedString!
 
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -21,29 +21,37 @@ class ConnectedTextView: SNKTextView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func configure() {
+        backgroundColor = SNKColor.backgroundGray
+        layer.cornerRadius = SNKCornerRadius.big
+        textContainerInset = UIEdgeInsets(top: SNKPadding.big, left: SNKPadding.big, bottom: SNKPadding.big, right: SNKPadding.big)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = SNKPadding.lineSpacing
+        paragraphStyle.lineSpacing = SNKPadding.lineSpacingSmall
         paragraphStyle.alignment = .left
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
-            .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular),
-            .foregroundColor: SNKColor.foregroundTertiary,
+            .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .regular),
+            .foregroundColor: SNKColor.foregroundGray
         ]
-        let maString = NSMutableAttributedString(string: notConnectedText, attributes: attributes)
-        attributedText = maString
+        let notConnectedText = "When connected, scores auto sync via Bluetooth between two Snookr apps. When not connected, Snookr is a standalone scoreboard."
+        let connectedText = "Now Connected\nScores are auto synced on every update. You and your opponent can each update from your own app. Open Scores tab and give it a try!"
+        maStringForNotConnected = NSMutableAttributedString(string: notConnectedText, attributes: attributes)
+        maStringForConnected = NSMutableAttributedString(string: connectedText, attributes: attributes)
+        let attributesForTitle: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular),
+            .foregroundColor: SNKColor.foreground
+        ]
+        maStringForConnected.addAttributes(attributesForTitle, range: NSRange(location: 0, length: 14))
         isEditable = false
         isUserInteractionEnabled = false
         setToNotConnected()
     }
     
     func setToNotConnected() {
-        text = notConnectedText
-        textColor = SNKColor.foregroundGray
+        attributedText = maStringForNotConnected
     }
     
     func setToConnected() {
-        text = connectedText
-        textColor = SNKColor.foreground
+        attributedText = maStringForConnected
     }
 
 }
