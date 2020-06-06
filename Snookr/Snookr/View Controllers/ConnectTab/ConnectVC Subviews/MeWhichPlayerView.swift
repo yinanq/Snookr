@@ -64,7 +64,7 @@ class MeWhichPlayerView: UIView {
     @objc func didTapToggleButton() { delegate.didTapToggleButton() }
     
     func setOpponentToPlayer1() {
-        UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseIn, animations: {
             self.opponentLabelLeading.isActive = true
             self.opponentLabelTrailing.isActive = false
             self.meLabelLeading.isActive = false
@@ -73,7 +73,7 @@ class MeWhichPlayerView: UIView {
         }, completion: nil)
     }
     func setOpponentToPlayer2() {
-        UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseIn, animations: {
             self.opponentLabelLeading.isActive = false
             self.opponentLabelTrailing.isActive = true
             self.meLabelLeading.isActive = true
