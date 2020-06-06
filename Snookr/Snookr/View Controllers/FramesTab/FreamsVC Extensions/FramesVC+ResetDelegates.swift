@@ -11,21 +11,15 @@ import UIKit
 extension FramesVC: FramesResetButtonDelegate, ResetAlertVCDelegate {
     
     func didTapFramesResetButton() {
-        let resetAlertVC = ResetAlertVC(title: "Sure?", body: "Gonna reset the frames. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
-        resetAlertVC.modalPresentationStyle = .overCurrentContext
-        resetAlertVC.modalTransitionStyle = .crossDissolve
-        present(resetAlertVC, animated: true)
+        let alertVC = ResetAlertVC(title: "Sure?", body: "Gonna reset the frames. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
+        alertVC.modalPresentationStyle = .overCurrentContext
+        alertVC.modalTransitionStyle = .crossDissolve
+        present(alertVC, animated: false)
     }
     
     func didTapConfirmToReset() {
-        UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseOut, animations: {
-            self.view.alpha = 0
-        }) { _ in
-            self.resetFramesWonAndNotify()
-            UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseIn, animations: {
-                self.view.alpha = 1
-            }, completion: nil)
-        }
+        resetFramesWon()
+        notifCtr.post(name: .framesVCDidResetFrames, object: nil)
     }
     
     func cbOpponentDidTapConfirmToReset() {
@@ -37,11 +31,6 @@ extension FramesVC: FramesResetButtonDelegate, ResetAlertVCDelegate {
                 self.view.alpha = 1
             }, completion: nil)
         }
-    }
-    
-    private func resetFramesWonAndNotify() {
-        resetFramesWon()
-        notifCtr.post(name: .framesVCDidResetFrames, object: nil)
     }
 
     private func resetFramesWon() {

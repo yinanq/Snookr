@@ -97,7 +97,6 @@ enum SNKCornerRadius {
 enum SNKFontSize {
     static let gigantic: CGFloat = 120
     static let huge: CGFloat = 90
-    static let title: CGFloat = 28
     static let big: CGFloat = 24
     static let regular: CGFloat = 18
     static let small: CGFloat = 8

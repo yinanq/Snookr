@@ -11,11 +11,11 @@ import UIKit
 extension ScoreboardVC: ResetButtonDelegate, ResetAlertVCDelegate, ScoreResetAlertVCDelegate {
     
     func didTapResetButton() {        
-        let resetAlertVC = ResetAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
-//        let resetAlertVC = ScoreResetAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self, winnerDelegate: self)
-        resetAlertVC.modalPresentationStyle = .overCurrentContext
-        resetAlertVC.modalTransitionStyle = .crossDissolve
-        present(resetAlertVC, animated: true)
+        let alertVC = ResetAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
+//        let alertVC = ScoreResetAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self, winnerDelegate: self)
+        alertVC.modalPresentationStyle = .overCurrentContext
+        alertVC.modalTransitionStyle = .crossDissolve
+        present(alertVC, animated: false)
         
     }
     
@@ -24,17 +24,6 @@ extension ScoreboardVC: ResetButtonDelegate, ResetAlertVCDelegate, ScoreResetAle
     }
     
     func didTapConfirmToReset() {
-        UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseOut, animations: {
-            self.view.alpha = 0
-        }) { _ in
-            self.resetScoresAndNotify()
-            UIView.animate(withDuration: SNKAnimationDuration.medium, delay: 0, options: .curveEaseIn, animations: {
-                self.view.alpha = 1
-            }, completion: nil)
-        }
-    }
-    
-    private func resetScoresAndNotify() {
         resetScores()
         notifCtr.post(name: .scoreboardVCDidResetScores, object: nil)
     }

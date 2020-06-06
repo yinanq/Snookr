@@ -23,7 +23,7 @@ class InfoVC: UIViewController {
     
     private func configureChildViews() {
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.effect = UIBlurEffect(style: .regular)
+        headerView.effect = UIBlurEffect(style: .systemChromeMaterial)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.image = UIImage(named: "logo-green")
         let string = "The Scoreboard\nTo get the most out of this scoreboard, you and your opponent at the snooker table can each use your own Snookr app on your own iPhone in the Bluetooth-connected mode. Of course, you can also choose not to turn on Bluetooth connection and just update both players' scores from one Snookr app on one iPhone.\nThe Snookers Calculator\nThe Snookers tab is where you can check how many snookers are required when there is not enough points left on the table. It can be used with or without the scoreboard part of Snookr.\nThe Engineer\nSnookr is designed and developed by Yinan Qiu. Feel free to contact him if you have feedback, questions, or feature requests. Last but not least, he wishes you loads of ranking points, mate!\n\n"

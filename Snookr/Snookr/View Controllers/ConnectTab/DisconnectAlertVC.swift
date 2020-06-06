@@ -30,9 +30,8 @@ class DisconnectAlertVC: SNKAlertVC {
     }
     
     @objc override func didTapConfirmButton() {
-        dismiss(animated: true) {
-            self.delegate.didTapConfirmToDisconnect()
-        }
+        super.didTapConfirmButton()
+        delegate.didTapConfirmToDisconnect()
     }
     
 }

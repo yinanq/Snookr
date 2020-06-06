@@ -29,9 +29,8 @@ class ResetAlertVC: SNKAlertVC {
     }
     
     @objc override func didTapConfirmButton() {
-        dismiss(animated: true) {
-            self.delegate.didTapConfirmToReset()
-        }
+        super.didTapConfirmButton()
+        delegate.didTapConfirmToReset()
     }
     
 }

@@ -20,6 +20,8 @@ class SNKAlertVC: UIViewController {
     var cancelButton: SNKButton!
     var confirmButton: SNKButton!
     var buttonsTopConstraint: NSLayoutConstraint!
+    let effectView = UIVisualEffectView()
+    let containerView = UIView()
     
     init(title: String, body: String, cancelBtnTitle: String, confirmBtnTitile: String) {
         super.init(nibName: nil, bundle: nil)
@@ -35,8 +37,14 @@ class SNKAlertVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
         configure()
         addButtonTargets()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animatedIn()
     }
     
     private func addButtonTargets() {
@@ -44,28 +52,58 @@ class SNKAlertVC: UIViewController {
         confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
     }
     
-    @objc func didTapCancelButton() { dismiss(animated: true) }
+    @objc func didTapCancelButton() { animateOut() }
     
-    @objc func didTapConfirmButton() { dismiss(animated: true) }
+    @objc func didTapConfirmButton() { animateOut() }
+    
+    private func animatedIn() {
+        UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseInOut, animations: {
+            self.effectView.effect = UIBlurEffect(style: .systemChromeMaterial)
+        }) { _ in
+            UIView.animate(withDuration: SNKAnimationDuration.short) {
+                self.containerView.alpha = 1
+            }
+        }
+    }
+    
+    private func animateOut() {
+        UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseInOut, animations: {
+            self.containerView.alpha = 0
+        }) { _ in
+            UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseInOut, animations: {
+                self.effectView.effect = nil
+            }) { _ in
+                self.dismiss(animated: true)
+            }
+        }
+    }
     
     private func configure() {
-        view.backgroundColor = SNKColor.background.withAlphaComponent(SNKAlpha.dimmer.rawValue)
+        effectView.frame = view.bounds
+        effectView.effect = nil
+        containerView.alpha = 0
         [cancelButton, confirmButton].forEach { button in
             buttonsView.addSubview(button!)
             button?.widthAnchor.constraint(equalTo: buttonsView.widthAnchor, multiplier: 0.5, constant: -SNKPadding.big/2).isActive = true
         }
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
-        [titleLabel, bodyLabel, buttonsView].forEach { subview in
-            view.addSubview(subview!)
-            subview?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        }
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubviews(titleLabel, bodyLabel, buttonsView)
+        view.addSubviews(effectView, containerView)
         buttonsTopConstraint = buttonsView.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 45)
         NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: view.topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: bodyLabel.topAnchor, constant: -SNKPadding.big),
-            bodyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -15),
-            bodyLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: SNKBodyWidth.percent),
+            titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            bodyLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            bodyLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -15),
+            bodyLabel.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: SNKBodyWidth.percent),
 //            buttonsView.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 45),
             buttonsTopConstraint,
+            buttonsView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             buttonsView.widthAnchor.constraint(equalTo: bodyLabel.widthAnchor, constant: -8),
             cancelButton.topAnchor.constraint(equalTo: buttonsView.topAnchor),
             confirmButton.topAnchor.constraint(equalTo: buttonsView.topAnchor),
