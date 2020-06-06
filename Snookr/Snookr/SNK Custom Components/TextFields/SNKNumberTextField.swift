@@ -21,9 +21,12 @@ class SNKNumberTextField: UITextField {
         case small
     }
     
+    var size: Size
+    
     init(size: Size) {
+        self.size = size
         super.init(frame: .zero)
-        configure(size: size)
+        configure()
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -32,7 +35,18 @@ class SNKNumberTextField: UITextField {
         return false
     }
     
-    private func configure(size: Size) {
+    override func caretRect(for position: UITextPosition) -> CGRect {
+        switch size {
+        case .big:
+            var rect = super.caretRect(for: position)
+            rect.size.height = 100
+            return rect
+        case .small:
+            return super.caretRect(for: position)
+        }
+    }
+    
+    private func configure() {
         keyboardType = .numberPad
         layer.cornerRadius = SNKCornerRadius.big
         layer.borderWidth = SNKBorderWidth.regular
