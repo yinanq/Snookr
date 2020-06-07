@@ -41,19 +41,19 @@ class SNKButton: UIButton {
             backgroundColor = SNKColor.foreground
             titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
             setTitleColor(SNKColor.background, for: .normal)
-            setTitleColor(SNKColor.foregroundHighlited, for: .highlighted)
+            setTitleColor(SNKColor.foregroundWhite, for: .highlighted)
         case .outline:
             heightAnchor.constraint(equalToConstant: 60).isActive = true
             titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
             setTitleColor(SNKColor.foreground, for: .normal)
-            setTitleColor(SNKColor.foregroundHighlited, for: .highlighted)
+            setTitleColor(SNKColor.foregroundWhite, for: .highlighted)
             layer.borderColor = SNKColor.foreground.cgColor
             layer.borderWidth = SNKBorderWidth.regular
         case .naked:
             heightAnchor.constraint(equalToConstant: 44).isActive = true
             titleLabel?.font = UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular)
             setTitleColor(SNKColor.foreground, for: .normal)
-            setTitleColor(SNKColor.foregroundHighlited, for: .highlighted)
+            setTitleColor(SNKColor.foregroundWhite, for: .highlighted)
         }
     }
     

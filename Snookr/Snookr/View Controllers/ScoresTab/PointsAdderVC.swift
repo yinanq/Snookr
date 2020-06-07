@@ -43,7 +43,7 @@ class PointsAdderVC: UIViewController {
     private func configure() {
         view.backgroundColor = SNKColor.background
         headerView = PointsAdderHeaderView(player: player)
-        pointsLabel = SNKLabel(fontSize: SNKFontSize.gigantic, fontWeight: SNKFontWeight.forFontSizeGigantic, textAlignment: .center)
+        pointsLabel = SNKLabel(color: SNKColor.foregroundWhite, fontSize: SNKFontSize.gigantic, fontWeight: SNKFontWeight.forFontSizeGigantic, textAlignment: .center)
         pointsLabel.text = pointsString
         addPointsButton = SNKButton(title: "Add Points", style: .solid)
         addPointsButton.disableSolidStyleButton()
