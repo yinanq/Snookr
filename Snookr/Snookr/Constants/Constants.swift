@@ -77,9 +77,9 @@ enum SNKColor {
     static let foreground = UIColor(red: 0/255, green: 255/255, blue: 147/255, alpha: 1)
     static let foregroundSecondary = UIColor(red: 0/255, green: 147/255, blue: 85/255, alpha: 1)
     static let foregroundTertiary = UIColor(red: 0/255, green: 88/255, blue: 50/255, alpha: 1)
-    static let foregroundWhite = UIColor(red: 177/255, green: 255/255, blue: 191/255, alpha: 1)
+    static let foregroundWhite = UIColor(red: 188/255, green: 255/255, blue: 194/255, alpha: 1)
     static let foregroundGray = UIColor(red: 142/255, green: 142/255, blue: 147/255, alpha: 1) //systemGray in dark mode
-    static let destructive = UIColor(red: 255/255, green: 55/255, blue: 95/255, alpha: 1) //systemPink in dark mode
+    static let destructive = UIColor(red: 255/255, green: 135/255, blue: 99/255, alpha: 1)
     static let ballPink = UIColor(hue: 0.95, saturation: 0.5, brightness: 1, alpha: 1)
     static let ballBlue = UIColor(hue: 0.58, saturation: 0.68, brightness: 1, alpha: 1)
     static let ballBrown = UIColor(hue: 0.08, saturation: 0.5, brightness: 1, alpha: 1)

@@ -79,11 +79,13 @@ class SNKNumberTextField: UITextField {
     func disable() {
         isEnabled = false
         layer.borderColor = SNKColor.backgroundSecondary.cgColor
+        textColor = SNKColor.backgroundSecondary
     }
     
     func enable() {
         isEnabled = true
         layer.borderColor = SNKColor.foreground.cgColor
+        textColor = SNKColor.foreground
     }
     
     func useCurrentScores(dif: Int) {
