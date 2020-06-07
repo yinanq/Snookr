@@ -19,7 +19,7 @@ class TabBarVC: UITabBarController {
     
     private func configureTabBar() {
         tabBar.barStyle = .black
-        tabBar.tintColor = SNKColor.foreground
+        tabBar.tintColor = SNKColor.foregroundWhite
     }
     
     private func configureTabs() {
