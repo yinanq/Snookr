@@ -26,6 +26,8 @@ class DisconnectAlertVC: SNKAlertVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         confirmButton.backgroundColor = SNKColor.destructive
+        confirmButton.setTitleColor(SNKColor.foregroundWhite, for: .normal)
+        confirmButton.setTitleColor(SNKColor.background, for: .highlighted)
         confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
     }
     

@@ -8,22 +8,23 @@
 
 import UIKit
 
-extension ScoreboardVC: ResetButtonDelegate, ResetAlertVCDelegate, ScoreResetAlertVCDelegate {
+extension ScoreboardVC: ResetButtonDelegate, ScoreResetAlertVCDelegate {
     
     func didTapResetButton() {        
-        let alertVC = ResetAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
-//        let alertVC = ScoreResetAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self, winnerDelegate: self)
+        let alertVC = ScoreResetAlertVC(title: "Sure?", body: "Gonna reset the scores. Sure you wanna do it?", cancelBtnTitle: "No", confirmBtnTitile: "Yes", delegate: self)
         alertVC.modalPresentationStyle = .overCurrentContext
         alertVC.modalTransitionStyle = .crossDissolve
         present(alertVC, animated: false)
-        
     }
     
-    func didTapAddFrameToggle() {
-        print("didTapAddFrameToggle")
-    }
-    
-    func didTapConfirmToReset() {
+    func didTapConfirmToReset(willAddFrame: Bool) {
+        if willAddFrame {
+            if player1.score > player2.score {
+                frameAdderDelegate.scoreboardVCDidRequestAddingFrameFor(player1)
+            } else if player2.score > player1.score {
+                frameAdderDelegate.scoreboardVCDidRequestAddingFrameFor(player2)
+            } //else is equal scores, do nothing
+        }
         resetScores()
         notifCtr.post(name: .scoreboardVCDidResetScores, object: nil)
     }

@@ -28,6 +28,7 @@ class TabBarVC: UITabBarController {
         let framesVC = FramesVC()
         let snookersVC = SnookersVC()
         let infoVC = InfoVC()
+        scoreboardVC.frameAdderDelegate = framesVC
         connectVC.tabBarItem = UITabBarItem(title: "Connect", image: SNKTabBarImage.connect, tag: 0)
         scoreboardVC.tabBarItem = UITabBarItem(title: "Scores", image: SNKTabBarImage.scores, tag: 12)
         framesVC.tabBarItem = UITabBarItem(title: "Frames", image: SNKTabBarImage.frames, tag: 11)

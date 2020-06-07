@@ -19,7 +19,7 @@ extension FramesVC: FramesWonButtonsViewDelegate {
         updateResetButton()
     }
     
-    private func addOneFrameFor(_ player: inout Player) {
+    func addOneFrameFor(_ player: inout Player) {
         player.framesWon += 1
         updateFramesWonView(of: &player)
         persistFramesWon(of: &player)

@@ -36,15 +36,22 @@ class ConnectButton: SNKButton {
     
     func setToConnectButton() {
         setTitle(connectTitle, for: .normal)
+        setTitleColor(SNKColor.background, for: .normal)
+        setTitleColor(SNKColor.foregroundWhite, for: .highlighted)
         backgroundColor = SNKColor.foreground
         ai.stopAnimating()
     }
     func setToCancelButton() {
         setTitle("Cancel", for: .normal)
+        setTitleColor(SNKColor.background, for: .normal)
+        setTitleColor(SNKColor.foregroundWhite, for: .highlighted)
+        backgroundColor = SNKColor.foreground
         ai.startAnimating()
     }
     func setToDisconnectButton() {
         setTitle("Disconnect", for: .normal)
+        setTitleColor(SNKColor.foregroundWhite, for: .normal)
+        setTitleColor(SNKColor.background, for: .highlighted)
         backgroundColor = SNKColor.destructive
         ai.stopAnimating()
     }

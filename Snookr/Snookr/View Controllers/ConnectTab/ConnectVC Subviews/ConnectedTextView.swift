@@ -46,12 +46,8 @@ class ConnectedTextView: SNKTextView {
         setToNotConnected()
     }
     
-    func setToNotConnected() {
-        attributedText = maStringForNotConnected
-    }
+    func setToNotConnected() { attributedText = maStringForNotConnected }
     
-    func setToConnected() {
-        attributedText = maStringForConnected
-    }
+    func setToConnected() { attributedText = maStringForConnected }
 
 }

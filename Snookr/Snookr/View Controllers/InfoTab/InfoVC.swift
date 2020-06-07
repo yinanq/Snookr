@@ -46,9 +46,10 @@ class InfoVC: UIViewController {
         bodyTextView.linkTextAttributes = [NSAttributedString.Key.underlineStyle: true]
         bodyTextView.attributedText = maString
         bodyScrollView.translatesAutoresizingMaskIntoConstraints = false
+        bodyScrollView.clipsToBounds = false
+        bodyScrollView.showsVerticalScrollIndicator = false
         bodyScrollView.addSubview(bodyTextView)
         view.addSubviews(bodyScrollView, headerView, logoImageView)
-        bodyScrollView.clipsToBounds = false
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

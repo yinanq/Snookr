@@ -6,7 +6,6 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-//func persistence:
 extension FramesVC {
     
     func persistFramesWon(of player: inout Player) {
