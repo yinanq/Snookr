@@ -10,8 +10,8 @@ import UIKit
 
 class SnookersTitleVC: UIViewController {
     
-    let numberLabel = SNKLabel(fontSize: SNKFontSize.gigantic, fontWeight: SNKFontWeight.forFontSizeGigantic, textAlignment: .left)
-    let titleLabel = SNKLabel(fontSize: SNKFontSize.big, fontWeight: SNKFontWeight.forFontSizeBig, textAlignment: .left, numberOfLines: 0)
+    let numberLabel = SNKLabel(color: SNKColor.foregroundWhite, fontSize: SNKFontSize.gigantic, fontWeight: SNKFontWeight.forFontSizeGigantic, textAlignment: .left)
+    let titleLabel = SNKLabel(color: SNKColor.foreground, fontSize: SNKFontSize.big, fontWeight: SNKFontWeight.forFontSizeBig, textAlignment: .left, numberOfLines: 0)
     
     var scoreDif = 0
     var ballsTotalPoints: Int?
@@ -35,7 +35,7 @@ class SnookersTitleVC: UIViewController {
             numberLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             view.bottomAnchor.constraint(equalTo: numberLabel.bottomAnchor),
             titleLabel.lastBaselineAnchor.constraint(equalTo: numberLabel.lastBaselineAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 12),
+            titleLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: SNKPadding.small),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }

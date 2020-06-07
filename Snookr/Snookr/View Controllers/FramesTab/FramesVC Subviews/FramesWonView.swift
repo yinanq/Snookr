@@ -22,8 +22,8 @@ class FramesWonView: UIView {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        framesWonLabel1 = SNKLabel(fontSize: 170, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .left)
-        framesWonLabel2 = SNKLabel(fontSize: 170, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .right)
+        framesWonLabel1 = SNKLabel(color: SNKColor.foregroundWhite, fontSize: 170, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .left)
+        framesWonLabel2 = SNKLabel(color: SNKColor.foregroundWhite, fontSize: 170, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .right)
         [framesWonLabel1, framesWonLabel2].forEach { label in
             label?.adjustsFontSizeToFitWidth = true
             addSubview(label!)

@@ -17,8 +17,8 @@ class MeWhichPlayerView: UIView {
     weak var delegate: MeWhichPlayerViewDelegate!
     
     let toggleButton = UIButton()
-    let meLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
-    let opponentLabel = SNKLabel(color: SNKColor.foregroundSecondary, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
+    let meLabel = SNKLabel(color: SNKColor.foregroundWhite, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
+    let opponentLabel = SNKLabel(color: SNKColor.foregroundWhite, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
     var opponentLabelLeading: NSLayoutConstraint!
     var opponentLabelTrailing: NSLayoutConstraint!
     var meLabelLeading: NSLayoutConstraint!
@@ -40,8 +40,8 @@ class MeWhichPlayerView: UIView {
         backgroundColor = SNKColor.background
         translatesAutoresizingMaskIntoConstraints = false
         toggleButton.translatesAutoresizingMaskIntoConstraints = false
-        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .normal)
-        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .highlighted)
+        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .normal)
+        toggleButton.setImage(UIImage(systemName: "arrow.right.arrow.left.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.small, weight: .thin)), for: .highlighted)
         opponentLabel.text = "opponent"
         meLabel.text = "me"
         addSubviews(opponentLabel, meLabel, toggleButton)
@@ -88,7 +88,7 @@ class MeWhichPlayerView: UIView {
     }
     func unlockToggleButton() {
         toggleButton.isUserInteractionEnabled = true
-        toggleButton.tintColor = SNKColor.foregroundSecondary
+        toggleButton.tintColor = SNKColor.foregroundWhite
     }
     
 }

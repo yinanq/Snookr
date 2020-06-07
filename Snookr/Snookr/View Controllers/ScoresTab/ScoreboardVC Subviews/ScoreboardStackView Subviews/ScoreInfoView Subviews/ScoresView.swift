@@ -23,8 +23,8 @@ class ScoresView: UIView {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        scoreLabel1 = SNKLabel(fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .left)
-        scoreLabel2 = SNKLabel(fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .right)
+        scoreLabel1 = SNKLabel(color: SNKColor.foregroundWhite, fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .left)
+        scoreLabel2 = SNKLabel(color: SNKColor.foregroundWhite, fontSize: SNKFontSize.huge, fontWeight: SNKFontWeight.forFontSizeHuge, textAlignment: .right)
         [scoreLabel1, scoreLabel2].forEach { label in
             label?.adjustsFontSizeToFitWidth = true
             addSubview(label!)

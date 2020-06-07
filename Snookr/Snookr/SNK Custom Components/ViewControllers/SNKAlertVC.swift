@@ -31,10 +31,6 @@ class SNKAlertVC: UIViewController {
         bodyLabel.text = body
         cancelButton = SNKButton(title: cancelBtnTitle, style: .solid)
         confirmButton = SNKButton(title: confirmBtnTitile, style: .solid)
-        cancelButton.backgroundColor = SNKColor.foregroundWhite
-        confirmButton.backgroundColor = SNKColor.foregroundWhite
-        cancelButton.setTitleColor(SNKColor.foreground, for: .highlighted)
-        confirmButton.setTitleColor(SNKColor.foreground, for: .highlighted)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }

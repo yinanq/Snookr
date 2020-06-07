@@ -24,7 +24,7 @@ class ConnectInstructionTextView: SNKTextView {
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
             .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: SNKFontWeight.forFontSizeRegular),
-            .foregroundColor: SNKColor.foreground,
+            .foregroundColor: SNKColor.foregroundWhite,
         ]
         let text = "Create a 3-digit code and connect. Ask opponent nearby to enter same code and hit connect on their app too."
         let maString = NSMutableAttributedString(string: text, attributes: attributes)

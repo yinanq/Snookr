@@ -18,17 +18,7 @@ extension SnookersBallsVC: UIPickerViewDelegate {
             }
         }
         var color = SNKColor.foreground
-//        switch row {
-//        case 0: color = SNKColor.foregroundGray
-//        case 1: color = SNKColor.ballPink
-//        case 2: color = SNKColor.ballBlue
-//        case 3: color = SNKColor.ballBrown
-//        case 4: color = SNKColor.ballGreen
-//        case 5: color = SNKColor.ballYellow
-//        case 6, 7, 8, 9, 10: color = SNKColor.ballRed
-//        default: print("extra row in picker for Colors Remaining")
-//        }
-        if row == 0 { color = SNKColor.foregroundGray }
+        if row == 0 { color = SNKColor.foregroundWhite }
         let label = SNKLabel(color: color, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
         label.translatesAutoresizingMaskIntoConstraints = true
         label.text = ballsPickerOptionStrings[row]

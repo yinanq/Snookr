@@ -30,7 +30,7 @@ class ConnectedTextView: SNKTextView {
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
             .font: UIFont.systemFont(ofSize: SNKFontSize.regular, weight: .regular),
-            .foregroundColor: SNKColor.foregroundGray
+            .foregroundColor: SNKColor.foregroundWhite
         ]
         let notConnectedText = "When connected, scores auto sync via Bluetooth between two Snookr apps. When not connected, Snookr is a standalone scoreboard."
         let connectedText = "Now Connected\nScores are auto synced on every update. You and your opponent can each update from your own app. Open Scores tab and give it a try!"
