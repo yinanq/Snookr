@@ -42,7 +42,7 @@ class ScoreboardVC: UIViewController {
             self.updateResetButton()
         }
         notifCtr.addObserver(forName: .connectVCReceivedResetScores, object: nil, queue: .main) { notification in
-            self.resetScores()
+            self.cbOpponentDidTapConfirmToReset()
             //to add indicator showing it was reset by opponent via bluetooth
         }
         //cb connection state:

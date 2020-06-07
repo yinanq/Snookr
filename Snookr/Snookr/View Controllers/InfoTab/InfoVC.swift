@@ -26,7 +26,7 @@ class InfoVC: UIViewController {
         headerView.effect = UIBlurEffect(style: .systemChromeMaterial)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.image = UIImage(named: "logo-green")
-        let string = "The Scoreboard\nTo get the most out of this scoreboard, you and your opponent at the snooker table can each use your own Snookr app on your own iPhone in the Bluetooth-connected mode. Of course, you can also choose not to turn on Bluetooth connection and just update both players' scores from one Snookr app on one iPhone.\nThe Snookers Calculator\nThe Snookers tab is where you can check how many snookers are required when there is not enough points left on the table. It can be used with or without the scoreboard part of Snookr.\nThe Engineer\nSnookr is designed and developed by Yinan Qiu. Feel free to contact him if you have feedback, questions, or feature requests. Last but not least, he wishes you loads of ranking points, mate!\n\n"
+        let string = "The Scoreboard\nThe scoreboard can be used by two snooker players when they play a match. In the Bluetooth-connected mode, scores auto sync between two Snookr apps. You and your opponent can each update from your own app. When not connected, it works as a standalone scoreboard where both players' scores can be updated on one iPhone.\nThe Snookers Calculator\nThe Snookers tab is where you can check how many snookers are required when there is not enough points left on the table. It can be used with or without the scoreboard part of Snookr.\nThe Engineer\nSnookr is designed and developed by Yinan Qiu. Feel free to contact him if you have feedback, questions, or feature requests. Last but not least, he wishes you loads of ranking points, mate!\n\n"
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = SNKPadding.lineSpacingSmall
         paragraphStyle.alignment = .left
@@ -37,11 +37,11 @@ class InfoVC: UIViewController {
             .foregroundColor: SNKColor.foregroundWhite
         ]
         let maString = NSMutableAttributedString(string: string, attributes: attributes)
-        maString.addAttribute(.link, value: "https://yinan.design/contact", range: NSRange(location: 603, length: 11))
+        maString.addAttribute(.link, value: "https://yinan.design/contact", range: NSRange(location: 615, length: 11))
         let sectionTitleFont = UIFont.systemFont(ofSize: SNKFontSize.big, weight: SNKFontWeight.forFontSizeBig)
         maString.addAttribute(.font, value: sectionTitleFont, range: NSRange(location: 0, length: 14))
-        maString.addAttribute(.font, value: sectionTitleFont, range: NSRange(location: 321, length: 24))
-        maString.addAttribute(.font, value: sectionTitleFont, range: NSRange(location: 530, length: 12))
+        maString.addAttribute(.font, value: sectionTitleFont, range: NSRange(location: 333, length: 24))
+        maString.addAttribute(.font, value: sectionTitleFont, range: NSRange(location: 542, length: 12))
         bodyTextView.isEditable = false
         bodyTextView.linkTextAttributes = [NSAttributedString.Key.underlineStyle: true]
         bodyTextView.attributedText = maString
