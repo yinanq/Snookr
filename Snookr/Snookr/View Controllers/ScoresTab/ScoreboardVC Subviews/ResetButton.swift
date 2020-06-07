@@ -25,8 +25,6 @@ class ResetButton: SNKButton {
     
     private func configure() {
         set(title: "New Frame", style: .outline)
-//        set(title: "Reset", style: .outline)
-//        widthAnchor.constraint(equalToConstant: 80).isActive = true
         addTarget(self, action: #selector(didTapResetButton), for: .touchUpInside)
     }
     
