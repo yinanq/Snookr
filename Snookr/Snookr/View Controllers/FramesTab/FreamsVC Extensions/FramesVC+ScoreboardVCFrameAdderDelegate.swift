@@ -13,5 +13,6 @@ extension FramesVC: ScoreboardVCFrameAdderDelegate {
         case .player2: addOneFrameFor(&player2)
         case .unassigned: print("error: .unassigned playerId in scoreboardVCDidRequestAddingFrameFor")
         }
+        updateResetButton()
     }
 }
