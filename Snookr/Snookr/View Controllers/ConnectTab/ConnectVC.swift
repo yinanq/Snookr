@@ -39,8 +39,8 @@ class ConnectVC: UIViewController {
     let playerNamesView = SNKPlayerNamesView()
     let meWhichPlayerView = MeWhichPlayerView()
     let containerView = SNKView()
-    let connectCodeTextField = SNKNumberTextField(size: .big)
     let connectInstructionTextView = ConnectInstructionTextView()
+    let connectCodeTextField = SNKNumberTextField(size: .big)
     let connectButton = ConnectButton()
     let connectedTextView = ConnectedTextView()
     let tapRecognizer = UITapGestureRecognizer()
@@ -143,7 +143,7 @@ class ConnectVC: UIViewController {
             containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -SNKPadding.big),
             connectInstructionTextView.leadingAnchor.constraint(equalTo: connectButton.leadingAnchor),
             connectInstructionTextView.trailingAnchor.constraint(equalTo: connectButton.trailingAnchor),
-            connectInstructionTextView.lastBaselineAnchor.constraint(equalTo: connectCodeTextField.topAnchor, constant: -SNKPadding.big),
+            connectInstructionTextView.bottomAnchor.constraint(equalTo: connectCodeTextField.topAnchor, constant: -SNKPadding.big),
             connectCodeTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             connectCodeTextField.bottomAnchor.constraint(equalTo: connectButton.topAnchor, constant: -SNKPadding.big),
             connectButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),

@@ -42,7 +42,6 @@ class ConnectedTextView: SNKTextView {
         ]
         maStringForConnected.addAttributes(attributesForTitle, range: NSRange(location: 0, length: 14))
         isEditable = false
-        isUserInteractionEnabled = false
         setToNotConnected()
     }
     
