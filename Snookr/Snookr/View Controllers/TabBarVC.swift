@@ -12,14 +12,15 @@ class TabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
         configureTabBar()
         configureTabs()
         playLaunchScreenSmootherAnimation()
     }
     
     private func configureTabBar() {
-        tabBar.barStyle = .black
-        tabBar.tintColor = SNKColor.foregroundWhite
+        tabBar.tintColor = SNKColor.foreground
+        tabBar.unselectedItemTintColor = SNKColor.foregroundWhite
     }
     
     private func configureTabs() {
