@@ -39,7 +39,8 @@ class SNKNumberTextField: UITextField {
         switch size {
         case .big:
             var rect = super.caretRect(for: position)
-            rect.size.height = 100
+            rect.origin = CGPoint(x: super.caretRect(for: position).origin.x, y: 27)
+            rect.size.height = 66
             return rect
         case .small:
             return super.caretRect(for: position)
@@ -48,7 +49,6 @@ class SNKNumberTextField: UITextField {
     
     private func configure() {
         keyboardType = .numberPad
-        layer.cornerRadius = SNKCornerRadius.big
         layer.borderWidth = SNKBorderWidth.regular
         layer.borderColor = SNKColor.foreground.cgColor
         textAlignment = .center
@@ -59,13 +59,15 @@ class SNKNumberTextField: UITextField {
         case .big:
             font = UIFont.systemFont(ofSize: SNKFontSize.huge, weight: SNKFontWeight.forFontSizeHuge)
             attributedPlaceholder = NSAttributedString(string: "000", attributes: [NSAttributedString.Key.foregroundColor: SNKColor.backgroundGray])
+            layer.cornerRadius = SNKCornerRadius.huge
             NSLayoutConstraint.activate([
-                widthAnchor.constraint(equalToConstant: 195),
-                heightAnchor.constraint(equalToConstant: 90)
+                widthAnchor.constraint(equalToConstant: 220),
+                heightAnchor.constraint(equalToConstant: 120)
             ])
         case .small:
             font = UIFont.systemFont(ofSize: SNKFontSize.big, weight: SNKFontWeight.forFontSizeBig)
             text = "0"
+            layer.cornerRadius = SNKCornerRadius.big
             NSLayoutConstraint.activate([
                 widthAnchor.constraint(equalToConstant: SNKPadding.difViewWidth),
                 heightAnchor.constraint(equalToConstant: SNKPadding.difViewHeight)

@@ -26,7 +26,6 @@ class ScoreDifView: UIView {
     
     private func configureView() {
         translatesAutoresizingMaskIntoConstraints = false
-//        backgroundColor = SNKColor.background
         layer.borderColor = SNKColor.foregroundWhite.cgColor
         layer.borderWidth = SNKPadding.separatorViewWidth
         layer.cornerRadius = SNKCornerRadius.big

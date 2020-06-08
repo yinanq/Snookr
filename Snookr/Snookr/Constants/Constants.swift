@@ -89,6 +89,7 @@ enum SNKColor {
 }
 
 enum SNKCornerRadius {
+    static let huge: CGFloat = 20
     static let big: CGFloat = 10
     static let small: CGFloat = 5
 }
