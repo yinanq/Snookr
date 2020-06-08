@@ -34,8 +34,8 @@ class UndoButtonsView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         undoButton1 = SNKScoreButton(normalSymbol: .undo, highlightedSymbol: .undoWithFill)
         undoButton2 = SNKScoreButton(normalSymbol: .undo, highlightedSymbol: .undoWithFill)
-        redoButton1 = SNKScoreButton(normalSymbol: .redoWithFill, highlightedSymbol: .redo)
-        redoButton2 = SNKScoreButton(normalSymbol: .redoWithFill, highlightedSymbol: .redo)
+        redoButton1 = SNKScoreButton(normalSymbol: .redo, highlightedSymbol: .redoWithFill)
+        redoButton2 = SNKScoreButton(normalSymbol: .redo, highlightedSymbol: .redoWithFill)
         redoButton1.tintColor = SNKColor.foregroundSecondary
         redoButton2.tintColor = SNKColor.foregroundSecondary
         addSubviews(undoButton1, undoButton2, redoButton1, redoButton2)
