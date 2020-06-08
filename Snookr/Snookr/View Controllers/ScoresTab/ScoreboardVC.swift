@@ -24,6 +24,7 @@ class ScoreboardVC: UIViewController {
     var opponentIs: SNKWhichPlayer = .player1
     var currentWinnerIs: SNKWhichPlayer?
     let separatorView = SNKSeparatorView()
+    let separatorView1 = SNKSeparatorView()
     let stackView = ScoreboardStackView()
     let resetButton = ResetButton()
     let tapRecognizer = UITapGestureRecognizer()
@@ -108,7 +109,7 @@ class ScoreboardVC: UIViewController {
         updateScoresView()
         resetButton.delegate = self
         updateResetButton()
-        view.addSubviews(separatorView, stackView, resetButton)
+        view.addSubviews(separatorView, separatorView1, stackView, resetButton)
         cbUpdateForState()
     }
     
@@ -122,7 +123,10 @@ class ScoreboardVC: UIViewController {
             resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SNKPadding.big),
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SNKPadding.big),
             separatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            separatorView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: SNKPadding.separatorViewTopAdj),
+            separatorView1.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            separatorView1.topAnchor.constraint(equalTo: stackView.topAnchor, constant: SNKPadding.separatorViewTopAdj),
+            separatorView1.bottomAnchor.constraint(equalTo: stackView.scoreInfoView.scoresView.scoreDifView.topAnchor, constant: -SNKPadding.tiny),
+            separatorView.topAnchor.constraint(equalTo: stackView.scoreInfoView.scoresView.scoreDifView.bottomAnchor, constant: SNKPadding.tiny),
             separatorView.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -SNKPadding.big)
         ])
     }

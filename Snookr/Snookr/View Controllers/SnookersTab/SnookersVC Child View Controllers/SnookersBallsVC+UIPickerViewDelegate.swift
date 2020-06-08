@@ -12,14 +12,22 @@ extension SnookersBallsVC: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         for view in pickerView.subviews {
-            if view.frame.size.height < 2 {
-                view.frame.size.height = 2
-                view.backgroundColor = UIColor(red: 49/255, green: 49/255, blue: 54/255, alpha: 1)
+            if view.frame.size.height < 1 {
+                view.frame.size.height = SNKPadding.separatorViewWidth
+                view.frame.size.width -= 2*SNKPadding.small
+                view.frame.origin.x += SNKPadding.small
+                view.layer.cornerRadius = view.frame.size.height/2
+//                view.backgroundColor = UIColor(red: 49/255, green: 49/255, blue: 54/255, alpha: 1)//segmented control bg apple-alt
+//                view.backgroundColor = UIColor(red: 120/255, green: 120/255, blue: 123/255, alpha: 1)//SNKColor.foregroundGray apple-alt
+                view.backgroundColor = SNKColor.foregroundWhite
             }
         }
-        var color = SNKColor.foreground
-        if row == 0 { color = SNKColor.foregroundWhite }
-        let label = SNKLabel(color: color, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
+        var label: SNKLabel!
+        if row == 0 {
+            label = SNKLabel(color: SNKColor.foregroundWhite, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
+        } else {
+            label = SNKLabel(color: SNKColor.foreground, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular)
+        }
         label.translatesAutoresizingMaskIntoConstraints = true
         label.text = ballsPickerOptionStrings[row]
         return label

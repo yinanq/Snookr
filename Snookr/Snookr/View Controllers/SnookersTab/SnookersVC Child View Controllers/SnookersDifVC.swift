@@ -68,7 +68,7 @@ class SnookersDifVC: UIViewController {
         difSegControl.selectedSegmentIndex = 0
         difSegControl.selectedSegmentTintColor = SNKColor.foregroundWhite
         difSegControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SNKColor.foregroundWhite], for: .normal)
-        difSegControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SNKColor.backgroundGray], for: .selected)
+        difSegControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SNKColor.background], for: .selected)
         difSegControl.addTarget(self, action: #selector(difSegControlDidChangeValue), for: .valueChanged)
         difTextField.delegate = self
         difTextField.snkDelegate = self

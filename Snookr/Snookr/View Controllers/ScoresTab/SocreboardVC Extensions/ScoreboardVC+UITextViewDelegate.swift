@@ -71,7 +71,7 @@ extension ScoreboardVC: UITextViewDelegate {
     }
     
     private func disableAndDimAllButNameOfPlayerTagged(_ playerTag: Int) {
-        var viewsToDim: [UIView] = [separatorView, stackView.scoreInfoView.scoresView, stackView.scoreInfoView.scoreHistoryView, stackView.scoreInfoView.undoButtonsView, stackView.scoreButtonsView, resetButton]
+        var viewsToDim: [UIView] = [separatorView, separatorView1, stackView.scoreInfoView.scoresView, stackView.scoreInfoView.scoreHistoryView, stackView.scoreInfoView.undoButtonsView, stackView.scoreButtonsView, resetButton]
         switch playerTag {
         case SNKTextViewTag.player1: viewsToDim.append(stackView.scoreInfoView.playerNamesView.textView2)
         case SNKTextViewTag.player2: viewsToDim.append(stackView.scoreInfoView.playerNamesView.textView1)
@@ -83,7 +83,7 @@ extension ScoreboardVC: UITextViewDelegate {
         }
     }
     private func enableAndUndimAll() {
-        let allViews: [UIView] = [separatorView, stackView.scoreInfoView.scoresView, stackView.scoreInfoView.scoreHistoryView, stackView.scoreInfoView.undoButtonsView, stackView.scoreButtonsView, resetButton, stackView.scoreInfoView.playerNamesView.textView1, stackView.scoreInfoView.playerNamesView.textView2]
+        let allViews: [UIView] = [separatorView, separatorView1, stackView.scoreInfoView.scoresView, stackView.scoreInfoView.scoreHistoryView, stackView.scoreInfoView.undoButtonsView, stackView.scoreButtonsView, resetButton, stackView.scoreInfoView.playerNamesView.textView1, stackView.scoreInfoView.playerNamesView.textView2]
         for view in allViews {
             view.isUserInteractionEnabled = true
             UIView.animate(withDuration: SNKAnimationDuration.short) { view.alpha = 1 }
