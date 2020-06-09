@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 protocol ResetButtonDelegate: class { func didTapResetButton() }
 
@@ -27,9 +26,6 @@ class ResetButton: SNKButton {
         addTarget(self, action: #selector(didTapResetButton), for: .touchUpInside)
     }
     
-    @objc func didTapResetButton() {
-        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
-        delegate.didTapResetButton()
-    }
+    @objc func didTapResetButton() { delegate.didTapResetButton() }
     
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class SNKAlertVC: UIViewController {
     
@@ -49,10 +48,7 @@ class SNKAlertVC: UIViewController {
         confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
     }
     
-    @objc func didTapCancelButton() {
-        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
-        animateOut()
-    }
+    @objc func didTapCancelButton() { animateOut() }
     
     @objc func didTapConfirmButton() { animateOut() }
     
