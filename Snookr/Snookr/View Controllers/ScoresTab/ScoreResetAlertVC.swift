@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-protocol ScoreResetAlertVCDelegate: class {
-    func didTapConfirmToReset(willAddFrame: Bool)
-}
+protocol ScoreResetAlertVCDelegate: class { func didTapConfirmToReset(willAddFrame: Bool) }
 
 class ScoreResetAlertVC: SNKAlertVC {
     
@@ -34,6 +33,7 @@ class ScoreResetAlertVC: SNKAlertVC {
     
     @objc override func didTapConfirmButton() {
         super.didTapConfirmButton()
+        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didReset, nil)
         delegate.didTapConfirmToReset(willAddFrame: willAddFrame)
     }
     

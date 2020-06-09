@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol UndoButtonsViewDelegate: class {
     func didTapUndoButton(tag: Int)
@@ -57,8 +58,14 @@ class UndoButtonsView: UIView {
         [undoButton1, undoButton2].forEach{ $0?.addTarget(self, action: #selector(didTapUndoButton(button:)), for: .touchUpInside)}
         [redoButton1, redoButton2].forEach{ $0?.addTarget(self, action: #selector(didTapRedoButton(button:)), for: .touchUpInside)}
     }
-    @objc func didTapUndoButton(button: SNKScoreButton) { delegate.didTapUndoButton(tag: button.tag) }
-    @objc func didTapRedoButton(button: SNKScoreButton) { delegate.didTapRedoButton(tag: button.tag) }
+    @objc func didTapUndoButton(button: SNKScoreButton) {
+        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+        delegate.didTapUndoButton(tag: button.tag)
+    }
+    @objc func didTapRedoButton(button: SNKScoreButton) {
+        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+        delegate.didTapRedoButton(tag: button.tag)
+    }
     
     private func setInitialStateToHidden() {
         [undoButton1, undoButton2, redoButton1, redoButton2].forEach { button in

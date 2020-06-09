@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol FramesResetButtonDelegate: class {
     func didTapFramesResetButton()
@@ -28,6 +29,9 @@ class FramesResetButton: SNKButton {
         addTarget(self, action: #selector(didTapFramesResetButton), for: .touchUpInside)
     }
     
-    @objc func didTapFramesResetButton() { delegate.didTapFramesResetButton() }
+    @objc func didTapFramesResetButton() {
+        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+        delegate.didTapFramesResetButton()
+    }
 
 }

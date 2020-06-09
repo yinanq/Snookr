@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-protocol ScoreButtonsViewDelegate: class {
-    func didTapScoreButton(tag: Int)
-}
+protocol ScoreButtonsViewDelegate: class { func didTapScoreButton(tag: Int) }
 
 class ScoreButtonsView: UIView {
     
@@ -58,6 +57,10 @@ class ScoreButtonsView: UIView {
         plusOneButton2.tag = SNKButtonTag.plusOneButton2
         [plusButton1, plusButton2, plusOneButton1, plusOneButton2].forEach{ $0.addTarget(self, action: #selector(didTapScoreButton), for: .touchUpInside) }
     }
-    @objc func didTapScoreButton(sender: SNKScoreButton) { delegate.didTapScoreButton(tag: sender.tag) }
+    
+    @objc func didTapScoreButton(sender: SNKScoreButton) {
+        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+        delegate.didTapScoreButton(tag: sender.tag)
+    }
 
 }

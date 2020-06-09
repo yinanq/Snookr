@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-protocol PointsAdderNumberPadViewDelegate: class {
-    func didTapNumberPad(buttonTag: Int)
-}
+protocol PointsAdderNumberPadViewDelegate: class { func didTapNumberPad(buttonTag: Int) }
 
 class PointsAdderNumberPadView: UIView {
     
@@ -46,7 +45,10 @@ class PointsAdderNumberPadView: UIView {
         keyDelete.isHidden = true
     }
     
-    @objc func didTapNumberPad(sender: SNKNumberPadButton) { delegate.didTapNumberPad(buttonTag: sender.tag) }
+    @objc func didTapNumberPad(sender: SNKNumberPadButton) {
+        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+        delegate.didTapNumberPad(buttonTag: sender.tag)
+    }
     
     private func initializeKeys() {
         key1 = SNKNumberPadButton(normalSymbol: .k1, highlightedSymbol: .k1F)

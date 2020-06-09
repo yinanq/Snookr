@@ -6,11 +6,10 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-protocol MeWhichPlayerViewDelegate: class {
-    func didTapToggleButton()
-}
-
 import UIKit
+import AVFoundation
+
+protocol MeWhichPlayerViewDelegate: class { func didTapToggleButton() }
 
 class MeWhichPlayerView: UIView {
     
@@ -61,7 +60,10 @@ class MeWhichPlayerView: UIView {
         unlockToggleButton()
     }
     
-    @objc func didTapToggleButton() { delegate.didTapToggleButton() }
+    @objc func didTapToggleButton() {
+        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+        delegate.didTapToggleButton()
+    }
     
     func setOpponentToPlayer1() {
         UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseIn, animations: {

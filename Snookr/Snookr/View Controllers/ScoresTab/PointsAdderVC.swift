@@ -6,9 +6,10 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-protocol PointsAdderVCDelegate: class { func didTapAddPointsButton(player: Player, pointsToAdd: Int) }
-
 import UIKit
+import AVFoundation
+
+protocol PointsAdderVCDelegate: class { func didTapAddPointsButton(player: Player, pointsToAdd: Int) }
 
 class PointsAdderVC: UIViewController {
     
@@ -70,7 +71,12 @@ class PointsAdderVC: UIViewController {
 
     @objc func didTapCancelButton() { dismiss(animated: true) }
     @objc func didTapAddPointsButton() {
-        if let pointsToAdd = points { delegate.didTapAddPointsButton(player: player, pointsToAdd: pointsToAdd) }
+        guard let pointsToAdd = points else {
+            print("error: didTapAddPointsButton when no pointsToAdd")
+            return
+        }
+        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+        delegate.didTapAddPointsButton(player: player, pointsToAdd: pointsToAdd)
         dismiss(animated: true)
     }
 

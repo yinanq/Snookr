@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreBluetooth
+import AVFoundation
 
 extension ConnectVC {
     
@@ -69,6 +70,7 @@ extension ConnectVC {
         notifCtr.post(name: .connectVCChangedCBState, object: self.cbState)
         switch self.cbState {
         case .notConnected:
+            AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didDisconnect, nil)
             unlockOpponentInfoEditability()
             meWhichPlayerView.unlockToggleButton()
             connectButton.setToConnectButton()
@@ -84,6 +86,7 @@ extension ConnectVC {
             connectButton.setToCancelButton()
             connectCodeTextField.disable()
         case .isConnected:
+            AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didConnect, nil)
             connectButton.setToDisconnectButton()
             connectedTextView.setToConnected()
             tabBarItem.image = SNKTabBarImage.connected

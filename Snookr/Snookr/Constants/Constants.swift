@@ -135,6 +135,13 @@ enum SNKPadding {
     static let lineSpacingSmall: CGFloat = 3
 }
 
+enum SNKSoundID {
+    static let didTap: UInt32 = 1104
+    static let didReset: UInt32 = 1100
+    static let didConnect: UInt32 = 1113 //1113, 1115
+    static let didDisconnect: UInt32 = 1114 //1114, 1116
+}
+
 enum SNKTabBarImage {
     static let connect = UIImage(systemName: "person.badge.plus.fill")
     static let connectOutline = UIImage(systemName: "person.badge.plus")

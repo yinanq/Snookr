@@ -6,11 +6,9 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-protocol DisconnectAlertVCDelegate: class {
-    func didTapConfirmToDisconnect()
-}
-
 import UIKit
+
+protocol DisconnectAlertVCDelegate: class { func didTapConfirmToDisconnect() }
 
 class DisconnectAlertVC: SNKAlertVC {
     

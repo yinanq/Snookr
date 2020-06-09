@@ -31,7 +31,6 @@ class FramesVC: UIViewController {
         configureViews()
         configureNotifObservers()
         layoutViews()
-//        print("frames tab")
     }
     
     private func configureNotifObservers() {

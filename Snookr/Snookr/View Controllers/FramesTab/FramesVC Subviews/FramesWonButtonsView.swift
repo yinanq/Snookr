@@ -6,11 +6,10 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-protocol FramesWonButtonsViewDelegate: class {
-    func didTapFramesWonButton(withTag: Int)
-}
-
 import UIKit
+import AVFoundation
+
+protocol FramesWonButtonsViewDelegate: class { func didTapFramesWonButton(withTag: Int) }
 
 class FramesWonButtonsView: UIView {
     
@@ -60,6 +59,9 @@ class FramesWonButtonsView: UIView {
         }
     }
     
-    @objc func didTapFramesWonButton(sender: SNKScoreButton) { delegate.didTapFramesWonButton(withTag: sender.tag) }
+    @objc func didTapFramesWonButton(sender: SNKScoreButton) {
+        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+        delegate.didTapFramesWonButton(withTag: sender.tag)
+    }
 
 }

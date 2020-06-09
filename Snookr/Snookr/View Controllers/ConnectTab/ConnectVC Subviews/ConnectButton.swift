@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-protocol ConnectButtonDelegate: class {
-    func didTapConnectButton()
-}
+protocol ConnectButtonDelegate: class { func didTapConnectButton() }
 
 class ConnectButton: SNKButton {
     
@@ -32,7 +31,10 @@ class ConnectButton: SNKButton {
         addActivityIndicator()
     }
     
-    @objc func didTapConnectButton() { delegate.didTapConnectButton() }
+    @objc func didTapConnectButton() {
+        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+        delegate.didTapConnectButton()
+    }
     
     func setToConnectButton() {
         setTitle(connectTitle, for: .normal)

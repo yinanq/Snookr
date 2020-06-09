@@ -6,9 +6,9 @@
 //  Copyright © 2020 Yinan. All rights reserved.
 //
 
-protocol ResetAlertVCDelegate: class {
-    func didTapConfirmToReset()
-}
+import AVFoundation
+
+protocol ResetAlertVCDelegate: class { func didTapConfirmToReset() }
 
 import UIKit
 
@@ -30,6 +30,7 @@ class ResetAlertVC: SNKAlertVC {
     
     @objc override func didTapConfirmButton() {
         super.didTapConfirmButton()
+        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didReset, nil)
         delegate.didTapConfirmToReset()
     }
     
