@@ -26,6 +26,7 @@ class SettingsVC: UIViewController {
         let attributes = [NSAttributedString.Key.foregroundColor : SNKColor.foreground]
         navigationController?.navigationBar.largeTitleTextAttributes = attributes
         navigationController?.navigationBar.titleTextAttributes = attributes
+        navigationController?.navigationBar.layoutMargins.left = SNKPadding.big
     }
     
     private func configureChildren() {

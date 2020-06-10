@@ -123,7 +123,7 @@ enum SNKNamePlaceholder {
 }
 
 enum SNKPadding {
-    static let big: CGFloat = 17
+    static let big: CGFloat = 20
     static let small: CGFloat = 8
     static let tiny: CGFloat = 5
     static let negative: CGFloat = -5
