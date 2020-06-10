@@ -18,12 +18,12 @@ class PointsAdderVC: UIViewController {
     var player: Player!
     var points: Int?
     var pointsString = ""
-    
     var headerView: PointsAdderHeaderView!
     var pointsLabel: SNKLabel!
     let numberPadView = PointsAdderNumberPadView()
     let cancelButton = SNKXButton()
     var addPointsButton: SNKButton!
+    var soundPlayer: AVQueuePlayer?
     
     init(player: Player, delegate: PointsAdderVCDelegate) {
         super.init(nibName: nil, bundle: nil)
@@ -75,7 +75,8 @@ class PointsAdderVC: UIViewController {
             print("error: didTapAddPointsButton when no pointsToAdd")
             return
         }
-        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+//        AudioServicesPlaySystemSound(SNKSoundID.didTap)
+        playSoundForTap(with: &soundPlayer)
         delegate.didTapAddPointsButton(player: player, pointsToAdd: pointsToAdd)
         dismiss(animated: true)
     }

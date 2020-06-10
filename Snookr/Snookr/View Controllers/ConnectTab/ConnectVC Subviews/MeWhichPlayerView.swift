@@ -22,6 +22,7 @@ class MeWhichPlayerView: UIView {
     var opponentLabelTrailing: NSLayoutConstraint!
     var meLabelLeading: NSLayoutConstraint!
     var meLabelTrailing: NSLayoutConstraint!
+    var soundPlayer: AVQueuePlayer?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,7 +62,8 @@ class MeWhichPlayerView: UIView {
     }
     
     @objc func didTapToggleButton() {
-        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+//        AudioServicesPlaySystemSound(SNKSoundID.didTap)
+        playSoundForTap(with: &soundPlayer)
         delegate.didTapToggleButton()
     }
     

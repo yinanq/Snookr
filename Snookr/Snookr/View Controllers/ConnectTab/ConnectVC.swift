@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreBluetooth
+import AVFoundation
 
 class ConnectVC: UIViewController {
     
@@ -45,6 +46,7 @@ class ConnectVC: UIViewController {
     let connectedTextView = ConnectedTextView()
     let tapRecognizer = UITapGestureRecognizer()
     var isFirstLaunch = true
+    var soundPlayer: AVQueuePlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()

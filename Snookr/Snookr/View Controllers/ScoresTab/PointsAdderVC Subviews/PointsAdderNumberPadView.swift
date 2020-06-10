@@ -26,6 +26,7 @@ class PointsAdderNumberPadView: UIView {
     var key9: SNKNumberPadButton!
     var key0: SNKNumberPadButton!
     var keyDelete: SNKNumberPadButton!
+    var soundPlayer: AVQueuePlayer?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,7 +47,8 @@ class PointsAdderNumberPadView: UIView {
     }
     
     @objc func didTapNumberPad(sender: SNKNumberPadButton) {
-        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+//        AudioServicesPlaySystemSound(SNKSoundID.didTap)
+        playSoundForTap(with: &soundPlayer)
         delegate.didTapNumberPad(buttonTag: sender.tag)
     }
     

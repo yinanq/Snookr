@@ -33,7 +33,8 @@ class ScoreResetAlertVC: SNKAlertVC {
     
     @objc override func didTapConfirmButton() {
         super.didTapConfirmButton()
-        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didReset, nil)
+//        AudioServicesPlaySystemSound(SNKSoundID.didReset)
+        playSoundForReset()
         delegate.didTapConfirmToReset(willAddFrame: willAddFrame)
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @nonobjc extension UIViewController {
     
@@ -27,6 +28,15 @@ import UIKit
         willMove(toParent: nil)
         view.removeFromSuperview()
         removeFromParent()
+    }
+    
+    func playSoundForTap(with soundPlayer: inout AVQueuePlayer?) {
+        guard let url = Bundle.main.url(forResource: "tap", withExtension: "m4a") else {
+            print("error: did not find sound effect file")
+            return
+        }
+        soundPlayer = AVQueuePlayer(url: url)
+        soundPlayer?.play()
     }
 
 }

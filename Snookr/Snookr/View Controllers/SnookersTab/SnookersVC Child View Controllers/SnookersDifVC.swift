@@ -67,6 +67,7 @@ class SnookersDifVC: UIViewController {
         difSegControl.insertSegment(withTitle: "Enter Difference", at: 1, animated: true)
         difSegControl.selectedSegmentIndex = 0
         difSegControl.selectedSegmentTintColor = SNKColor.foregroundWhite
+        difSegControl.backgroundColor = SNKColor.background
         difSegControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SNKColor.foregroundWhite], for: .normal)
         difSegControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SNKColor.background], for: .selected)
         difSegControl.addTarget(self, action: #selector(difSegControlDidChangeValue), for: .valueChanged)
@@ -103,10 +104,6 @@ class SnookersDifVC: UIViewController {
         updateCalculatorDelegate()
     }
     
-    private func updateCalculatorDelegate() {
-        if let number = Int(difTextField.text ?? "0") {
-            calculatorDelegate.snookersDifVCDidChangeDif(to: number)
-        }
-    }
+    private func updateCalculatorDelegate() { if let number = Int(difTextField.text ?? "0") { calculatorDelegate.snookersDifVCDidChangeDif(to: number) } }
 
 }

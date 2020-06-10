@@ -70,7 +70,8 @@ extension ConnectVC {
         notifCtr.post(name: .connectVCChangedCBState, object: self.cbState)
         switch self.cbState {
         case .notConnected:
-            AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didDisconnect, nil)
+//            AudioServicesPlaySystemSound(SNKSoundID.didDisconnect)
+            playSoundForDidDisconnect()
             unlockOpponentInfoEditability()
             meWhichPlayerView.unlockToggleButton()
             connectButton.setToConnectButton()
@@ -86,7 +87,8 @@ extension ConnectVC {
             connectButton.setToCancelButton()
             connectCodeTextField.disable()
         case .isConnected:
-            AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didConnect, nil)
+//            AudioServicesPlaySystemSound(SNKSoundID.didConnect)
+            playSoundForDidConnect()
             connectButton.setToDisconnectButton()
             connectedTextView.setToConnected()
             tabBarItem.image = SNKTabBarImage.connected
@@ -131,5 +133,23 @@ extension ConnectVC {
         }))
         ac.overrideUserInterfaceStyle = .dark
         present(ac, animated: true)
+    }
+    
+    private func playSoundForDidConnect() {
+        guard let url = Bundle.main.url(forResource: "didConnect", withExtension: "m4a") else {
+            print("error: did not find sound effect file")
+            return
+        }
+        soundPlayer = AVQueuePlayer(url: url)
+        soundPlayer?.play()
+    }
+    
+    private func playSoundForDidDisconnect() {
+        guard let url = Bundle.main.url(forResource: "didDisconnect", withExtension: "m4a") else {
+            print("error: did not find sound effect file")
+            return
+        }
+        soundPlayer = AVQueuePlayer(url: url)
+        soundPlayer?.play()
     }
 }

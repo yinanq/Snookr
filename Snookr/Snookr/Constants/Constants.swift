@@ -123,7 +123,7 @@ enum SNKNamePlaceholder {
 }
 
 enum SNKPadding {
-    static let big: CGFloat = 20
+    static let big: CGFloat = 17
     static let small: CGFloat = 8
     static let tiny: CGFloat = 5
     static let negative: CGFloat = -5
@@ -155,6 +155,7 @@ enum SNKTabBarImage {
     static let snookersOutline = UIImage(systemName: "equal.square")
     static let about = UIImage(systemName: "info.circle.fill")
     static let aboutOutline = UIImage(systemName: "info.circle")
+    static let settings = UIImage(systemName: "slider.horizontal.3")
 }
 
 enum SNKTabBarTitle {

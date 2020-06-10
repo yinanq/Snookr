@@ -22,6 +22,7 @@ class UndoButtonsView: UIView {
     var undoButton2: SNKScoreButton!
     var redoButton1: SNKScoreButton!
     var redoButton2: SNKScoreButton!
+    var soundPlayer: AVQueuePlayer?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,11 +60,13 @@ class UndoButtonsView: UIView {
         [redoButton1, redoButton2].forEach{ $0?.addTarget(self, action: #selector(didTapRedoButton(button:)), for: .touchUpInside)}
     }
     @objc func didTapUndoButton(button: SNKScoreButton) {
-        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+//        AudioServicesPlaySystemSound(SNKSoundID.didTap)
+        playSoundForTap(with: &soundPlayer)
         delegate.didTapUndoButton(tag: button.tag)
     }
     @objc func didTapRedoButton(button: SNKScoreButton) {
-        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+//        AudioServicesPlaySystemSound(SNKSoundID.didTap)
+        playSoundForTap(with: &soundPlayer)
         delegate.didTapRedoButton(tag: button.tag)
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SNKAlertVC: UIViewController {
     
@@ -18,6 +19,7 @@ class SNKAlertVC: UIViewController {
     let effectView = UIVisualEffectView()
     let containerView = UIView()
     var buttonsViewTopC: NSLayoutConstraint!
+    var soundPlayer: AVQueuePlayer?
     
     init(title: String, body: String, cancelBtnTitle: String, confirmBtnTitile: String) {
         super.init(nibName: nil, bundle: nil)
@@ -51,6 +53,15 @@ class SNKAlertVC: UIViewController {
     @objc func didTapCancelButton() { animateOut() }
     
     @objc func didTapConfirmButton() { animateOut() }
+    
+    func playSoundForReset() {
+        guard let url = Bundle.main.url(forResource: "didReset", withExtension: "m4a") else {
+            print("error: did not find sound effect file")
+            return
+        }
+        soundPlayer = AVQueuePlayer(url: url)
+        soundPlayer?.play()
+    }
     
     private func animatedIn() {
         UIView.animate(withDuration: SNKAnimationDuration.short, delay: 0, options: .curveEaseOut, animations: {

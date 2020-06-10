@@ -19,6 +19,7 @@ class FramesWonButtonsView: UIView {
     var plusOneButton2: SNKScoreButton!
     var minusOneButton1: SNKScoreButton!
     var minusOneButton2: SNKScoreButton!
+    var soundPlayer: AVQueuePlayer?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,7 +61,8 @@ class FramesWonButtonsView: UIView {
     }
     
     @objc func didTapFramesWonButton(sender: SNKScoreButton) {
-        AudioServicesPlaySystemSoundWithCompletion(SNKSoundID.didTap, nil)
+//        AudioServicesPlaySystemSound(SNKSoundID.didTap)
+        playSoundForTap(with: &soundPlayer)
         delegate.didTapFramesWonButton(withTag: sender.tag)
     }
 

@@ -19,6 +19,11 @@ class TabBarVC: UITabBarController {
     }
     
     private func configureTabBar() {
+//        let appearance = tabBar.standardAppearance
+//        appearance.shadowColor = nil
+//        appearance.backgroundColor = SNKColor.background
+//        tabBar.standardAppearance = appearance
+        UITabBar.appearance().clipsToBounds = true
         tabBar.tintColor = SNKColor.foreground
         tabBar.unselectedItemTintColor = SNKColor.foregroundWhite
     }
@@ -28,14 +33,16 @@ class TabBarVC: UITabBarController {
         let scoreboardVC = ScoreboardVC()
         let framesVC = FramesVC()
         let snookersVC = SnookersVC()
-        let infoVC = InfoVC()
+//        let infoVC = InfoVC()
+        let settingsNC = UINavigationController(rootViewController: SettingsVC())
         scoreboardVC.frameAdderDelegate = framesVC
         connectVC.tabBarItem = UITabBarItem(title: "Connect", image: SNKTabBarImage.connect, tag: 0)
         scoreboardVC.tabBarItem = UITabBarItem(title: "Scores", image: SNKTabBarImage.scores, tag: 12)
         framesVC.tabBarItem = UITabBarItem(title: "Frames", image: SNKTabBarImage.frames, tag: 11)
         snookersVC.tabBarItem = UITabBarItem(title: "Snookers", image: SNKTabBarImage.snookers, tag: 13)
-        infoVC.tabBarItem = UITabBarItem(title: "About", image: SNKTabBarImage.about, tag: 21)
-        viewControllers = [connectVC, scoreboardVC, framesVC, snookersVC, infoVC]
+//        infoVC.tabBarItem = UITabBarItem(title: "About", image: SNKTabBarImage.about, tag: 21)
+        settingsNC.tabBarItem = UITabBarItem(title: "Settings", image: SNKTabBarImage.settings, tag: 21)
+        viewControllers = [connectVC, scoreboardVC, framesVC, snookersVC, settingsNC]
         selectedIndex = 0
     }
     
