@@ -70,8 +70,7 @@ extension ConnectVC {
         notifCtr.post(name: .connectVCChangedCBState, object: self.cbState)
         switch self.cbState {
         case .notConnected:
-//            AudioServicesPlaySystemSound(SNKSoundID.didDisconnect)
-            playSoundForDidDisconnect()
+            if !soundOff { playSoundForDidDisconnect() }
             unlockOpponentInfoEditability()
             meWhichPlayerView.unlockToggleButton()
             connectButton.setToConnectButton()
@@ -87,8 +86,7 @@ extension ConnectVC {
             connectButton.setToCancelButton()
             connectCodeTextField.disable()
         case .isConnected:
-//            AudioServicesPlaySystemSound(SNKSoundID.didConnect)
-            playSoundForDidConnect()
+            if !soundOff { playSoundForDidConnect() }
             connectButton.setToDisconnectButton()
             connectedTextView.setToConnected()
             tabBarItem.image = SNKTabBarImage.connected

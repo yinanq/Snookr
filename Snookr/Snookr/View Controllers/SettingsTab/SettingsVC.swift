@@ -34,7 +34,6 @@ class SettingsVC: UIViewController {
         tableView.dataSource = self
         tableView.register(SNKSettingsCell.self, forCellReuseIdentifier: SNKSettingsCell.reuseID)
         tableView.frame = view.bounds
-        tableView.rowHeight = 100
         tableView.separatorStyle = .none
         view.addSubview(tableView)
     }
@@ -43,9 +42,7 @@ class SettingsVC: UIViewController {
 
 extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cellTitles.count
-    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { cellTitles.count }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SNKSettingsCell.reuseID) as! SNKSettingsCell
@@ -56,7 +53,7 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
-        case 0: print("tapped Sound setting cell")
+        case 0: navigationController?.pushViewController(SoundSettingsVC(), animated: true)
         case 1: navigationController?.pushViewController(InfoVC(), animated: true)
         default: print("error: invalid indexPath in tableView didSelectRowAt")
         }

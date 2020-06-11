@@ -33,6 +33,7 @@ class ConnectInstructionTextView: SNKTextView {
         let maString = NSMutableAttributedString(string: text, attributes: attributes)
         attributedText = maString
         isEditable = false
+        isScrollEnabled = false
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
         alpha = 0

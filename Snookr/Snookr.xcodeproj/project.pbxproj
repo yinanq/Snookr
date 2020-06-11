@@ -43,6 +43,7 @@
 		7F54E3012490BAE0004D71F1 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F54E3002490BAE0004D71F1 /* SettingsVC.swift */; };
 		7F54E3042490C45D004D71F1 /* SNKSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F54E3032490C45D004D71F1 /* SNKSettingsCell.swift */; };
 		7F54E3062490D2A9004D71F1 /* SNKHorizontalSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F54E3052490D2A9004D71F1 /* SNKHorizontalSeparatorView.swift */; };
+		7F54E3082490F22B004D71F1 /* SoundSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F54E3072490F22B004D71F1 /* SoundSettingsVC.swift */; };
 		7F56226F247723DE00458193 /* ConnectVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56226E247723DE00458193 /* ConnectVC+UITextViewDelegate.swift */; };
 		7F56227324774D3A00458193 /* SNKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56227224774D3A00458193 /* SNKView.swift */; };
 		7F56227524776E1800458193 /* NotificationName+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56227424776E1800458193 /* NotificationName+.swift */; };
@@ -70,6 +71,8 @@
 		7FACBEC6246CE753004E9137 /* PointsAdderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACBEC5246CE753004E9137 /* PointsAdderHeaderView.swift */; };
 		7FACBEC8246CF01C004E9137 /* PointsAdderNumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACBEC7246CF01C004E9137 /* PointsAdderNumberPadView.swift */; };
 		7FACBECD246D274D004E9137 /* SNKNumberPadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACBECC246D274D004E9137 /* SNKNumberPadButton.swift */; };
+		7FB2FA55249184DF0031C14D /* SNKSoundSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB2FA54249184DF0031C14D /* SNKSoundSettingsCell.swift */; };
+		7FB2FA57249192640031C14D /* SNKBodyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB2FA56249192640031C14D /* SNKBodyTextView.swift */; };
 		7FB848CC247CB8480004B144 /* SNKcbData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB848CB247CB8480004B144 /* SNKcbData.swift */; };
 		7FC2ADCD24738EAD00C69541 /* FramesWonButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC2ADCC24738EAD00C69541 /* FramesWonButtonsView.swift */; };
 		7FCB0F81246BDE2F00562636 /* ScoreboardVC+ResetDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB0F80246BDE2F00562636 /* ScoreboardVC+ResetDelegates.swift */; };
@@ -142,6 +145,7 @@
 		7F54E3002490BAE0004D71F1 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		7F54E3032490C45D004D71F1 /* SNKSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKSettingsCell.swift; sourceTree = "<group>"; };
 		7F54E3052490D2A9004D71F1 /* SNKHorizontalSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKHorizontalSeparatorView.swift; sourceTree = "<group>"; };
+		7F54E3072490F22B004D71F1 /* SoundSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSettingsVC.swift; sourceTree = "<group>"; };
 		7F56226E247723DE00458193 /* ConnectVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		7F56227224774D3A00458193 /* SNKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKView.swift; sourceTree = "<group>"; };
 		7F56227424776E1800458193 /* NotificationName+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+.swift"; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 		7FACBEC5246CE753004E9137 /* PointsAdderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAdderHeaderView.swift; sourceTree = "<group>"; };
 		7FACBEC7246CF01C004E9137 /* PointsAdderNumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsAdderNumberPadView.swift; sourceTree = "<group>"; };
 		7FACBECC246D274D004E9137 /* SNKNumberPadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKNumberPadButton.swift; sourceTree = "<group>"; };
+		7FB2FA54249184DF0031C14D /* SNKSoundSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKSoundSettingsCell.swift; sourceTree = "<group>"; };
+		7FB2FA56249192640031C14D /* SNKBodyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKBodyTextView.swift; sourceTree = "<group>"; };
 		7FB848CB247CB8480004B144 /* SNKcbData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNKcbData.swift; sourceTree = "<group>"; };
 		7FC2ADCC24738EAD00C69541 /* FramesWonButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesWonButtonsView.swift; sourceTree = "<group>"; };
 		7FCB0F80246BDE2F00562636 /* ScoreboardVC+ResetDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+ResetDelegates.swift"; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				7F54E3002490BAE0004D71F1 /* SettingsVC.swift */,
+				7F54E3072490F22B004D71F1 /* SoundSettingsVC.swift */,
 				7F0F60A8246CB45300F4C52C /* InfoVC.swift */,
 			);
 			path = SettingsTab;
@@ -369,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				7F54E3032490C45D004D71F1 /* SNKSettingsCell.swift */,
+				7FB2FA54249184DF0031C14D /* SNKSoundSettingsCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -377,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				7F6AE525246931DD00767F7C /* SNKTextView.swift */,
+				7FB2FA56249192640031C14D /* SNKBodyTextView.swift */,
 			);
 			path = TextViews;
 			sourceTree = "<group>";
@@ -651,12 +660,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F54E3082490F22B004D71F1 /* SoundSettingsVC.swift in Sources */,
 				7FE085CD246BBEBE00AB5010 /* ScoreboardVC+UndoButtonsViewDelegate.swift in Sources */,
 				7F4B89232486F7870099EDEB /* SnookersVC.swift in Sources */,
 				7F4BF460246DE33A009B2E78 /* SNKXButton.swift in Sources */,
 				7F732505247B24900034F275 /* ConnectVC+funcCB.swift in Sources */,
 				7F0F60A9246CB45300F4C52C /* InfoVC.swift in Sources */,
 				7F4BF463246DFFC3009B2E78 /* PointsAdderVC+PointsAdderNumberPadViewDelegate.swift in Sources */,
+				7FB2FA55249184DF0031C14D /* SNKSoundSettingsCell.swift in Sources */,
 				7F46E1EC2477B354002712A8 /* MeWhichPlayerView.swift in Sources */,
 				7F6AE52124690BA000767F7C /* UIStackView+.swift in Sources */,
 				7FE4A2B62477818C00BCBFF6 /* FramesVC+funcModelUpdaters.swift in Sources */,
@@ -723,6 +734,7 @@
 				7F7779722484A80A00F29350 /* ScoreResetAlertVC.swift in Sources */,
 				7FF0BFBE248872D10020C821 /* SnookersDifVC+UITextFieldDelegate.swift in Sources */,
 				7F3EA39A247DB0FB0053BF12 /* ScoreboardVC+funcCB.swift in Sources */,
+				7FB2FA57249192640031C14D /* SNKBodyTextView.swift in Sources */,
 				7FEF8A8424676163000240A0 /* Player.swift in Sources */,
 				7F4B892B248776DE0099EDEB /* SnookersTitleVC.swift in Sources */,
 				7F52C2D32468BE0300C76C1E /* SNKPlayerNamesView.swift in Sources */,

@@ -23,10 +23,12 @@ class MeWhichPlayerView: UIView {
     var meLabelLeading: NSLayoutConstraint!
     var meLabelTrailing: NSLayoutConstraint!
     var soundPlayer: AVQueuePlayer?
+    var soundOff: Bool!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        configureSoundSettings()
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -34,6 +36,16 @@ class MeWhichPlayerView: UIView {
     convenience init(delegate: MeWhichPlayerViewDelegate) {
         self.init(frame: .zero)
         self.delegate = delegate
+    }
+    
+    private func configureSoundSettings() {
+        soundOff = UserDefaults.standard.bool(forKey: SNKCommonKey.soundOff)
+        NotificationCenter.default.addObserver(forName: .turnSoundOn, object: nil, queue: nil) { _ in
+            self.soundOff = false
+        }
+        NotificationCenter.default.addObserver(forName: .turnSoundOff, object: nil, queue: nil) { _ in
+            self.soundOff = true
+        }
     }
     
     private func configure() {
@@ -62,8 +74,7 @@ class MeWhichPlayerView: UIView {
     }
     
     @objc func didTapToggleButton() {
-//        AudioServicesPlaySystemSound(SNKSoundID.didTap)
-        playSoundForTap(with: &soundPlayer)
+        if !soundOff { playSoundForTap(with: &soundPlayer) }
         delegate.didTapToggleButton()
     }
     

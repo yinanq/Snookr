@@ -24,6 +24,7 @@ class PointsAdderVC: UIViewController {
     let cancelButton = SNKXButton()
     var addPointsButton: SNKButton!
     var soundPlayer: AVQueuePlayer?
+    var soundOff: Bool!
     
     init(player: Player, delegate: PointsAdderVCDelegate) {
         super.init(nibName: nil, bundle: nil)
@@ -38,7 +39,18 @@ class PointsAdderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        configureSoundSettings()
         numberPadView.delegate = self
+    }
+    
+    private func configureSoundSettings() {
+        soundOff = UserDefaults.standard.bool(forKey: SNKCommonKey.soundOff)
+        NotificationCenter.default.addObserver(forName: .turnSoundOn, object: nil, queue: nil) { _ in
+            self.soundOff = false
+        }
+        NotificationCenter.default.addObserver(forName: .turnSoundOff, object: nil, queue: nil) { _ in
+            self.soundOff = true
+        }
     }
     
     private func configure() {
@@ -75,8 +87,7 @@ class PointsAdderVC: UIViewController {
             print("error: didTapAddPointsButton when no pointsToAdd")
             return
         }
-//        AudioServicesPlaySystemSound(SNKSoundID.didTap)
-        playSoundForTap(with: &soundPlayer)
+        if !soundOff { playSoundForTap(with: &soundPlayer) }
         delegate.didTapAddPointsButton(player: player, pointsToAdd: pointsToAdd)
         dismiss(animated: true)
     }

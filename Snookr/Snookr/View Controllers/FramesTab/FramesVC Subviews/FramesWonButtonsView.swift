@@ -20,10 +20,12 @@ class FramesWonButtonsView: UIView {
     var minusOneButton1: SNKScoreButton!
     var minusOneButton2: SNKScoreButton!
     var soundPlayer: AVQueuePlayer?
+    var soundOff: Bool!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        configureSoundSettings()
         addButtonTargets()
     }
     
@@ -50,6 +52,16 @@ class FramesWonButtonsView: UIView {
         ])
     }
     
+    private func configureSoundSettings() {
+        soundOff = UserDefaults.standard.bool(forKey: SNKCommonKey.soundOff)
+        NotificationCenter.default.addObserver(forName: .turnSoundOn, object: nil, queue: nil) { _ in
+            self.soundOff = false
+        }
+        NotificationCenter.default.addObserver(forName: .turnSoundOff, object: nil, queue: nil) { _ in
+            self.soundOff = true
+        }
+    }
+    
     private func addButtonTargets() {
         plusOneButton1.tag = 1
         plusOneButton2.tag = 2
@@ -61,8 +73,7 @@ class FramesWonButtonsView: UIView {
     }
     
     @objc func didTapFramesWonButton(sender: SNKScoreButton) {
-//        AudioServicesPlaySystemSound(SNKSoundID.didTap)
-        playSoundForTap(with: &soundPlayer)
+        if !soundOff { playSoundForTap(with: &soundPlayer) }
         delegate.didTapFramesWonButton(withTag: sender.tag)
     }
 

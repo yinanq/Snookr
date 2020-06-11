@@ -39,9 +39,9 @@ class SNKTextView: UITextView {
     private func configure() {
         textContainer.lineFragmentPadding = 0
         textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        backgroundColor = nil
         translatesAutoresizingMaskIntoConstraints = false
         isScrollEnabled = false
-        backgroundColor = nil
         autocorrectionType = .no
         autocapitalizationType = .words
         returnKeyType = .done

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TabBarVC: UITabBarController {
 
@@ -15,6 +16,7 @@ class TabBarVC: UITabBarController {
         overrideUserInterfaceStyle = .dark
         configureTabBar()
         configureTabs()
+        configureSoundSettings()
         playLaunchScreenSmootherAnimation()
     }
     
@@ -33,17 +35,27 @@ class TabBarVC: UITabBarController {
         let scoreboardVC = ScoreboardVC()
         let framesVC = FramesVC()
         let snookersVC = SnookersVC()
-//        let infoVC = InfoVC()
         let settingsNC = UINavigationController(rootViewController: SettingsVC())
         scoreboardVC.frameAdderDelegate = framesVC
         connectVC.tabBarItem = UITabBarItem(title: "Connect", image: SNKTabBarImage.connect, tag: 0)
         scoreboardVC.tabBarItem = UITabBarItem(title: "Scores", image: SNKTabBarImage.scores, tag: 12)
         framesVC.tabBarItem = UITabBarItem(title: "Frames", image: SNKTabBarImage.frames, tag: 11)
         snookersVC.tabBarItem = UITabBarItem(title: "Snookers", image: SNKTabBarImage.snookers, tag: 13)
-//        infoVC.tabBarItem = UITabBarItem(title: "About", image: SNKTabBarImage.about, tag: 21)
         settingsNC.tabBarItem = UITabBarItem(title: "Settings", image: SNKTabBarImage.settings, tag: 21)
         viewControllers = [connectVC, scoreboardVC, framesVC, snookersVC, settingsNC]
         selectedIndex = 0
+    }
+    
+    private func configureSoundSettings() {
+        if UserDefaults.standard.bool(forKey: SNKCommonKey.soundAlwaysOn) {
+            let audioSession = AVAudioSession.sharedInstance()
+            do {
+                try audioSession.setCategory(.playback)
+                try audioSession.setActive(true)
+            } catch {
+                print("error: Failed to set audio session category, in TabBarVC.")
+            }
+        }
     }
     
     private func playLaunchScreenSmootherAnimation() {

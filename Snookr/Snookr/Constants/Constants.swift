@@ -15,6 +15,7 @@ enum SNKAlpha: CGFloat {
 }
 
 enum SNKAnimationDuration {
+    static let supershort: TimeInterval = 0.01
     static let short: TimeInterval = 0.2
     static let medium: TimeInterval = 0.8
     static let long: TimeInterval = 1.2
@@ -67,6 +68,8 @@ enum SNKCommonKey {
     static let player2sFrame = "player2sFrame"
     static let player1sScore = "player1sScore"
     static let player2sScore = "player2sScore"
+    static let soundOff = "soundOff"
+    static let soundAlwaysOn = "soundAlwaysOn"
 }
 
 enum SNKColor {
@@ -123,6 +126,7 @@ enum SNKNamePlaceholder {
 }
 
 enum SNKPadding {
+    static let huge: CGFloat = 40
     static let big: CGFloat = 20
     static let small: CGFloat = 8
     static let tiny: CGFloat = 5

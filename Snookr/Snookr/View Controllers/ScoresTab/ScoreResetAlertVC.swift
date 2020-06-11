@@ -17,6 +17,7 @@ class ScoreResetAlertVC: SNKAlertVC {
     
     let addFrameLabel = SNKLabel(color: SNKColor.foregroundWhite, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .left, numberOfLines: 0)
     var willAddFrame = true
+    var soundOff: Bool!
     
     init(title: String, body: String, cancelBtnTitle: String, confirmBtnTitile: String, delegate: ScoreResetAlertVCDelegate) {
         super.init(title: title, body: body, cancelBtnTitle: cancelBtnTitle, confirmBtnTitile: confirmBtnTitile)
@@ -29,12 +30,12 @@ class ScoreResetAlertVC: SNKAlertVC {
         super.viewDidLoad()
         confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
         configure()
+        configureSoundSettings()
     }
     
     @objc override func didTapConfirmButton() {
         super.didTapConfirmButton()
-//        AudioServicesPlaySystemSound(SNKSoundID.didReset)
-        playSoundForReset()
+        if !soundOff { playSoundForReset() }
         delegate.didTapConfirmToReset(willAddFrame: willAddFrame)
     }
     
@@ -54,6 +55,16 @@ class ScoreResetAlertVC: SNKAlertVC {
             buttonsView.topAnchor.constraint(equalTo: addFrameSwitch.bottomAnchor, constant: 45)
         ])
         addFrameSwitch.addTarget(self, action: #selector(didToggleSwitch(sender:)), for: .valueChanged)
+    }
+    
+    private func configureSoundSettings() {
+        soundOff = UserDefaults.standard.bool(forKey: SNKCommonKey.soundOff)
+        NotificationCenter.default.addObserver(forName: .turnSoundOn, object: nil, queue: nil) { _ in
+            self.soundOff = false
+        }
+        NotificationCenter.default.addObserver(forName: .turnSoundOff, object: nil, queue: nil) { _ in
+            self.soundOff = true
+        }
     }
     
     @objc func didToggleSwitch(sender: UISwitch) {

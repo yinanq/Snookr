@@ -29,5 +29,7 @@ extension Notification.Name {
     static let framesVCDidResetFrames = Notification.Name("framesVCDidResetFrames")
     static let framesVCChangedNameOfPlayer1 = Notification.Name("framesVcChangedNameOfPlayer1")
     static let framesVCChangedNameOfPlayer2 = Notification.Name("framesVcChangedNameOfPlayer2")
-
+    
+    static let turnSoundOn = Notification.Name("turnSoundOn")
+    static let turnSoundOff = Notification.Name("turnSoundOff")
 }

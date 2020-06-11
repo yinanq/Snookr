@@ -22,13 +22,6 @@ class InfoVC: UIViewController {
         title = "About"
         navigationController?.navigationBar.tintColor = SNKColor.foreground
         configureChildViews()
-//        let audioSession = AVAudioSession.sharedInstance()
-//        do {
-//            try audioSession.setCategory(.playback, mode: .moviePlayback, options: [])
-//            try audioSession.setActive(true)
-//        } catch {
-//            print("Failed to set audio session category.")
-//        }
     }
     
     private func configureChildViews() {
@@ -61,7 +54,6 @@ class InfoVC: UIViewController {
         bodyScrollView.addSubview(bodyTextView)
 //        view.addSubviews(bodyScrollView, headerView, logoImageView)
         view.addSubview(bodyScrollView)
-//        bodyScrollView.backgroundColor = SNKColor.backgroundSecondary
         NSLayoutConstraint.activate([
 //            headerView.topAnchor.constraint(equalTo: view.topAnchor),
 //            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

@@ -41,6 +41,7 @@ class ConnectedTextView: SNKTextView {
             .foregroundColor: SNKColor.foreground
         ]
         maStringForConnected.addAttributes(attributesForTitle, range: NSRange(location: 0, length: 14))
+        isScrollEnabled = false
         isEditable = false
         setToNotConnected()
     }

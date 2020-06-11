@@ -21,11 +21,7 @@ class SNKSettingsCell: UITableViewCell {
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
+        
     private func configureSelf() {
         accessoryView = UIImageView(image: UIImage.init(systemName: "chevron.compact.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.smallerVisual, weight: .light)))
         tintColor = SNKColor.foreground
@@ -37,11 +33,12 @@ class SNKSettingsCell: UITableViewCell {
     private func configureChildren() {
         addSubviews(titleLabel, seperatorView)
         NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: SNKPadding.huge),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.big),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            seperatorView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: SNKPadding.huge),
             seperatorView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.big),
             seperatorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -SNKPadding.big),
-            seperatorView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            bottomAnchor.constraint(equalTo: seperatorView.bottomAnchor)
         ])
     }
     

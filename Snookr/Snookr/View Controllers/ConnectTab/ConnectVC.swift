@@ -47,6 +47,7 @@ class ConnectVC: UIViewController {
     let tapRecognizer = UITapGestureRecognizer()
     var isFirstLaunch = true
     var soundPlayer: AVQueuePlayer?
+    var soundOff: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,7 @@ class ConnectVC: UIViewController {
         configureModels()
         configureViews()
         configureNotifObservers()
+        configureSoundSettings()
         layoutViews()
         pseudoPersistCBState()
         playLaunchScreenSmootherAnimation()
@@ -63,6 +65,16 @@ class ConnectVC: UIViewController {
         if isFirstLaunch {
             playLaunchScreenSmootherAnimation()
             isFirstLaunch = false
+        }
+    }
+    
+    private func configureSoundSettings() {
+        soundOff = defaults.bool(forKey: SNKCommonKey.soundOff)
+        notifCtr.addObserver(forName: .turnSoundOn, object: nil, queue: nil) { _ in
+            self.soundOff = false
+        }
+        notifCtr.addObserver(forName: .turnSoundOff, object: nil, queue: nil) { _ in
+            self.soundOff = true
         }
     }
     
