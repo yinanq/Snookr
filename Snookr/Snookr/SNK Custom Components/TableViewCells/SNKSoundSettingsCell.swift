@@ -15,7 +15,7 @@ class SNKSoundSettingsCell: UITableViewCell {
     let bodyTextView = SNKBodyTextView()
     let statusView = UIView()
     var statusViewWidth: NSLayoutConstraint!
-    let statusViewWidthConstant: CGFloat = 55
+    let statusViewWidthConstant: CGFloat = 50
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,7 +33,7 @@ class SNKSoundSettingsCell: UITableViewCell {
     }
     
     private func configureChildren() {
-        let checkMark = UIImage(systemName: "smallcircle.fill.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.smallerVisual, weight: .light))
+        let checkMark = UIImage(systemName: "circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKFontSize.regular, weight: .light))
         let checkMarkView = UIImageView(image: checkMark)
         checkMarkView.translatesAutoresizingMaskIntoConstraints = false
         statusView.addSubview(checkMarkView)
