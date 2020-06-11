@@ -148,17 +148,10 @@ enum SNKSoundID {
 
 enum SNKTabBarImage {
     static let connect = UIImage(systemName: "person.badge.plus.fill")
-    static let connectOutline = UIImage(systemName: "person.badge.plus")
     static let connected = UIImage(systemName: "person.2.fill")
-    static let connectedOutline = UIImage(systemName: "person.2")
     static let scores = UIImage(systemName: "square.split.2x1.fill")
-    static let scoresOutline = UIImage(systemName: "square.split.2x1")
     static let frames = UIImage(systemName: "square.grid.3x2.fill")
-    static let framesOutline = UIImage(systemName: "square.grid.3x2")
-    static let snookers = UIImage(systemName: "equal.square.fill")
-    static let snookersOutline = UIImage(systemName: "equal.square")
-    static let about = UIImage(systemName: "info.circle.fill")
-    static let aboutOutline = UIImage(systemName: "info.circle")
+    static let snookers = UIImage(systemName: "number.circle.fill")
     static let settings = UIImage(systemName: "slider.horizontal.3")
 }
 
