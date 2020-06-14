@@ -42,12 +42,15 @@ class ConnectInstructionTextView: SNKTextView {
     func hide() {
         UIView.animate(withDuration: SNKAnimationDuration.short) {
             self.alpha = 0
+            self.transform = CGAffineTransform(scaleX: SNKAnimationScale.shrinkALittle, y: SNKAnimationScale.shrinkALittle)
         }
     }
     
     func unhide() {
+        transform = CGAffineTransform(scaleX: SNKAnimationScale.shrinkALittle, y: SNKAnimationScale.shrinkALittle)
         UIView.animate(withDuration: SNKAnimationDuration.short) {
             self.alpha = 1
+            self.transform = CGAffineTransform.identity
         }
     }
     
