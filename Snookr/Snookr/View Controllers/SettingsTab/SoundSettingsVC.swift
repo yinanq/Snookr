@@ -66,9 +66,10 @@ class SoundSettingsVC: UIViewController {
     private func setSoundAlwaysOn(to bool: Bool) {
         let audioSession = AVAudioSession.sharedInstance()
         do {
+            try audioSession.setActive(false, options: .notifyOthersOnDeactivation)
             switch bool {
-            case true: try audioSession.setCategory(.playback)
-            case false: try audioSession.setCategory(.soloAmbient)
+            case true: try audioSession.setCategory(.playback, options: .mixWithOthers)
+            case false: try audioSession.setCategory(.ambient)
             }
             try audioSession.setActive(true)
         } catch {

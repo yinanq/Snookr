@@ -47,14 +47,16 @@ class TabBarVC: UITabBarController {
     }
     
     private func configureSoundSettings() {
-        if UserDefaults.standard.bool(forKey: SNKCommonKey.soundAlwaysOn) {
-            let audioSession = AVAudioSession.sharedInstance()
-            do {
-                try audioSession.setCategory(.playback)
-                try audioSession.setActive(true)
-            } catch {
-                print("error: Failed to set audio session category, in TabBarVC.")
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            if UserDefaults.standard.bool(forKey: SNKCommonKey.soundAlwaysOn) {
+                try audioSession.setCategory(.playback, options: .mixWithOthers)
+            } else {
+                try audioSession.setCategory(.ambient)
             }
+            try audioSession.setActive(true)
+        } catch {
+            print("error: Failed to set audio session category, in TabBarVC.")
         }
     }
     
