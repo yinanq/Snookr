@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F0335ED2497081F00A5A42E /* didDisconnect.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7F0335EC2497081F00A5A42E /* didDisconnect.m4a */; };
 		7F0F60A9246CB45300F4C52C /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F60A8246CB45300F4C52C /* InfoVC.swift */; };
 		7F125446249210AB00F0E5EA /* didConnect.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7F125444249210AB00F0E5EA /* didConnect.m4a */; };
-		7F125447249210AB00F0E5EA /* didDisconnect.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7F125445249210AB00F0E5EA /* didDisconnect.m4a */; };
 		7F13F686248CAE9300E7F439 /* FramesVC+ScoreboardVCFrameAdderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13F685248CAE9300E7F439 /* FramesVC+ScoreboardVCFrameAdderDelegate.swift */; };
 		7F158C89246A902100AF1D38 /* ScoreboardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */; };
 		7F26984A246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F269849246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift */; };
@@ -109,9 +109,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F0335EC2497081F00A5A42E /* didDisconnect.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = didDisconnect.m4a; sourceTree = "<group>"; };
 		7F0F60A8246CB45300F4C52C /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		7F125444249210AB00F0E5EA /* didConnect.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = didConnect.m4a; sourceTree = "<group>"; };
-		7F125445249210AB00F0E5EA /* didDisconnect.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = didDisconnect.m4a; sourceTree = "<group>"; };
 		7F13F685248CAE9300E7F439 /* FramesVC+ScoreboardVCFrameAdderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FramesVC+ScoreboardVCFrameAdderDelegate.swift"; sourceTree = "<group>"; };
 		7F158C88246A902100AF1D38 /* ScoreboardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardStackView.swift; sourceTree = "<group>"; };
 		7F269849246E1B1500AD60B6 /* ScoreboardVC+PointsAdderVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardVC+PointsAdderVCDelegate.swift"; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 			children = (
 				7F54E2F82490A730004D71F1 /* tap.m4a */,
 				7F125444249210AB00F0E5EA /* didConnect.m4a */,
-				7F125445249210AB00F0E5EA /* didDisconnect.m4a */,
+				7F0335EC2497081F00A5A42E /* didDisconnect.m4a */,
 				7F54E2FE2490AE64004D71F1 /* didReset.m4a */,
 			);
 			path = "Sound Effects";
@@ -646,7 +646,7 @@
 			files = (
 				7F54E2F92490A730004D71F1 /* tap.m4a in Resources */,
 				7F54E2FF2490AE64004D71F1 /* didReset.m4a in Resources */,
-				7F125447249210AB00F0E5EA /* didDisconnect.m4a in Resources */,
+				7F0335ED2497081F00A5A42E /* didDisconnect.m4a in Resources */,
 				7FEF8A7524675E9E000240A0 /* LaunchScreen.storyboard in Resources */,
 				7FEF8A7224675E9E000240A0 /* Assets.xcassets in Resources */,
 				7F125446249210AB00F0E5EA /* didConnect.m4a in Resources */,
@@ -897,7 +897,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = design.yinan.SnookrApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -918,7 +918,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = design.yinan.SnookrApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

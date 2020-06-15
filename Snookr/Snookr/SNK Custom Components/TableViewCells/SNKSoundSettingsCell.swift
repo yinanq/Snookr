@@ -13,9 +13,7 @@ class SNKSoundSettingsCell: UITableViewCell {
     static let reuseID = "SNKSoundSettingsCell"
     let titleLabel = SNKLabel(color: SNKColor.foreground, fontSize: SNKFontSize.regular, fontWeight: SNKFontWeight.forFontSizeRegular, textAlignment: .left)
     let bodyTextView = SNKBodyTextView()
-    let statusView = UIView()
-    var statusViewWidth: NSLayoutConstraint!
-    let statusViewWidthConstant: CGFloat = 45
+    let checkMarkView = UIImageView(image: UIImage(systemName: "smallcircle.fill.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.smallerVisual, weight: .light)))
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,28 +31,18 @@ class SNKSoundSettingsCell: UITableViewCell {
     }
     
     private func configureChildren() {
-        let checkMark = UIImage(systemName: "smallcircle.fill.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: SNKButtonSize.smallerVisual, weight: .light))
-        let checkMarkView = UIImageView(image: checkMark)
         checkMarkView.translatesAutoresizingMaskIntoConstraints = false
-        statusView.addSubview(checkMarkView)
-        statusView.alpha = 0
-        statusView.translatesAutoresizingMaskIntoConstraints = false
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubviews(titleLabel, bodyTextView)
         let seperatorView = SNKHorizontalSeparatorView()
-        addSubviews(statusView, containerView, seperatorView)
-        statusViewWidth = statusView.widthAnchor.constraint(equalToConstant: 0)
+        addSubviews(checkMarkView, containerView, seperatorView)
         NSLayoutConstraint.activate([
-            statusView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.big),
-            statusViewWidth,
-            statusView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            statusView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             checkMarkView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor, constant: -1),
-            checkMarkView.leadingAnchor.constraint(equalTo: statusView.leadingAnchor),
+            checkMarkView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.big),
             containerView.topAnchor.constraint(equalTo: topAnchor, constant: SNKPadding.huge),
-            containerView.leadingAnchor.constraint(equalTo: statusView.trailingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -SNKPadding.big),
+            containerView.leadingAnchor.constraint(equalTo: checkMarkView.trailingAnchor, constant: SNKPadding.small),
+            containerView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -SNKPadding.big),
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
@@ -63,36 +51,31 @@ class SNKSoundSettingsCell: UITableViewCell {
             bodyTextView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             containerView.bottomAnchor.constraint(equalTo: bodyTextView.bottomAnchor),
             seperatorView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: SNKPadding.huge),
-            seperatorView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SNKPadding.big),
+            seperatorView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             seperatorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -SNKPadding.big),
             bottomAnchor.constraint(equalTo: seperatorView.bottomAnchor)
         ])
+        checkMarkView.alpha = 0
     }
     
-    func setToSelectedSkipAnimation() {
-        self.statusView.alpha = 1
-        self.statusViewWidth.constant = statusViewWidthConstant
-    }
+    func setToSelectedSkipAnimation() { checkMarkView.alpha = 1 }
     
     func setToSelected() {
-        UIView.animate(withDuration: SNKAnimationDuration.short, animations: {
-            self.statusViewWidth.constant = self.statusViewWidthConstant
-            self.layoutIfNeeded()
-        }) { _ in
-            UIView.animate(withDuration: SNKAnimationDuration.supershort) {
-                self.statusView.alpha = 1
-            }
-        }
+        checkMarkView.transform = CGAffineTransform(scaleX: SNKAnimationScale.shrinkALot, y: SNKAnimationScale.shrinkALot)
+        animateToIdentityWithDelay()
+    }
+    
+    private func animateToIdentityWithDelay() {
+        UIView.animate(withDuration: SNKAnimationDuration.short, delay: SNKAnimationDuration.short, options: [], animations: {
+            self.checkMarkView.alpha = 1
+            self.checkMarkView.transform = CGAffineTransform.identity
+        }, completion: nil)
     }
     
     func setToUnselected() {
-        UIView.animate(withDuration: SNKAnimationDuration.supershort, animations: {
-            self.statusView.alpha = 0
-        }) { _ in
-            UIView.animate(withDuration: SNKAnimationDuration.short) {
-                self.statusViewWidth.constant = 0
-                self.layoutIfNeeded()
-            }
+        UIView.animate(withDuration: SNKAnimationDuration.short) {
+            self.checkMarkView.alpha = 0
+            self.checkMarkView.transform = CGAffineTransform(scaleX: SNKAnimationScale.shrinkALot, y: SNKAnimationScale.shrinkALot)
         }
     }
     

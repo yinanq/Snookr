@@ -25,6 +25,7 @@ enum SNKAnimationDuration {
 
 enum SNKAnimationScale {
     static let shrinkALittle: CGFloat = 0.95
+    static let shrinkALot: CGFloat = 0.85
 }
 
 enum SNKBorderWidth {
