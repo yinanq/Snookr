@@ -34,7 +34,7 @@ class InfoVC: UIViewController {
             .foregroundColor: SNKColor.foregroundWhite
         ]
         let maString = NSMutableAttributedString(string: string, attributes: attributes)
-        maString.addAttribute(.link, value: "https://yinan.design/contact", range: NSRange(location: 615, length: 11))
+        maString.addAttribute(.link, value: "https://yinan.studio", range: NSRange(location: 591, length: 9))
         let sectionTitleFont = UIFont.systemFont(ofSize: SNKFontSize.big, weight: SNKFontWeight.forFontSizeBig)
         maString.addAttribute(.font, value: sectionTitleFont, range: NSRange(location: 0, length: 14))
         maString.addAttribute(.font, value: sectionTitleFont, range: NSRange(location: 333, length: 24))
